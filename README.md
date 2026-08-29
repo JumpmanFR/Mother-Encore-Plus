@@ -19,7 +19,7 @@ Team Encore (or actually anyone) is free to use any of my contributions or sugge
 
 Team Encore mentioned on their website that anyone can use the code to create their own mods, translations and fangames. So, that’s what I did it, after considering the game would certainly benefit from my work.
 
-Because here’s the thing: if you speak even just a smattering of French, you’ll notice that the French translation for MOTHER: Encore Act 2 is a disaster. Grammar mistakes, mistranslated lines, unidiomatic phrasing, poor writing… The kind of mistakes that would make your middle school teacher to circle your exam paper in red all over the place.
+Because here’s the thing: if you speak even just a smattering of French, you’ll notice that the French translation for MOTHER: Encore Act 2 is a disaster. Grammar mistakes, mistranslated lines, unidiomatic phrasing, poor writing… The kind of mistakes that would make your middle school teacher to circle your exam paper in red all over the place. Analysis of this French translation led me to find more than 250 issues!
 
 These are not just the kind of little, remaining oversights that would appear due to a game being recently released: act 2 has been out for 2 months, and patch updates have since been released which were supposed to fix the translation… and yet, it’s still in that dreadful state.
 
@@ -64,7 +64,9 @@ My focus was to make the translation feel professional. Players deserve to enjoy
 
 I also consider it is important to keep consistency with the other games in the series. It is not a good thing when an item name is translated as “Fusée crayon” in one game and “Fusée bouteille” in another, for example.
 
-Finally, my translation reverts some of the changes made by Phil Sandhop when he translated the original MOTHER from Japanese into English for the American market. They aren’t really relevant to a French-speaking audience of today, not to mention that this audience has no particular memories of Phil Sandhop’s text that would need to be preserved. The French translation provided by Team Encore also also attempted to do this, but in a very inconsistent manner; there are even instances where the name of the same object is translated in two different ways within the same game…
+Finally, my translation reverts some of the changes made by Phil Sandhop when he translated the original MOTHER from Japanese into English for the American market. They aren’t really relevant to a French-speaking audience of today, not to mention that this audience has no particular memories of Phil Sandhop’s text that would need to be preserved. So, for instance, in the French translation, the Ring Brass is actually a “bracelet” because that’s what it is in the original Japanese game. Some lines of dialogue have also been changed to be more faithful to the original Japanese text and, therefore, to avoid two successive levels of translation.
+
+The French translation provided by Team Encore also also attempted to do this, but in a very inconsistent manner; there are even instances where the name of the same object is translated in two different ways within the same game…
 
 &nbsp;
 
@@ -84,7 +86,7 @@ Would you call it Merrysville...
 ... or Thanksgiving?
 
 
-## Appendix: List of all issues I found in the French translation of MOTHER: Encore Act 2
+## Appendix: List of all 266 issues I found in the French translation of MOTHER: Encore Act 2
 
 Listed here for reference. I’m not mentionning all instances of clumsy wording and poor writing style, only issues that pretty much everyone can agree on.
 
