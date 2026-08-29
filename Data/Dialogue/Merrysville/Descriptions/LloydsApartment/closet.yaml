@@ -1,0 +1,25 @@
+"0":
+  if:
+    haspartymembers:
+      lloyd: true
+    goto: "1"
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET_0
+  goto: "2"
+"1":
+  actors:
+    lloyd: lloyd
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET_1
+"2":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET_2
+  options:
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_0: "yes"
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_1: "no"
+    cancel: "no"
+"yes":
+  playeremote: surprise
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET_YES
+"no":
+  showbox: false

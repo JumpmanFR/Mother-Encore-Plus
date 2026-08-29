@@ -1,0 +1,34 @@
+name: GROUCHO_NAME
+description: GROUCHO_DESC
+article: GROUCHO_ART
+maxhp: 145
+hp: 145
+maxpp: 0
+pp: 0
+offense: 35
+defense: 43
+speed: 20
+iq: 20
+guts: 0
+level: 15
+exp: 50
+cash: 12
+items:
+  - chance: 20
+    item: RecollectionBell
+skills:
+  - skill: bash
+    weight: 3
+  - skill: walkAway
+    weight: 2
+  - skill: forgetfulnessFlash
+    weight: 2
+boss: false
+sprite: groucho
+music: Weak Opponent.mp3
+bg: groucho
+ov:
+  sprite: GrouchoOV
+  anim: "4dirFlyer"
+affinity_multipliers:
+  blinded: 2

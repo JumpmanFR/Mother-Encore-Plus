@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sanctuary Guardian.mp3-25ab7f202ea7c5d75ae1c48a7b1aa7aa.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Battle Themes/Sanctuary Guardian.mp3"
+dest_files=[ "res://.import/Sanctuary Guardian.mp3-25ab7f202ea7c5d75ae1c48a7b1aa7aa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=3.428

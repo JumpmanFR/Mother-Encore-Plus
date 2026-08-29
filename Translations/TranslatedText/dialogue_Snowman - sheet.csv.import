@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/TranslatedText/dialogue_Snowman - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.zh_Hans_CN.translation" ]
+
+source_file="res://Translations/TranslatedText/dialogue_Snowman - sheet.csv"
+dest_files=[ "res://Translations/TranslatedText/dialogue_Snowman - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Snowman - sheet.zh_Hans_CN.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

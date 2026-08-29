@@ -1,0 +1,40 @@
+'0':
+  name: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_INSTANTREVITALIZINGDEVICE_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_INSTANTREVITALIZINGDEVICE_0
+  options:
+    DIALOGUE_REUSABLE_TEAKETTLE_0-OPT_0: '3'
+    DIALOGUE_REUSABLE_TEAKETTLE_0-OPT_1: '2'
+    cancel: '2'
+'2':
+  cleardialog: true
+'3':
+  showbox: false
+  musicvolume: -20
+  fadein:
+    speed: 1
+    anim: Fade
+  wait: 0.5
+  autoadvance: true
+  goto: '4'
+'4':
+  soundeffect: Much Better.wav
+  wait: 2.5
+  autoadvance: true
+  goto: '5'
+'5':
+  fadeout:
+    speed: 1
+    anim: Fade
+  heal: all
+  cure:
+    character: all
+    status: all
+  restorepp: all
+  wait: 0.5
+  autoadvance: true
+  goto: '6'
+'6':
+  name: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_INSTANTREVITALIZINGDEVICE_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_INSTANTREVITALIZINGDEVICE_1
+  musicvolume: 0
+  cleardialog: true

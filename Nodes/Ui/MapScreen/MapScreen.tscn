@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/UI/MapScreen/MapScreen.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Ui/MapScreen/MapArrows.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graphics/UI/Maps/player_map_locator.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/BottleRocket.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Nodes/Ui/ButtonText.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Graphics/UI/Maps/map_reticle.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.5, 2.5 )
+
+[node name="MapScreen" type="Control"]
+script = ExtResource( 2 )
+
+[node name="BG" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Reticle" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 7 )
+offset = Vector2( 160, 90 )
+
+[node name="Area2D" type="Area2D" parent="Reticle"]
+position = Vector2( 160, 90 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Reticle/Area2D"]
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="MapArrows" parent="." instance=ExtResource( 3 )]
+
+[node name="MapNamePlate" type="Sprite" parent="."]
+position = Vector2( 10, 0 )
+centered = false
+
+[node name="Prompts" type="Control" parent="."]
+
+[node name="PromptFast" type="HBoxContainer" parent="Prompts"]
+margin_left = 2.0
+margin_top = 151.0
+margin_right = 123.0
+margin_bottom = 191.0
+
+[node name="Label" type="Label" parent="Prompts/PromptFast"]
+margin_top = 14.0
+margin_right = 96.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 5 )
+text = "MAP_FASTSCROLL"
+
+[node name="Button" parent="Prompts/PromptFast" instance=ExtResource( 6 )]
+margin_left = 100.0
+margin_top = 14.0
+margin_right = 108.0
+margin_bottom = 25.0
+text = "z"
+key = "ui_toggle"
+
+[node name="PromptClose" type="HBoxContainer" parent="Prompts"]
+margin_left = 226.0
+margin_top = 143.0
+margin_right = 318.0
+margin_bottom = 183.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Label" type="Label" parent="Prompts/PromptClose"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 80.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 5 )
+text = "MAP_CLOSE"
+align = 2
+
+[node name="Button" parent="Prompts/PromptClose" instance=ExtResource( 6 )]
+margin_left = 84.0
+margin_top = 14.0
+margin_right = 92.0
+margin_bottom = 25.0
+text = "z"
+key = "ui_map"
+
+[node name="PromptMarkers" type="HBoxContainer" parent="Prompts"]
+margin_left = 216.0
+margin_top = 151.0
+margin_right = 318.0
+margin_bottom = 191.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Label" type="Label" parent="Prompts/PromptMarkers"]
+margin_left = 10.0
+margin_top = 14.0
+margin_right = 90.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 5 )
+text = "MAP_MARKERS"
+align = 2
+
+[node name="Button" parent="Prompts/PromptMarkers" instance=ExtResource( 6 )]
+margin_left = 94.0
+margin_top = 14.0
+margin_right = 102.0
+margin_bottom = 25.0
+text = "z"
+key = "ui_scope"
+
+[node name="PromptOK" type="HBoxContainer" parent="Prompts"]
+margin_left = 216.0
+margin_top = 151.0
+margin_right = 318.0
+margin_bottom = 191.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Label" type="Label" parent="Prompts/PromptOK"]
+margin_left = 16.0
+margin_top = 14.0
+margin_right = 90.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 5 )
+text = "MENU_SELECT"
+align = 2
+
+[node name="Button" parent="Prompts/PromptOK" instance=ExtResource( 6 )]
+margin_left = 94.0
+margin_top = 14.0
+margin_right = 102.0
+margin_bottom = 25.0
+text = "z"
+key = "ui_accept"
+
+[node name="PlayerMarkerTemplate" type="TextureRect" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 4 )

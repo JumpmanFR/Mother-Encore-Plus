@@ -1,0 +1,50 @@
+"0":
+  name: "[Pippi]"
+  if:
+    flags:
+      courage_badge_received: true
+    goto: "checkBadgeReceived"
+  goto: "giveBadge"
+"checkBadgeReceived": #If the badge was given to the player previously, check if the badge was left in Pippi's inventory before she left
+  name: "[Pippi]"
+  sound: Kid
+  if:
+    hasinstorage1: CourageBadge
+    hasinstorage2: FranklinBadge0.8
+    hasitem1: CourageBadge
+    hasitem2: FranklinBadge0.8
+    or: true
+    goto: "question" #Player already has the badge on them or in their storage
+  goto: "forgotBadge" #Player left the badge in Pippi's inventory
+"forgotBadge":
+  name: "[Pippi]"
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PIPPI_CHECKBADGE_0
+  if:
+    invspace: true
+    goto: "hasSpace" #Player has enough space in their inventory
+  goto: "noSpace" #Player has no space in their inventory
+"giveBadge":
+  name: "[Pippi]"
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PIPPI_CHECKBADGE_1
+  if:
+    invspace: true
+    goto: "hasSpace"
+  goto: "noSpace"
+"hasSpace":
+  talker: null
+  text: DIALOGUE_REUSABLE_PIPPI_CHECKBADGE_2
+  item: FranklinBadge
+  soundeffect: Item Received.mp3
+  setflags: courage_badge_received
+"noSpace":
+  name: "[Pippi]"
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PIPPI_CHECKBADGE_3
+  goto: "addInStorage"
+"addInStorage":
+  name: "[Pippi]"
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PIPPI_CHECKBADGE_4
+  addstorageitem: CourageBadge

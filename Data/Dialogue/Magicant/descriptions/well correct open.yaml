@@ -1,0 +1,13 @@
+"0":
+  text: DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_5
+  cash: true
+  options:
+    DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_5-OPT_1: "2"
+    DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_5-OPT_2: "1"
+    cancel: "1"
+"1":
+  showbox: false
+"2":
+  objectsfunction:
+    Doors/Door25: enter
+  caninput: false

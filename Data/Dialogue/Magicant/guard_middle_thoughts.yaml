@@ -1,0 +1,54 @@
+'0':
+  actors:
+    leftGuard: Objects/Characters/npcGuardLeft
+    middleGuard: Objects/Characters/npcGuardMiddle
+    rightGuard: Objects/Characters/npcGuardRight
+  talker: middleGuard
+  name: DIALOGUE_MAGICANT_GUARD_MIDDLE_SPEAKER_Dimitri
+  sound: Adult
+  text: DIALOGUE_MAGICANT_GUARD_MIDDLE_THOUGHTS_0
+  goto: '1'
+'1':
+  showbox: false
+  actorsmove:
+    leftGuard:
+      movement:
+      - x: -72
+        y: 0
+      speed: 32
+      animation: Walk
+      type: step
+    middleGuard:
+      movement:
+      - wait: 0.2
+      - x: -72
+        y: 0
+      speed: 32
+      animation: Walk
+      type: step
+    rightGuard:
+      movement:
+      - wait: 0.4
+      - x: -72
+        y: 0
+      speed: 32
+      animation: Walk
+      type: step
+  actorsturn:
+    leftGuard:
+      x: 0
+      y: 1
+      queue: true
+    middleGuard:
+      x: 0
+      y: 1
+      queue: true
+    rightGuard:
+      x: 0
+      y: 1
+      queue: true
+  setflags: guard_riddle_solved
+  wait: 3
+  autoadvance: true
+  caninput: false
+  telepathyeffect: null

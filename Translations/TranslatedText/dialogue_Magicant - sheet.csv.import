@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/TranslatedText/dialogue_Magicant - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.zh_Hans_CN.translation" ]
+
+source_file="res://Translations/TranslatedText/dialogue_Magicant - sheet.csv"
+dest_files=[ "res://Translations/TranslatedText/dialogue_Magicant - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Magicant - sheet.zh_Hans_CN.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

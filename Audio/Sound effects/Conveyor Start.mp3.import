@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Conveyor Start.mp3-71db6bdc4ccdce59c2b69224e0030b8b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Conveyor Start.mp3"
+dest_files=[ "res://.import/Conveyor Start.mp3-71db6bdc4ccdce59c2b69224e0030b8b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

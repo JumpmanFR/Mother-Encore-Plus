@@ -1,0 +1,444 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: Objects/npc
+  actorsmove:
+    ninten:
+      movement:
+        - x: -32
+          y: -776
+        - turnto:
+            x: 1
+            y: -1
+      type: position
+      speed: 32
+      animation: Walk
+  setpartymembers:
+    lloyd: true
+  changereplaced:
+    lloyd: lloyd
+  movecam:
+    x: 24
+    y: -824
+  changecam: null
+  autowait: 2
+  goto: "lloydSurprise"
+"lloydSurprise":
+  actorsemote:
+    lloyd: exclamation
+  actorsturn:
+    lloyd:
+      x: -1
+      y: 1
+  autowait: 1
+  goto: "lloydTalk"
+"lloydTalk":
+  talker: lloyd
+  actorsmove:
+    ninten:
+      movement:
+        - x: -32
+          y: -840
+        - x: -8
+          y: -840
+      type: position
+      speed: 32
+      animation: Walk
+    lloyd:
+      movement:
+        - wait: 1
+        - turnto:
+            x: -1
+            y: 0
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_0
+  sound: Shy
+  goto: "nintenEat"
+"nintenEat":
+  actorsmove:
+    ninten:
+      movement:
+        - jump:
+            times: 2
+        - x: 16
+          y: -840
+        - wait: 0.5
+        - turnto:
+            x: 0
+            y: -1
+        - emote: heart
+        - jump:
+            height: 8
+        - wait: 1
+        - playanim:
+            anim: Talk
+        - playsound: EB/eat.wav
+        - shake:
+            x: 2
+            length: 0.2
+        - wait: 0.2
+        - playsound: EB/eat.wav
+        - shake:
+            x: 2
+            length: 0.2
+        - wait: 0.2
+        - animspeed: 0
+        - wait: 1
+        - emote: dot
+        - shake:
+            x: 2
+            length: 0.2
+        - animspeed: 1
+        - playsound: M3/bump.wav
+        - playanim:
+            anim: Fainted Idle
+      type: position
+      speed: 32
+      animation: Walk
+    lloyd:
+      movement:
+        - wait: 0.5
+        - x: 48
+          y: -840
+        - x: 32
+          y: -840
+      type: position
+      speed: 32
+      animation: Walk
+  autowait: 7
+  goto: "tastesBad"
+"tastesBad":
+  talker: null
+  actorsemote:
+    lloyd: sweat
+  actorsturn:
+    ninten:
+      x: 0
+      y: 1
+      speed: 0.2
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_1
+  goto: "lloydSad"
+"lloydSad":
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_2
+  sound: Shy
+  goto: "nintenQuestion"
+"nintenQuestion":
+  actorsmove:
+    ninten:
+      movement:
+        - playanim:
+            anim: Idle
+        - turnto:
+            x: 1
+            y: 0
+            speed: 0.2
+        - emote: question
+    lloyd:
+      movement:
+        - x: 4
+          y: 0
+      type: step
+      animation: Walk
+      speed: 16
+      moonwalk: true
+  autowait: 1.4
+  goto: "lloydAnswer"
+"lloydAnswer":
+  musicvolume: -10
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_3
+  sound: Shy
+  actorsturn:
+    lloyd:
+      x: 1
+      y: 0
+  goto: "nintenWalk"
+"nintenWalk":
+  musicvolume: -80
+  actorsmove:
+    ninten:
+      movement:
+        - x: 8
+          y: 0
+        - jump:
+            times: 2
+      type: step
+      animation: Walk
+      speed: 16
+    lloyd:
+      movement:
+        - wait: 0.2
+        - emote: dot
+        - x: 16
+          y: 0
+      type: step
+      animation: Walk
+      speed: 16
+  movecam:
+    actor: lloyd
+  autowait: 3
+  goto: "lloydConfess"
+"lloydConfess":
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_4
+  sound: Shy
+  goto: "lloydTurn"
+"lloydTurn":
+  actorsemote:
+    ninten: sweat
+  actorsturn:
+    lloyd:
+      x: 0
+      y: -1
+  autowait: 1
+  goto: "lloydContinue"
+"lloydContinue":
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_5
+  sound: Shy
+  goto: "lloydMonths"
+"lloydMonths":
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.2
+        - playanim:
+            anim: LookLeft
+            newidle: true
+    lloyd:
+      movement:
+        - x: 0
+          y: -8
+      type: step
+      animation: Walk
+      speed: 16
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_6
+  sound: Shy
+  goto: "lloydTurnBackward"
+"lloydTurnBackward":
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.2
+        - playanim:
+            anim: Idle
+            newidle: true
+    lloyd:
+      movement:
+        - turnto:
+            x: 0
+            y: 1
+        - x: 0
+          y: 8
+        - emote: dot
+      type: step
+      animation: Walk
+      speed: 16
+  autowait: 3
+  goto: "lloydUntil"
+"lloydUntil":
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_7
+  sound: Shy
+  goto: "turnToNinten"
+"turnToNinten":
+  actorsturn:
+    lloyd:
+      x: -1
+      y: 0
+  autowait: 1
+  goto: "yesterday"
+"yesterday":
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_8
+  sound: Shy
+  goto: "walkToNinten"
+"walkToNinten":
+  actorsmove:
+    lloyd:
+      movement:
+        - x: -8
+          y: 0
+      type: step
+      animation: Walk
+      speed: 16
+  autowait: 1
+  goto: "whenISeeYou"
+"whenISeeYou":
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_9
+  sound: Shy
+  goto: "lloydWeakling"
+"lloydWeakling":
+  actorsmove:
+    lloyd:
+      movement:
+        - turnto:
+            x: 1
+            y: 0
+        - wait: 0.1
+        - x: 8
+          y: 0
+      type: step
+      animation: Walk
+      speed: 16
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_10
+  sound: Shy
+  goto: "lloydTakeMe"
+"lloydTakeMe":
+  actorsemote:
+    lloyd: surprise
+  actorsturn:
+    lloyd:
+      x: -1
+      y: 0
+      speed: 0.05
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_11
+  sound: Shy
+  goto: "nintenLaugh"
+"nintenLaugh":
+  movecam:
+    actor: ninten
+  changecam: ninten
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 1
+        - turnto:
+            x: 0
+            y: -1
+            speed: 0.1
+        - wait: 1
+        - shake:
+            y: 1
+            length: 0.1
+        - wait: 1
+        - shake:
+            y: 1
+            length: 0.1
+        - wait: 0.5
+        - turnto:
+            x: 0
+            y: 1
+            speed: 0.05
+        - playanim:
+            anim: Laugh
+        - playsound: Laugh Small.mp3
+        - emote: heart
+        - shake:
+            x: 2
+            length: 0.2
+            async: true
+        - wait: 1
+        - animspeed: 0
+        - wait: 0.6
+        - animspeed: 1
+        - playanim:
+            anim: Idle
+        - wait: 0.2
+        - turnto:
+            x: 1
+            y: 0
+        - wait: 0.2
+        - x: 8
+          y: 0
+        - playanim:
+            anim: Talk
+        - wait: 1
+        - playanim:
+            anim: Idle
+      animation: Walk
+      type: step
+      speed: 32
+    lloyd:
+      movement:
+        - wait: 4.4
+        - emote: sweat
+        - x: 4
+          y: 0
+      type: step
+      animation: Walk
+      moonwalk: true
+  autowait: 8
+  goto: "lloydComeAlong"
+"lloydComeAlong":
+  movecam:
+    actor: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_12
+  sound: Shy
+  goto: "lloydLaugh"
+"lloydLaugh":
+  musicvolume: 0
+  actorsemote:
+    lloyd: surprise
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_13
+  sound: Shy
+  goto: "lloydReindeer"
+"lloydReindeer":
+  actorsmove:
+    lloyd:
+      movement:
+        - turnto:
+            x: 1
+            y: 0
+        - x: 32
+          y: 0
+        - turnto:
+            x: 0
+            y: 1
+      type: step
+      animation: Walk
+      speed: 32
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_14
+  sound: Shy
+  goto: "lloydSomething"
+"lloydSomething":
+  actorsmove:
+    lloyd:
+      movement:
+        - turnto:
+            x: -1
+            y: 0
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_15
+  sound: Shy
+  goto: "tracksCleared"
+"tracksCleared":
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYD_KITCHEN_16
+  sound: Shy
+  goto: "nintenMove"
+"nintenMove":
+  changecam: ninten
+  returncam: true
+  actorsmove:
+    ninten:
+      movement:
+        - x: 68
+          y: -840
+        - x: 68
+          y: -824
+        - x: 88
+          y: -824
+        - turnto:
+            x: 0
+            y: 1
+      type: position
+      animation: Walk
+      speed: 32
+    lloyd:
+      movement:
+        - wait: 1
+        - turnto:
+            x: 0
+            y: 1
+  setflags: "lloyd_kitchen"
+  autowait: 2.8

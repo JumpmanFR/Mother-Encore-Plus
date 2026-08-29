@@ -1,0 +1,63 @@
+"0":
+  actors:
+    player: leader
+  name: DIALOGUE_MAGICANT_INN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_INN_0
+  options:
+    DIALOGUE_MAGICANT_INN_0-OPT_0: "2"
+    DIALOGUE_MAGICANT_INN_0-OPT_1: "1"
+    cancel: "1"
+"1":
+  name: DIALOGUE_MAGICANT_INN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_INN_1
+"2":
+  name: DIALOGUE_MAGICANT_INN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_INN_2
+  options:
+    DIALOGUE_MAGICANT_INN_2-OPT_0: "4"
+    DIALOGUE_MAGICANT_INN_2-OPT_1: "3"
+    cancel: "3"
+"3":
+  name: DIALOGUE_MAGICANT_INN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_INN_3
+"4":
+  name: DIALOGUE_MAGICANT_INN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_INN_4
+  goto: "5"
+"5":
+  showbox: false
+  fadein:
+    speed: 0.3
+    anim: Circle Focus
+  objectsfunction:
+    MusicArea: stop_music
+    MusicAreaMorning: stop_music
+  wait: 3
+  autoadvance: true
+  caninput: false
+  goto: "6"
+"6":
+  fadefocus: player
+  fadeout:
+    type: 1
+    anim: Circle
+  objectsfunction:
+    MusicAreaMorning: play_music
+  setflags:
+    - good_morning
+    - slept_at_spoon_guys_place
+  heal: all
+  restorepp: all
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "7"
+"7":
+  name: DIALOGUE_MAGICANT_INN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_INN_7

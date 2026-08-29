@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sweet Little Factory.mp3-117987a1e923a7fb15e377698c3e505e.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Sweet Little Factory.mp3"
+dest_files=[ "res://.import/Sweet Little Factory.mp3-117987a1e923a7fb15e377698c3e505e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,35 @@
+"0":
+  if:
+    flags:
+      rocket_launched: true
+    goto: 'post_duncans'
+  goto: 'pre_duncans'
+"post_duncans":
+  name: DIALOGUE_MERRYSVILLE_MISSILEVICTIM_SPEAKER
+  sound: Female
+  text: DIALOGUE_MERRYSVILLE_MISSILETALK_11
+"pre_duncans":
+  actors:
+    lloyd: lloyd
+    ninten: ninten
+    npc: talker
+  name: DIALOGUE_MERRYSVILLE_MISSILEVICTIM_SPEAKER
+  sound: Female
+  text: DIALOGUE_MERRYSVILLE_MISSILEVICTIM_0
+  goto: "panUp"
+"panUp":
+  name: DIALOGUE_MERRYSVILLE_MISSILEVICTIM_SPEAKER
+  sound: Female
+  actorsturn:
+    npc:
+      x: 0
+      y: -1
+  text: DIALOGUE_MERRYSVILLE_MISSILEVICTIM_1
+  movecam:
+    y: -608
+  if:
+    flags:
+      missile_damage_seen: false
+    goto: "lloydTalk"
+"lloydTalk":
+  redirect: "Merrysville/Cutscenes/Missile_Talk"

@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/FireballOV.png-a1a489f31be8e23f01cf8d542a3a90dc.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Graphics/Character Sprites/Enemies/FireballOV.png"
+dest_files=[ "res://.import/FireballOV.png-a1a489f31be8e23f01cf8d542a3a90dc.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -1,0 +1,30 @@
+name: DRDISTORTO_NAME
+description: DRDISTORTO_DESC
+article: DRDISTORTO_ART
+maxhp: 1980
+hp: 1980
+maxpp: 0
+pp: 0
+offense: 48
+defense: 87
+speed: 22
+iq: 30
+guts: 0
+level: 25
+exp: 580
+cash: 650
+skills:
+  - skill: bash
+    weight: 3
+  - skill: rage
+    weight: 1
+battlescript: drdistorto
+boss: true
+sprite: dr distorto
+music: Scientific Stranger.mp3
+bg: distorto
+affinity_multipliers:
+  blinded: 2
+  explosion: 2
+  sleeping: 0.5
+  pkFlash: 0

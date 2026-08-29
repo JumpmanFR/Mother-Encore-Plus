@@ -1,0 +1,6 @@
+"0":
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_0
+  sound: Kid
+  setflags: "pippi_reunion"
+  redirect: Reusable/Pippi/check_badge

@@ -1,0 +1,16 @@
+can_get:
+  psi_characters: true # includes enemies
+healing:
+  persistent: false
+  passive_heal: false
+messages:
+  afflict_battle: BATTLE_MSG_STATUS_PSIBLOCKED
+  effect: BATTLE_MSG_STATUS_PSIBLOCKED_EFFECT
+effects_by_char:
+  any:
+    cant_select:
+      PSI: true
+    cant_do:
+      action:
+        skill_type: [ psi ]
+      message: BATTLE_MSG_STATUS_PSIBLOCKED_EFFECT

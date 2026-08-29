@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Main/Flag Landmarks.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Objects/Magicant/Queen Mary Party Painting Easel.png" type="Texture" id=2]
+
+[node name="PaintingWIP" type="Node2D"]
+script = ExtResource( 1 )
+disappear_flag = "eve_melody"
+
+[node name="QueenMaryPartyPaintingWip" type="Sprite" parent="."]
+position = Vector2( 2, -14 )
+texture = ExtResource( 2 )
+hframes = 6
+script = ExtResource( 1 )
+disappear_flag = "drdistorto_defeat"
+
+[node name="QueenMaryPartyPaintingWip2" type="Sprite" parent="."]
+position = Vector2( 2, -14 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+script = ExtResource( 1 )
+appear_flag = "drdistorto_defeat"
+disappear_flag = "anahat_get"

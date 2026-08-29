@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Graphics/UI/Inventory/modifiers.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/BottleRocket.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Nodes/Ui/Inventory/Stats.gd" type="Script" id=3]
+
+[node name="Stats" type="Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+script = ExtResource( 3 )
+
+[node name="StatLabel" type="Label" parent="."]
+margin_right = 27.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 28, 9 )
+custom_fonts/font = ExtResource( 2 )
+text = "99"
+align = 2
+
+[node name="Modifier" type="Control" parent="."]
+margin_top = 14.0
+margin_right = 28.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 28, 0 )
+
+[node name="ModiferLabel" type="Label" parent="Modifier"]
+margin_right = 27.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 28, 9 )
+custom_fonts/font = ExtResource( 2 )
+text = "99"
+align = 2
+
+[node name="ModifierIconUp" type="Sprite" parent="Modifier"]
+position = Vector2( 7, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 3, 0, 7, 9 )
+
+[node name="ModifierIconDown" type="Sprite" parent="Modifier"]
+position = Vector2( 7, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 7, 9 )

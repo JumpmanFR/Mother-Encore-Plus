@@ -1,0 +1,276 @@
+"0":
+  #ninten goes to center of control panel!! right close to it
+  showbox: false
+  #camera moves up. conveyor belt activates and moves
+  movecam:
+    y: -400
+    length: 3
+  setflags: rat_king_2
+  actors:
+    ninten: leader
+    ratking: Objects/NPCs/ratking
+  autowait: 2
+  goto: "1"
+"1":
+  musicvolume: -50
+  #ninten hears squeak
+  soundeffect: M3/Critter Cry.mp3
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_0
+  goto: "2"
+"2":
+  #camera goes back. reveals the rat king standing right next to ninten
+  showbox: false
+  movecam:
+    y: -285
+    length: 0.5
+  teleportactors:
+    ratking:
+      x: -152
+      y: -291
+    ninten:
+      x: -192
+      y: -291
+  actorsdir:
+    ratking:
+      x: -1
+      y: 0
+  goto: "3"
+  autowait: 1.2
+"3":
+  #ninten does double take
+  actorsturn:
+    ninten:
+      x: 1
+      y: 0
+      speed: 0.03
+  autowait: 0.3
+  goto: "4"
+"4":
+  actorsturn:
+    ninten:
+      x: 0
+      y: -1
+      speed: 0.03
+  autowait: 0.5
+  goto: "5"
+"5":
+  #ninten jumps away, startled
+  actorsturn:
+    ninten:
+      x: 1
+      y: 0
+      speed: 0.02
+  emoteactors:
+    ninten: exclamation
+  actorsjump:
+    ninten:
+      height: 7
+      length: 0.2
+  autowait: 0.5
+  goto: "6"
+"6":
+  #rat king shakes in anger
+  emoteactors:
+    ratking: angry
+  actorsshake:
+    ratking:
+      x: 1
+      length: 0.5
+  autowait: 1.3
+  goto: "7"
+"7":
+  #RK steps forward, Ninten steps back
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_1
+  actorsmove:
+    ratking:
+      movement:
+        - x: -180
+          y: -291
+      speed: 15
+      animation: Walk
+      type: position
+    ninten:
+      movement:
+        - wait: 0.02
+        - x: -203
+          y: -291
+      speed: 15
+      animation: Walk
+      type: position
+      moonwalk: true
+  wait: 1
+  goto: "8"
+"8":
+  #again - RK steps forward, Ninten steps back
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_2
+  actorsmove:
+    ratking:
+      movement:
+        - x: -200
+          y: -291
+      speed: 10
+      animation: Walk
+      type: position
+    ninten:
+      movement:
+        - wait: 0.02
+        - x: -220
+          y: -291
+      speed: 10
+      animation: Walk
+      type: position
+      moonwalk: true
+  wait: 1
+  goto: "9"
+"9":
+  #angry squeak, jumps twice
+  emoteactors:
+    ratking: surprise
+  showbox: false
+  actorsjump:
+    ratking:
+      height: 10
+      times: 2
+  soundeffect: M3/Critter Cry.mp3
+  autowait: 1
+  goto: "10"
+"10":
+  actorsdir:
+    ninten:
+      x: 1
+      y: 1
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_3
+  actorsmove:
+    ratking:
+      movement:
+        - x: -200
+          y: -281
+      speed: 10
+      animation: Walk
+      type: position
+  wait: 1
+  goto: "11"
+"11":
+  actorsturn:
+    ninten:
+      x: 0
+      y: 1
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_4
+  actorsmove:
+    ratking:
+      movement:
+        - x: -235
+          y: -281
+      speed: 35
+      animation: Walk
+      type: position
+  wait: 1
+  goto: "12"
+"12":
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_5
+  actorsmove:
+    ratking:
+      movement:
+        - x: -200
+          y: -281
+      speed: 20
+      animation: Walk
+      type: position
+  wait: 2
+  goto: "13"
+"13":
+  #rat king goes back up, faces ninten
+  actorsdir:
+    ninten:
+      x: 1
+      y: 1
+  showbox: false
+  actorsmove:
+    ratking:
+      movement:
+        - x: -200
+          y: -291
+      speed: 15
+      animation: Walk
+      type: position
+  autowait: 1
+  goto: "14"
+"14":
+  #rat king goes back up, faces ninten
+  actorsturn:
+    ninten:
+      x: 1
+      y: 0
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_6
+  actorsdir:
+    ratking:
+      x: -1
+      y: 0
+  goto: "15"
+"15":
+  #rk walks, key appears
+  showbox: false
+  actorsmove:
+    ratking:
+      movement:
+        - x: -180
+          y: -291
+      speed: 100
+      animation: Walk
+      type: position
+      moonwalk: true
+  objectsteleport:
+    Objects/Items/Key:
+      x: -200
+      y: -291
+  autowait: 1
+  goto: "17"
+"17":
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_7
+  goto: "18"
+"18":
+  actorsjump:
+    ratking:
+      height: 7
+  soundeffect: M3/Critter Cry.mp3
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_8
+  goto: "19"
+"19":
+  showbox: false
+  actorsmove:
+    ratking:
+      movement:
+        - x: 0
+          y: -291
+      speed: 40
+      animation: Walk
+      type: position
+  autowait: 0.6
+  goto: "20"
+"20":
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING2_9
+  actorsmove:
+    ratking:
+      movement:
+        - x: 0
+          y: -291
+      speed: 40
+      animation: Walk
+      type: position
+  wait: 3
+  goto: "21"
+"21":
+  musicvolume: 0
+  teleportactors:
+    ratking:
+      x: 450
+      y: -200

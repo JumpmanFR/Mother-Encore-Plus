@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Puzzle Solved.mp3-7a397ca3c124edd78a482f50dbf5bfbf.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Puzzle Solved.mp3"
+dest_files=[ "res://.import/Puzzle Solved.mp3-7a397ca3c124edd78a482f50dbf5bfbf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

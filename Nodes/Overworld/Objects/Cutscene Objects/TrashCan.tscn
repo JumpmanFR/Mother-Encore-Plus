@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Graphics/Character Sprites/Npcs/misc/trash/open.png" type="Texture" id=1]
+[ext_resource path="res://Nodes/Reusables/interact_dialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Main/Flag Landmarks.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 12 )
+
+[node name="TrashCan" type="Sprite"]
+rotation = 1.5708
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+disappear_flag = "lab_destroyed"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 1597
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -2, 0 )
+shape = SubResource( 1 )
+
+[node name="interact_dialog" parent="." instance=ExtResource( 2 )]
+rotation = -1.5708
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/TwinkleElementary/trashcan"
+button_offset = Vector2( 0, -16 )

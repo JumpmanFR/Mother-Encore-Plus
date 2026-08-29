@@ -1,0 +1,14 @@
+"0":
+  if:
+    flags:
+      rocket_launched: true
+    goto: "post_duncans"
+  goto: "pre_duncans"
+"pre_duncans":
+  name: DIALOGUE_MERRYSVILLE_MISSILETALK_0_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_MISSILETALK_0
+"post_duncans":
+  name: DIALOGUE_MERRYSVILLE_MISSILETALK_0_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_MISSILETALK_4

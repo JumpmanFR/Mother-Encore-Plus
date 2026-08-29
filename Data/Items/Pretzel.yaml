@@ -1,0 +1,23 @@
+name: PRETZEL_NAME
+sorting_name: PRETZEL_SORT
+description: PRETZEL_DESC
+article: PRETZEL_ART
+keyitem: false
+cost: 50
+value: 25
+actions:
+  - name: PRETZEL_ACT1
+    function: consume
+is_food: true
+transform: ""
+slot: ""
+HPrecover: 40
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

@@ -1,0 +1,374 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Tilesets/Interior.tres" type="TileSet" id=1]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Library.png" type="Texture" id=2]
+[ext_resource path="res://Nodes/Overworld/camarea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Reusables/npc.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Overworld/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Overworld/Objects/Present.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Overworld/MusicChanger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Nodes/Reusables/stepping sounds.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Main/RoomTypes/AreaRoom.gd" type="Script" id=9]
+[ext_resource path="res://Graphics/Tilesets/TilLibrary.png" type="Texture" id=10]
+[ext_resource path="res://Nodes/Reusables/interact_dialog.tscn" type="PackedScene" id=11]
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 64, 40, 0, 40, 0, 8, 64, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 80, 56, 0, 56, 0, 16, 80, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 16, 32, 0, 32, 0, 24, 16, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 120, 56, 0, 56, 0, 16, 120, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( 24, 8, 24, 40, 72, 40, 72, 8, 88, 8, 88, 56, 8, 56, 8, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 96, 72, 0, 72, 0, 32, 96, 32 )
+
+[sub_resource type="TileSet" id=15]
+0/name = "TableKids"
+0/texture = ExtResource( 10 )
+0/tex_offset = Vector2( 0, -8 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 8, 0, 64, 40 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 18 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Table"
+1/texture = ExtResource( 10 )
+1/tex_offset = Vector2( 0, -16 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 48, 80, 56 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 19 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "Chair"
+2/texture = ExtResource( 10 )
+2/tex_offset = Vector2( 0, -24 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 80, 8, 16, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 20 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "Wall"
+3/texture = ExtResource( 10 )
+3/tex_offset = Vector2( 0, -32 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 96, 0, 120, 56 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 21 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "Desk"
+4/texture = ExtResource( 10 )
+4/tex_offset = Vector2( 0, -32 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 80, 64, 88, 56 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 22 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 22 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+5/name = "BookShelf"
+5/texture = ExtResource( 10 )
+5/tex_offset = Vector2( 0, -32 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 176, 56, 96, 72 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 23 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 188, 152 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 24, 12 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 40, 32 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 212, 164 )
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform vec4 glow_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float glow_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = color.rgb + glow_color.rgb * glow_modifier;
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=25]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+shader_param/glow_modifier = 0.0
+
+[node name="Library" type="Node2D"]
+script = ExtResource( 9 )
+_player_map_offset = Vector2( 334, 267 )
+_region_name = "Merrysville"
+_is_sub_area = true
+
+[node name="Library" type="Sprite" parent="."]
+position = Vector2( 0, -128 )
+texture = ExtResource( 2 )
+
+[node name="Objects" type="TileMap" parent="."]
+tile_set = SubResource( 15 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+cell_y_sort = true
+show_collision = true
+collision_layer = 1597
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1376252, 0, 0, -1114130, 5, 0, -589839, 2, 0, -655354, 3, 0, -524305, 1, 0, -393210, 4, 0, -196623, 2, 0, -196619, 2, 0 )
+
+[node name="librarian" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 96, -49 )
+sprite = "Npcs/4dir/oldpurplelady"
+dialog = "Merrysville/librarian"
+extended_interact = 2
+initial_dir = Vector2( 0, 1 )
+
+[node name="woman" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( -80, -80 )
+sprite = "Npcs/4dir/brownhairwoman"
+dialog = "Merrysville/library_woman"
+initial_dir = Vector2( 0, 1 )
+
+[node name="kid" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 104, -160 )
+sprite = "Npcs/4dir/redcapboy"
+dialog = "Merrysville/library_kid"
+initial_dir = Vector2( -1, 0 )
+
+[node name="Present" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( -40, -120 )
+is_object_flag = true
+item = "MapMerrysville"
+type = "map"
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+collision_layer = 1597
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+position = Vector2( -48, 0 )
+polygon = PoolVector2Array( -120, 16, -80, -192, 168, -192, 192, -56, 184, -56, 184, -24, 200, -24, 208, 16, 72, 16, 72, 32, 24, 32, 24, 48, 224, 48, 224, -264, -128, -264, -128, 48, 24, 48, 24, 24.4165, 24, 16 )
+
+[node name="MusicArea" parent="." instance=ExtResource( 7 )]
+visible = false
+loop = "House.mp3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea"]
+position = Vector2( -12, -128 )
+shape = SubResource( 16 )
+
+[node name="Stepping Sounds" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, 56 )
+entering_sound = "stone"
+exiting_sound = "wood"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stepping Sounds"]
+position = Vector2( 0, -52 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stepping Sounds"]
+position = Vector2( 64, -208 )
+shape = SubResource( 24 )
+
+[node name="Above" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65521, 14, 2, 65522, 14, 2, 65523, 14, 2, 65524, 14, 2, 65525, 14, 2, 65526, 14, 2, 65527, 14, 2, 65528, 14, 2, 65529, 14, 2, 65530, 14, 2, 65531, 14, 2, 65532, 14, 2, 65533, 14, 2, 65534, 14, 327682, 1, 14, 262146, 2, 14, 2, 3, 14, 2, 4, 14, 2, 5, 14, 2, 6, 14, 2, 7, 14, 2, 8, 14, 2, 9, 14, 2, 10, 14, 2, 11, 14, 2, 12, 14, 2, 13, 14, 2, 131057, 14, 2, 131058, 14, 2, 131059, 14, 2, 131060, 14, 2, 131061, 14, 2, 131062, 14, 2, 131063, 14, 2, 131064, 14, 2, 131065, 14, 2, 131066, 14, 2, 131067, 14, 2, 131068, 14, 2, 131069, 14, 2, 131070, 14, 2, 131071, 14, 2, 65536, 14, 2, 65537, 14, 2, 65538, 14, 2, 65539, 14, 2, 65540, 14, 2, 65541, 14, 2, 65542, 14, 2, 65543, 14, 2, 65544, 14, 2, 65545, 14, 2, 65546, 14, 2, 65547, 14, 2, 65548, 14, 2, 65549, 14, 2, 196593, 14, 2, 196594, 14, 2, 196595, 14, 2, 196596, 14, 2, 196597, 14, 2, 196598, 14, 2, 196599, 14, 2, 196600, 14, 2, 196601, 14, 2, 196602, 14, 2, 196603, 14, 2, 196604, 14, 2, 196605, 14, 2, 196606, 14, 2, 196607, 14, 2, 131072, 14, 2, 131073, 14, 2, 131074, 14, 2, 131075, 14, 2, 131076, 14, 2, 131077, 14, 2, 131078, 14, 2, 131079, 14, 2, 131080, 14, 2, 131081, 14, 2, 131082, 14, 2, 131083, 14, 2, 131084, 14, 2, 131085, 14, 2, 262129, 14, 2, 262130, 14, 2, 262131, 14, 2, 262132, 14, 2, 262133, 14, 2, 262134, 14, 2, 262135, 14, 2, 262136, 14, 2, 262137, 14, 2, 262138, 14, 2, 262139, 14, 2, 262140, 14, 2, 262141, 14, 2, 262142, 14, 2, 262143, 14, 2, 196608, 14, 2, 196609, 14, 2, 196610, 14, 2, 196611, 14, 2, 196612, 14, 2, 196613, 14, 2, 196614, 14, 2, 196615, 14, 2, 196616, 14, 2, 196617, 14, 2, 196618, 14, 2, 196619, 14, 2, 196620, 14, 2, 196621, 14, 2, 327665, 14, 2, 327666, 14, 2, 327667, 14, 2, 327668, 14, 2, 327669, 14, 2, 327670, 14, 2, 327671, 14, 2, 327672, 14, 2, 327673, 14, 2, 327674, 14, 2, 327675, 14, 2, 327676, 14, 2, 327677, 14, 2, 327678, 14, 2, 327679, 14, 2, 262144, 14, 2, 262145, 14, 2, 262146, 14, 2, 262147, 14, 2, 262148, 14, 2, 262149, 14, 2, 262150, 14, 2, 262151, 14, 2, 262152, 14, 2, 262153, 14, 2, 262154, 14, 2, 262155, 14, 2, 262156, 14, 2, 262157, 14, 2 )
+
+[node name="Door" parent="." instance=ExtResource( 5 )]
+position = Vector2( -24, 24 )
+scale = Vector2( 6, 1 )
+targetX = -208
+targetY = -584
+dir = Vector2( 0, 1 )
+sound = "M3/door_open.wav"
+transit_in_anim = "Circle Focus"
+transit_out_anim = "Circle Focus"
+targetScene = "Merrysville/Merrysville"
+
+[node name="camarea" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -40, 0 )
+
+[node name="CollisionShape2D" parent="camarea" index="0"]
+position = Vector2( 36, -116 )
+shape = SubResource( 17 )
+
+[node name="interact_dialog" parent="." instance=ExtResource( 11 )]
+position = Vector2( -64, -58 )
+dialog = "Merrysville/Descriptions/Library/magazine"
+
+[node name="CollisionShape2D" parent="interact_dialog" index="0"]
+position = Vector2( 4, 6 )
+scale = Vector2( 5, 5 )
+
+[node name="ButtonPrompt" parent="interact_dialog" index="1"]
+material = SubResource( 25 )
+position = Vector2( 0, -8 )
+offset = Vector2( 0, -8 )
+
+[node name="interact_dialog2" parent="." instance=ExtResource( 11 )]
+position = Vector2( -80, -200 )
+scale = Vector2( 6, 4 )
+dialog = "Merrysville/Descriptions/Library/book_adrenaline_rush"
+player_turn = {
+"x": false,
+"y": true
+}
+button_offset = Vector2( 0, -32 )
+
+[node name="interact_dialog3" parent="." instance=ExtResource( 11 )]
+position = Vector2( -72, -112 )
+scale = Vector2( 6, 4 )
+dialog = "Merrysville/Descriptions/Library/book_encore"
+player_turn = {
+"x": false,
+"y": true
+}
+button_offset = Vector2( 0, -32 )
+
+[node name="interact_dialog4" parent="." instance=ExtResource( 11 )]
+position = Vector2( -120, -112 )
+scale = Vector2( 6, 4 )
+dialog = "Merrysville/Descriptions/Library/book_sp"
+player_turn = {
+"x": false,
+"y": true
+}
+button_offset = Vector2( 0, -32 )
+
+[node name="interact_dialog5" parent="." instance=ExtResource( 11 )]
+position = Vector2( -32, -200 )
+scale = Vector2( 6, 4 )
+dialog = "Merrysville/Descriptions/Library/book_speedup_meter"
+player_turn = {
+"x": false,
+"y": true
+}
+button_offset = Vector2( 0, -32 )
+
+[node name="interact_dialog6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 24, -200 )
+scale = Vector2( 6, 4 )
+dialog = "Merrysville/Descriptions/Library/book_equipment_skills"
+player_turn = {
+"x": false,
+"y": true
+}
+button_offset = Vector2( 0, -32 )
+
+[node name="interact_dialog7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 72, -200 )
+scale = Vector2( 6, 4 )
+dialog = "Merrysville/Descriptions/Library/book_weaklings"
+player_turn = {
+"x": false,
+"y": true
+}
+button_offset = Vector2( 0, -32 )
+
+[editable path="camarea"]
+[editable path="interact_dialog"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/curveball.mp3-b93a8229955feab4a765fc26c248026c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Battle/curveball.mp3"
+dest_files=[ "res://.import/curveball.mp3-b93a8229955feab4a765fc26c248026c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

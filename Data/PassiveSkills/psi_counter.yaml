@@ -1,0 +1,13 @@
+conditions:
+  skill_type: [ 'psi' ]
+priority: 2
+is_shield: true
+dialogue_apply: BATTLE_MSG_SHIELD_START_PC
+dialogue_reapply: BATTLE_MSG_SHIELD_RENEW_PC
+dialogue_vanish: BATTLE_MSG_SHIELD_STOP_PC
+health: 6
+actions:
+  sound: ''
+  vibrate: 0.5
+  damage_multiplier: 0.5
+  counter_multiplier: 0.5

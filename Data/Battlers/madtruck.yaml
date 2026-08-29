@@ -1,0 +1,34 @@
+name: MADTRUCK_NAME
+description: MADTRUCK_DESC
+article: MADTRUCK_ART
+maxhp: 195
+hp: 195
+maxpp: 0
+pp: 0
+offense: 32
+defense: 43
+speed: 24
+iq: 35
+guts: 0
+level: 20
+exp: 230
+cash: 90
+skills:
+  - skill: runOutOfControl
+    weight: 4
+  - skill: exhaustGas
+    weight: 1
+boss: false
+sprite: mad truck
+music: Retro Enemy.mp3
+bg: road
+ov:
+  sprite: MadTruckOV
+  anim: VehicleEnemy
+  shadow: false
+  maxSpeed: 96
+  acceleration: 900
+  friction: 900
+affinity_multipliers:
+  explosion: 2
+  flash: 0.5

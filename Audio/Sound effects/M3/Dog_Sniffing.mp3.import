@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dog_Sniffing.mp3-6172b99599be08c09370f9e4f493b50b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/M3/Dog_Sniffing.mp3"
+dest_files=[ "res://.import/Dog_Sniffing.mp3-6172b99599be08c09370f9e4f493b50b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,28 @@
+animations:
+  Walk:
+    directions:
+    - - 0
+      - - 3
+        - 0.2
+      - - 4
+        - 0.2
+    type: 0
+  Transition:
+    directions:
+    - - 0
+      - - 2
+        - 0.1
+    type: 0
+  Idle:
+    directions:
+    - - 0
+      - - 1
+        - 0.2
+    type: 0
+offset:
+- 0
+- 0
+size:
+- 4
+- 1
+type: 0

@@ -1,0 +1,76 @@
+"0":
+  actors:
+    player: ninten
+  showbox: false
+  cash: false
+  fadein:
+    speed: 0.3
+    anim: Circle Focus
+  if:
+    hasrepairableitem: lloyd
+    haspartymembers:
+      lloyd: true
+    goto: "7"
+  objectsfunction:
+    MusicArea: stop_music
+  wait: 3
+  autoadvance: true
+  caninput: false
+  goto: "11"
+"7":
+  text: DIALOGUE_REUSABLE_REPAIR_7
+  #teleportactors:
+  #  player:
+  #    x: -136
+  #    y: -632
+  repairitem: lloyd
+  #fadefocus: player
+  goto: "8"
+  #fadesize:
+  #  speed: 0.2
+  #  size: 0.1
+  #fadespin: true
+"8":
+  text: DIALOGUE_REUSABLE_REPAIR_8
+  soundeffect: "M3/Learned PSI.wav"
+  goto: "9"
+"9":
+  showbox: false
+  #returncam: 0.1
+  #fadeout:
+  #  speed: 0.1
+  #  anim: Circle
+  goto: "10"
+"10":
+  wait: 3
+  autoadvance: true
+  caninput: false
+  fadesize:
+    size: 0
+  goto: "11"
+"11":
+  actorsdir:
+    player:
+      x: 1
+      y: 0
+  teleportactors:
+    player:
+      x: 360
+      y: 344
+  teleportparty:
+    x: 360
+    y: 344
+  returncam: 0.01
+  fadefocus: player
+  fadeout:
+    type: 1
+    anim: Circle
+  objectsfunction:
+    MusicArea2: play_music
+    Objects/Hotel Room: replace_party_members
+  setflags: good_morning
+  heal: all
+  restorepp: all
+  wait: 1
+  autoadvance: true
+  caninput: false

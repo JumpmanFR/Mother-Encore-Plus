@@ -1,0 +1,95 @@
+"0":
+  actors:
+    distorto: Objects/npc
+    ninten: ninten
+  talker: distorto
+  name: "???"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO1_0
+  sound: Adult
+  goto: "1"
+"1":
+  showbox: false
+  changecam: distorto
+  returncam: 1
+  autowait: 1.1
+  goto: "2"
+"2":
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: 5
+      speed: 60
+      animation: Walk
+      type: step
+      moonwalk: true
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO1_1
+  sound: Adult
+  goto: "3"
+"3":
+  #backs off in a panic
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: 13
+      speed: 12
+      animation: Walk
+      type: step
+      moonwalk: true
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO1_2
+  sound: Adult
+  goto: "4"
+"4":
+  showbox: false
+  actorsemote:
+    distorto: dot
+  autowait: 2
+  goto: "5"
+"5":
+  actorsdir:
+    distorto:
+      x: 0
+      y: -1
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO1_3
+  sound: Adult
+  goto: "6"
+"6":
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO1_4
+  sound: Adult
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: -28
+        - visible: false
+      speed: 16
+      animation: Walk
+      type: step
+  wait: 2
+  goto: "7"
+"7":
+  showbox: false
+  changecam: ninten
+  teleportactors:
+    distorto:
+      x: 0
+      y: -1192
+  actorsdir:
+    distorto:
+      x: -1
+      y: 0
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: 0
+        - visible: true
+      speed: 7
+      animation: Walk
+      type: step
+  setflags: drdistorto_1

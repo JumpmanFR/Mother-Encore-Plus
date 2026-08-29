@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Wall Door.png-d17b2e851573cb1436ff3ec40df7c650.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Graphics/Objects/Catacombs/Wall Door.png"
+dest_files=[ "res://.import/Wall Door.png-d17b2e851573cb1436ff3ec40df7c650.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -1,0 +1,681 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://Nodes/Overworld/camarea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tilesets/Interior.tres" type="TileSet" id=2]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Lloyd Apartment/Lloyd_Apartment_Hallways.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Lloyd Apartment/Lloyd_Apartment_Hallway_Rails.png" type="Texture" id=4]
+[ext_resource path="res://Nodes/Overworld/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Lloyd Apartment/Lloyd_Apartment_Living_Room.png" type="Texture" id=6]
+[ext_resource path="res://Nodes/Reusables/phone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Lloyd Apartment/Lloyd_Apartment_Parent_Room.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Lloyd Apartment/Lloyd_Apartment_Bathroom.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Lloyd Apartment/Lloyd_Apartment_Lloyd_Room.png" type="Texture" id=10]
+[ext_resource path="res://Nodes/Reusables/stepping sounds.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Main/RoomTypes/AreaRoom.gd" type="Script" id=12]
+[ext_resource path="res://Graphics/Objects/Doors/Merrysville_Door_Magenta.png" type="Texture" id=13]
+[ext_resource path="res://Nodes/Overworld/Objects/Openable Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Graphics/Objects/Doors/Merrysville_Door_Lloyd_Apt.png" type="Texture" id=15]
+[ext_resource path="res://Nodes/Reusables/interact_dialog.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Nodes/Reusables/door_npc.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Nodes/Reusables/DebugStartPos.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Nodes/Overworld/MusicChanger.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Nodes/Reusables/CutsceneArea.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Nodes/Reusables/npc.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Translations/TranslatedTilesets/Lloyd_Apartment_Hallway_Numbers.png" type="Texture" id=22]
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform vec4 glow_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float glow_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = color.rgb + glow_color.rgb * glow_modifier;
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=13]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+shader_param/glow_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = SubResource( 8 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+shader_param/glow_modifier = 0.0
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform vec4 glow_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float glow_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = color.rgb + glow_color.rgb * glow_modifier;
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=16]
+resource_local_to_scene = true
+shader = SubResource( 5 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+shader_param/glow_modifier = 0.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 240, 96 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 240, 96 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 312, 116 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 168, 96 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 168, 104 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 453.5, 225 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 904.501, 596 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 453.5, 439.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 240, 352 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 84, 80 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 96, 80 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 112, 88 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 32, 20 )
+
+[node name="Lloyd\'s Apartment" type="Node2D"]
+script = ExtResource( 12 )
+_player_map_offset = Vector2( 374, 277 )
+_region_name = "Merrysville"
+_is_sub_area = true
+
+[node name="DebugStartPos" parent="." instance=ExtResource( 18 )]
+position = Vector2( -160, -24 )
+z_index = 1
+
+[node name="LloydApartmentHallways" type="Sprite" parent="."]
+position = Vector2( 0, -312 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LloydApartmentHallwayNumbers" type="Sprite" parent="."]
+position = Vector2( 0, -312 )
+texture = ExtResource( 22 )
+
+[node name="LloydApartmentLivingRoom" type="Sprite" parent="."]
+position = Vector2( 8, -824 )
+texture = ExtResource( 6 )
+
+[node name="LloydApartmentBathroom" type="Sprite" parent="."]
+position = Vector2( -140, -1056 )
+texture = ExtResource( 9 )
+
+[node name="LloydApartmentLloydRoom" type="Sprite" parent="."]
+position = Vector2( -400, -1056 )
+texture = ExtResource( 10 )
+
+[node name="LloydApartmentParentRoom" type="Sprite" parent="."]
+position = Vector2( -448, -808 )
+texture = ExtResource( 8 )
+
+[node name="Openable Door" parent="." instance=ExtResource( 14 )]
+position = Vector2( 110, -592 )
+sprite = ExtResource( 13 )
+locked = true
+flag = "lloyd_befriended"
+
+[node name="Openable Door2" parent="." instance=ExtResource( 14 )]
+position = Vector2( -112, -816 )
+sprite = ExtResource( 15 )
+
+[node name="Openable Door3" parent="." instance=ExtResource( 14 )]
+position = Vector2( -192, -816 )
+sprite = ExtResource( 15 )
+
+[node name="interact_dialog2" parent="." instance=ExtResource( 16 )]
+position = Vector2( -338, -1061 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/desk_drawer"
+
+[node name="CollisionShape2D" parent="interact_dialog2" index="0"]
+position = Vector2( 0.5, 3.25 )
+
+[node name="ButtonPrompt" parent="interact_dialog2" index="1"]
+material = SubResource( 13 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog" parent="." instance=ExtResource( 16 )]
+position = Vector2( -453, -1051 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/factory_pass"
+
+[node name="CollisionShape2D" parent="interact_dialog" index="0"]
+position = Vector2( 1.25, 2.75 )
+
+[node name="ButtonPrompt" parent="interact_dialog" index="1"]
+material = SubResource( 14 )
+position = Vector2( 0, -5 )
+scale = Vector2( 0.25, 0.25 )
+offset = Vector2( 0, -20 )
+
+[node name="interact_dialog8" parent="." instance=ExtResource( 16 )]
+position = Vector2( 200, -881 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/tv"
+
+[node name="CollisionShape2D" parent="interact_dialog8" index="0"]
+position = Vector2( 0, 6.25 )
+scale = Vector2( 1.5, 1 )
+
+[node name="ButtonPrompt" parent="interact_dialog8" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog9" parent="." instance=ExtResource( 16 )]
+position = Vector2( -145, -103 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/mail_locker"
+
+[node name="CollisionShape2D" parent="interact_dialog9" index="0"]
+position = Vector2( 0.25, 9.75 )
+
+[node name="ButtonPrompt" parent="interact_dialog9" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog12" parent="." instance=ExtResource( 16 )]
+position = Vector2( -52, -885 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/fridge"
+
+[node name="CollisionShape2D" parent="interact_dialog12" index="0"]
+position = Vector2( 1, 7.25 )
+
+[node name="ButtonPrompt" parent="interact_dialog12" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog11" parent="." instance=ExtResource( 16 )]
+position = Vector2( 48, -873 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/plates"
+
+[node name="CollisionShape2D" parent="interact_dialog11" index="0"]
+position = Vector2( 0, 5.5 )
+
+[node name="ButtonPrompt" parent="interact_dialog11" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog10" parent="." instance=ExtResource( 16 )]
+position = Vector2( 120, -882 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/photo"
+
+[node name="CollisionShape2D" parent="interact_dialog10" index="0"]
+position = Vector2( 0, 8.5 )
+
+[node name="ButtonPrompt" parent="interact_dialog10" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog7" parent="." instance=ExtResource( 16 )]
+position = Vector2( -169, -1065 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/bathtub"
+
+[node name="CollisionShape2D" parent="interact_dialog7" index="0"]
+position = Vector2( -0.25, 4.25 )
+scale = Vector2( 2, 1 )
+
+[node name="ButtonPrompt" parent="interact_dialog7" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog6" parent="." instance=ExtResource( 16 )]
+position = Vector2( -121, -1101 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/mirror"
+
+[node name="CollisionShape2D" parent="interact_dialog6" index="0"]
+position = Vector2( 2.5, 13.25 )
+
+[node name="ButtonPrompt" parent="interact_dialog6" index="1"]
+material = SubResource( 14 )
+position = Vector2( 0, -1.25 )
+scale = Vector2( 0.25, 0.25 )
+offset = Vector2( 0, -5 )
+
+[node name="interact_dialog5" parent="." instance=ExtResource( 16 )]
+position = Vector2( -384, -841 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/bookcase"
+
+[node name="CollisionShape2D" parent="interact_dialog5" index="0"]
+position = Vector2( 0, 6.25 )
+
+[node name="ButtonPrompt" parent="interact_dialog5" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog4" parent="." instance=ExtResource( 16 )]
+position = Vector2( -512, -839 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/closet"
+
+[node name="CollisionShape2D" parent="interact_dialog4" index="0"]
+position = Vector2( 0, 5.75 )
+
+[node name="ButtonPrompt" parent="interact_dialog4" index="1"]
+material = SubResource( 14 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="interact_dialog3" parent="." instance=ExtResource( 16 )]
+position = Vector2( -360, -1063 )
+scale = Vector2( 4, 4 )
+dialog = "Merrysville/Descriptions/LloydsApartment/computer"
+
+[node name="CollisionShape2D" parent="interact_dialog3" index="0"]
+position = Vector2( -4, 3.75 )
+
+[node name="ButtonPrompt" parent="interact_dialog3" index="1"]
+material = SubResource( 14 )
+position = Vector2( 0, -6.25 )
+scale = Vector2( 0.25, 0.25 )
+offset = Vector2( 0, -25 )
+
+[node name="Door NPC" parent="." instance=ExtResource( 17 )]
+position = Vector2( -126, -329 )
+scale = Vector2( 4, 1 )
+dialog = "Merrysville/Descriptions/LloydsApartment/apt_201"
+
+[node name="Door NPC2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 94, -329 )
+scale = Vector2( 4, 1 )
+dialog = "Merrysville/Descriptions/LloydsApartment/apt_202"
+
+[node name="Door NPC3" parent="." instance=ExtResource( 17 )]
+position = Vector2( -126, -585 )
+scale = Vector2( 4, 1 )
+dialog = "Merrysville/Descriptions/LloydsApartment/apt_301"
+
+[node name="Objects" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+cell_y_sort = true
+collision_layer = 573
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -8323098, 182, 0, -6750206, 536871015, 0, -6684650, 92, 0, -6553602, 96, 0, -6488063, 536871015, 0, -6488061, 536871015, 0, -6357059, 152, 0 )
+
+[node name="Phone" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 143, -869 )
+
+[node name="CollisionShape2D" parent="Objects/Phone/interact" index="0"]
+position = Vector2( 1, 11 )
+
+[node name="ButtonPrompt" parent="Objects/Phone/interact" index="1"]
+material = SubResource( 16 )
+
+[node name="npc" parent="Objects" instance=ExtResource( 21 )]
+position = Vector2( 48, -848 )
+sprite = "Lloyd/main"
+appear_flag = "rocket_launched"
+disappear_flag = "lloyd_kitchen"
+initial_dir = Vector2( 0, -1 )
+
+[node name="Above" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -4063269, 14, 2, -4063268, 14, 2, -4063267, 14, 2, -4063266, 14, 2, -4063265, 14, 2, -4063264, 14, 2, -4063263, 14, 2, -4063262, 14, 2, -4063261, 14, 2, -4063260, 14, 2, -4063259, 14, 2, -4063258, 14, 2, -4063257, 14, 2, -4063256, 14, 327682, -4063254, 14, 262146, -4063253, 14, 2, -4063252, 14, 2, -4063251, 14, 2, -4063250, 14, 2, -4063249, 14, 2, -4063248, 14, 2, -4063247, 14, 2, -4063246, 14, 2, -4063245, 14, 2, -4063244, 14, 2, -4063243, 14, 2, -4063242, 14, 2, -4063241, 14, 393216, -4063240, 14, 393217, -4063239, 14, 458752, -4063238, 14, 458753, -4063237, 14, 2, -4063236, 14, 2, -4063235, 14, 2, -4063234, 14, 2, -4063233, 14, 2, -4128768, 14, 2, -4128767, 14, 2, -3997733, 14, 2, -3997732, 14, 2, -3997731, 14, 2, -3997730, 14, 2, -3997729, 14, 2, -3997728, 14, 2, -3997727, 14, 2, -3997726, 14, 2, -3997725, 14, 2, -3997724, 14, 2, -3997723, 14, 2, -3997722, 14, 2, -3997721, 14, 2, -3997720, 14, 2, -3997719, 14, 2, -3997718, 14, 2, -3997717, 14, 2, -3997716, 14, 2, -3997715, 14, 2, -3997714, 14, 2, -3997713, 14, 2, -3997712, 14, 2, -3997711, 14, 2, -3997710, 14, 2, -3997709, 14, 2, -3997708, 14, 2, -3997707, 14, 2, -3997706, 14, 2, -3997705, 14, 2, -3997704, 14, 2, -3997703, 14, 2, -3997702, 14, 2, -3997701, 14, 2, -3997700, 14, 2, -3997699, 14, 2, -3997698, 14, 2, -3997697, 14, 2, -4063232, 14, 2, -4063231, 14, 2, -3932197, 14, 2, -3932196, 14, 2, -3932195, 14, 2, -3932194, 14, 2, -3932193, 14, 2, -3932192, 14, 2, -3932191, 14, 2, -3932190, 14, 2, -3932189, 14, 2, -3932188, 14, 2, -3932187, 14, 2, -3932186, 14, 2, -3932185, 14, 2, -3932184, 14, 2, -3932183, 14, 2, -3932182, 14, 2, -3932181, 14, 2, -3932180, 14, 2, -3932179, 14, 2, -3932178, 14, 2, -3932177, 14, 2, -3932176, 14, 2, -3932175, 14, 2, -3932174, 14, 2, -3932173, 14, 2, -3932172, 14, 2, -3932171, 14, 2, -3932170, 14, 2, -3932169, 14, 2, -3932168, 14, 2, -3932167, 14, 2, -3932166, 14, 2, -3932165, 14, 2, -3932164, 14, 2, -3932163, 14, 2, -3932162, 14, 2, -3932161, 14, 2, -3997696, 14, 2, -3997695, 14, 2, -3866661, 14, 2, -3866660, 14, 2, -3866659, 14, 2, -3866658, 14, 2, -3866657, 14, 2, -3866656, 14, 2, -3866655, 14, 2, -3866654, 14, 2, -3866653, 14, 2, -3866652, 14, 2, -3866651, 14, 2, -3866650, 14, 2, -3866649, 14, 2, -3866648, 14, 2, -3866647, 14, 2, -3866646, 14, 2, -3866645, 14, 2, -3866644, 14, 2, -3866643, 14, 2, -3866642, 14, 2, -3866641, 14, 2, -3866640, 14, 2, -3866639, 14, 2, -3866638, 14, 2, -3866637, 14, 2, -3866636, 14, 2, -3866635, 14, 2, -3866634, 14, 2, -3866633, 14, 2, -3866632, 14, 2, -3866631, 14, 2, -3866630, 14, 2, -3866629, 14, 2, -3866628, 14, 2, -3866627, 14, 2, -3866626, 14, 2, -3866625, 14, 2, -3932160, 14, 2, -3932159, 14, 2, -3014675, 14, 2, -3014674, 14, 2, -3014673, 14, 2, -3014672, 14, 2, -3014671, 14, 2, -3014670, 14, 2, -3014669, 14, 2, -3014668, 14, 2, -3014667, 14, 2, -3014666, 14, 2, -3014665, 14, 2, -3014664, 14, 2, -3014663, 14, 2, -3014662, 14, 2, -3014661, 14, 2, -3014660, 14, 2, -3014659, 14, 2, -3014658, 14, 2, -3014657, 14, 2, -3080192, 14, 2, -3080191, 14, 2, -3080190, 14, 2, -3080189, 14, 2, -3080188, 14, 2, -3080187, 14, 393216, -3080186, 14, 393217, -3080185, 14, 458752, -3080184, 14, 458753, -3080183, 14, 2, -3080182, 14, 2, -3080181, 14, 2, -3080180, 14, 2, -3080179, 14, 2, -3080178, 14, 2, -3080177, 14, 2, -3080176, 14, 2, -3080175, 14, 2, -3080174, 14, 2, -3080173, 14, 2, -3080172, 14, 2, -3080171, 14, 2, -3080170, 14, 2, -2949160, 14, 2, -2949159, 14, 2, -2949158, 14, 2, -2949157, 14, 2, -2949156, 14, 2, -2949155, 14, 2, -2949154, 14, 2, -2949153, 14, 2, -2949152, 14, 2, -2949151, 14, 2, -2949150, 14, 2, -2949149, 14, 2, -2949148, 14, 2, -2949147, 14, 2, -2949146, 14, 2, -2949145, 14, 2, -2949144, 14, 2, -2949143, 14, 2, -2949142, 14, 2, -2949141, 14, 2, -2949140, 14, 2, -2949139, 14, 2, -2949138, 14, 2, -2949137, 14, 2, -2949136, 14, 2, -2949135, 14, 2, -2949134, 14, 2, -2949133, 14, 2, -2949132, 14, 2, -2949131, 14, 2, -2949130, 14, 2, -2949129, 14, 2, -2949128, 14, 2, -2949127, 14, 2, -2949126, 14, 2, -2949125, 14, 2, -2949124, 14, 2, -2949123, 14, 2, -2949122, 14, 2, -2949121, 14, 2, -3014656, 14, 2, -3014655, 14, 2, -3014654, 14, 2, -3014653, 14, 2, -3014652, 14, 2, -3014651, 14, 2, -3014650, 14, 2, -3014649, 14, 2, -3014648, 14, 2, -3014647, 14, 2, -3014646, 14, 2, -3014645, 14, 2, -3014644, 14, 2, -3014643, 14, 2, -3014642, 14, 2, -3014641, 14, 2, -3014640, 14, 2, -3014639, 14, 2, -3014638, 14, 2, -3014637, 14, 2, -3014636, 14, 2, -3014635, 14, 2, -3014634, 14, 2, -2883624, 14, 2, -2883623, 14, 2, -2883622, 14, 2, -2883621, 14, 2, -2883620, 14, 2, -2883619, 14, 2, -2883618, 14, 2, -2883617, 14, 2, -2883616, 14, 2, -2883615, 14, 2, -2883614, 14, 2, -2883613, 14, 2, -2883612, 14, 2, -2883611, 14, 2, -2883610, 14, 2, -2883609, 14, 2, -2883608, 14, 2, -2883607, 14, 2, -2883606, 14, 2, -2883605, 14, 2, -2883604, 14, 2, -2883603, 14, 2, -2883602, 14, 2, -2883601, 14, 2, -2883600, 14, 2, -2883599, 14, 2, -2883598, 14, 2, -2883597, 14, 2, -2883596, 14, 2, -2883595, 14, 2, -2883594, 14, 2, -2883593, 14, 2, -2883592, 14, 2, -2883591, 14, 2, -2883590, 14, 2, -2883589, 14, 2, -2883588, 14, 2, -2883587, 14, 2, -2883586, 14, 2, -2883585, 14, 2, -2949120, 14, 2, -2949119, 14, 2, -2949118, 14, 2, -2949117, 14, 2, -2949116, 14, 2, -2949115, 14, 2, -2949114, 14, 2, -2949113, 14, 2, -2949112, 14, 2, -2949111, 14, 2, -2949110, 14, 2, -2949109, 14, 2, -2949108, 14, 2, -2949107, 14, 2, -2949106, 14, 2, -2949105, 14, 2, -2949104, 14, 2, -2949103, 14, 2, -2949102, 14, 2, -2949101, 14, 2, -2949100, 14, 2, -2949099, 14, 2, -2949098, 14, 2, -2818088, 14, 2, -2818087, 14, 2, -2818086, 14, 2, -2818085, 14, 2, -2818084, 14, 2, -2818083, 14, 2, -2818082, 14, 2, -2818081, 14, 2, -2818080, 14, 2, -2818079, 14, 2, -2818078, 14, 2, -2818077, 14, 2, -2818076, 14, 2, -2818075, 14, 2, -2818074, 14, 2, -2818073, 14, 2, -2818072, 14, 2, -2818071, 14, 2, -2818070, 14, 2, -2818069, 14, 2, -2818068, 14, 2, -2818067, 14, 2, -2818066, 14, 2, -2818065, 14, 2, -2818064, 14, 2, -2818063, 14, 2, -2818062, 14, 2, -2818061, 14, 2, -2818060, 14, 2, -2818059, 14, 2, -2818058, 14, 2, -2818057, 14, 2, -2818056, 14, 2, -2818055, 14, 2, -2818054, 14, 2, -2818053, 14, 2, -2818052, 14, 2, -2818051, 14, 2, -2818050, 14, 2, -2818049, 14, 2, -2883584, 14, 2, -2883583, 14, 2, -2883582, 14, 2, -2883581, 14, 2, -2883580, 14, 2, -2883579, 14, 2, -2883578, 14, 2, -2883577, 14, 2, -2883576, 14, 2, -2883575, 14, 2, -2883574, 14, 2, -2883573, 14, 2, -2883572, 14, 2, -2883571, 14, 2, -2883570, 14, 2, -2883569, 14, 2, -2883568, 14, 2, -2883567, 14, 2, -2883566, 14, 2, -2883565, 14, 2, -2883564, 14, 2, -2883563, 14, 2, -2883562, 14, 2, -2752552, 14, 2, -2752551, 14, 2, -2752550, 14, 2, -2752549, 14, 2, -2752548, 14, 2, -2752547, 14, 2, -2752546, 14, 2, -2752545, 14, 2, -2752544, 14, 2, -2752543, 14, 2, -2752542, 14, 2, -2752541, 14, 2, -2752540, 14, 2, -2752539, 14, 2, -2752538, 14, 2, -2752537, 14, 2, -2752536, 14, 2, -2752535, 14, 2, -2752534, 14, 2, -2752533, 14, 2, -2752532, 14, 2, -2752531, 14, 2, -2031632, 14, 2, -2031631, 14, 2, -2031630, 14, 2, -2031629, 14, 2, -2031628, 14, 2, -2031627, 14, 2, -2031626, 14, 2, -2031625, 14, 2, -2031624, 14, 2, -2031623, 14, 2, -2031622, 14, 2, -2031621, 14, 2, -2031620, 14, 2, -2031619, 14, 393216, -2097150, 14, 458753, -2097149, 14, 2, -2097148, 14, 2, -2097147, 14, 2, -2097146, 14, 2, -2097145, 14, 2, -2097144, 14, 2, -2097143, 14, 2, -2097142, 14, 2, -2097141, 14, 2, -2097140, 14, 2, -2097139, 14, 2, -2097138, 14, 2, -2097137, 14, 2, -1966096, 14, 2, -1966095, 14, 2, -1966094, 14, 2, -1966093, 14, 2, -1966092, 14, 2, -1966091, 14, 2, -1966090, 14, 2, -1966089, 14, 2, -1966088, 14, 2, -1966087, 14, 2, -1966086, 14, 2, -1966085, 14, 2, -1966084, 14, 2, -1966083, 14, 2, -2031614, 14, 2, -2031613, 14, 2, -2031612, 14, 2, -2031611, 14, 2, -2031610, 14, 2, -2031609, 14, 2, -2031608, 14, 2, -2031607, 14, 2, -2031606, 14, 2, -2031605, 14, 2, -2031604, 14, 2, -2031603, 14, 2, -2031602, 14, 2, -2031601, 14, 2, -1900560, 14, 2, -1900559, 14, 2, -1900558, 14, 2, -1900557, 14, 2, -1900556, 14, 2, -1900555, 14, 2, -1900554, 14, 2, -1900553, 14, 2, -1900552, 14, 2, -1900551, 14, 2, -1900550, 14, 2, -1900549, 14, 2, -1900548, 14, 2, -1900547, 14, 2, -1900546, 14, 2, -1900545, 14, 2, -1966080, 14, 2, -1966079, 14, 2, -1966078, 14, 2, -1966077, 14, 2, -1966076, 14, 2, -1966075, 14, 2, -1966074, 14, 2, -1966073, 14, 2, -1966072, 14, 2, -1966071, 14, 2, -1966070, 14, 2, -1966069, 14, 2, -1966068, 14, 2, -1966067, 14, 2, -1966066, 14, 2, -1966065, 14, 2, -1835024, 14, 2, -1835023, 14, 2, -1835022, 14, 2, -1835021, 14, 2, -1835020, 14, 2, -1835019, 14, 2, -1835018, 14, 2, -1835017, 14, 2, -1835016, 14, 2, -1835015, 14, 2, -1835014, 14, 2, -1835013, 14, 2, -1835012, 14, 2, -1835011, 14, 2, -1835010, 14, 2, -1835009, 14, 2, -1900544, 14, 2, -1900543, 14, 2, -1900542, 14, 2, -1900541, 14, 2, -1900540, 14, 2, -1900539, 14, 2, -1900538, 14, 2, -1900537, 14, 2, -1900536, 14, 2, -1900535, 14, 2, -1900534, 14, 2, -1900533, 14, 2, -1900532, 14, 2, -1900531, 14, 2, -1900530, 14, 2, -1900529, 14, 2, -983056, 14, 2, -983055, 14, 2, -983054, 14, 2, -983053, 14, 2, -983052, 14, 2, -983051, 14, 2, -983050, 14, 2, -983049, 14, 2, -983048, 14, 2, -983047, 14, 2, -983046, 14, 2, -983045, 14, 2, -983044, 14, 2, -983043, 14, 393216, -1048574, 14, 458753, -1048573, 14, 2, -1048572, 14, 2, -1048571, 14, 2, -1048570, 14, 2, -1048569, 14, 2, -1048568, 14, 2, -1048567, 14, 2, -1048566, 14, 2, -1048565, 14, 2, -1048564, 14, 2, -1048563, 14, 2, -1048562, 14, 2, -1048561, 14, 2, -917520, 14, 2, -917519, 14, 2, -917518, 14, 2, -917517, 14, 2, -917516, 14, 2, -917515, 14, 2, -917514, 14, 2, -917513, 14, 2, -917512, 14, 2, -917511, 14, 2, -917510, 14, 2, -917509, 14, 2, -917508, 14, 2, -917507, 14, 2, -983038, 14, 2, -983037, 14, 2, -983036, 14, 2, -983035, 14, 2, -983034, 14, 2, -983033, 14, 2, -983032, 14, 2, -983031, 14, 2, -983030, 14, 2, -983029, 14, 2, -983028, 14, 2, -983027, 14, 2, -983026, 14, 2, -983025, 14, 2, -851984, 14, 2, -851983, 14, 2, -851982, 14, 2, -851981, 14, 2, -851980, 14, 2, -851979, 14, 2, -851978, 14, 2, -851977, 14, 2, -851976, 14, 2, -851975, 14, 2, -851974, 14, 2, -851973, 14, 2, -851972, 14, 2, -851971, 14, 2, -851970, 14, 2, -851969, 14, 2, -917504, 14, 2, -917503, 14, 2, -917502, 14, 2, -917501, 14, 2, -917500, 14, 2, -917499, 14, 2, -917498, 14, 2, -917497, 14, 2, -917496, 14, 2, -917495, 14, 2, -917494, 14, 2, -917493, 14, 2, -917492, 14, 2, -917491, 14, 2, -917490, 14, 2, -917489, 14, 2, -786448, 14, 2, -786447, 14, 2, -786446, 14, 2, -786445, 14, 2, -786444, 14, 2, -786443, 14, 2, -786442, 14, 2, -786441, 14, 2, -786440, 14, 2, -786439, 14, 2, -786438, 14, 2, -786437, 14, 2, -786436, 14, 2, -786435, 14, 2, -786434, 14, 2, -786433, 14, 2, -851968, 14, 2, -851967, 14, 2, -851966, 14, 2, -851965, 14, 2, -851964, 14, 2, -851963, 14, 2, -851962, 14, 2, -851961, 14, 2, -851960, 14, 2, -851959, 14, 2, -851958, 14, 2, -851957, 14, 2, -851956, 14, 2, -851955, 14, 2, -851954, 14, 2, -851953, 14, 2, 65520, 14, 2, 65521, 14, 2, 65522, 14, 2, 65523, 14, 2, 65524, 14, 2, 65525, 14, 2, 65526, 14, 2, 65527, 14, 2, 65528, 14, 2, 65529, 14, 2, 65530, 14, 2, 65531, 14, 2, 65532, 14, 2, 65533, 14, 393216, 65534, 14, 327682, 1, 14, 262146, 2, 14, 458753, 3, 14, 2, 4, 14, 2, 5, 14, 2, 6, 14, 2, 7, 14, 2, 8, 14, 2, 9, 14, 2, 10, 14, 2, 11, 14, 2, 12, 14, 2, 13, 14, 2, 14, 14, 2, 15, 14, 2, 131056, 14, 2, 131057, 14, 2, 131058, 14, 2, 131059, 14, 2, 131060, 14, 2, 131061, 14, 2, 131062, 14, 2, 131063, 14, 2, 131064, 14, 2, 131065, 14, 2, 131066, 14, 2, 131067, 14, 2, 131068, 14, 2, 131069, 14, 2, 131070, 14, 2, 131071, 14, 2, 65536, 14, 2, 65537, 14, 2, 65538, 14, 2, 65539, 14, 2, 65540, 14, 2, 65541, 14, 2, 65542, 14, 2, 65543, 14, 2, 65544, 14, 2, 65545, 14, 2, 65546, 14, 2, 65547, 14, 2, 65548, 14, 2, 65549, 14, 2, 65550, 14, 2, 65551, 14, 2, 196592, 14, 2, 196593, 14, 2, 196594, 14, 2, 196595, 14, 2, 196596, 14, 2, 196597, 14, 2, 196598, 14, 2, 196599, 14, 2, 196600, 14, 2, 196601, 14, 2, 196602, 14, 2, 196603, 14, 2, 196604, 14, 2, 196605, 14, 2, 196606, 14, 2, 196607, 14, 2, 131072, 14, 2, 131073, 14, 2, 131074, 14, 2, 131075, 14, 2, 131076, 14, 2, 131077, 14, 2, 131078, 14, 2, 131079, 14, 2, 131080, 14, 2, 131081, 14, 2, 131082, 14, 2, 131083, 14, 2, 131084, 14, 2, 131085, 14, 2, 131086, 14, 2, 131087, 14, 2, 262128, 14, 2, 262129, 14, 2, 262130, 14, 2, 262131, 14, 2, 262132, 14, 2, 262133, 14, 2, 262134, 14, 2, 262135, 14, 2, 262136, 14, 2, 262137, 14, 2, 262138, 14, 2, 262139, 14, 2, 262140, 14, 2, 262141, 14, 2, 262142, 14, 2, 262143, 14, 2, 196608, 14, 2, 196609, 14, 2, 196610, 14, 2, 196611, 14, 2, 196612, 14, 2, 196613, 14, 2, 196614, 14, 2, 196615, 14, 2, 196616, 14, 2, 196617, 14, 2, 196618, 14, 2, 196619, 14, 2, 196620, 14, 2, 196621, 14, 2, 196622, 14, 2, 196623, 14, 2 )
+
+[node name="HotelHallwayRails" type="Sprite" parent="."]
+position = Vector2( 0, -248 )
+texture = ExtResource( 4 )
+
+[node name="HotelHallwayRails2" type="Sprite" parent="."]
+position = Vector2( 0, -504 )
+texture = ExtResource( 4 )
+
+[node name="Camareas" type="Node2D" parent="."]
+visible = false
+
+[node name="camarea" parent="Camareas" instance=ExtResource( 1 )]
+
+[node name="CollisionShape2D" parent="Camareas/camarea" index="0"]
+position = Vector2( 0, -48 )
+shape = SubResource( 1 )
+
+[node name="camarea2" parent="Camareas" instance=ExtResource( 1 )]
+position = Vector2( 0, -256 )
+
+[node name="CollisionShape2D" parent="Camareas/camarea2" index="0"]
+position = Vector2( 0, -48 )
+shape = SubResource( 2 )
+
+[node name="camarea3" parent="Camareas" instance=ExtResource( 1 )]
+position = Vector2( 0, -512 )
+
+[node name="CollisionShape2D" parent="Camareas/camarea3" index="0"]
+position = Vector2( 0, -48 )
+shape = SubResource( 2 )
+
+[node name="camarea4" parent="Camareas" instance=ExtResource( 1 )]
+position = Vector2( -16, -784 )
+
+[node name="CollisionShape2D" parent="Camareas/camarea4" index="0"]
+position = Vector2( 24, -36 )
+shape = SubResource( 3 )
+
+[node name="camarea5" parent="Camareas" instance=ExtResource( 1 )]
+position = Vector2( -136, -1040 )
+
+[node name="CollisionShape2D" parent="Camareas/camarea5" index="0"]
+position = Vector2( -8, -16 )
+shape = SubResource( 4 )
+
+[node name="camarea6" parent="Camareas" instance=ExtResource( 1 )]
+position = Vector2( -400, -1040 )
+
+[node name="CollisionShape2D" parent="Camareas/camarea6" index="0"]
+position = Vector2( -8, -16 )
+shape = SubResource( 4 )
+
+[node name="camarea7" parent="Camareas" instance=ExtResource( 1 )]
+position = Vector2( -448, -792 )
+
+[node name="CollisionShape2D" parent="Camareas/camarea7" index="0"]
+position = Vector2( -8, -16 )
+shape = SubResource( 17 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 1597
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -24, 16, -24, 48, -208, 48, -208, -144, 208, -144, 208, 48, -24, 48, -24, 32, 24, 32, 24, 16, 184, 16, 176, -56, 156, -56, 156, -64, 128, -64, 128, -65, 96, -65, 96, -64, 64, -64, 64, -56, 48, -56, 48, -64, 24, -64, 24, -80, -24, -80, -24, -64, -48, -64, -48, -56, -160, -56, -160, -48, -176, -48, -184, 16 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, -256 )
+polygon = PoolVector2Array( -28, 0, -28, 56, -208, 56, -208, -144, 208, -144, 208, 56, -28, 56, -28, 40, 28, 40, 28, 0, 36, 0, 36, 16, 184, 16, 172, -56, 152, -56, 152, -64, 124, -64, 124, -65, 96, -65, 96, -64, 64, -64, 64, -56, 48, -56, 48, -64, 24, -64, 24, -80, -24, -80, -24, -64, -48, -64, -48, -56, -64, -56, -64, -64, -96, -64, -96, -65, -124, -65, -124, -64, -152, -64, -152, -56, -172, -56, -184, 16, -36, 16, -36, 0 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, -512 )
+polygon = PoolVector2Array( -28, 56, -208, 56, -208, -144, 208, -144, 208, 56, -28, 56, -28, 40, 28, 40, 28, 0, 36, 0, 36, 16, 184, 16, 172, -56, 152, -56, 152, -64, 124, -64, 124, -72, 96, -72, 96, -64, 64, -64, 64, -56, 48, -56, 48, -64, 20, -64, 20, -56, -20, -56, -20, -64, -48, -64, -48, -56, -64, -56, -64, -64, -96, -64, -96, -65, -124, -65, -124, -64, -152, -64, -152, -56, -172, -56, -184, 16, -36, 16, -36, 0, -28, 0 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 68, -752 )
+polygon = PoolVector2Array( 28, 48, -332, 48, -332, -176, 196, -176, 204, 48, 28, 48, 28, 32, 60, 32, 60, 16, 188, 16, 172, -96, 116, -96, 116, -104, 84, -104, 84, -96, 68, -96, 68, -88, 36, -88, 36, -96, -132, -96, -132, -48, -164, -48, -164, -56, -196, -56, -196, -48, -204, -48, -204, -40, -236, -40, -236, -48, -244, -48, -244, -56, -276, -56, -276, -48, -308, -48, -316, 16, 28, 16 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -152, -1008 )
+polygon = PoolVector2Array( 56, 16, 80, 16, 72, -32, 40, -32, 40, -48, 8, -48, 8, -32, -48, -32, -48, -16, -24, -16, -24, 0, -56, 0, -56, 16, 24, 16, 24, 32, 56, 32, 56, 48, -72, 48, -72, -112, 96, -112, 96, 48, 56, 48 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -400, -1008 )
+polygon = PoolVector2Array( 56, 16, 80, 16, 72, -32, 48, -32, 48, -20, 32, -20, 32, -32, 16, -32, 16, -48, -16, -48, -16, -40, -36, -40, -40, -16, -72, -16, -76, 16, 24, 16, 24, 32, 56, 32, 56, 48, -96, 48, -96, -112, 96, -112, 96, 48, 56, 48 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -468, -740 )
+polygon = PoolVector2Array( 116, 20, 100, -64, 52, -64, 52, -28, -12, -28, -12, -76, -28, -76, -28, -64, -60, -64, -76, 20, 116, 20, 116, 48, -96, 48, -96, -140, 128, -140, 132, 48, 116, 48 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -24, 24 )
+scale = Vector2( 6, 1 )
+targetX = 408
+targetY = -392
+dir = Vector2( 0, 1 )
+sound = "M3/door_open.wav"
+targetScene = "Merrysville/Merrysville"
+flag_set = "good_morning"
+set_flag_state = false
+
+[node name="Door2" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -24, -80 )
+scale = Vector2( 6, 1 )
+sound = "Stairs_Up.mp3"
+
+[node name="Position2D" parent="Doors/Door2" index="1"]
+position = Vector2( 4, -160 )
+
+[node name="Door3" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -28, -232 )
+scale = Vector2( 7, 1 )
+sound = "Stairs_Down.mp3"
+
+[node name="CollisionShape2D" parent="Doors/Door3" index="0"]
+position = Vector2( 4, 20 )
+
+[node name="Position2D" parent="Doors/Door3" index="1"]
+position = Vector2( 4, 168 )
+
+[node name="Door4" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -24, -336 )
+scale = Vector2( 6, 1 )
+sound = "Stairs_Up.mp3"
+
+[node name="Position2D" parent="Doors/Door4" index="1"]
+position = Vector2( 4, -160 )
+
+[node name="Door5" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -28, -488 )
+scale = Vector2( 7, 1 )
+sound = "Stairs_Down.mp3"
+
+[node name="CollisionShape2D" parent="Doors/Door5" index="0"]
+position = Vector2( 4, 20 )
+
+[node name="Position2D" parent="Doors/Door5" index="1"]
+position = Vector2( 4, 168 )
+
+[node name="Door6" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( 96, -728 )
+scale = Vector2( 4, 1 )
+sound = "M3/door_open.wav"
+
+[node name="Position2D" parent="Doors/Door6" index="1"]
+position = Vector2( 4, 160 )
+
+[node name="Door7" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( 96, -585 )
+scale = Vector2( 4, 1 )
+end_sound = "Door_Short.mp3"
+
+[node name="Position2D" parent="Doors/Door7" index="1"]
+position = Vector2( 4, -151 )
+
+[node name="Door8" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -128, -809 )
+scale = Vector2( 4, 1 )
+end_sound = "Door_Short.mp3"
+
+[node name="Position2D" parent="Doors/Door8" index="1"]
+position = Vector2( 4, -183 )
+
+[node name="Door9" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -208, -809 )
+scale = Vector2( 4, 1 )
+end_sound = "Door_Short.mp3"
+
+[node name="Position2D" parent="Doors/Door9" index="1"]
+position = Vector2( -38, -183 )
+
+[node name="Door10" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -376, -984 )
+scale = Vector2( 4, 1 )
+sound = "M3/door_open.wav"
+
+[node name="Position2D" parent="Doors/Door10" index="1"]
+position = Vector2( 46, 192 )
+
+[node name="Door11" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -128, -984 )
+scale = Vector2( 4, 1 )
+sound = "M3/door_open.wav"
+
+[node name="Position2D" parent="Doors/Door11" index="1"]
+position = Vector2( 4, 192 )
+
+[node name="Door12" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -248, -784 )
+scale = Vector2( 1, 4 )
+
+[node name="Position2D" parent="Doors/Door12" index="1"]
+position = Vector2( -124, 6 )
+
+[node name="Door13" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -365, -784 )
+scale = Vector2( 1, 4 )
+
+[node name="CollisionShape2D" parent="Doors/Door13" index="0"]
+position = Vector2( 5, 4 )
+
+[node name="Position2D" parent="Doors/Door13" index="1"]
+position = Vector2( 133, 6 )
+
+[node name="MusicArea" parent="." instance=ExtResource( 19 )]
+visible = false
+position = Vector2( -319, -943 )
+loop = "House.mp3"
+disappear_flag = "good_morning"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea"]
+position = Vector2( 181.5, 33 )
+shape = SubResource( 18 )
+
+[node name="MusicArea2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 332, -1313 )
+rotation = 1.5708
+loop = "Good_Morning.mp3"
+appear_flag = "good_morning"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea2"]
+position = Vector2( 632.501, 404 )
+shape = SubResource( 19 )
+
+[node name="MusicArea3" parent="." instance=ExtResource( 19 )]
+position = Vector2( -248, -479 )
+loop = "Town Hall.mp3"
+appear_flag = "lloyd_befriended"
+disappear_flag = "good_morning"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea3"]
+position = Vector2( 181.5, 247.5 )
+shape = SubResource( 20 )
+
+[node name="SteppingSounds" type="Node2D" parent="."]
+
+[node name="Stone" parent="SteppingSounds" instance=ExtResource( 11 )]
+visible = false
+entering_sound = "stone"
+exiting_sound = "wood"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SteppingSounds/Stone"]
+position = Vector2( 0, -304 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SteppingSounds/Stone"]
+position = Vector2( -140, -1056 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="SteppingSounds/Stone"]
+position = Vector2( -400, -1056 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="SteppingSounds/Stone"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="SteppingSounds/Stone"]
+position = Vector2( -448, -808 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SteppingSounds/Stone"]
+position = Vector2( 200, -828 )
+shape = SubResource( 12 )
+
+[node name="Cutscene Area" parent="." instance=ExtResource( 20 )]
+position = Vector2( -72, -800 )
+scale = Vector2( 2, 8 )
+dialog = "Merrysville/Cutscenes/LloydKitchen"
+appear_flag = "rocket_launched"
+disappear_flag = "lloyd_kitchen"
+
+[editable path="interact_dialog2"]
+[editable path="interact_dialog"]
+[editable path="interact_dialog8"]
+[editable path="interact_dialog9"]
+[editable path="interact_dialog12"]
+[editable path="interact_dialog11"]
+[editable path="interact_dialog10"]
+[editable path="interact_dialog7"]
+[editable path="interact_dialog6"]
+[editable path="interact_dialog5"]
+[editable path="interact_dialog4"]
+[editable path="interact_dialog3"]
+[editable path="Objects/Phone"]
+[editable path="Camareas/camarea"]
+[editable path="Camareas/camarea2"]
+[editable path="Camareas/camarea3"]
+[editable path="Camareas/camarea4"]
+[editable path="Camareas/camarea5"]
+[editable path="Camareas/camarea6"]
+[editable path="Camareas/camarea7"]
+[editable path="Doors/Door2"]
+[editable path="Doors/Door3"]
+[editable path="Doors/Door4"]
+[editable path="Doors/Door5"]
+[editable path="Doors/Door6"]
+[editable path="Doors/Door7"]
+[editable path="Doors/Door8"]
+[editable path="Doors/Door9"]
+[editable path="Doors/Door10"]
+[editable path="Doors/Door11"]
+[editable path="Doors/Door12"]
+[editable path="Doors/Door13"]
+[editable path="MusicArea"]
+[editable path="MusicArea2"]
+[editable path="MusicArea3"]

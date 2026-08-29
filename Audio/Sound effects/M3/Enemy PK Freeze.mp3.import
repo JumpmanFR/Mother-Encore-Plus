@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Enemy PK Freeze.mp3-9f857d85555e8ada7ba68b2e82e2637c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/M3/Enemy PK Freeze.mp3"
+dest_files=[ "res://.import/Enemy PK Freeze.mp3-9f857d85555e8ada7ba68b2e82e2637c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

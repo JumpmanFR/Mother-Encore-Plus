@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1302 - Enemy Uses Fire Attack.mp3-79e93e9ce1d5622b2f965535c78f3136.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/M3/1302 - Enemy Uses Fire Attack.mp3"
+dest_files=[ "res://.import/1302 - Enemy Uses Fire Attack.mp3-79e93e9ce1d5622b2f965535c78f3136.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

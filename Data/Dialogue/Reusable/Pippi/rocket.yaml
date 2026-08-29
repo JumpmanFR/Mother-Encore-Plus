@@ -1,0 +1,50 @@
+"0":
+  actors:
+    pippi: talker
+    lloyd: lloyd
+  actorsturn:
+    pippi:
+      actor: lloyd
+    lloyd:
+      actor: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_ROCKET_0
+  sound: Kid
+  goto: "1"
+"1":
+  talker: lloyd
+  name: "[Lloyd]"
+  text: DIALOGUE_REUSABLE_PIPPI_ROCKET_1
+  sound: Shy
+  goto: "2"
+"2":
+  talker: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_ROCKET_2
+  sound: Kid
+  goto: "3"
+"3":
+  talker: pippi
+  talkeremote: heart
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_ROCKET_3
+  sound: Kid
+  goto: "4"
+"4":
+  talker: lloyd
+  name: "[Lloyd]"
+  text: DIALOGUE_REUSABLE_PIPPI_ROCKET_4
+  sound: Shy
+  goto: "5"
+"5":
+  talker: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_ROCKET_5
+  sound: Kid
+  goto: "6"
+"6":
+  talker: lloyd
+  name: "[Lloyd]"
+  text: DIALOGUE_REUSABLE_PIPPI_ROCKET_6
+  sound: Shy
+  setflags: pippi_rocket

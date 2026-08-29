@@ -1,0 +1,16 @@
+'0':
+  if:
+    flags:
+      got_factory_pass: true
+    goto: '3'
+  goto: '1'
+'1':
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_FACTORYPASS_0
+  goto: '2'
+'2':
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_FACTORYPASS_1
+  item: FactoryPass
+  soundeffect: Item Received.mp3
+  setflags: got_factory_pass
+'3':
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_FACTORYPASS_2

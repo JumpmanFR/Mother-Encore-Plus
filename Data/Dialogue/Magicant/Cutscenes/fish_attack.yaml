@@ -1,0 +1,220 @@
+"0":
+  if:
+    haspartymembers:
+      flyingman: true
+    goto: "with_flyingman"
+  goto: "no_flyingman"
+"with_flyingman":
+  actors:
+    fish: Objects/npc2
+    player: leader
+    flyingman: flyingman
+  actorsmove:
+    flyingman:
+      movement:
+        - x: 887
+          y: 275
+        - x: 887
+          y: 255
+        - turnto:
+            x: 1
+            y: 0
+      type: position
+      speed: 95
+      animation: Walk
+  text: DIALOGUE_ITEMDIALOGUE_ITEMCHECK_0
+  soundeffect: Item Received.mp3
+  goto: "fishAlarm"
+"no_flyingman":
+  actors:
+    fish: Objects/npc2
+    player: leader
+  text: DIALOGUE_ITEMDIALOGUE_ITEMCHECK_0
+  soundeffect: Item Received.mp3
+  goto: "fishAlarm"
+"fishAlarm":
+  changecam: null
+  musicvolume: -50
+  actorsemote:
+    player: surprise
+  actorsmove:
+    player:
+      movement:
+        - jump:
+            height: 8
+            async: true
+        - setdir:
+            x: 0
+            y: 1
+        - x: 904
+          y: 260
+        - setdir:
+            x: 0
+            y: 1
+      speed: 400
+      type: position
+    flyingman:
+      movement:
+        - jump:
+            height: 8
+            async: true
+        - setdir:
+            x: 0
+            y: 1
+      speed: 400
+      type: position
+  name: DIALOGUE_MAGICANT_FISH_SPEAKER
+  text: DIALOGUE_MAGICANT_FISH_0
+  sound: Strange
+  goto: "fishNotice"
+"fishNotice":
+  showbox: false
+  changecam: fish
+  movecam:
+    y: 312
+    length: 0.4
+  teleportactors:
+    fish:
+      x: 904
+      y: 328
+  actorsdir:
+    fish:
+      x: 0
+      y: -1
+  autowait: 1.2
+  goto: "fishYap"
+"fishYap":
+  name: DIALOGUE_MAGICANT_FISH_SPEAKER
+  text: DIALOGUE_MAGICANT_FISH_1
+  sound: Strange
+  goto: "fishBump"
+"fishBump":
+  showbox: false
+  actorsmove:
+    fish:
+      movement:
+        - jump:
+            height: 8
+            times: 2
+        - wait: 0.2
+        - x: 904
+          y: 264
+      speed: 200
+      type: position
+  autowait: 1.2
+  goto: "itemFlyAway"
+"itemFlyAway":
+  soundeffect: bash.mp3
+  movecam:
+    x: 920
+    y: 264
+    length: 0.5
+  actorsshake:
+    player:
+      x: 2
+      y: 0
+      length: 0.4
+  actorsmove:
+    fish:
+      movement:
+        - jump:
+            height: 8
+            async: true
+        - x: 0
+          y: 8
+      speed: 128
+      type: step
+      moonwalk: true
+    player:
+      movement:
+        - jump:
+            height: 8
+            async: true
+        - x: 0
+          y: -8
+      speed: 128
+      type: step
+      moonwalk: true
+  objectsteleport:
+    Objects/Item2:
+      x: 904
+      y: 264
+  tweenpos:
+    Objects/Item2:
+      x: 952
+      y: 256
+      duration: 0.4
+      ease: out
+  autowait: 0.4
+  goto: "itemFall"
+"itemFall":
+  actorsturn:
+    fish:
+      x: 1
+      y: 0
+    player:
+      x: 1
+      y: 0
+    flyingman:
+      x: 1
+      y: 0
+  tweenpos:
+    Objects/Item2:
+      x: 952
+      y: 272
+      duration: 0.25
+      ease: in
+      delay: 0.1
+      global: true
+  autowait: 0.35
+  goto: "itemSplash"
+"itemSplash":
+  objectsfunction:
+    Splash: play_anim
+    Objects/Item2: queue_free
+  autowait: 1.4
+  goto: "dotdotdot"
+"dotdotdot":
+  removeitem: OnyxHook
+  actorsemote:
+    player: dot
+    fish: dot
+  autowait: 1.3
+  goto: "fishSad"
+"fishSad":
+  actorsturn:
+    player:
+      actor: fish
+    flyingman:
+      actor: fish
+  name: DIALOGUE_MAGICANT_FISH_SPEAKER
+  text: DIALOGUE_MAGICANT_FISH_2
+  sound: Strange
+  goto: "fishTurn"
+"fishTurn":
+  returncam: 0.5
+  actorsmove:
+    fish:
+      movement:
+        - setdir:
+            x: 0
+            y: -1
+        - jump:
+            height: 8
+            times: 2
+  actorsemote:
+    fish: angry
+  name: DIALOGUE_MAGICANT_FISH_SPEAKER
+  text: DIALOGUE_MAGICANT_FISH_3
+  sound: Strange
+  goto: "startFight"
+"startFight":
+  musicvolume: 0
+  setflags: fish_attack
+  startbattle:
+    battlers:
+      - fish: fish
+    actorskeep:
+      fish: true
+    winflag: fish_defeat
+    wincutscene: Magicant/Cutscenes/fish_defeat

@@ -1,0 +1,14 @@
+"0":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ASSEMBLYLINE_0
+  options:
+    DIALOGUE_MERRYSVILLE_SWEETSFACTORYFAN_0-OPT_0: "yes"
+    DIALOGUE_MERRYSVILLE_SWEETSFACTORYFAN_0-OPT_1: "no"
+    cancel: "no"
+"yes":
+  soundeffect: Conveyor Start.mp3
+  setflags: br_progress_1
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_1
+  objectsfunction:
+    Objects/FactoryRocket: progress_rocket
+"no":
+  exit

@@ -1,0 +1,40 @@
+name: SCRAPPER_NAME
+description: SCRAPPER_DESC
+article: SCRAPPER_ART
+maxhp: 170
+hp: 170
+maxpp: 0
+pp: 0
+offense: 30
+defense: 19
+speed: 15
+iq: 50
+guts: 0
+level: 19
+exp: 75
+cash: 45
+items:
+  - chance: 40
+    item: Croissant
+  - chance: 50
+    item: Apple
+skills:
+  - skill: robotBash
+    weight: 4
+  - skill: shortCircuit
+    weight: 3
+  - skill: exhaustGas
+    weight: 2
+boss: false
+sprite: scrapper
+music: Machine.mp3
+bg: scrapper
+ov:
+  sprite: ScrapperOV
+  anim: BasicEnemy
+affinity_multipliers:
+  pkFlash: 5
+  explosion: 2
+  lightning: 1.5
+  blinded: 0.5
+  sleeping: 0

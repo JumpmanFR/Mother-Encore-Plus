@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Graphics/Rooms/Magicant/Magicant Horizon.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/Rooms/Magicant/Magicant Horizon Lights.png" type="Texture" id=2]
+[ext_resource path="res://addons/distortionator_integration/default_shader.tres" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/opacity = 1.0
+shader_param/blending = 0
+shader_param/screen_size = Vector2( 320, 180 )
+shader_param/move = Vector2( 0, 0 )
+shader_param/ping_pong_speed = Vector2( 0, 0 )
+shader_param/oscillation_amplitude = Vector2( 0.035, 0 )
+shader_param/oscillation_frequency = Vector2( 2.15, 0 )
+shader_param/oscillation_speed = Vector2( 0.255, 0 )
+shader_param/osc_amp_ping_pong = Vector2( 0, 0 )
+shader_param/osc_trans_ping_pong = Vector2( 0, 0 )
+shader_param/compression_amplitude = Vector2( 0, 0 )
+shader_param/compression_frequency = Vector2( 0, 0 )
+shader_param/compression_speed = Vector2( 0, 0 )
+shader_param/comp_amp_ping_pong = Vector2( 0, 0 )
+shader_param/comp_trans_ping_pong = Vector2( 0, 0 )
+shader_param/interlaced_amplitude = Vector2( 0, 0 )
+shader_param/interlaced_frequency = Vector2( 0, 0 )
+shader_param/interlaced_speed = Vector2( 0, 0 )
+shader_param/inter_amp_ping_pong = Vector2( 0, 0 )
+shader_param/inter_trans_ping_pong = Vector2( 0, 0 )
+shader_param/palette_shifting_speed = 0.0
+shader_param/palette_shifting = false
+shader_param/palette_anim_frame_count = null
+shader_param/barrel = false
+shader_param/effect = 1.0
+shader_param/effect_scale = 2.0
+shader_param/barrelxy = Vector2( 1, 1 )
+
+[node name="MagicantHorizon" type="Sprite"]
+use_parent_material = true
+position = Vector2( 136, 72 )
+texture = ExtResource( 1 )
+
+[node name="MagicantHorizonLights" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 0, -40 )
+texture = ExtResource( 2 )

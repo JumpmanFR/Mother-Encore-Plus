@@ -1,0 +1,22 @@
+name: DEFENSESHOWER_NAME
+description: DEFENSESHOWER_DESC
+dialog: USEDEFENSESHOWER_DIALOG
+skill_type: skill
+action_type: 2 # Stat
+use_cases: 1 # Battle only
+target_type: 7 # All Alies
+damage_or_heal: 0
+variance: 0
+priority: 0
+stat_mods:
+  defense: 2
+fail_chance: 0
+pp_cost: 0
+hp_cost: 0
+sp_cost: 5
+hit_effect: ""
+pre_hit_effect: ""
+screen_effect: stat_defense_up
+user_anim: item
+use_sound: ""
+hit_sound: ""

@@ -1,0 +1,31 @@
+name: STRIKE_NAME
+description: STRIKE_DESC
+description_ext: SKILLS_REQUIRES_BAT
+article: STRIKE_ART
+dialog: ATTACK_DIALOG
+skill_type: skill
+action_type: 0 # Damage
+use_cases: 1
+damage_type: normal
+target_type: 0
+damage_or_heal: 30
+value_type: guts_offense
+variance: 3
+priority: 0
+status_heals: []
+crit_chance: 0
+fail_chance: 0
+pp_cost: 0
+sp_cost: 3
+hp_cost: 0
+hit_effect: strike
+pre_hit_effect: ""
+screen_effect: ""
+user_anim: bat
+user_hide_anim: idleBack
+use_sound: swing
+hit_sound: strike
+required_item:
+  - BatPlastic
+  - BatWooden
+  - BatTeeBall

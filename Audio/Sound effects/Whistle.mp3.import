@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Whistle.mp3-3cf0e1fdbca28a7b388054a0e9195fba.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Whistle.mp3"
+dest_files=[ "res://.import/Whistle.mp3-3cf0e1fdbca28a7b388054a0e9195fba.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,26 @@
+name: RULER_NAME
+sorting_name: RULER_SORT
+description: RULER_DESC
+article: RULER_ART
+dialog: ItemDialogue/ruler
+keyitem: false
+cost: 22
+value: 11
+actions:
+  - name: INVENTORY_ACTION_USE
+    function: use
+battle_action:
+  skill: useRuler
+  reusable: true
+transform: ''
+slot: ''
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

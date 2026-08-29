@@ -1,0 +1,28 @@
+name: PEPTALK_NAME
+description: PEPTALK_DESC
+article: PEPTALK_ART
+dialog: PEPTALK_DIALOG
+skill_type: skill
+action_type: 4 # Other
+use_cases: 1 # Battle only
+target_type: 1 # Ally
+damage_or_heal: 10
+value_type: fixed
+variance: 0
+priority: 0
+status_heals:
+  - unconscious
+miss_chance: 0
+hp_cost: 0
+pp_cost: 0
+sp_cost: 10
+hit_effect: ''
+pre_hit_effect: ''
+screen_effect: ''
+user_anim: ''
+use_sound: ''
+hit_sound: ''
+traits:
+  - heal_on_revive
+  - target_incapacitated
+  - target_unconscious

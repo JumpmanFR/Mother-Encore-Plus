@@ -1,0 +1,221 @@
+"0":
+  changecam: janitor
+  actors:
+    ninten: leader
+    janitor: Objects/janitor
+  talker: janitor
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_JANITOR_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_JANITOR_0
+  goto: "1"
+"1":
+  # Leaving the room
+  showbox: false
+  actorsmove:
+    ninten:
+      movement:
+        - x: 644
+          y: -320
+        - turnaround: true
+        - wait: 0.3
+        - x: 624
+          y: -320
+        - x: 624
+          y: -248
+      speed: 64
+      animation: Walk
+      type: position
+    janitor:
+      movement:
+        - wait: 0.4
+        - x: 624
+          y: -248
+      speed: 64
+      animation: Walk
+      type: position
+  wait: 2.0
+  autoadvance: true
+  caninput: false
+  goto: "2"
+"2":
+  fadein:
+    speed: 1
+    anim: Fade
+    color: '000000'
+  wait: 1
+  autoadvance: true
+  caninput: true
+  goto: "10"
+
+"10":
+  # 1F corridor
+  fadeout:
+    speed: 1
+    anim: Fade
+    color: '000000'
+  teleportparty:
+    x: 312
+    y: -96
+  teleportactors:
+    ninten:
+      x: 312
+      y: -96
+    janitor:
+      x: 312
+      y: -96
+  actorsdir:
+    ninten:
+      x: 0
+      y: 1
+    janitor:
+      x: 0
+      y: 1
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.5
+        - x: 312
+          y: -56
+        - x: -320
+          y: -56
+        - x: -320
+          y: -104
+      speed: 75
+      animation: Walk
+      type: position
+    janitor:
+      movement:
+        - x: 312
+          y: -56
+        - x: -320
+          y: -56
+        - x: -320
+          y: -120
+      speed: 75
+      animation: Walk
+      type: position
+  autoadvance: true
+  wait: 2
+  goto: "3"
+
+"3":
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_JANITOR_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_JANITOR_3
+  wait: 7.4
+  autoadvance: true
+  goto: "4"
+"4":
+  fadein:
+    speed: 1
+    anim: Fade
+    color: '000000'
+  wait: 1
+  showbox: false
+  autoadvance: true
+  goto: "5"
+"5":
+  # 2F corridor
+  fadeout:
+    speed: 1
+    anim: Fade
+    color: '000000'
+  teleportparty:
+    x: -8
+    y: -600
+  teleportactors:
+    ninten:
+      x: -272
+      y: -648
+    janitor:
+      x: -272
+      y: -648
+  actorsdir:
+    ninten:
+      x: 0
+      y: 1
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.5
+        - x: -272
+          y: -600
+        - x: -8
+          y: -600
+        - x: -8
+          y: -656
+      speed: 64
+      animation: Walk
+      type: position
+    janitor:
+      movement:
+        - x: -272
+          y: -600
+        - x: -8
+          y: -600
+        - x: -8
+          y: -680
+        - wait: 0.5
+      speed: 64
+      animation: Walk
+      type: position
+  wait: 7.3
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_JANITOR_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_JANITOR_5
+  autoadvance: true
+  caninput: true
+  goto: "6"
+"6":
+  actorsdir:
+    janitor:
+      x: 0
+      y: 1
+      speed: 0.03
+  wait: 0.5
+  showbox: false
+  autoadvance: true
+  soundeffect: EB/doorclose.wav
+  setflags: janitor_cutscene_finished
+  goto: "7"
+"7":
+  showbox: true
+  talker: janitor
+  sound: Adult
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_JANITOR_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_JANITOR_7
+  goto: "8"
+"8":
+  # DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_JANITOR_SPEAKER leaves
+  talker: null
+  showbox: false
+  autoadvance: true
+  changecam: null
+  actorsmove:
+    janitor:
+      movement:
+        - x: -40
+          y: -680
+        - x: -40
+          y: -576
+      speed: 64
+      animation: Walk
+      type: position
+  actorsturn:
+    ninten:
+      x: -1
+      y: 1
+      speed: 0.7
+  wait: 3
+  goto: "9"
+"9":
+  teleportactors:
+    janitor:
+      x: 624
+      y: -328
+  actorsdir:
+    ninten:
+      x: 0
+      y: -1
+  autoadvance: true
+  caninput: false

@@ -1,0 +1,241 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Graphics/UI/Overworld/flavours/defaultlabel.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/BottleRocket.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Shaders/MenuFlavors.tres" type="Material" id=3]
+[ext_resource path="res://Scripts/UI/CostLabel.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=6]
+resource_name = "Hide"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("CostBox:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 9.0, 19.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CostBox:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "_container_behind_parent"
+}, {
+"args": [ true ],
+"method": "_container_behind_parent"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CostBox:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 9.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:show_behind_parent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "_container_behind_parent"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CostBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Show"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("CostBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CostBox:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 0.5, -2, 1 ),
+"update": 0,
+"values": [ 0.0, 19.0, 9.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "_container_behind_parent"
+}, {
+"args": [ false ],
+"method": "_container_behind_parent"
+} ]
+}
+
+[sub_resource type="StyleBoxTexture" id=4]
+content_margin_top = 0.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 9, 9 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 4.0
+margin_bottom = 4.0
+expand_margin_left = 1.0
+expand_margin_bottom = 1.0
+
+[node name="CostLabel" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -180.0
+margin_right = -280.0
+margin_bottom = -140.0
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 6 )
+anims/RESET = SubResource( 2 )
+anims/Show = SubResource( 3 )
+
+[node name="CostBox" type="PanelContainer" parent="."]
+visible = false
+material = ExtResource( 3 )
+margin_left = 1.0
+margin_top = 9.0
+margin_right = 40.0
+margin_bottom = 26.0
+grow_horizontal = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CostBox"]
+margin_left = 4.0
+margin_right = 35.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 0, 13 )
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="CostBox/HBoxContainer"]
+margin_top = 2.0
+margin_right = 17.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 17, 0 )
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 2 )
+text = "PP"
+
+[node name="Label2" type="Label" parent="CostBox/HBoxContainer"]
+margin_left = 17.0
+margin_top = 2.0
+margin_right = 31.0
+margin_bottom = 13.0
+grow_horizontal = 0
+rect_min_size = Vector2( 14, 0 )
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 2 )
+text = "9"
+align = 2

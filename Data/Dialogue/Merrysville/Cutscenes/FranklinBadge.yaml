@@ -1,0 +1,146 @@
+"0":
+  actors:
+    leader: player
+  if:
+    - leader: lloyd
+      goto: "Lloyd"
+    - leader: ana
+      goto: "Ana"
+    - leader: pippi
+      goto: "Pippi"
+    - leader: teddy
+      goto: "Teddy"
+  goto: "Ninten"
+"Lloyd":
+  actorsturn:
+    leader:
+      x: 0
+      y: 1
+  talker: leader
+  sound: Shy
+  name: "[PartyLead]"
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_0
+"Ana":
+  actorsturn:
+    leader:
+      x: 0
+      y: 1
+  talker: leader
+  sound: Kid
+  name: "[PartyLead]"
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_1
+"Pippi":
+  actorsturn:
+    leader:
+      x: 0
+      y: 1
+  talker: leader
+  sound: Kid
+  name: "[PartyLead]"
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_2
+"Teddy":
+  actorsturn:
+    leader:
+      x: 0
+      y: 1
+  talker: leader
+  sound: Adult
+  name: "[PartyLead]"
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_3
+"Ninten":
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_4
+  if:
+    invspace: false
+    goto: "NoSpace"
+  goto: "GetBadge"
+"NoSpace":
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_5
+"GetBadge":
+  setflags: franklin_badge_found
+  objectsfunction:
+    Objects/FranklinBadge: _play_collect_item
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_6
+  item: FranklinBadge
+  soundeffect: Item Received.mp3
+  goto: "Outage"
+"Outage":
+  musicvolume: -80
+  showbox: false
+  soundeffect: "M3/Stat_Down.wav"
+  objectsfunction:
+    CanvasLayer/GeneratorShock: play_anim
+  autowait: 2
+  goto: "Electrocute"
+"Electrocute":
+  actorsdir:
+    leader:
+      x: 0
+      y: 1
+  shakecam:
+    x: 0
+    y: 2
+    length: 0.1
+  actorsanim:
+    leader:
+      type: 1
+      anim: NintenElectrocute
+  soundeffect: "EB/thunder1.wav"
+  if:
+    - haspartymembers:
+        ana: true
+      goto: "AnaSweat"
+    - haspartymembers:
+        lloyd: true
+      goto: "LloydSweat"
+  autowait: 0.2
+  goto: "Wait"
+"Wait":
+  autowait: 3.8
+  goto: "Flash"
+"LloydSweat":
+  actors:
+    lloyd: lloyd
+  talker: lloyd
+  actorsjump:
+    lloyd:
+      height: 12
+      duration: 0.4
+  actorsemote:
+    lloyd: sweat
+  autowait: 3.8
+  goto: "LloydOkay"
+"LloydOkay":
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_7
+  sound: Shy
+  goto: "Flash"
+"AnaSweat":
+  actors:
+    ana: ana
+  talker: ana
+  actorsjump:
+    ana:
+      height: 12
+      duration: 0.4
+  actorsemote:
+    ana: sweat
+  autowait: 3.8
+  goto: "AnaOkay"
+"AnaOkay":
+  name: "[Ana]"
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_8
+  sound: Kid
+  goto: "Flash"
+"Flash":
+  talker: null
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_9
+  goto: "Learn"
+"Learn":
+  learnskills:
+    ninten: pkFlashA
+  soundeffect: M3/Learned PSI.wav
+  text: DIALOGUE_MERRYSVILLE_FRANKLINBADGE_10
+  goto: "End"
+"End":
+  clearbox: true
+  musicvolume: 0

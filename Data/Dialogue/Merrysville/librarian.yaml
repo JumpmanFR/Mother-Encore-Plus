@@ -1,0 +1,28 @@
+"0":
+  if:
+    haspartymembers:
+      lloyd: true
+    goto: "2"
+  goto: "1"
+"1":
+  name: DIALOGUE_MERRYSVILLE_LIBRARIAN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MERRYSVILLE_LIBRARIAN_0
+"2":
+  actors:
+    lloyd: lloyd
+    librarian: Objects/librarian
+  talker: librarian
+  name: DIALOGUE_MERRYSVILLE_LIBRARIAN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MERRYSVILLE_LIBRARIAN_1
+  goto: "3"
+"3":
+  actorsemote:
+    lloyd: dot
+  autowait: 2
+  goto: "4"
+"4":
+  name: DIALOGUE_MERRYSVILLE_LIBRARIAN_SPEAKER
+  sound: Female
+  text: DIALOGUE_MERRYSVILLE_LIBRARIAN_2

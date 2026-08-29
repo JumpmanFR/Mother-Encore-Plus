@@ -1,0 +1,9 @@
+'0':
+  if:
+    iscolliding: true
+    goto: '2'
+  goto: '1'
+'1':
+  text: DIALOGUE_ITEMDIALOGUE_RULER_1
+'2':
+  text: DIALOGUE_ITEMDIALOGUE_RULER_2

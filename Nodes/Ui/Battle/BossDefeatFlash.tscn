@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Audio/Sound effects/Boss Defeat.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/UI/Battle/BossDefeatFlash.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=122]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform bool circle_visible = true;
+
+uniform float radius : hint_range(0.0, 500.0) = 64;
+uniform vec2 position = vec2(160, 90);
+uniform vec2 textSize = vec2(320, 180);
+
+float ratio()
+{
+	return textSize.x / textSize.y;
+}
+
+float circle(vec2 uv, float rad, vec2 pos)
+{
+	
+	rad = rad / (textSize.y * 2.0);
+	vec2 circlePosition = vec2(pos.x/(textSize.x), pos.y/(textSize.y));
+	float dist = distance(circlePosition, vec2(uv.x, uv.y ));
+	return step(rad, dist);
+}
+
+void fragment()
+{
+	
+	if (circle_visible)
+	{
+		float c1 = circle(UV, radius, position);
+		COLOR.a = COLOR.a - c1;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=123]
+shader = SubResource( 122 )
+shader_param/circle_visible = true
+shader_param/radius = 0.0
+shader_param/position = Vector2( 160, 90 )
+shader_param/textSize = Vector2( 320, 180 )
+
+[sub_resource type="Animation" id=124]
+resource_name = "DefeatFlash"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 9, 1 ),
+"update": 0,
+"values": [ 0.0, 500.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 2.5, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 1 )
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "defeat_enemies"
+} ]
+}
+
+[sub_resource type="Animation" id=125]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="BossDefeatFlash" type="CanvasLayer"]
+layer = 4
+script = ExtResource( 2 )
+animation_player = NodePath("AnimationPlayer")
+color_rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 123 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DefeatFlash = SubResource( 124 )
+anims/RESET = SubResource( 125 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

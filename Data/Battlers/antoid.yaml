@@ -1,0 +1,34 @@
+name: ANTOID_NAME
+description: ANTOID_DESC
+article: ANTOID_ART
+maxhp: 55
+hp: 55
+maxpp: 25
+pp: 25
+offense: 24
+defense: 30
+speed: 20
+iq: 10
+guts: 0
+level: 14
+exp: 30
+cash: 20
+skills:
+  - skill: bash
+    weight: 7
+  - skill: callHelp
+    weight: 1
+  - skill: lifeUpA
+    weight: 1
+boss: false
+sprite: antoid
+music: Flippant Foe.mp3
+bg: antoid
+ov:
+  sprite: AntoidOV
+  anim: AntoidEnemy
+  shadow: false
+  walkFrequency: 0.1
+affinity_multipliers:
+  insecticide: 2
+  fire: 1.5

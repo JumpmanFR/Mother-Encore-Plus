@@ -1,0 +1,57 @@
+'0':
+  actors:
+    flyingman: talker
+  autoadvance: true
+  if:
+    - haspartymembers:
+        flyingman: true
+      goto: '3'
+    - flags:
+        first_flying_man: true
+      goto: '2'
+  goto: '1'
+'1':
+  name: DIALOGUE_MAGICANT_FLYINGMAN_SPEAKER_FlyingMan
+  sound: Strange
+  text: DIALOGUE_MAGICANT_FLYINGMAN_1
+  options:
+    DIALOGUE_MAGICANT_FLYINGMAN_1-OPT_0: '4'
+    DIALOGUE_MAGICANT_FLYINGMAN_1-OPT_1: '3'
+    cancel: '3'
+'2':
+  name: DIALOGUE_MAGICANT_FLYINGMAN_SPEAKER_FlyingMan
+  sound: Strange
+  text: DIALOGUE_MAGICANT_FLYINGMAN_2
+  options:
+    DIALOGUE_MAGICANT_FLYINGMAN_2-OPT_0: '4'
+    DIALOGUE_MAGICANT_FLYINGMAN_2-OPT_1: '3'
+    cancel: '3'
+'3':
+  name: DIALOGUE_MAGICANT_FLYINGMAN_SPEAKER_FlyingMan
+  sound: Strange
+  text: DIALOGUE_MAGICANT_FLYINGMAN_3
+'4':
+  musicvolume: -20
+  wait: 0.5
+  autoadvance: true
+  goto: '5'
+'5':
+  talker: null
+  text: DIALOGUE_MAGICANT_FLYINGMAN_4
+  soundeffect: Party Fanfare.mp3
+  setflags:
+    - first_flying_man
+    - flying_man_in_party
+    - flying_man_4_joined
+  heal: flyingman
+  cure:
+    character: flyingman
+    status: unconscious
+  changereplaced:
+    flyingman: flyingman
+  wait: 4
+  goto: '6'
+  setpartynpcs:
+    flyingman: true
+'6':
+  musicvolume: 0

@@ -1,0 +1,28 @@
+class: hypnosis
+name: HYPNOSIS_NAME
+level: 0
+description: HYPNOSISA_DESC
+article: HYPNOSIS_ART
+skill_type: psi
+action_type: 3 # Ailment
+use_cases: 1 # Battle only
+psi_category: Assist
+target_type: 0 # Enemy
+damage_or_heal: 0
+variance: 0
+priority: 0
+status_effects:
+  sleeping: 70
+fail_chance: 0
+pp_cost: 6
+hp_cost: 0
+hit_effect: ""
+pre_hit_effect: hypnosis_alpha
+enemy_screen_effect: ""
+user_anim: psi
+user_anim_colors:
+  - "F035DD"
+  - "FF5DEF"
+  - "FF9BF5"
+use_sound: ""
+hit_sound: ""

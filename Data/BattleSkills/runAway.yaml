@@ -1,0 +1,19 @@
+name: RUNAWAY_NAME
+description: RUNAWAY_DESC
+dialog: RUNAWAY_DIALOG
+skill_type: skill
+action_type: 4 # Other
+use_cases: 1 # Battle only
+target_type: 6 # All enemies
+damage_or_heal: 0
+variance: 0
+priority: 0
+miss_chance: 0
+pp_cost: 0
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+use_sound: ''
+hit_sound: ''
+traits:
+  - flee

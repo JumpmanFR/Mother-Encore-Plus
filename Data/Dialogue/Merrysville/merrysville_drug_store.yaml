@@ -1,0 +1,15 @@
+'0':
+  name: DIALOGUE_PODUNK_PODUNK_DRUG_STORE_SPEAKER_Jane
+  sound: Female
+  text: DIALOGUE_REUSABLE_SHOP_0
+  goto: '1'
+'1':
+  text: ''
+  showbox: false
+  open_shop: merrysville_drug_store
+  caninput: false
+  goto: '2'
+'2':
+  name: DIALOGUE_PODUNK_PODUNK_DRUG_STORE_SPEAKER_Jane
+  sound: Female
+  text: DIALOGUE_REUSABLE_SHOP_2

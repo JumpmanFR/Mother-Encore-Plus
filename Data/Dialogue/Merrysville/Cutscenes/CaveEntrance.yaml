@@ -1,0 +1,37 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+  actorsemote:
+    lloyd: dot
+  actorsturn:
+    lloyd:
+      actor: ninten
+  autowait: 1
+  goto: "lloydScared"
+"lloydScared":
+  actorsturn:
+    ninten:
+      actor: lloyd
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_CAVE_0
+  sound: Shy
+  goto: "nintenQuestion"
+"nintenQuestion":
+  actorsmove:
+    ninten:
+      movement:
+        - emote: question
+        - wait: 1
+        - playanim:
+            anim: Talk
+        - wait: 1
+        - playanim:
+            anim: Idle
+  autowait: 2.5
+  goto: "lloydNo"
+"lloydNo":
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_CAVE_1
+  sound: Shy

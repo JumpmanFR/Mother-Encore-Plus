@@ -1,0 +1,50 @@
+define uncloaked = false
+define hits = 0
+define on_hit = on_hit()
+define enemy
+
+start:
+  uncloaked = false
+  hits = 0
+  enemy = get_script_bp()
+
+uncloak:
+  enemy.do_skill("uncloak")
+
+  enemy.change_sprite("rat king sprites/stronger rat king", false)
+  toggle(uncloaked)
+  enemy.change_character_data("ratkingsmall")
+  enemy.wait_actions(5)
+  enemy.wait_before_action()
+  goto(rats_check)
+
+rats_check:
+  if !check_rats():
+    goto(call_rat)
+  else:
+    goto(recloak)
+
+call_rat:
+  enemy.do_skill("callHelpRatKing")
+  enemy.wait_action()
+  enemy.wait_before_action()
+
+  goto(rats_check)
+
+recloak:
+  hits = 0
+  toggle(uncloaked)
+  enemy.do_skill("recloak")
+  enemy.change_character_data("ratking")
+  enemy.change_sprite("rat king", false)
+
+command on_hit():
+  if !uncloaked:
+    hits++
+    if hits <= 3:
+      enemy.change_sprite("rat king sprites/rat king" + str(hits))
+    if hits == 3:
+      goto(uncloak)
+
+command check_rats():
+  return get_enemy_count() >= 3

@@ -1,0 +1,12 @@
+"0":
+  actors:
+    ninten: leader
+    lloyd: talker
+  talker: null
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF1_2
+  sound: Shy
+  actorsshake:
+    lloyd:
+      x: 1
+      length: 0.2

@@ -1,0 +1,16 @@
+'0':
+  name: DIALOGUE_PODUNK_PODUNK_SPORTS_SHOP_SPEAKER_Iris
+  sound: Female
+  text: DIALOGUE_REUSABLE_SHOP_0
+  goto: '1'
+'1':
+  text: ''
+  showbox: false
+  open_shop: merrysville_sports_store
+  caninput: false
+  goto: '2'
+  cleardialog: true
+'2':
+  name: DIALOGUE_PODUNK_PODUNK_SPORTS_SHOP_SPEAKER_Iris
+  sound: Female
+  text: DIALOGUE_REUSABLE_SHOP_2

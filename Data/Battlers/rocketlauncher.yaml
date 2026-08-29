@@ -1,0 +1,30 @@
+name: ROCKETLAUNCHER_NAME
+description: ROCKETLAUNCHER_DESC
+article: ROCKETLAUNCHER_ART
+maxhp: 9999
+hp: 9999
+maxpp: 0
+pp: 0
+offense: 10
+defense: 18
+speed: 7
+iq: 1
+guts: 5
+level: 5
+exp: 9
+cash: 2
+hide_affinities: true
+affinity_multipliers:
+  blinded: 0
+  burned: 0
+  cold: 0
+  confused: 0
+  forgetful: 0
+  nausea: 0
+  numb: 0
+  poisoned: 0
+  psiBlocked: 0
+  rope: 0
+  sleeping: 0
+  stone: 0
+  sunstroked: 0

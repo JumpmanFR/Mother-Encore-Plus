@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Crystal Caverns.mp3-33aa185a60526ae2aa664f1909e393fd.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Crystal Caverns.mp3"
+dest_files=[ "res://.import/Crystal Caverns.mp3-33aa185a60526ae2aa664f1909e393fd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=4.055

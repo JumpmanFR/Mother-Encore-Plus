@@ -1,0 +1,32 @@
+name: BAGLADY_NAME
+description: BAGLADY_DESC
+article: BAGLADY_ART
+maxhp: 120
+hp: 120
+maxpp: 0
+pp: 0
+offense: 28
+defense: 29
+speed: 7
+iq: 30
+guts: 0
+level: 20
+exp: 75
+cash: 45
+skills:
+  - skill: bash
+    weight: 3
+  - skill: continuousAttack
+    weight: 1
+  - skill: threateningWords
+    weight: 2
+boss: false
+sprite: bag lady
+music: Flippant Foe.mp3
+bg: baglady
+ov:
+  sprite: BagLadyOV
+  anim: BasicEnemy
+affinity_multipliers:
+  ice: 2
+  fire: 2

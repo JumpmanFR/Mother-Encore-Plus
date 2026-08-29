@@ -1,0 +1,24 @@
+name: BIGBAG_NAME
+sorting_name: BIGBAG_SORT
+description: BIGBAG_DESC
+article: BIGBAG_ART
+keyitem: false
+doses: 10
+cost: 0
+value: 15 # Per dose
+actions:
+  - name: INVENTORY_ACTION_USE
+    function: consume
+is_food: true
+transform: HerbMagic
+slot: ""
+HPrecover: 40
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

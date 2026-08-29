@@ -1,0 +1,8 @@
+"0":
+    name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_NURSE_SPEAKER
+    sound: Female
+    text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_NURSE_0
+    goto: '1'
+"1":
+    soundeffect: M3/heal_se.wav
+    heal: all

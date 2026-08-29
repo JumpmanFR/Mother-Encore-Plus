@@ -1,0 +1,328 @@
+"0":
+  actors:
+    distorto: Objects/npc
+    robot: Objects/npc2
+    ninten: ninten
+    lloyd: lloyd
+  changecam: null
+  teleportactors:
+    distorto:
+      x: 0
+      y: -1200
+  movecam:
+    y: -40
+    length: 1
+  actorsmove:
+    ninten:
+      movement:
+        - x: 0
+          y: -42
+        - x: -20
+          y: 0
+      type: step
+      animation: Walk
+      speed: 40
+    lloyd:
+      movement:
+        - wait: 0.5
+        - x: 0
+          y: -42
+        - x: -5
+          y: 0
+      type: step
+      animation: Walk
+      speed: 40
+  autowait: 1.8
+  musicvolume: -10
+  goto: "enter_doc"
+"enter_doc":
+  musicvolume: -50
+  actorsemote:
+    lloyd: surprise
+  talker: distorto
+  changecam: distorto
+  returncam: 0.5
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_0
+  sound: Adult
+  goto: "distortotalk"
+"distortotalk":
+  changecam: null
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: -5
+      speed: 5
+      animation: Walk
+      type: step
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_1
+  sound: Adult
+  goto: "hitrobot"
+"hitrobot":
+  showbox: false
+#he smacks robot, quick move up and down
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: -10
+      speed: 100
+      animation: Walk
+      type: step
+  autowait: 0.03
+  goto: "2"
+"2":
+  soundeffect: M3/bump.wav
+#robot jitters, distorto steps back, rants
+  actorsshake:
+    robot:
+      x: 1
+      length: 0.2
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: -1200
+      speed: 100
+      animation: Walk
+      type: position
+      moonwalk: true
+  autowait: 1.2
+  goto: "distortodot"
+"distortodot":
+  actorsemote:
+    distorto: dot
+  autowait: 2.3
+  goto: "45"
+"45":
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: 5
+      speed: 20
+      animation: Walk
+      type: step
+      moonwalk: true
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_2
+  sound: Adult
+  goto: "3"
+"3":
+#distorto turns around and walks back
+  actorsmove:
+    distorto:
+      movement:
+        - x: 0
+          y: -1185
+      speed: 20
+      animation: Walk
+      type: position
+      moonwalk: true
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_3
+  sound: Adult
+  goto: "4"
+"4":
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_4
+  sound: Shy
+  goto: "5"
+"5":
+# distorto gets startled, jumps, ! emote, turns to lloyd
+  showbox: false
+  actorsdir:
+    distorto:
+      x: 1
+      y: 0
+  actorsemote:
+    distorto: exclamation
+  showbox: false
+  actorsjump:
+    distorto:
+      height: 6
+  autowait: 0.8
+  goto: "6"
+"6":
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_5
+  sound: Adult
+  actorsmove:
+    distorto:
+      movement:
+        - x: -7
+          y: 0
+      speed: 64
+      animation: Walk
+      type: step
+      moonwalk: true
+  goto: "7"
+"7":
+#ninten and lloyd step closer
+  actorsmove:
+    ninten:
+      movement:
+        - x: -10
+          y: 0
+      speed: 15
+      animation: Walk
+      type: step
+    lloyd:
+      movement:
+        - wait: 0.01
+        - x: -8
+          y: 0
+      speed: 15
+      animation: Walk
+      type: step
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_6
+  sound: Shy
+  goto: "8"
+"8":
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_7
+  sound: Adult
+  actorsmove:
+    distorto:
+      movement:
+        - x: -5
+          y: 0
+      speed: 20
+      animation: Walk
+      type: step
+      moonwalk: true
+  goto: "9"
+"9":
+#turns to robot, gives command
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_8
+  sound: Adult
+  actorsmove:
+    distorto:
+      movement:
+        - x: -5
+          y: 0
+      speed: 20
+      animation: Walk
+      type: step
+      moonwalk: true
+  goto: "10"
+"10":
+  showbox: false
+  movecam:
+    y: -1220
+    length: 0.6
+  autowait: 1.1
+  goto: "11"
+"11":
+#robot activates, whirrs
+  actorsdir:
+    distorto:
+      x: 0
+      y: -1
+    ninten:
+      x: -1
+      y: -1
+    lloyd:
+      x: -1
+      y: -1
+  changecam: robot
+  soundeffect: PLACEHOLDERS/robot_power_up.mp3
+  actorsemote:
+    robot: surprise
+  actorsshake:
+    robot:
+      x: 1
+      length: 1.3
+  autowait: 3.1
+  goto: "12"
+"12":
+#robot walks down, distorto moves over
+  actorsmove:
+    robot:
+      movement:
+        - x: 0
+          y: -1185
+      speed: 22
+      animation: Walk
+      type: position
+    distorto:
+      movement:
+      movement:
+        - wait: 0.9
+        - x: -10
+          y: 0
+      speed: 50
+      animation: Walk
+      type: step
+      moonwalk: true
+  autowait: 2.1
+  goto: "13"
+"13":
+#robot faces ninten
+  actorsdir:
+    robot:
+      x: 1
+      y: 0
+    ninten:
+      x: -1
+      y: 0
+    lloyd:
+      x: -1
+      y: 0
+  changecam: null
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_9
+  sound: Adult
+  goto: "14"
+"14":
+#robot replies
+  talker: robot
+  name: SCRAPPER_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO2_10
+  sound: Robot
+  goto: "15"
+"15":
+#robot whirrs up while distorto runs
+  showbox: false
+  actorsshake:
+    robot:
+      x: 1
+      length: 0.3
+  actorsmove:
+    distorto:
+      movement:
+        - x: -112
+          y: -1185
+        - x: -112
+          y: -1120
+      speed: 120
+      animation: Walk
+      type: position
+    robot:
+      movement:
+        - wait: 0.4
+        - x: 50
+          y: 0
+      speed: 40
+      animation: Walk
+      type: step
+  autowait: 1.2
+  goto: "16"
+"16":
+  startbattle:
+    battlers:
+      - scrapper: robot
+  setflags: drdistorto_2
+  eraseactors:
+    distorto: true
+  musicvolume: 0

@@ -1,0 +1,194 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Nodes/Overworld/switches/Lever.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Main/RoomTypes/AreaRoom.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Overworld/Objects/Color Block Panel Blue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Overworld/switches/plate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Overworld/switches/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Overworld/Objects/Small Key.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Overworld/Objects/Locked Door Catacombs.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Overworld/Objects/BeamReflector.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Nodes/Overworld/Objects/Running Bomb.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Tilesets/Podunk.tres" type="TileSet" id=11]
+[ext_resource path="res://Nodes/Overworld/Objects/Bomb Panel Down.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Nodes/Overworld/Objects/Bomb Spawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Nodes/Overworld/Objects/Bombable Debris.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Nodes/Overworld/switches/Color Switch.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Nodes/Overworld/Objects/Color Light.tscn" type="PackedScene" id=16]
+
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 1.0
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 1.0
+
+[node name="Switches" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -352.0
+margin_top = -400.0
+margin_right = 336.0
+margin_bottom = 88.0
+color = Color( 0.423529, 0.92549, 0.462745, 1 )
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -393226, 18, 720897, -327690, 18, 720897, -262154, 18, 720897, -196618, 18, 720897, -65546, 18, 720897, -10, 18, 720897, 65526, 18, 720897, 131062, 18, 720897 )
+
+[node name="Below" type="TileMap" parent="."]
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 5
+format = 1
+tile_data = PoolIntArray( -851966, 54, 393217, -851965, 54, 393217, -851961, 54, 393217, -851960, 54, 393217, -851959, 54, 393217, -851958, 54, 393217, -851957, 54, 393217, -851956, 54, 393217, -851955, 54, 393217, -851954, 54, 393217, -851953, 54, 393217, -786430, 54, 393217, -786417, 54, 393217, -720894, 54, 393217, -720881, 54, 393217, -655358, 54, 393217, -655345, 54, 393217, -589822, 54, 393217, -589809, 54, 393217, -458766, 54, 393217, -458765, 54, 393217, -458764, 54, 393217, -458763, 54, 393217, -458762, 54, 393217, -458761, 54, 393217, -458760, 54, 393217, -458759, 54, 393217, -458758, 54, 393217, -458757, 54, 393217, -458756, 54, 393217, -458755, 54, 393217, -458754, 54, 393217, -458753, 54, 393217, -524288, 54, 393217, -524287, 54, 393217, -524286, 54, 393217, -524285, 54, 393217, -524284, 54, 393217, -524283, 54, 393217, -524282, 54, 393217, -524281, 54, 393217, -524280, 54, 393217, -524279, 54, 393217, -524273, 54, 393217, -393230, 54, 393217, -393229, 18, 589824, -393228, 18, 589824, -393227, 18, 589824, -458743, 54, 393217, -458737, 54, 393217, -327694, 54, 393217, -327693, 18, 589824, -327692, 18, 589824, -327691, 18, 589824, -393207, 54, 393217, -393201, 54, 393217, -262158, 54, 393217, -262157, 18, 589824, -262156, 18, 589824, -262155, 18, 589824, -327671, 54, 393217, -327665, 54, 393217, -196622, 54, 393217, -196621, 18, 589824, -196620, 18, 589824, -196619, 18, 589824, -262135, 54, 393217, -262129, 54, 393217, -131086, 54, 393217, -131085, 18, 589824, -131084, 18, 589824, -131083, 18, 589824, -131082, 54, 393217, -131081, 54, 393217, -131080, 54, 393217, -131079, 54, 393217, -131078, 54, 393217, -131077, 54, 393217, -131076, 54, 393217, -131075, 54, 393217, -131074, 54, 393217, -131073, 54, 393217, -196608, 54, 393217, -196607, 54, 393217, -196606, 54, 393217, -196605, 54, 393217, -196601, 54, 393217, -196600, 54, 393217, -196599, 54, 393217, -196598, 54, 393217, -196595, 54, 393217, -196594, 54, 393217, -196593, 54, 393217, -65550, 54, 393217, -65549, 18, 589824, -65548, 18, 589824, -65547, 18, 589824, -131069, 54, 393217, -131065, 54, 393217, -131057, 54, 393217, -14, 54, 393217, -13, 18, 589824, -12, 18, 589824, -11, 18, 589824, -65533, 54, 393217, -65529, 54, 393217, -65521, 54, 393217, 65522, 54, 393217, 65523, 18, 589824, 65524, 18, 589824, 65525, 18, 589824, 3, 54, 393217, 7, 54, 393217, 15, 54, 393217, 131058, 54, 393217, 131059, 18, 589824, 131060, 18, 589824, 131061, 18, 589824, 65551, 54, 393217, 196594, 54, 393217, 196595, 54, 393217, 196596, 54, 393217, 196597, 54, 393217, 196598, 54, 393217, 131087, 54, 393217, 262130, 54, 393217, 262131, 54, 393217, 262132, 54, 393217, 262133, 54, 393217, 262134, 54, 393217, 196623, 54, 393217, 327666, 54, 393217, 327667, 54, 393217, 327668, 54, 393217, 327669, 54, 393217, 327670, 54, 393217, 262159, 54, 393217, 393202, 54, 393217, 393203, 54, 393217, 393204, 54, 393217, 393205, 54, 393217, 393206, 54, 393217, 393207, 54, 393217, 393208, 54, 393217, 393209, 54, 393217, 393210, 54, 393217, 393211, 54, 393217, 393212, 54, 393217, 393213, 54, 393217, 393214, 54, 393217, 393215, 54, 393217, 327680, 54, 393217, 327681, 54, 393217, 327682, 54, 393217, 327683, 54, 393217, 327684, 54, 393217, 327685, 54, 393217, 327686, 54, 393217, 327687, 54, 393217, 327688, 54, 393217, 327689, 54, 393217, 327690, 54, 393217, 327691, 54, 393217, 327692, 54, 393217, 327693, 54, 393217, 327694, 54, 393217, 327695, 54, 393217 )
+
+[node name="BombPanel" parent="Below" instance=ExtResource( 12 )]
+position = Vector2( -48, -160 )
+direction = Vector2( -1, 0 )
+
+[node name="BombPanel2" parent="Below" instance=ExtResource( 12 )]
+position = Vector2( -128, -160 )
+direction = Vector2( 0, -1 )
+
+[node name="BombPanel3" parent="Below" instance=ExtResource( 12 )]
+position = Vector2( -128, -160 )
+direction = Vector2( 0, -1 )
+
+[node name="Bomb" parent="Below" instance=ExtResource( 13 )]
+position = Vector2( -48, -264 )
+
+[node name="Bomb2" parent="Below" instance=ExtResource( 13 )]
+position = Vector2( -104, -88 )
+
+[node name="Color Block Panel" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( 48, -88 )
+
+[node name="Color Block Panel2" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( 72, -40 )
+
+[node name="Color Block Panel4" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( 88, -40 )
+
+[node name="Color Block Panel5" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( 104, -40 )
+
+[node name="Color Block Panel6" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( 72, 8 )
+
+[node name="Color Block Panel7" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( 88, 8 )
+
+[node name="Color Block Panel8" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( 104, 8 )
+
+[node name="Color Block Panel3" parent="Below" instance=ExtResource( 3 )]
+position = Vector2( -40, -88 )
+
+[node name="plate" parent="." instance=ExtResource( 4 )]
+position = Vector2( 344, 64 )
+
+[node name="Objects" type="TileMap" parent="."]
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 16, 16 )
+cell_y_sort = true
+format = 1
+
+[node name="switch2" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( -256, -304 )
+
+[node name="Door5" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 88, -208 )
+_is_synced_with_room = true
+
+[node name="Key" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 128, -80 )
+
+[node name="Mirror3" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -184, -16 )
+direction = Vector2( 1, -1 )
+
+[node name="Mirror4" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -184, -88 )
+direction = Vector2( 1, 1 )
+
+[node name="Locked Door" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 192, -56 )
+
+[node name="Running Bomb2" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 3 )
+position = Vector2( 88, -152 )
+
+[node name="Running Bomb3" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -48, -224 )
+
+[node name="Running Bomb4" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -128, -224 )
+
+[node name="Running Bomb5" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -160, -224 )
+
+[node name="Running Bomb6" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -192, -224 )
+
+[node name="Running Bomb7" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -224, -224 )
+
+[node name="Running Bomb8" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -256, -224 )
+
+[node name="Running Bomb9" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -256, -256 )
+
+[node name="Running Bomb10" parent="Objects" instance=ExtResource( 10 )]
+material = SubResource( 4 )
+position = Vector2( -256, -288 )
+
+[node name="Breakable Rock" parent="Objects" instance=ExtResource( 14 )]
+position = Vector2( 40, -272 )
+
+[node name="Color Switch" parent="Objects" instance=ExtResource( 15 )]
+position = Vector2( 24, -16 )
+
+[node name="Color Switch2" parent="Objects" instance=ExtResource( 15 )]
+position = Vector2( 104, -88 )
+
+[node name="Color Light" parent="Objects" instance=ExtResource( 16 )]
+position = Vector2( -24, -40 )
+
+[node name="Color Light2" parent="Objects" instance=ExtResource( 16 )]
+position = Vector2( 104, -24 )
+direction = "Right"
+
+[node name="Color Light3" parent="Objects" instance=ExtResource( 16 )]
+position = Vector2( 72, -24 )
+direction = "Left"

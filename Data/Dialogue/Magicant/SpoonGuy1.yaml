@@ -1,0 +1,74 @@
+"0":
+  actors:
+    player: leader
+    npc: talker
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY1_0
+  options:
+    DIALOGUE_MAGICANT_SPOONGUY1_0-OPT_0: "2"
+    DIALOGUE_MAGICANT_SPOONGUY1_0-OPT_1: "1"
+    cancel: "1"
+"1":
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY1_1
+"2":
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY1_2
+  goto: "3"
+"3":
+  talker: null
+  text: DIALOGUE_MAGICANT_SPOONGUY1_3
+  goto: "4"
+"4":
+  talker: npc
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY1_4
+  options:
+    DIALOGUE_MAGICANT_SPOONGUY1_4-OPT_0: "6"
+    DIALOGUE_MAGICANT_SPOONGUY1_4-OPT_1: "5"
+    cancel: "5"
+"5":
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY1_5
+"6":
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY1_6
+  goto: "7"
+"7":
+  showbox: false
+  fadein:
+    speed: 0.3
+    anim: Circle Focus
+  objectsfunction:
+    MusicArea: stop_music
+    MusicAreaMorning: stop_music
+  wait: 3
+  autoadvance: true
+  caninput: false
+  goto: "8"
+"8":
+  fadefocus: player
+  fadeout:
+    type: 1
+    anim: Circle
+  objectsfunction:
+    MusicAreaMorning: play_music
+  setflags:
+    - good_morning
+    - slept_at_spoon_guys_place
+  heal: all
+  restorepp: all
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "9"
+"9":
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY1_9

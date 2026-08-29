@@ -1,0 +1,6 @@
+conditions:
+  skill_type: [ '', 'basic', 'skill', 'psi' ]
+priority: 2
+one_turn: true
+actions:
+  sound: ''

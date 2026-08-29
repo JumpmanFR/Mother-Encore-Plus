@@ -1,0 +1,28 @@
+"0":
+  name: DIALOGUE_MAGICANT_TRISTAN_SPEAKER_Tristan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_TRISTAN_0
+  options:
+    DIALOGUE_MAGICANT_TRISTAN_0-OPT_0: "1"
+    DIALOGUE_MAGICANT_TRISTAN_0-OPT_1: "4"
+    cancel: "4"
+"1":
+  name: DIALOGUE_MAGICANT_TRISTAN_SPEAKER_Tristan
+  if:
+    flags:
+      met_happiness_guy: true
+    goto: "3"
+  goto: "2"
+"2":
+  name: DIALOGUE_MAGICANT_TRISTAN_SPEAKER_Tristan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_TRISTAN_2
+"3":
+  name: DIALOGUE_MAGICANT_TRISTAN_SPEAKER_Tristan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_TRISTAN_3
+  setflags: met_guy_who_talks_about_how_you_cant_part_if_you_havent_met
+"4":
+  name: DIALOGUE_MAGICANT_TRISTAN_SPEAKER_Tristan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_TRISTAN_4

@@ -1,0 +1,22 @@
+name: KICKMENOTE_NAME
+sorting_name: KICKMENOTE_SORT
+description: KICKMENOTE_DESC
+article: KICKMENOTE_ART
+keyitem: false
+cost: 0
+value: 1
+can_use: [lloyd]
+actions:
+  - function: equip
+transform: ""
+slot: body
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: -1
+  speed: 0
+  iq: 0
+  guts: 0

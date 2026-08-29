@@ -1,0 +1,89 @@
+ninten:
+  name: Ninten
+  learnedSkills:
+    - strike
+    - splitShot
+  affinity_multipliers:
+    asthma: 1
+ana:
+  name: Ana
+lloyd:
+  name: Lloyd
+  learnedSkills:
+    - spy
+teddy:
+  name: Teddy
+pippi:
+  name: Pippi
+canarychick:
+  name: CanaryChick
+  status: []
+  level: 1
+  exp: 0
+  maxhp: 0
+  maxpp: 0
+  speed: 1
+  offense: 1
+  defense: 1
+  iq: 1
+  guts: 1
+  boosts:
+    maxhp: 0
+    maxpp: 0
+    offense: 0
+    defense: 0
+    speed: 0
+    iq: 0
+    guts: 0
+  untargetable: true
+  skills:
+    - skill: do_nothing
+      weight: 6
+flyingman:
+  name: FlyingMan
+  status: []
+  level: 99
+  exp: 0
+  maxhp: 250
+  maxpp: 0
+  speed: 14
+  offense: 55
+  defense: 25
+  iq: 25
+  guts: 25
+  boosts:
+    maxhp: 0
+    maxpp: 0
+    offense: 0
+    defense: 0
+    speed: 0
+    iq: 0
+    guts: 0
+  untargetable: true
+  skills:
+    - skill: bash
+      weight: 1
+eve:
+  name: Eve
+  status: []
+  level: 1
+  exp: 0
+  maxhp: 0
+  maxpp: 0
+  speed: 1
+  offense: 1
+  defense: 1
+  iq: 1
+  guts: 1
+  boosts:
+    maxhp: 0
+    maxpp: 0
+    offense: 0
+    defense: 0
+    speed: 0
+    iq: 0
+    guts: 0
+  untargetable: true
+  skills:
+    - skill: bash
+      weight: 1

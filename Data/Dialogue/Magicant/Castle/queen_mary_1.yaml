@@ -1,0 +1,55 @@
+"0":
+  actors:
+    mary: Objects/queenmary
+    retainer: Objects/npc17
+  talker: mary
+  name: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_SPEAKER_QueenMary
+  sound: Female
+  movecam:
+    x: -656
+    y: -1272
+  text: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_1_0
+  options:
+    DIALOGUE_MAGICANT_CASTLE_QUEENMARY_1-OPT_0: "1"
+    DIALOGUE_MAGICANT_CASTLE_QUEENMARY_1-OPT_1: "3"
+    cancel: "3"
+"1":
+  name: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_SPEAKER_QueenMary
+  sound: Female
+  text: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_1_1
+  musicvolume: -20
+  goto: "get_ocarina"
+"get_ocarina":
+  musicvolume: -70
+  talker: null
+  text: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_1_4
+  item: Ocarina
+  soundeffect: Fanfare.mp3
+  wait: 6
+  goto: "2"
+"2":
+  talker: mary
+  name: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_SPEAKER_QueenMary
+  sound: Female
+  text: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_1_2
+  setflags: marys_story_learned
+  goto: "resetmusic"
+"3":
+  name: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_SPEAKER_QueenMary
+  sound: Female
+  text: DIALOGUE_MAGICANT_CASTLE_QUEENMARY_1_3
+  musicvolume: 0
+"resetmusic":
+  actorsmove:
+    retainer:
+      movement:
+        - jump:
+            times: 2
+        - wait: 0.5
+        - x: 0
+          y: 8
+      speed: 16
+      type: step
+      animation: Walk
+  autowait: 2
+  musicvolume: 0

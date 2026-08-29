@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Magicant.mp3-56f0880804f821657cae40a3687438d5.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Magicant.mp3"
+dest_files=[ "res://.import/Magicant.mp3-56f0880804f821657cae40a3687438d5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,490 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+    distorto: Objects/Flag Landmark/npc2
+  objectsfunction:
+    MusicArea: stop_music
+  movecam:
+    x: 10
+    y: -24
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 0
+          y: -24
+        - turnto:
+            x: 1
+            y: -1
+      speed: 32
+      animation: Walk
+      type: position
+    ninten:
+      movement:
+        - x: 20
+          y: -24
+        - turnto:
+            x: 1
+            y: -1
+      speed: 32
+      animation: Walk
+      type: position
+  autowait: 2
+  goto: "lloydAim"
+"lloydAim":
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_0
+  sound: Shy
+  goto: "playSFX"
+"playSFX":
+  soundeffect: M3/1653 - End Of the Century Beam - Part 1.mp3
+  autowait: 1.3
+  goto: "playMusic"
+"playMusic":
+  talker: null
+  music: "Sky Runner.mp3"
+  autowait: 1
+  goto: "moveCam"
+"moveCam":
+  movecam:
+    x: 30
+    y: -75
+  autowait: 1
+  goto: "fireRocket"
+"fireRocket":
+  shakecam:
+    x: 2
+    length: 1.2
+  objectsfunction:
+    DuncansFactoryRoof/FlagLandmark/Missile: play_anim
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 3
+        - turnto:
+            x: 1
+            y: 0
+    lloyd:
+      movement:
+        - wait: 3.2
+        - turnto:
+            x: 1
+            y: 0
+  autowait: 4
+  goto: "fadeInSky"
+"fadeInSky":
+  fadein:
+    speed: 2
+    anim: Fade
+  autowait: 0.5
+  goto: "fadeOutSky"
+"fadeOutSky":
+  changescene: Merrysville/Sky Rocket
+  actorsvisible:
+    ninten: false
+    lloyd: false
+  fadeout:
+    speed: 1
+    anim: Fade
+  objectsfunction:
+    CutscenePlayer: play_anim
+  autowait: 7
+  goto: "fadeInRock"
+"fadeInRock":
+  fadein:
+    speed: 2
+    anim: Fade
+  autowait: 0.5
+  goto: "fadeOutRock"
+"fadeOutRock":
+  changescene: Merrysville/Merrysville
+  actors:
+    pippi: Objects/NPCS/pippi
+    man1: Objects/NPCS/construction_1
+    man2: Objects/NPCS/construction_2
+  actorsanim:
+    man1:
+      anim: Walk
+      newidle: true
+      speed: 1.5
+      type: 0
+    man2:
+      anim: Walk
+      newidle: true
+      speed: 1.5
+      type: 0
+  actorsdir:
+    man1:
+      x: 0
+      y: -1
+    man2:
+      x: 0
+      y: -1
+    pippi:
+      x: 0
+      y: -1
+  teleportactors:
+    pippi:
+      x: 952
+      y: -944
+  movecam:
+    x: 952
+    y: -920
+    length: 0
+  fadeout:
+    speed: 1
+    anim: Fade
+  autowait: 1
+  goto: "manTalk"
+"manTalk":
+  talker: man2
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS1_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_1
+  sound: Adult
+  actorsjump:
+    man2:
+      height: 8
+      times: 2
+  goto: "pippiLouder"
+"pippiLouder":
+  actorsturn:
+    pippi:
+      x: 0
+      y: 1
+  talker: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_2
+  sound: Kid
+  goto: "manNotice"
+"manNotice":
+  actorsemote:
+    man1: shock
+  actorsmove:
+    man1:
+      movement:
+        - jump:
+            height: 8
+        - wait: 0.3
+        - setdir:
+            x: -1
+            y: 0
+        - wait: 0.3
+        - setdir:
+            x: 0
+            y: -1
+        - wait: 0.3
+        - setdir:
+            x: -1
+            y: 0
+        - wait: 0.3
+        - setdir:
+            x: 0
+            y: -1
+    man2:
+      movement:
+        - wait: 1
+        - setdir:
+            x: -1
+            y: 0
+        - wait: 0.3
+        - jump:
+            height: 8
+        - wait: 0.3
+        - setdir:
+            x: 0
+            y: -1
+  autowait: 2
+  goto: "manWarn"
+"manWarn":
+  talker: man1
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS0_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_3
+  sound: Adult
+  actorsmove:
+    pippi:
+      movement:
+        - wait: 0.5
+        - turnto:
+            x: -1
+            y: 0
+  actorsjump:
+    man1:
+      height: 8
+      times: 2
+  goto: "pippiInterested"
+"pippiInterested":
+  name: "[Pippi]"
+  talker: pippi
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_4
+  sound: Kid
+  goto: "manPanic"
+"manPanic":
+  talker: man1
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS0_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_5
+  sound: Adult
+  actorsjump:
+    man2:
+      height: 8
+      times: 2
+  goto: "pippiDodge"
+"pippiDodge":
+  talker: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_6
+  sound: Kid
+  goto: "rocketFall"
+"rocketFall":
+  soundeffect: M3/falling.wav
+  objectsfunction:
+    CutscenePlayer: play_anim
+  actorsmove:
+    man1:
+      movement:
+        - jump:
+            height: 8
+        - turnto:
+            x: 1
+            y: 0
+            speed: 0.1
+        - turnto:
+            x: 0
+            y: 1
+            speed: 0.1
+    man2:
+      movement:
+        - jump:
+            height: 8
+        - turnto:
+            x: -1
+            y: 0
+            speed: 0.1
+        - turnto:
+            x: 0
+            y: 1
+            speed: 0.1
+  autowait: 1
+  goto: "pippiJump"
+"pippiJump":
+  actorsmove:
+    pippi:
+      movement:
+        - turnto:
+            x: 0
+            y: 1
+            speed: 0.2
+        - wait: 0.5
+        - jump:
+            height: 24
+            length: 3
+            crouch: true
+            async: true
+        - x: 0
+          y: 80
+      speed: 28
+      type: step
+    man1:
+      movement:
+        - x: 0
+          y: 64
+      speed: 24
+      type: step
+    man2:
+      movement:
+        - x: 0
+          y: 64
+      speed: 24
+      type: step
+  actorsanim:
+    man1:
+      anim: Walk
+      newidle: true
+      speed: 0.8
+      type: 0
+    man2:
+      anim: Walk
+      newidle: true
+      speed: 0.8
+      type: 0
+  autowait: 2.1
+  goto: "explodeRock"
+"explodeRock":
+  musicvolume: -80
+  objectsfunction:
+    CanvasLayer/ScreenExplosion/AnimationPlayer: play_anim
+  autowait: 7
+  goto: "fadeInRoof"
+"fadeInRoof":
+  music: ""
+  setflags: rocket_launched
+  fadein:
+    speed: 2
+    anim: Fade
+  autowait: 0.5
+  goto: "fadeOutRoof"
+"fadeOutRoof":
+  changescene: Merrysville/Duncan's Factory Roof
+  eraseactors:
+    pippi: true
+    man1: true
+    man2: true
+  actorsdir:
+    ninten:
+      x: 1
+      y: 1
+    lloyd:
+      x: 1
+      y: 1
+    distorto:
+      x: 0
+      y: -1
+  actorsvisible:
+    ninten: true
+    lloyd: true
+  teleportactors:
+    distorto:
+      x: -27
+      y: -48
+  changecam: null
+  movecam:
+    actor: ninten
+    length: 0
+  fadeout:
+    speed: 1
+    anim: Fade
+  autowait: 1.5
+  goto: "lloydTired"
+"lloydTired":
+  movecam:
+    actor: lloyd
+  actorsturn:
+    lloyd:
+      x: 1
+      y: 0
+    ninten:
+      x: -1
+      y: 0
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_7
+  goto: "nintenReply"
+"nintenReply":
+  actorsanim:
+    ninten:
+      anim: Talk
+      type: 0
+  autowait: 2
+  goto: "lloydVideoGames"
+"lloydVideoGames":
+  actorsanim:
+    ninten:
+      anim: Idle
+      type: 0
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_ROCKETLAUNCHER_8
+  actorsemote:
+    lloyd: question
+  goto: "walkOut"
+"walkOut":
+  actorsmove:
+    ninten:
+      movement:
+        - jump:
+            times: 2
+        - wait: 0.8
+        - turnto:
+            x: -1
+            y: 1
+        - wait: 0.1
+        - x: -12
+          y: 8
+        - x: -24
+          y: 8
+        - x: -32
+          y: 16
+        - visible: false
+      type: position
+      animation: Walk
+      speed: 32
+    lloyd:
+      movement:
+        - wait: 1.8
+        - turnto:
+            x: -1
+            y: 1
+        - wait: 0.1
+        - x: -32
+          y: 8
+        - turnto:
+            x: 1
+            y: 0
+        - x: -24
+          y: 8
+        - x: -32
+          y: 16
+        - visible: false
+      type: position
+      animation: Walk
+      speed: 32
+  autowait: 5
+  goto: "moveToDistorto"
+"moveToDistorto":
+  movecam:
+    actor: distorto
+  autowait: 1
+  goto: "shadow"
+"shadow":
+  objectsfunction:
+    CutscenePlayer: play_anim
+  autowait: 12
+  goto: "fadeInHome"
+"fadeInHome":
+  talker: null
+  eraseactors:
+    distorto: true
+  heal: all
+  restorepp: all
+  fadein:
+    speed: 20
+    anim: Fade
+  setflags: "drdistorto_disappear"
+  autowait: 5
+  goto: "goHome"
+"goHome":
+  changescene: Merrysville/Lloyd's Apartment
+  setflags: "good_morning"
+  objectsfunction:
+    MusicArea2: play_music
+  setpartymembers:
+    lloyd: false
+  changecam: null
+  movecam:
+    x: -424
+    y: -1040
+    length: 0
+  autowait: 2
+  goto: "teleport"
+"teleport":
+  fadeout:
+    speed: 1
+    anim: Circle
+  actorsvisible:
+    ninten: true
+  teleportparty:
+    x: -424
+    y: -1040
+  actorsdir:
+    ninten:
+      x: 1
+      y: 0
+  teleportactors:
+    ninten:
+      x: -424
+      y: -1040
+  eraseactors:
+    lloyd: true
+  autowait: 1

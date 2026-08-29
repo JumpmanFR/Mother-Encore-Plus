@@ -1,0 +1,72 @@
+"0":
+  actorsemote:
+    lloyd: question
+  autowait: 1
+  goto: "1"
+"1":
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MAGICANT_LLOYD_FIRSTVISIT_0
+  sound: Shy
+  actorsmove:
+    lloyd:
+      movement:
+        - turnto:
+            actor: ninten
+            speed: 0.1
+    ninten:
+      movement:
+        - wait: 0.1
+        - turnto:
+            actor: lloyd
+            speed: 0.1
+  goto: "2"
+"2":
+  actorsmove:
+    lloyd:
+      movement:
+        - emote: dot
+        - turnto:
+            x: 1
+            y: 0
+            speed: 0.1
+        - wait: 0.6
+        - turnto:
+            x: -1
+            y: 0
+            speed: 0.1
+  autowait: 2.2
+  goto: "3"
+"3":
+  name: "[LLOYD]"
+  text: DIALOGUE_MAGICANT_LLOYD_FIRSTVISIT_1
+  sound: Shy
+  goto: "4"
+"4":
+  actorsemote:
+    lloyd: dot
+  autowait: 1
+  goto: "5"
+"5":
+  name: "[LLOYD]"
+  text: DIALOGUE_MAGICANT_LLOYD_FIRSTVISIT_2
+  sound: Shy
+  goto: "6"
+"6":
+  setflags: lloyd_magicant
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.4
+        - turnto:
+            x: 0
+            y: 1
+            speed: 0.1
+    lloyd:
+      movement:
+        - wait: 0.5
+        - turnto:
+            x: 0
+            y: 1
+            speed: 0.1
+  autowait: 1.2

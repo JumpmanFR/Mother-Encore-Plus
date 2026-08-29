@@ -1,0 +1,8 @@
+'0':
+  name: DIALOGUE_MAGICANT_HELEN_SPEAKER_Helen
+  sound: Female
+  text: DIALOGUE_MAGICANT_HELEN_0
+  goto: '2'
+'2':
+  name: DIALOGUE_MAGICANT_HELEN_SPEAKER_Helen
+  text: DIALOGUE_MAGICANT_HELEN_2

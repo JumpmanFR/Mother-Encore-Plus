@@ -1,0 +1,108 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+  objectsfunction:
+    Objects/Doors/twinkle_door: open
+  actorsmove:
+    ninten:
+      movement:
+        - x: -32
+          y: 32
+      animation: Walk
+      type: step
+      speed: 32
+    lloyd:
+      movement:
+        - setdir:
+            x: -1
+            y: 1
+        - wait: 0.5
+        - x: -16
+          y: 16
+      animation: Walk
+      type: step
+      speed: 32
+  soundeffect: M3/falling.wav
+  autowait: 1.5
+  goto: "question"
+"question":
+  actorsemote:
+    ninten: question
+  actorsmove:
+    ninten:
+      movement:
+        - turnto:
+            x: -1
+            y: 0
+        - wait: 0.5
+        - turnto:
+            x: 1
+            y: 0
+    lloyd:
+      movement:
+        - wait: 0.1
+        - turnto:
+            x: 1
+            y: 0
+        - wait: 0.5
+        - turnto:
+            x: -1
+            y: 0
+  autowait: 1.5
+  goto: "explosion"
+"explosion":
+  actorsemote:
+    ninten: surprise
+    lloyd: surprise
+  shakecam:
+    x: 0
+    y: 3
+    length: 1.4
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.1
+        - jump:
+            height: 8
+            async: true
+        - turnto:
+            x: 0
+            y: -1
+    lloyd:
+      movement:
+        - wait: 0.2
+        - shake:
+            x: 2
+            async: true
+        - jump:
+            height: 12
+            async: true
+        - turnto:
+            x: 0
+            y: -1
+        - wait: 1.2
+        - x: 0
+          y: 24
+        - x: -20
+          y: 0
+        - turnto:
+            x: 0
+            y: -1
+        - shake:
+            x: 1
+      type: step
+      animation: Run
+      speed: 128
+  soundeffect: M3/Explosion.mp3
+  setflags: missile_explosion
+  autowait: 5
+  goto: "ohno"
+"ohno":
+  talker: lloyd
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_EXITTWINKLE_0
+  goto: "end"
+"end":
+  objectsfunction:
+    Music/MusicArea2: play_music

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Laugh.mp3-fceabbf90fcf4032eb3c3c84c2ba98ef.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Laugh.mp3"
+dest_files=[ "res://.import/Laugh.mp3-fceabbf90fcf4032eb3c3c84c2ba98ef.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

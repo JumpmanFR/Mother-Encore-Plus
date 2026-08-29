@@ -1,0 +1,23 @@
+name: BERLINER_NAME
+sorting_name: BERLINER_SORT
+description: BERLINER_DESC
+article: BERLINER_ART
+keyitem: false
+cost: 90
+value: 45
+actions:
+  - name: BERLINER_ACT1
+    function: consume
+is_food: true
+transform: ""
+slot: ""
+HPrecover: 75
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

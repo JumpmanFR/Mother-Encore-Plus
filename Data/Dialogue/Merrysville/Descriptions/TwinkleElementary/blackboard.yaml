@@ -1,0 +1,8 @@
+'0':
+  if:
+    flags:
+        lab_destroyed: true
+    redirect: "Merrysville/Descriptions/TwinkleElementary/destroyed_blackboard"
+  goto: '1'
+'1':
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_BLACKBOARD_0

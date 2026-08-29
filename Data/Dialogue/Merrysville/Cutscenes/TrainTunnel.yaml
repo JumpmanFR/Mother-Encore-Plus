@@ -1,0 +1,42 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+  actorsemote:
+    lloyd: exclamation
+  actorsturn:
+    lloyd:
+      actor: ninten
+  actorsjump:
+    lloyd:
+      height: 8
+      times: 2
+  autowait: 0.8
+  goto: "lloydScared"
+"lloydScared":
+  actorsturn:
+    ninten:
+      actor: lloyd
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_TRAINTUNNEL_0
+  sound: Shy
+  goto: "back_away"
+"back_away":
+  changecam: null
+  actorsmove:
+    ninten:
+      movement:
+        - x: -40
+          y: 0
+      type: step
+      animation: Run
+      speed: 80
+    lloyd:
+      movement:
+        - x: -40
+          y: 0
+      type: step
+      animation: Run
+      speed: 80
+  autowait: 0.6

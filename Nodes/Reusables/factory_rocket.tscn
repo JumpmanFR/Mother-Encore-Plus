@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Main/factory_rocket.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -72, -25, 0, 0, 0, 0, -655, -25, 0, 0, 0, 0, -655, -233, 0, 0, 0, 0, -95, -233, 0, 0, 0, 0, -96, -435, 0, 0, 0, 0, 49, -435, 0, 0, 0, 0, 49, -537, 0, 0, 0, 0, -1000, -536 )
+}
+
+[node name="FactoryRocket" type="Node2D"]
+script = ExtResource( 1 )
+pathfollow2d_path = NodePath("Path2D/PathFollow2D")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( -72, -25 )
+rotation = 3.13679
+rotate = false
+cubic_interp = false
+loop = false
+lookahead = 1.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+update_rotation = false
+update_scale = false

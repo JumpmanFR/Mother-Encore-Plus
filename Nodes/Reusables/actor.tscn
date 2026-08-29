@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Nodes/Reusables/sprite_data_fetcher.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Main/actor.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Character Sprites/Shadow.png" type="Texture" id=4]
+[ext_resource path="res://Nodes/Ui/Camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Reusables/character_sprite.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.5, 6 )
+
+[node name="actor" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 7 )
+texture = ExtResource( 4 )
+
+[node name="CharacterSprite" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, 9 )
+
+[node name="SpecialSprite" parent="." instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 0, 11 )
+hframes = 20
+vframes = 10
+_auto_offset = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 4 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 5 )]
+
+[node name="SpriteDataFetcher" parent="." instance=ExtResource( 1 )]
+_sprite_path = NodePath("../CharacterSprite")
+reflect_offset = 3.0
+
+[node name="SpriteDataFetcher2" parent="." instance=ExtResource( 1 )]
+_sprite_path = NodePath("../SpecialSprite")
+reflect_offset = 3.0

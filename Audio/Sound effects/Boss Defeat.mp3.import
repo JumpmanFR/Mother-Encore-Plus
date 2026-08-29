@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Boss Defeat.mp3-c3b9c03ccf7ce2c6878f25fbe3eaf04f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Boss Defeat.mp3"
+dest_files=[ "res://.import/Boss Defeat.mp3-c3b9c03ccf7ce2c6878f25fbe3eaf04f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

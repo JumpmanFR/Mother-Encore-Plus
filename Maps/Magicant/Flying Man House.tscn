@@ -1,0 +1,156 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Nodes/Overworld/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Overworld/camarea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Overworld/MusicChanger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Reusables/npc.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Reusables/Effects/Weather/Haze.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tilesets/MagicantHouse.tres" type="TileSet" id=6]
+[ext_resource path="res://Graphics/Rooms/Magicant/Flying Man House.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/Rooms/Magicant/Flying Man House Top.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/Rooms/Magicant/Flying Man Bed Yellow.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/Rooms/Magicant/Flying Man Bed Green.png" type="Texture" id=10]
+[ext_resource path="res://Nodes/Reusables/stepping sounds.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Main/RoomTypes/AreaRoom.gd" type="Script" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 132 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 216, 136 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30.5, 24 )
+
+[node name="Flying Man House" type="Node2D"]
+script = ExtResource( 12 )
+_player_map_offset = Vector2( 186, 91 )
+_region_name = "Magicant"
+_is_sub_area = true
+
+[node name="FlyingManHouse" type="Sprite" parent="."]
+position = Vector2( 0, -104 )
+texture = ExtResource( 7 )
+
+[node name="Bottom" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+show_collision = true
+format = 1
+
+[node name="Objects" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+cell_y_sort = true
+show_collision = true
+format = 1
+
+[node name="npc1" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( -56, -32 )
+sprite = "FlyingMan/main"
+dialog = "Magicant/FlyingMan1"
+disappear_flag = "flying_man_1_joined"
+initial_dir = Vector2( 0, 1 )
+wander = true
+
+[node name="npc2" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( -48, -88 )
+sprite = "FlyingMan/main"
+dialog = "Magicant/FlyingMan2"
+disappear_flag = "flying_man_2_joined"
+initial_dir = Vector2( 1, 0 )
+wander = true
+
+[node name="npc3" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( -8, -112 )
+sprite = "FlyingMan/main"
+dialog = "Magicant/FlyingMan3"
+disappear_flag = "flying_man_3_joined"
+initial_dir = Vector2( 0, -1 )
+wander = true
+
+[node name="npc4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 56, -88 )
+sprite = "FlyingMan/main"
+dialog = "Magicant/FlyingMan4"
+disappear_flag = "flying_man_4_joined"
+initial_dir = Vector2( -1, 0 )
+wander = true
+
+[node name="npc5" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 48, -40 )
+sprite = "FlyingMan/main"
+dialog = "Magicant/FlyingMan5"
+disappear_flag = "flying_man_5_joined"
+initial_dir = Vector2( -1, 0 )
+wander = true
+
+[node name="FlyingManBedGreen" type="Sprite" parent="Objects"]
+position = Vector2( -80, -64 )
+texture = ExtResource( 10 )
+
+[node name="FlyingManBedYellow" type="Sprite" parent="Objects"]
+position = Vector2( 80, -64 )
+texture = ExtResource( 9 )
+
+[node name="FlyingManHouseTop" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
+texture = ExtResource( 8 )
+
+[node name="Collisions" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/StaticBody2D"]
+position = Vector2( 0, -16 )
+polygon = PoolVector2Array( 0, 48, 16, 48, 16, 32, 32, 32, 72, 16, 96, 0, 104, -16, 104, -32, 56, -32, 56, -56, 104, -56, 104, -64, 72, -64, 72, -72, 56, -72, 28, -86, 28, -96, -28, -96, -28, -86, -56, -72, -72, -72, -72, -64, -104, -64, -104, -56, -56, -56, -56, -32, -104, -32, -104, -16, -96, 0, -72, 16, -32, 32, -16, 32, -16, 48, 0, 48, 0, 64, -152, 64, -152, -192, 152, -192, 152, 64, 0, 64 )
+
+[node name="Door" parent="." instance=ExtResource( 1 )]
+position = Vector2( -16, 24 )
+scale = Vector2( 4, 1 )
+targetX = 984
+targetY = -784
+dir = Vector2( 0, 1 )
+sound = "M3/door_open.wav"
+targetScene = "Magicant/Magicant"
+
+[node name="MusicArea" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 8, -56 )
+loop = "The Jolly Flying Man NEW.mp3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea"]
+position = Vector2( -8, -12 )
+shape = SubResource( 1 )
+
+[node name="Haze" parent="." instance=ExtResource( 5 )]
+
+[node name="ColorRect" parent="Haze" index="0"]
+visible = false
+
+[node name="camarea" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="CollisionShape2D" parent="camarea" index="0"]
+position = Vector2( 0, -88 )
+shape = SubResource( 2 )
+
+[node name="Carpet" parent="." instance=ExtResource( 11 )]
+entering_sound = "stone"
+exiting_sound = "wood"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Carpet"]
+polygon = PoolVector2Array( -16, -48, 16, -48, 32, -58, 32, -72, 13, -83, -13, -83, -32, -72, -32, -58 )
+
+[node name="Wood" parent="." instance=ExtResource( 11 )]
+entering_sound = "wood"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wood"]
+position = Vector2( -0.5, 14 )
+shape = SubResource( 3 )
+
+[editable path="MusicArea"]
+[editable path="Haze"]
+[editable path="camarea"]

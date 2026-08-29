@@ -1,0 +1,27 @@
+"0":
+  name: DIALOGUE_MERRYSVILLE_TICKETER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TICKETER_3
+  options:
+    DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_0-OPT_0: "yes"
+    DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_0-OPT_1: "no"
+    cancel: "no"
+"yes":
+  showbox: false
+  musicvolume: -80
+  fadein:
+    speed: 0.5
+    anim: Circle Focus
+  autowait: 3
+  goto: "fadeOut"
+"fadeOut":
+  fadeout:
+    speed: 0.3
+    anim: Fade
+  changescene: Cutscenes/credits_act_2
+  setflags: train_to_reindeer
+  autowait: 0.3
+"no":
+  name: DIALOGUE_MERRYSVILLE_TICKETER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TICKETER_1

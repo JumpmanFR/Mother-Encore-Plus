@@ -1,0 +1,14 @@
+"0":
+  name: DIALOGUE_MERRYSVILLE_TICKETER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TICKETER_0
+  options:
+    DEST_REINDEER: "train"
+    cancel: "no"
+"train":
+  changescene: misc/TrainCutscene
+  autoadvance: true
+"no":
+  name: DIALOGUE_MERRYSVILLE_TICKETER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TICKETER_1

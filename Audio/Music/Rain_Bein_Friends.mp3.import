@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rain_Bein_Friends.mp3-1fd4011a397cce148e91d29298fd7843.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Rain_Bein_Friends.mp3"
+dest_files=[ "res://.import/Rain_Bein_Friends.mp3-1fd4011a397cce148e91d29298fd7843.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

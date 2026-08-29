@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/BottleRocket.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Graphics/UI/Maps/marker_hotel.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/UI/Maps/marker_home.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/UI/Maps/marker_hospital.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/UI/Maps/marker_atm.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/UI/Maps/marker_food.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/UI/Maps/marker_phone.png" type="Texture" id=8]
+
+[node name="PodunkMapMarkers" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Podunk" type="Label" parent="."]
+margin_left = 67.0
+margin_top = 244.0
+margin_right = 187.0
+margin_bottom = 258.0
+custom_constants/line_spacing = -3
+custom_fonts/font = ExtResource( 1 )
+text = "MAP_PODUNK_PODUNK"
+align = 1
+
+[node name="Canary Village" type="Label" parent="."]
+margin_left = -25.0
+margin_top = 133.0
+margin_right = 94.0
+margin_bottom = 152.0
+custom_constants/line_spacing = -3
+custom_fonts/font = ExtResource( 1 )
+text = "MAP_PODUNK_CANARY"
+align = 1
+
+[node name="Cemetery" type="Label" parent="."]
+margin_left = 85.0
+margin_top = 413.0
+margin_right = 216.0
+margin_bottom = 427.0
+custom_constants/line_spacing = -3
+custom_fonts/font = ExtResource( 1 )
+text = "MAP_PODUNK_CEMETERY"
+align = 1
+
+[node name="Choucream Zoo" type="Label" parent="."]
+margin_left = 105.0
+margin_top = 45.0
+margin_right = 204.0
+margin_bottom = 59.0
+custom_constants/line_spacing = -3
+custom_fonts/font = ExtResource( 1 )
+text = "MAP_PODUNK_ZOO"
+align = 1
+
+[node name="Phone1" type="TextureRect" parent="."]
+margin_left = 264.0
+margin_top = 3.0
+margin_right = 277.0
+margin_bottom = 18.0
+texture = ExtResource( 8 )
+
+[node name="Phone2" type="TextureRect" parent="."]
+margin_left = 100.0
+margin_top = 63.0
+margin_right = 113.0
+margin_bottom = 78.0
+texture = ExtResource( 8 )
+
+[node name="Phone3" type="TextureRect" parent="."]
+margin_left = 85.0
+margin_top = 269.0
+margin_right = 98.0
+margin_bottom = 284.0
+texture = ExtResource( 8 )
+flip_v = true
+
+[node name="Phone4" type="TextureRect" parent="."]
+margin_left = 101.0
+margin_top = 393.0
+margin_right = 114.0
+margin_bottom = 408.0
+texture = ExtResource( 8 )
+
+[node name="Hotel" type="TextureRect" parent="."]
+margin_left = 130.0
+margin_top = 207.0
+margin_right = 143.0
+margin_bottom = 222.0
+texture = ExtResource( 3 )
+
+[node name="ATM" type="TextureRect" parent="."]
+margin_left = 120.0
+margin_top = 226.0
+margin_right = 133.0
+margin_bottom = 241.0
+texture = ExtResource( 6 )
+
+[node name="Food" type="TextureRect" parent="."]
+margin_left = 86.0
+margin_top = 227.0
+margin_right = 99.0
+margin_bottom = 242.0
+texture = ExtResource( 7 )
+
+[node name="Hospital" type="TextureRect" parent="."]
+margin_left = 90.0
+margin_top = 247.0
+margin_right = 103.0
+margin_bottom = 262.0
+texture = ExtResource( 5 )
+
+[node name="Home" type="TextureRect" parent="."]
+margin_left = 93.0
+margin_top = 107.0
+margin_right = 106.0
+margin_bottom = 122.0
+texture = ExtResource( 4 )

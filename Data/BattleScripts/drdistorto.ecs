@@ -1,0 +1,36 @@
+define second_phase = false
+define on_choose_action = on_choose_action()
+define enemy
+
+start:
+  second_phase = false
+  enemy = get_script_bp()
+  yield enemy.get_current_hp() < 1500 // Not final
+  enemy.set_scripted_text("distortotext")
+  enemy.set_scripted_skill(callLaunchers)
+  second_phase = true
+
+command on_choose_action():
+  enemy.reset_skills()
+  if !second_phase:
+    if get_enemy_count() == 1:
+      enemy.add_skill(callHelpDistorto, 12)
+    
+    if get_enemy_count() == 2:
+      enemy.add_skill(callHelpDistorto, 4)
+      enemy.add_skill(distortoBoost, 6)
+    
+    if get_enemy_count() == 3:
+      enemy.add_skill(distortoBoost, 8)
+    
+  else:
+    if get_enemy_count() == 3:
+      enemy.add_skill(callHelpDistorto, 15)
+    
+    if get_enemy_count() == 4:
+      enemy.add_skill(callHelpDistorto, 4)
+      enemy.add_skill(distortoBoost, 8)
+    
+    if get_enemy_count() == 5:
+      enemy.add_skill(distortoBoost, 8)
+      

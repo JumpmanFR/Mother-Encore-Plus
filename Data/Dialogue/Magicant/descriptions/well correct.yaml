@@ -1,0 +1,31 @@
+"0":
+  text: DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_0
+  if:
+    flags:
+      marys_story_learned: true
+    goto: "1"
+"1":
+  text: DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_1
+  cash: true
+  options:
+    DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_1-OPT_1: "2"
+    DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_1-OPT_2: "3"
+    cancel: "3"
+"2":
+  if:
+    hascash: 10
+    goto: "4"
+  goto: "5"
+"3":
+  showbox: false
+"4":
+  givecash: -10
+  text: DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_3
+  goto: "6"
+"5":
+  text: DIALOGUE_MAGICANT_DESCRIPTIONS_WELL_4
+"6":
+  objectsfunction:
+    Doors/Door25: enter
+  setflags: enteredwell
+  caninput: false

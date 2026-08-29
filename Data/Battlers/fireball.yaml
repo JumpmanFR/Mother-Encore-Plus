@@ -1,0 +1,38 @@
+name: FIREBALL_NAME
+description: FIREBALL_DESC
+article: FIREBALL_ART
+maxhp: 160
+hp: 160
+maxpp: 100
+pp: 100
+offense: 24
+defense: 22
+speed: 25
+iq: 40
+guts: 0
+level: 19
+exp: 95
+cash: 55
+items:
+  - chance: 40
+    item: Banana
+  - chance: 40
+    item: Berliner
+skills:
+  - skill: pkFireAEnemy
+    weight: 1
+  - skill: bash
+    weight: 3
+boss: false
+sprite: fireball
+music: Serious.mp3
+bg: fireball
+ov:
+  sprite: FireballOV
+  anim: FireballEnemy
+affinity_multipliers:
+  ice: 2
+  sleeping: 1.5
+  blinded: 0.5
+  fire: 0
+  burned: 0

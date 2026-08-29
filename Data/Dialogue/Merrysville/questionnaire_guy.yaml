@@ -1,0 +1,72 @@
+#if you dont have Telephone card, start survey. if you do, go to 8
+"0":
+  if:
+    hasitem: PhoneCard
+    goto: '10'
+  goto: '1'
+"1":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_0
+    options:
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_0-OPT_0: "2"
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_0-OPT_1: "3"
+        cancel: "3"
+# yes - begins survey
+"2":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_1
+    options:
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_0-OPT_0: "4"
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_0-OPT_1: "4"
+        cancel: "4"
+# no - quit
+"3":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_2
+# regardless of answer, go to next question
+"4":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_3
+    options:
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_3-OPT_0: "5"
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_3-OPT_1: "5"
+        cancel: "5"
+"5":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_4
+    options:
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_4-OPT_0: "6"
+        DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_4-OPT_1: "6"
+        cancel: "6"
+#end survey, give telephone card
+"6":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_5
+    goto: "7"
+#if bag is too full, dont give it, end dialogue. otherwise give
+"7":
+  if:
+    invspace: false
+    goto: '8'
+  goto: '9'
+#if bag too full
+"8":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_6
+#obtained telephone card
+"9":
+    item: PhoneCard
+    soundeffect: Item Received.mp3
+
+#if you already have Telephone Card
+"10":
+    name: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_QUESTIONNAIREGUY_7

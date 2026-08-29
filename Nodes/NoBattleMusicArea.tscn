@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Main/NoBattleMusicArea.gd" type="Script" id=1]
+
+[node name="NoBattleMusicArea" type="Area2D"]
+collision_layer = 4096
+collision_mask = 0
+monitorable = false
+script = ExtResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_NoBattleMusicArea_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_NoBattleMusicArea_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_NoBattleMusicArea_body_exited"]

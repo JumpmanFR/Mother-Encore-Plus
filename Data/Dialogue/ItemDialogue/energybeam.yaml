@@ -1,0 +1,15 @@
+"0":
+  musicvolume: -70
+  soundeffect: Fanfare.mp3
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "1"
+"1":
+  text: DIALOGUE_ITEMDIALOGUE_PRESENTLLOYDTOOL_0
+  wait: 5
+  goto: "2"
+"2":
+  setflags: switch_leader
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_ENERGYBEAM_0
+  musicvolume: 0

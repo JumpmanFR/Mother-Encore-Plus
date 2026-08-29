@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform float strength = 1.0;
+uniform float lighten = 0.15;
+
+void fragment() {
+    vec4 c = texture(TEXTURE, UV);
+    float gray = dot(c.rgb, vec3(0.2126, 0.7152, 0.0722));
+    vec3 bw = vec3(gray);
+    vec3 bw_light = mix(bw, vec3(1.0), lighten);
+    vec3 result = mix(c.rgb, bw_light, strength);
+    COLOR = vec4(result, c.a);
+}
+"
+
+[resource]
+shader = SubResource( 5 )
+shader_param/strength = 1.0
+shader_param/lighten = 0.3

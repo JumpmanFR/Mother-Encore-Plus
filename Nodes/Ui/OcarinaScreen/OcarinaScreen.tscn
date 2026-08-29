@@ -1,0 +1,198 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/UI/OcarinaScreen/OcarinaScreen.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/UI/MelodyIcons/ocarina.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/Colorize.tres" type="Material" id=3]
+[ext_resource path="res://Nodes/Ui/OcarinaScreen/MelodyAnim.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Graphics/UI/MelodyIcons/melody_playing_orb_2.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/UI/MelodyIcons/melody_playing_orb_1.png" type="Texture" id=6]
+[ext_resource path="res://Nodes/Ui/OcarinaScreen/PlayingOrbs.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Rotation"
+length = 0.462
+loop = true
+step = 0.462
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.462 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -270.0, 90.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Orb1:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.462 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 90.0, -270.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Orb2:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.462 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 90.0, -270.0 ]
+}
+
+[sub_resource type="AnimatedTexture" id=5]
+frames = 2
+frame_0/texture = ExtResource( 6 )
+frame_1/texture = ExtResource( 5 )
+frame_1/delay_sec = 0.0
+
+[node name="OcarinaScreen" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 1 )
+_melody_anim_nodes = [ NodePath("MelodyAnim1"), NodePath("MelodyAnim2"), NodePath("MelodyAnim3"), NodePath("MelodyAnim4"), NodePath("MelodyAnim5"), NodePath("MelodyAnim6"), NodePath("MelodyAnim7"), NodePath("MelodyAnim8") ]
+_playing_orbs = NodePath("PlayingOrbs")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.972549, 0.847059, 0.847059, 1 )
+
+[node name="MelodyAnim1" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 166.0
+margin_top = 11.0
+margin_right = 208.0
+margin_bottom = 53.0
+_melody_number = 1
+_color = Color( 1, 0.266667, 0.556863, 1 )
+
+[node name="MelodyAnim2" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_top = 42.0
+margin_right = 264.0
+margin_bottom = 84.0
+_melody_number = 2
+_color = Color( 1, 0.847059, 0.156863, 1 )
+
+[node name="MelodyAnim3" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_top = 94.0
+margin_right = 264.0
+margin_bottom = 136.0
+_melody_number = 3
+_color = Color( 0.556863, 0.168627, 0.372549, 1 )
+
+[node name="MelodyAnim4" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 167.0
+margin_top = 125.0
+margin_right = 209.0
+margin_bottom = 167.0
+_melody_number = 4
+_color = Color( 0.435294, 0.266667, 0.760784, 1 )
+
+[node name="MelodyAnim5" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 105.0
+margin_top = 125.0
+margin_right = 147.0
+margin_bottom = 167.0
+_melody_number = 5
+_color = Color( 0.160784, 0.588235, 0.2, 1 )
+
+[node name="MelodyAnim6" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_top = 94.0
+margin_right = 96.0
+margin_bottom = 136.0
+_melody_number = 6
+_color = Color( 0.933333, 0.313726, 0.0941176, 1 )
+
+[node name="MelodyAnim7" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_top = 42.0
+margin_right = 96.0
+margin_bottom = 84.0
+_melody_number = 7
+_color = Color( 0.847059, 0.113725, 0.188235, 1 )
+
+[node name="MelodyAnim8" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 105.0
+margin_top = 11.0
+margin_right = 147.0
+margin_bottom = 53.0
+_melody_number = 8
+_color = Color( 0.0431373, 0.486275, 0.607843, 1 )
+
+[node name="Ocarina" type="Sprite" parent="."]
+position = Vector2( 160, 90 )
+texture = ExtResource( 2 )
+
+[node name="PlayingOrbs" type="Control" parent="."]
+material = ExtResource( 3 )
+margin_left = 166.0
+margin_top = 11.0
+margin_right = 209.0
+margin_bottom = 53.0
+rect_rotation = -180.0
+rect_pivot_offset = Vector2( 21.5, 21 )
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayingOrbs"]
+pause_mode = 2
+autoplay = "Rotation"
+reset_on_save = false
+playback_process_mode = 0
+anims/Rotation = SubResource( 4 )
+
+[node name="Orb1" type="TextureRect" parent="PlayingOrbs"]
+use_parent_material = true
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 17.0
+margin_bottom = 17.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 6, 6 )
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 3
+
+[node name="Orb2" type="TextureRect" parent="PlayingOrbs"]
+use_parent_material = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -17.0
+margin_top = -17.0
+margin_right = -5.0
+margin_bottom = -5.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 6, 6 )
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 3

@@ -1,0 +1,29 @@
+name: SPEEDUP_NAME
+level: 0
+description: SPEEDUPA_DESC
+article: SPEEDUP_ART
+skill_type: psi
+action_type: 2 # Stat
+use_cases: 1 # Battle only
+psi_category: Assist
+target_type: 1 # Ally
+damage_or_heal: 0
+variance: 0
+priority: 0
+stat_mods:
+  speed: 2
+miss_chance: 0
+pp_cost: 4
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+screen_effect: stat_speed_up
+user_anim: psi
+user_anim_colors:
+  - 'FFF142'
+  - 'FFEC9C'
+  - 'F26F18'
+use_sound: ''
+hit_sound: ''
+traits:
+  - target_incapacitated

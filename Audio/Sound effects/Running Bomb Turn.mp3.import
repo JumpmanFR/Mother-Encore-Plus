@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Running Bomb Turn.mp3-c88475b8ed24fc0a38db3c749ad2d410.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Running Bomb Turn.mp3"
+dest_files=[ "res://.import/Running Bomb Turn.mp3-c88475b8ed24fc0a38db3c749ad2d410.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

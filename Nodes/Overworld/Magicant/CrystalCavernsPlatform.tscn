@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Graphics/Objects/Magicant/Crystal Caverns Platform.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Main/Switches/RetractablePlatform.gd" type="Script" id=2]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "Off"
+length = 0.916667
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "On"
+length = 0.916667
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "StayOff"
+length = 0.001
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "StayOn"
+length = 0.001
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+
+[node name="CrystalCavernsPlatform" type="Sprite"]
+position = Vector2( -672, 376 )
+texture = ExtResource( 1 )
+hframes = 11
+frame = 10
+script = ExtResource( 2 )
+_initially_on = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Off = SubResource( 1 )
+anims/On = SubResource( 2 )
+anims/StayOff = SubResource( 3 )
+anims/StayOn = SubResource( 4 )

@@ -1,0 +1,27 @@
+"0":
+    actors:
+        man: talker
+    actorsanim:
+        man:
+            anim: TransitionTalk
+    wait: 0.5
+    autoadvance: true
+    caninput: false
+    goto: "1"
+"1":
+    actorsanim:
+        man:
+            anim: TalkIdle
+    name: DIALOGUE_MAGICANT_FORGOTTENMAN_SPEAKER_ForgottenMan
+    text: DIALOGUE_MAGICANT_FORGOTTENMAN3
+    sound: Adult
+    setflags: forgotten_man_3
+    goto: "2"
+"2":
+    showbox: false
+    actorsanim:
+        man:
+            anim: TransitionIdle
+    wait: 0.5
+    autoadvance: true
+    caninput: false

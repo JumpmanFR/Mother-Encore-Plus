@@ -1,0 +1,19 @@
+name: FLASHDARK_NAME
+description: FLASHDARK_DESC
+dialog: USEFLASHDARK_DIALOG
+skill_type: ''
+action_type: 3 # Ailment
+use_cases: 1 # Battle only
+target_type: 0 # Enemy
+damage_or_heal: 0
+variance: 0
+priority: 0
+status_effects:
+  blinded: 100
+fail_chance: 40
+pp_cost: 0
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+use_sound: ''
+hit_sound: ''

@@ -1,0 +1,21 @@
+name: STICKYMACHINE_NAME
+description: STICKYMACHINE_DESC
+dialog: USESTICKYMACHINE_DIALOG
+skill_type: skill
+action_type: 3 # Ailment
+use_cases: 1 # Battle only
+target_type: 0 # Enemy
+damage_or_heal: 0
+variance: 0
+priority: 0
+status_effects:
+  rope: 100
+fail_chance: 0
+pp_cost: 0
+hp_cost: 0
+sp_cost: 3
+hit_effect: ""
+pre_hit_effect: ""
+user_anim: item
+use_sound: ""
+hit_sound: ""

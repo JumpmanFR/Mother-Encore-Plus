@@ -1,0 +1,20 @@
+name: SOWSEEDS_NAME
+description: SOWSEEDS_DESC
+dialog: SOWSEEDS_DIALOG
+skill_type: ''
+action_type: 4 # Other
+use_cases: 1 # Battle only
+target_type: 0 # Enemy
+damage_or_heal: 0
+variance: 0
+priority: 0
+allies:
+  - ally: woodoh
+    weight: 1
+fail_chance: 50
+fail_dialog: SOWSEEDS_FAIL
+pp_cost: 0
+hp_cost: 0
+hit_effect: ''
+use_sound: ''
+hit_sound: ''

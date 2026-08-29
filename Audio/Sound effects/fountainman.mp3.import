@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fountainman.mp3-0687033a9915fa93841658d6b16c0301.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/fountainman.mp3"
+dest_files=[ "res://.import/fountainman.mp3-0687033a9915fa93841658d6b16c0301.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

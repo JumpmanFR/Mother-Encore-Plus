@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Running Bomb Spawn.mp3-8b0a813b9459669d9f76a36b31439e09.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Running Bomb Spawn.mp3"
+dest_files=[ "res://.import/Running Bomb Spawn.mp3-8b0a813b9459669d9f76a36b31439e09.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

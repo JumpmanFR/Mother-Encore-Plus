@@ -1,0 +1,35 @@
+"0":
+  name: DIALOGUE_MAGICANT_CINDY_THOUGHTS_SPEAKER_Cindy
+  text: DIALOGUE_MAGICANT_CINDY_THOUGHTS1_0
+  if:
+    haspartymembers:
+      ana: true
+    goto: '2'
+  goto: '1'
+"1":
+  name: DIALOGUE_MAGICANT_CINDY_THOUGHTS_SPEAKER_Cindy
+  text: DIALOGUE_MAGICANT_CINDY_THOUGHTS1_1
+"2":
+  if:
+  - invspace: false
+    goto: '3'
+  - leader: ana
+    goto: '4'
+  autoadvance: true
+  goto: '5'
+"3":
+  name: DIALOGUE_MAGICANT_CINDY_THOUGHTS_SPEAKER_Cindy
+  text: DIALOGUE_MAGICANT_CINDY_THOUGHTS1_3
+"4":
+  name: DIALOGUE_MAGICANT_CINDY_THOUGHTS_SPEAKER_Cindy
+  text: DIALOGUE_MAGICANT_CINDY_THOUGHTS1_4
+  goto: '6'
+"5":
+  name: DIALOGUE_MAGICANT_CINDY_THOUGHTS_SPEAKER_Cindy
+  text: DIALOGUE_MAGICANT_CINDY_THOUGHTS1_5
+  goto: '6'
+"6":
+  text: DIALOGUE_MAGICANT_CINDY_THOUGHTS1_6
+  item: MagicRibbon
+  soundeffect: Item Received.mp3
+  setflags: got_magic_ribbon

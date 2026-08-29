@@ -1,0 +1,24 @@
+name: CAPSULEIQ_NAME
+sorting_name: CAPSULEIQ_SORT
+description: CAPSULEIQ_DESC
+article: CAPSULEIQ_ART
+keyitem: false
+cost: 0
+value: 0
+can_consume: [ ninten, ana, lloyd ]
+actions:
+  - name: CAPSULEIQ_ACT1
+    function: consume
+    textfail: ACTION_RESULT_FAIL_CAPSULE
+transform: ''
+slot: ''
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 3
+  guts: 0

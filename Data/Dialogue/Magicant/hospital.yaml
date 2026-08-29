@@ -1,0 +1,50 @@
+"0":
+  name: DIALOGUE_MAGICANT_HOSPITAL_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_HOSPITAL_0
+  options:
+    chkninten: '2'
+    chkana: '3'
+    chklloyd: '4'
+    chkteddy: '5'
+    chkpippi: '6'
+    cancel: '1'
+"1":
+  name: DIALOGUE_MAGICANT_HOSPITAL_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_HOSPITAL_1
+"2":
+  heal: ninten
+  cure:
+    character: ninten
+    status: all
+  goto: '7'
+"3":
+  heal: ana
+  cure:
+    character: ana
+    status: all
+  goto: '7'
+"4":
+  heal: lloyd
+  cure:
+    character: lloyd
+    status: all
+  goto: '7'
+"5":
+  heal: teddy
+  cure:
+    character: teddy
+    status: all
+  goto: '7'
+"6":
+  heal: pippi
+  cure:
+    character: pippi
+    status: all
+  goto: '7'
+"7":
+  name: DIALOGUE_MAGICANT_HOSPITAL_SPEAKER
+  sound: Female
+  text: DIALOGUE_MAGICANT_HOSPITAL_7
+  soundeffect: M3/heal_se.wav

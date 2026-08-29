@@ -1,0 +1,141 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+    ana: ana
+    teddy: teddy
+    pippi: pippi
+  goto: "1"
+"1":
+  text: DIALOGUE_REUSABLE_PINKSHELLTELEPATHY_0
+  if:
+    - hasitem: GGFDiary
+      goto: "2"
+"2":
+  text: DIALOGUE_REUSABLE_PINKSHELLTELEPATHY_2
+  goto: "4"
+"4":
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PINKSHELLTELEPATHY_4
+  goto: "5"
+  cleardialog: true
+"5":
+  showbox: false
+  fadein:
+    speed: 0.7
+    anim: Fade
+    color: "FFFFFF"
+  autowait: 3
+  goto: "6"
+  music: ""
+"6":
+  if:
+    flags:
+      visited_magicant: false
+    goto: "7"
+  "goto": "teleport"
+# First time visiting Magicant
+"7":
+  changescene: Magicant/Magicant
+  fadeout:
+    speed: 0.2
+    anim: Fade
+    color: "FFFFFF"
+  actorsanim:
+    ninten:
+      type: 1
+      anim: NintenStandUp
+  actorsdir:
+    ninten:
+      x: -1
+      y: 0
+  teleportactors:
+    ninten:
+      x: 12
+      y: -40
+  movecam:
+    x: 0
+    y: -68
+    length: 0.1
+  actorsshadow:
+    ninten: false
+  autowait: 8
+  goto: "8"
+"8":
+  returncam: 1
+  objectsfunction:
+    MusicArea: play_music
+  actorsanim:
+    ninten:
+      type: 0
+      anim: Idle
+  actorsturn:
+    ninten:
+      x: 0
+      y: 1
+      speed: 0.3
+  actorsshadow:
+    ninten: true
+  autowait: 1
+"teleport":
+  changescene: Magicant/Magicant
+  fadeout:
+    speed: 0.2
+    anim: Fade
+    color: "FFFFFF"
+  actors:
+    flyingman: flyingman
+  returncam: 0
+  actorsdir:
+    ninten:
+      y: 1
+    lloyd:
+      y: 1
+    ana:
+      y: 1
+    teddy:
+      y: 1
+    pippi:
+      y: 1
+    flyingman:
+      y: 1
+  teleportactors:
+    ninten:
+      x: 0
+      y: -40
+    lloyd:
+      x: 16
+      y: -48
+    ana:
+      x: -16
+      y: -48
+    teddy:
+      x: 16
+      y: -48
+    pippi:
+      x: 16
+      y: -48
+    flyingman:
+      x: 32
+      y: -56
+  goto: "end"
+"end":
+  objectsfunction:
+    MusicArea: play_music
+  autowait: 2
+  if:
+    - flags:
+        lloyd_magicant: false
+      haspartymembers:
+        lloyd: true
+      redirect: "Magicant/Cutscenes/lloyd_first_visit"
+    - flags:
+        ana_magicant: false
+      haspartymembers:
+        ana: true
+      redirect: "Magicant/Cutscenes/ana_first_visit"
+    - flags:
+        teddy_magicant: false
+      haspartymembers:
+        teddy: true
+      redirect: "Magicant/Cutscenes/teddy_first_visit"

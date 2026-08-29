@@ -1,0 +1,10 @@
+name: FIELD_ENERGYBEAM
+description: FIELD_ENERGYBEAM_DESC
+is_skill_button: true
+flag: energy_beam
+usable:
+  ninten: false
+  ana: false
+  lloyd: true
+  teddy: false
+  pippi: false

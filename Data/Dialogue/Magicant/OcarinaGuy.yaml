@@ -1,0 +1,13 @@
+'0':
+  if:
+    hasitem: Ocarina
+    goto: '5'
+  goto: '1'
+'1':
+  name: DIALOGUE_MAGICANT_OCARINAGUY_SPEAKER_Stan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_OCARINAGUY_1
+'5':
+  name: DIALOGUE_MAGICANT_OCARINAGUY_SPEAKER_Stan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_OCARINAGUY_2

@@ -1,0 +1,119 @@
+"0":
+  actors:
+    lloyd: lloyd
+    ninten: ninten
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_DUNCANSTERMINAL_0
+  if:
+    leader: lloyd
+    flags:
+      computer_left_hacked: false
+    goto: "1"
+  goto: "10"
+"1":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_DUNCANSTERMINAL_3
+  soundeffect: "phonehangup.wav"
+  goto: "2"
+"2":
+  showbox: false
+  fadein:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "3"
+"3":
+  fadeout:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  teleportparty:
+    x: 0
+    y: -408
+    disappear: false
+  movecam:
+    x: 0
+    y: -408
+    length: 0.1
+  wait: 1.5
+  autoadvance: true
+  caninput: false
+  goto: "4"
+"4":
+  objectsfunction:
+    Below2/Duncans Big Door: light_color(blue)
+  setflags: computer_left_hacked
+  if:
+    flags:
+      computer_right_hacked: true
+    goto: "5"
+  wait: 1.5
+  autoadvance: true
+  caninput: false
+  goto: "8"
+"5":
+  musicvolume: -60
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "6"
+"6":
+  objectsfunction:
+    Below2/Duncans Big Door: open_door
+  setflags: computers_all_hacked
+  shakecam:
+    x: 1
+    y: 0
+    length: 0.2
+  wait: 1.5
+  autoadvance: true
+  caninput: false
+  goto: "7"
+"7":
+  soundeffect: puzzle_jingle.wav
+  wait: 1.5
+  autoadvance: true
+  caninput: false
+  goto: "8"
+"8":
+  musicvolume: 0
+  fadein:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "9"
+"9":
+  fadeout:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  teleportparty:
+    x: -864
+    y: -368
+    disappear: false
+  teleportactors:
+    lloyd:
+      x: -872
+      y: -368
+    ninten:
+      x: -856
+      y: -368
+  actorsdir:
+    lloyd:
+      x: 0
+      y: -1
+    ninten:
+      x: 0
+      y: -1
+  wait: 1
+  autoadvance: true
+  caninput: false
+"10":
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: "Shy"
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_DUNCANSTERMINAL_2

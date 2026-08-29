@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Tilesets/RoadTunnel.tres" type="TileSet" id=1]
+[ext_resource path="res://Tilesets/Interior.tres" type="TileSet" id=2]
+[ext_resource path="res://Nodes/Overworld/camarea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Overworld/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Overworld/MusicChanger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Reusables/stepping sounds.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Main/RoomTypes/AreaRoom.gd" type="Script" id=7]
+[ext_resource path="res://Nodes/Overworld/Enemies/Enemy Spawner.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 496, 76 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 524, 32 )
+
+[node name="Road Tunnel" type="Node2D"]
+script = ExtResource( 7 )
+_player_map_offset = Vector2( 338, 28 )
+_region_name = "Merrysville"
+
+[node name="Bottom" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -262148, 0, 0, -327676, 1, 0, -327672, 1, 0, -327668, 1, 0, -327664, 1, 0, -327660, 1, 0, -327656, 1, 0, -327652, 1, 0, -327648, 1, 0, -327644, 1, 0, -327640, 1, 0, -327636, 1, 0, -327632, 2, 0 )
+
+[node name="Bottom2" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -262148, 10, 0, -327627, 10, 1, -327623, 10, 1, -65533, 11, 1, -65511, 11, 1, 11, 11, 65537, 45, 11, 65537, 131071, 11, 0 )
+
+[node name="Objects" type="YSort" parent="."]
+
+[node name="Enemy Spawner" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 416, 8 )
+enemy = "madtruck"
+
+[node name="Above" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -393159, 14, 2, -393158, 14, 2, -393157, 14, 2, -393156, 14, 2, -393155, 14, 2, -262153, 14, 2, -262152, 14, 2, -262151, 14, 2, -262150, 14, 2, -262149, 14, 2, -327624, 14, 2, -327623, 14, 2, -327622, 14, 2, -327621, 14, 2, -327620, 14, 2, -327619, 14, 2, -327618, 14, 2, -196617, 14, 2, -196616, 14, 2, -196615, 14, 2, -196614, 14, 2, -196613, 14, 2, -262088, 14, 2, -262087, 14, 2, -262086, 14, 2, -262085, 14, 2, -262084, 14, 2, -262083, 14, 2, -131081, 14, 2, -131080, 14, 2, -131079, 14, 2, -131078, 14, 2, -131077, 14, 2, -196552, 14, 2, -196551, 14, 2, -196550, 14, 2, -196549, 14, 2, -196548, 14, 2, -65545, 14, 2, -65544, 14, 2, -65543, 14, 2, -65542, 14, 2, -65541, 14, 2, -131016, 14, 2, -131015, 14, 2, -131014, 14, 2, -131013, 14, 2, -131012, 14, 2, -9, 14, 2, -8, 14, 2, -7, 14, 2, -6, 14, 2, -5, 14, 2, -65480, 14, 2, -65479, 14, 2, -65477, 14, 2, -65476, 14, 2, 65527, 14, 2, 65528, 14, 2, 65529, 14, 2, 65530, 14, 2, 65531, 14, 2, 56, 14, 2, 57, 14, 2, 58, 14, 2, 59, 14, 2, 60, 14, 2, 131063, 14, 2, 131064, 14, 2, 131065, 14, 2, 131066, 14, 2, 131067, 14, 2, 65592, 14, 2, 65593, 14, 2, 65594, 14, 2, 65595, 14, 2, 65596, 14, 2, 196599, 14, 2, 196600, 14, 2, 196601, 14, 2, 196602, 14, 2, 196603, 14, 2, 196604, 14, 2, 196605, 14, 2, 196606, 14, 2, 196607, 14, 2, 131072, 14, 2, 131073, 14, 2, 131074, 14, 2, 131075, 14, 2, 131076, 14, 2, 131077, 14, 2, 131078, 14, 2, 131079, 14, 2, 131080, 14, 2, 131081, 14, 2, 131082, 14, 2, 131083, 14, 2, 131084, 14, 2, 131085, 14, 2, 131086, 14, 2, 131087, 14, 2, 131088, 14, 2, 131089, 14, 2, 131090, 14, 2, 131091, 14, 2, 131092, 14, 2, 131093, 14, 2, 131094, 14, 2, 131095, 14, 2, 131096, 14, 2, 131097, 14, 2, 131098, 14, 2, 131099, 14, 2, 131100, 14, 2, 131101, 14, 2, 131102, 14, 2, 131103, 14, 2, 131104, 14, 2, 131105, 14, 2, 131106, 14, 2, 131107, 14, 2, 131108, 14, 2, 131109, 14, 2, 131110, 14, 2, 131111, 14, 2, 131112, 14, 2, 131113, 14, 2, 131114, 14, 2, 131115, 14, 2, 131116, 14, 2, 131117, 14, 2, 131118, 14, 2, 131119, 14, 2, 131120, 14, 2, 131121, 14, 2, 131122, 14, 2, 131123, 14, 2, 131124, 14, 2, 131125, 14, 2, 131126, 14, 2, 131127, 14, 2, 131128, 14, 2, 131129, 14, 2, 131130, 14, 2, 131131, 14, 2, 131132, 14, 2, 262135, 14, 2, 262136, 14, 2, 262137, 14, 2, 262138, 14, 2, 262139, 14, 2, 262140, 14, 2, 262141, 14, 2, 262142, 14, 2, 262143, 14, 2, 196608, 14, 2, 196609, 14, 2, 196610, 14, 2, 196611, 14, 2, 196612, 14, 2, 196613, 14, 2, 196614, 14, 2, 196615, 14, 2, 196616, 14, 2, 196617, 14, 2, 196618, 14, 2, 196619, 14, 2, 196620, 14, 2, 196621, 14, 2, 196622, 14, 2, 196623, 14, 2, 196624, 14, 2, 196625, 14, 2, 196626, 14, 2, 196627, 14, 2, 196628, 14, 2, 196629, 14, 2, 196630, 14, 2, 196631, 14, 2, 196632, 14, 2, 196633, 14, 2, 196634, 14, 2, 196635, 14, 2, 196636, 14, 2, 196637, 14, 2, 196638, 14, 2, 196639, 14, 2, 196640, 14, 2, 196641, 14, 2, 196642, 14, 2, 196643, 14, 2, 196644, 14, 2, 196645, 14, 2, 196646, 14, 2, 196647, 14, 2, 196648, 14, 2, 196649, 14, 2, 196650, 14, 2, 196651, 14, 2, 196652, 14, 2, 196653, 14, 2, 196654, 14, 2, 196655, 14, 2, 196656, 14, 2, 196657, 14, 2, 196658, 14, 2, 196659, 14, 2, 196660, 14, 2, 196661, 14, 2, 196662, 14, 2, 196663, 14, 2, 196664, 14, 2, 196665, 14, 2, 196666, 14, 2, 196667, 14, 2, 196668, 14, 2, 327673, 14, 2, 327674, 14, 2, 327675, 14, 2, 327676, 14, 2, 327677, 14, 2, 327678, 14, 2, 327679, 14, 2, 262144, 14, 2, 262145, 14, 2, 262146, 14, 2, 262147, 14, 2, 262148, 14, 2, 262149, 14, 2, 262150, 14, 2, 262151, 14, 2, 262152, 14, 2, 262153, 14, 2, 262154, 14, 2, 262155, 14, 2, 262156, 14, 2, 262157, 14, 2, 262158, 14, 2, 262159, 14, 2, 262160, 14, 2, 262161, 14, 2, 262162, 14, 2, 262163, 14, 2, 262164, 14, 2, 262165, 14, 2, 262166, 14, 2, 262167, 14, 2, 262168, 14, 2, 262169, 14, 2, 262170, 14, 2, 262171, 14, 2, 262172, 14, 2, 262173, 14, 2, 262174, 14, 2, 262175, 14, 2, 262176, 14, 2, 262177, 14, 2, 262178, 14, 2, 262179, 14, 2, 262180, 14, 2, 262181, 14, 2, 262182, 14, 2, 262183, 14, 2, 262184, 14, 2, 262185, 14, 2, 262186, 14, 2, 262187, 14, 2, 262188, 14, 2, 262189, 14, 2, 262190, 14, 2, 262191, 14, 2, 262192, 14, 2, 262193, 14, 2, 262194, 14, 2, 262195, 14, 2, 262196, 14, 2, 262197, 14, 2, 262198, 14, 2, 262199, 14, 2, 262200, 14, 2, 262201, 14, 2, 262202, 14, 2, 262203, 14, 2 )
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+collision_layer = 1597
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+position = Vector2( 42.1854, 0 )
+scale = Vector2( 1.14024, 1 )
+polygon = PoolVector2Array( -114.174, -56, -51.0291, -56, -50.8098, -16, 706.706, -16, 706.706, -64, 769.851, -64, 769.851, 32, -114.174, 32, -114.174, 64, 832.992, 64, 832.995, -80, -135.222, -80, -135.222, 64, -114.174, 64 )
+
+[node name="camarea" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="CollisionShape2D" parent="camarea" index="0"]
+position = Vector2( 416, -12 )
+shape = SubResource( 1 )
+
+[node name="MusicArea" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea"]
+
+[node name="DoorToPodunk" parent="." instance=ExtResource( 4 )]
+position = Vector2( -20, -40 )
+rotation = 0.785398
+scale = Vector2( 1, 13 )
+targetX = 3500
+targetY = -1650
+transit_in_color = Color( 1, 1, 1, 1 )
+transit_out_color = Color( 1, 1, 1, 1 )
+targetScene = "podunk/podunk"
+
+[node name="DoorToMerrysville" parent="." instance=ExtResource( 4 )]
+position = Vector2( 848, -32 )
+rotation = -0.785398
+scale = Vector2( 1, 13 )
+targetX = 1040
+targetY = -4408
+transit_in_color = Color( 1, 1, 1, 1 )
+transit_out_color = Color( 1, 1, 1, 1 )
+targetScene = "Merrysville/Merrysville"
+
+[node name="Stepping Sounds" parent="." instance=ExtResource( 6 )]
+visible = false
+entering_sound = "cave"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stepping Sounds"]
+position = Vector2( 444, 16 )
+shape = SubResource( 2 )
+
+[editable path="camarea"]

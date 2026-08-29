@@ -1,0 +1,24 @@
+name: MAGICCANDY_NAME
+sorting_name: MAGICCANDY_SORT
+description: MAGICCANDY_DESC
+article: MAGICCANDY_ART
+keyitem: false
+cost: 0
+value: 0
+can_consume: [ lloyd ]
+actions:
+  - name: MAGICCANDY_ACT1
+    function: consume
+    textfail: ACTION_RESULT_FAIL_CANDY
+transform: ''
+slot: ''
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 5

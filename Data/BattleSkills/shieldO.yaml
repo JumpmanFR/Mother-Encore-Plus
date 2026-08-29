@@ -1,0 +1,23 @@
+name: SHIELD_NAME
+level: 3
+description: SHIELDO_DESC
+article: SHIELD_ART
+skill_type: psi
+action_type: 4 # Other
+use_cases: 1 # Battle only
+psi_category: Assist
+target_type: 7 # All allies
+damage_or_heal: 0
+variance: 0
+give_passive_skill: 'shield'
+priority: 0
+miss_chance: 0
+pp_cost: 18
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+user_anim: psi
+use_sound: ''
+hit_sound: ''
+traits:
+  - target_incapacitated

@@ -1,0 +1,522 @@
+"0":
+  actors:
+    ninten: leader
+    momA: AboveNPCS/mom
+    mimmieA: AboveNPCS/mimmie
+    minnieA: AboveNPCS/minnie
+    momB: Objects/NPCS/mom
+    mimmieB: Objects/NPCS/mimmie
+    minnieB: Objects/NPCS/minnie
+  actorsemote:
+    ninten: surprise
+  talker: mimmieA
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_0
+  actorsturn:
+    ninten:
+      y: -1
+  sound: Kid
+  goto: "panBack"
+"panBack":
+  movecam:
+    actor: mimmieA
+  actorsmove:
+    momA:
+      movement:
+        - teleport:
+            x: 2816
+            y: -1656
+        - x: 96
+          y: 0
+        - turnto:
+            y: 1
+      speed: 32
+      animation: Walk
+      type: step
+    minnieA:
+      movement:
+        - teleport:
+            x: 2848
+            y: -1656
+        - x: 96
+          y: 0
+        - turnto:
+            y: 1
+      speed: 64
+      animation: Walk
+      type: step
+    mimmieA:
+      movement:
+        - teleport:
+            x: 2928
+            y: -1644
+      speed: 32
+      animation: Walk
+      type: step
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_1
+  sound: Kid
+  goto: "fadeIn"
+"fadeIn":
+  musicvolume: -10
+  fadein:
+    anim: Fade
+  autowait: 1
+  goto: "fadeOut"
+"fadeOut":
+  movecam:
+    x: 2928
+    y: -1500
+    length: 0
+  fadeout:
+    anim: Fade
+  eraseactors:
+    momA: true
+    mimmieA: true
+    minnieA: true
+  actorsmove:
+    ninten:
+      movement:
+        - teleport:
+            x: 2928
+            y: -1488
+        - wait: 1
+        - turnto:
+            x: 1
+        - wait: 0.5
+        - turnto:
+            y: -1
+        - turnto:
+            x: -1
+        - wait: 1
+        - turnto:
+            y: -1
+    momB:
+      movement:
+        - teleport:
+            x: 2928
+            y: -1584
+        - x: 0
+          y: 64
+      animation: Walk
+      speed: 32
+      type: step
+    mimmieB:
+      movement:
+        - teleport:
+            x: 2944
+            y: -1600
+        - x: 2944
+          y: -1488
+        - turnto:
+            x: -1
+        - jump:
+            times: 2
+      animation: Walk
+      speed: 128
+      type: position
+    minnieB:
+      movement:
+        - teleport:
+            x: 2912
+            y: -1600
+        - x: 2912
+          y: -1488
+        - turnto:
+            x: 1
+        - jump:
+            times: 2
+      animation: Walk
+      speed: 64
+      type: position
+  autowait: 3
+  goto: "thankGoodness"
+"thankGoodness":
+  talker: momB
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_2
+  sound: Female
+  goto: "wereYouGonna"
+"wereYouGonna":
+  actorsturn:
+    ninten:
+      x: -1
+  talker: minnieB
+  name: DIALOGUE_PODUNK_CUTSCENES_MINNIE_DOOR_SPEAKER_Minnie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_3
+  sound: Kid
+  goto: "pippi"
+"pippi":
+  actorsmove:
+    ninten:
+      movement:
+        - turnto:
+            x: 1
+        - emote: sweat
+  talker: mimmieB
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_4
+  sound: Kid
+  goto: "brave"
+"brave":
+  actorsturn:
+    ninten:
+      y: -1
+    minnieB:
+      y: -1
+    mimmieB:
+      y: -1
+  talker: momB
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_5
+  sound: Female
+  goto: "spoon"
+"spoon":
+  talker: minnieB
+  actorsturn:
+    minnieB:
+      x: 1
+    mimmieB:
+      x: -1
+    ninten:
+      x: -1
+
+  name: DIALOGUE_PODUNK_CUTSCENES_MINNIE_DOOR_SPEAKER_Minnie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_6
+  sound: Kid
+  goto: "nintenLaugh"
+"nintenLaugh":
+  actorsmove:
+    ninten:
+      movement:
+        - turnto:
+            y: 1
+        - playanim:
+            anim: Laugh
+        - emote: laugh
+        - wait: 0.6
+        - animspeed: 0
+  autowait: 1.5
+  goto: "ohYeah"
+"ohYeah":
+  actorsmove:
+    ninten:
+      movement:
+        - playanim:
+            anim: Idle
+        - turnto:
+            x: 1
+  talker: mimmieB
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_7
+  sound: Kid
+  if:
+    invspace: true
+    goto: "giveFavFood"
+  goto: "noSpace"
+"giveFavFood":
+  talker: null
+  item: FavFood
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_8
+  soundeffect: Item Received.mp3
+  goto: "mick"
+"noSpace":
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_9
+  sound: Kid
+  goto: "leaveIt"
+"leaveIt":
+  actorsmove:
+    mimmieB:
+      movement:
+        - turnto:
+            x: 1
+        - x: 16
+          y: 0
+      speed: 32
+      animation: Walk
+      type: step
+  autowait: 1.2
+  goto: "drop"
+"drop":
+  objectsteleport:
+    Objects/Items/FavFood:
+      x: 2976
+      y: -1488
+  actorsmove:
+    mimmieB:
+      movement:
+        - wait: 0.2
+        - turnto:
+            x: -1
+        - x: -16
+          y: 0
+      speed: 32
+      animation: Walk
+      type: step
+  autowait: 1.5
+  goto: "mick"
+"mick":
+  actorsmove:
+    mimmieB:
+      movement:
+        - x: 0
+          y: -24
+      animation: Walk
+      speed: 16
+      type: step
+    minnieB:
+      movement:
+        - wait: 0.2
+        - x: 0
+          y: -24
+      animation: Walk
+      speed: 16
+      type: step
+    ninten:
+      movement:
+        - turnto:
+            y: -1
+  talker: mimmieB
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_10
+  sound: Kid
+  goto: "right"
+"right":
+  actorsturn:
+    mimmieB:
+      actor: minnieB
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_11
+  sound: Kid
+  goto: "doorOpen"
+"doorOpen":
+  talker: minnieB
+  actorsturn:
+    minnieB:
+      actor: mimmieB
+  actorsemote:
+    minnieB: question
+  name: DIALOGUE_PODUNK_CUTSCENES_MINNIE_DOOR_SPEAKER_Minnie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_12
+  sound: Kid
+  goto: "no"
+"no":
+  talker: mimmieB
+  name: DIALOGUE_PODUNK_CUTSCENES_DOLL_ATTACK_SPEAKER_Mimmie
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_13
+  sound: Kid
+  goto: "dot"
+"dot":
+  musicvolume: -15
+  actorsemote:
+    mimmieB: dot
+    minnieB: dot
+  autowait: 2
+  goto: "run"
+"run":
+  objectsfunction:
+    Music/MusicArea5: stop_music
+    Music/MusicArea12: play_music
+  movecam:
+    x: 2928
+    y: -1564
+  actorsmove:
+    mimmieB:
+      movement:
+        - jump:
+            height: 10
+        - x: 0
+          y: -400
+      speed: 128
+      animation: Walk
+      type: step
+    minnieB:
+      movement:
+        - wait: 0.05
+        - jump:
+            height: 10
+        - x: 0
+          y: -400
+      speed: 128
+      animation: Walk
+      type: step
+    momB:
+      movement:
+        - turnto:
+            y: -1
+  name: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_SPEAKERS
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_14
+  sound: Kid
+  goto: "momWait"
+"momWait":
+  movecam:
+    x: 2928
+    y: -1488
+  actorsmove:
+    momB:
+      movement:
+        - emote: dot
+        - wait: 2
+        - turnto:
+            y: 1
+        - wait: 1
+        - x: 0
+          y: 8
+      speed: 16
+      animation: Walk
+      type: step
+  autowait: 4
+  goto: "leaving"
+"leaving":
+  talker: momB
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_15
+  sound: Female
+  goto: "wait"
+"wait":
+  actorsmove:
+    momB:
+      movement:
+        - turnto:
+            x: 1
+        - wait: 1.5
+        - turnto:
+            y: 1
+  autowait: 2.5
+  goto: "something"
+"something":
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_16
+  sound: Female
+  goto: "question"
+"question":
+  actorsemote:
+    ninten: question
+  autowait: 2
+  goto: "grandfather"
+"grandfather":
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_17
+  sound: Female
+  goto: "turn"
+"turn":
+  actorsturn:
+    momB:
+      x: -1
+  autowait: 1
+  goto: "george"
+"george":
+  actorsmove:
+    momB:
+      movement:
+        - x: -12
+          y: 0
+      animation: Walk
+      speed: 8
+      type: step
+    ninten:
+      movement:
+        - playanim:
+            anim: LookLeft
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_18
+  sound: Female
+  goto: "turnRight"
+"turnRight":
+  actorsturn:
+    momB:
+      y: 1
+  autowait: 1
+  goto: "curious"
+"curious":
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_19
+  sound: Female
+  goto: "momLaugh"
+"momLaugh":
+  actorsmove:
+    momB:
+      movement:
+        - x: 12
+          y: 0
+      animation: Walk
+      speed: 16
+      type: step
+    ninten:
+      movement:
+        - playanim:
+            anim: Idle
+  actorsemote:
+    momB: laugh
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_20
+  sound: Female
+  goto: "momPause"
+"momPause":
+  actorsemote:
+    momB: dot
+  autowait: 2
+  goto: "tired"
+"tired":
+  actorsturn:
+    momB:
+      y: 1
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_21
+  sound: Female
+  goto: "pause"
+"pause":
+  actorsemote:
+    momB: dot
+  autowait: 1
+  goto: "openUp"
+"openUp":
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_22
+  sound: Female
+  goto: "nintenLookDown"
+"nintenLookDown":
+  actorsmove:
+    ninten:
+      movement:
+        - playanim:
+            anim: LookRight
+        - emote: dot
+        - wait: 2
+        - playanim:
+            anim: Idle
+  autowait: 2
+  goto: "goodbye"
+"goodbye":
+  name: DIALOGUE_PODUNK_CUTSCENES_CAROL_CALL_SPEAKER_Carol
+  text: DIALOGUE_PODUNK_CUTSCENES_FAMILY_GOODBYE_23
+  sound: Female
+  goto: "momWalkAway"
+"momWalkAway":
+  actorsmove:
+    momB:
+      movement:
+        - wait: 0.3
+        - moonwalk: true
+        - x: 0
+          y: -8
+        - moonwalk: false
+        - wait: 0.7
+        - turnto:
+            y: -1
+            speed: 0.2
+        - wait: 1
+        - x: 0
+          y: -300
+      speed: 32
+      animation: Walk
+      type: step
+  autowait: 6
+  goto: "end"
+"end":
+  eraseactors:
+    momB: true
+    minnieB: true
+    mimmieB: true
+  setflags: ninten_family_goodbye

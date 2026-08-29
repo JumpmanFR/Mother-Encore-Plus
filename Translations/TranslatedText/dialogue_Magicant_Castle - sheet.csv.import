@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.zh_Hans_CN.translation" ]
+
+source_file="res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.csv"
+dest_files=[ "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Magicant_Castle - sheet.zh_Hans_CN.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,9 @@
+conditions:
+  skill: [ 'useBomb', 'useBombSuper', 'useBottleRocket', 'useBottleRocketBig', 'useBottleRocketMulti' ]
+priority: 4
+ends_after_turn: true
+actions:
+  sound: ''
+  vibrate: 0.5
+  damage_multiplier: 0
+  return_attack: true

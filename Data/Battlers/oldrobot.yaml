@@ -1,0 +1,39 @@
+name: OLDROBOT_NAME
+description: OLDROBOT_DESC
+article: OLDROBOT_ART
+maxhp: 240
+hp: 240
+maxpp: 40
+pp: 40
+offense: 38
+defense: 50
+speed: 20
+iq: 40
+guts: 0
+level: 19
+exp: 90
+cash: 49
+items:
+  - chance: 25
+    item: EyeDrops
+  - chance: 50
+    item: Banana
+skills:
+  - skill: robotBash
+    weight: 4
+  - skill: readyForAttack
+    weight: 1
+  - skill: pkBeamAEnemy
+    weight: 2
+boss: false
+sprite: old robot
+music: Machine.mp3
+bg: oldrobot
+ov:
+  sprite: OldRobotOV
+  anim: BasicEnemy
+affinity_multipliers:
+  pkFlash: 5
+  explosion: 2
+  blinded: 0.5
+  sleeping: 0

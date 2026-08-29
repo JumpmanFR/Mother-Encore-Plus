@@ -1,0 +1,39 @@
+'0':
+  name: Weather Report
+  sound: Adult
+  text: "[@]What weather do you want?"
+  options:
+    Sunny: '2'
+    Cloudy: '3'
+    Rainy: '4'
+    Nothing: '1'
+    cancel: '1'
+'1':
+  name: Weather Report
+  sound: Adult
+  text: "[@]Never show your ugly face to me again."
+'2':
+  name: Weather Report
+  sound: Adult
+  text: "[@]Clear as day.[BR](Re-enter this scene to make the NPCs appear.)"
+  setflags: 
+    - bottle_rocket_found
+    - lloyd_befriended
+    - lab_destroyed
+'3':
+  name: Weather Report
+  sound: Adult
+  text: "[@]Cloudy as my vision."
+  setflags: 
+    - bottle_rocket_found
+  unsetflags:
+    - lloyd_befriended
+    - lab_destroyed
+'4':
+  name: Weather Report
+  sound: Adult
+  text: "[@]Rainy as my tears. [BR](Re-enter this scene to make the rain appear.)"
+  unsetflags:
+    - bottle_rocket_found
+    - lloyd_befriended
+    - lab_destroyed

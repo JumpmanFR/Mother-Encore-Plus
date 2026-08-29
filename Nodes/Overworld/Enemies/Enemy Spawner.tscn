@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Main/Enemy Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Character Sprites/Npcs/1dir/doll.png" type="Texture" id=2]
+
+[node name="Enemy Spawner" type="Position2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "An enemy spawner that can spawn enemies."
+}
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( -2.86102e-06, 2.86102e-06 )
+scale = Vector2( 4.8, 4.8 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1, -5 )
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+
+[connection signal="tree_exited" from="." to="." method="_on_Enemy_Spawner_tree_exited"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]

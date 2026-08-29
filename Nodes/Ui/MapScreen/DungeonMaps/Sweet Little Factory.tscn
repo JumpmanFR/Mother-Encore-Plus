@@ -1,0 +1,1076 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://Scripts/UI/MapScreen/DungeonRoomManager.gd" type="Script" id=1]
+[ext_resource path="res://Nodes/Ui/MapScreen/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Graphics/UI/Maps/Catacombs_tilemap.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/UI/Maps/Catacombs_pal_off.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/UI/Maps/SweetLittleFactory_map_bg.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/UI/Maps/Catacombs_pal_on.png" type="Texture" id=6]
+[ext_resource path="res://Nodes/Ui/MapScreen/MarkerPresent.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Main/DisappearingFlaggableObject.gd" type="Script" id=8]
+[ext_resource path="res://Graphics/UI/Maps/marker_lock.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Main/Flag Landmarks.gd" type="Script" id=10]
+[ext_resource path="res://Graphics/UI/Maps/marker_key.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/UI/Maps/marker_phone.png" type="Texture" id=12]
+
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=26]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=27]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=3]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=28]
+resource_local_to_scene = true
+shader = SubResource( 3 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=29]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=5]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=30]
+resource_local_to_scene = true
+shader = SubResource( 5 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=31]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=7]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=32]
+resource_local_to_scene = true
+shader = SubResource( 7 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=33]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=9]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=34]
+resource_local_to_scene = true
+shader = SubResource( 9 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=35]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=11]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=36]
+resource_local_to_scene = true
+shader = SubResource( 11 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=37]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=13]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=38]
+resource_local_to_scene = true
+shader = SubResource( 13 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=39]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=15]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=40]
+resource_local_to_scene = true
+shader = SubResource( 15 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=41]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=17]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = SubResource( 17 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=43]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=19]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=44]
+resource_local_to_scene = true
+shader = SubResource( 19 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=45]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=21]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=46]
+resource_local_to_scene = true
+shader = SubResource( 21 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=47]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=23]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=48]
+resource_local_to_scene = true
+shader = SubResource( 23 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=49]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Shader" id=25]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool screen_mode = false;
+uniform int num_colors;
+uniform float precision : hint_range(0.0, 1.0, 0.01) = 0;
+uniform float color_mix : hint_range(0.0, 1.0) = 1;
+
+
+uniform sampler2D palette_in;
+uniform sampler2D palette_out;
+
+vec4 swap_color(vec4 color) {
+	float inc = 1.0 / float(num_colors + 1); 
+	for (float i = 0.0; i < 1.0; i += inc) {
+		vec2 uv = vec2(i, 0.0);
+		vec4 color_in = texture(palette_in, uv);
+		if (distance(color, color_in) <= precision) {
+			return texture(palette_out, uv);
+		}
+	}
+	return color;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (screen_mode) {
+		color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+	//COLOR = color * (1.0 - color_mix) + swap_color(color) * color_mix;
+	COLOR = mix(color, swap_color(color), color_mix);
+}"
+
+[sub_resource type="ShaderMaterial" id=50]
+resource_local_to_scene = true
+shader = SubResource( 25 )
+shader_param/screen_mode = false
+shader_param/num_colors = 4
+shader_param/precision = 0.0
+shader_param/color_mix = 0.0
+shader_param/palette_in = ExtResource( 6 )
+shader_param/palette_out = ExtResource( 4 )
+
+[sub_resource type="TileSet" id=51]
+0/name = "Tiles"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 72 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 255, Vector2( 0, 5 ), 251, Vector2( 0, 6 ), 507, Vector2( 0, 7 ), 248, Vector2( 0, 8 ), 59, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 443, Vector2( 1, 3 ), 191, Vector2( 1, 4 ), 191, Vector2( 1, 5 ), 186, Vector2( 1, 6 ), 506, Vector2( 1, 7 ), 184, Vector2( 1, 8 ), 58, Vector2( 2, 0 ), 506, Vector2( 2, 1 ), 16, Vector2( 2, 2 ), 254, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 447, Vector2( 2, 5 ), 446, Vector2( 2, 6 ), 510, Vector2( 2, 7 ), 440, Vector2( 2, 8 ), 62, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 251, Vector2( 3, 3 ), 27, Vector2( 3, 4 ), 182, Vector2( 3, 5 ), 178, Vector2( 3, 6 ), 434, Vector2( 3, 7 ), 16, Vector2( 3, 8 ), 16, Vector2( 4, 0 ), 16, Vector2( 4, 1 ), 16, Vector2( 4, 2 ), 16, Vector2( 4, 3 ), 16, Vector2( 4, 4 ), 155, Vector2( 4, 5 ), 154, Vector2( 4, 6 ), 218, Vector2( 4, 7 ), 16, Vector2( 4, 8 ), 16, Vector2( 5, 0 ), 16, Vector2( 5, 1 ), 16, Vector2( 5, 2 ), 16, Vector2( 5, 3 ), 144, Vector2( 5, 4 ), 146, Vector2( 5, 5 ), 18, Vector2( 5, 6 ), 16, Vector2( 5, 7 ), 16, Vector2( 5, 8 ), 16, Vector2( 6, 0 ), 16, Vector2( 6, 1 ), 16, Vector2( 6, 2 ), 48, Vector2( 6, 3 ), 16, Vector2( 6, 4 ), 16, Vector2( 6, 5 ), 176, Vector2( 6, 6 ), 16, Vector2( 6, 7 ), 50, Vector2( 6, 8 ), 16, Vector2( 7, 0 ), 16, Vector2( 7, 1 ), 16, Vector2( 7, 2 ), 56, Vector2( 7, 3 ), 16, Vector2( 7, 4 ), 16, Vector2( 7, 5 ), 16, Vector2( 7, 6 ), 16, Vector2( 7, 7 ), 16, Vector2( 7, 8 ), 16, Vector2( 8, 0 ), 16, Vector2( 8, 1 ), 16, Vector2( 8, 2 ), 24, Vector2( 8, 3 ), 16, Vector2( 8, 4 ), 16, Vector2( 8, 5 ), 152, Vector2( 8, 6 ), 16, Vector2( 8, 7 ), 26, Vector2( 9, 0 ), 16, Vector2( 9, 1 ), 16, Vector2( 9, 2 ), 16, Vector2( 9, 3 ), 16, Vector2( 9, 4 ), 16, Vector2( 9, 5 ), 16, Vector2( 9, 6 ), 16, Vector2( 9, 7 ), 16, Vector2( 10, 0 ), 16, Vector2( 10, 1 ), 16, Vector2( 10, 2 ), 16, Vector2( 10, 3 ), 16, Vector2( 10, 4 ), 16, Vector2( 10, 5 ), 16, Vector2( 10, 6 ), 16, Vector2( 10, 7 ), 16, Vector2( 11, 0 ), 16, Vector2( 11, 1 ), 16, Vector2( 11, 2 ), 16, Vector2( 11, 3 ), 16, Vector2( 11, 4 ), 16, Vector2( 11, 5 ), 16, Vector2( 11, 6 ), 16, Vector2( 11, 7 ), 16, Vector2( 12, 0 ), 16, Vector2( 12, 1 ), 16, Vector2( 12, 2 ), 16, Vector2( 12, 3 ), 16, Vector2( 12, 4 ), 16, Vector2( 12, 5 ), 16, Vector2( 12, 6 ), 16, Vector2( 12, 7 ), 16, Vector2( 13, 0 ), 16, Vector2( 13, 1 ), 16, Vector2( 13, 2 ), 16, Vector2( 13, 3 ), 16, Vector2( 13, 4 ), 16, Vector2( 13, 5 ), 16, Vector2( 13, 6 ), 16, Vector2( 13, 7 ), 16, Vector2( 14, 0 ), 16, Vector2( 14, 1 ), 16, Vector2( 14, 2 ), 16, Vector2( 14, 3 ), 16, Vector2( 14, 4 ), 16, Vector2( 14, 5 ), 16, Vector2( 14, 6 ), 16, Vector2( 14, 7 ), 16, Vector2( 15, 0 ), 16, Vector2( 15, 1 ), 16, Vector2( 15, 2 ), 16, Vector2( 15, 3 ), 16, Vector2( 15, 4 ), 16, Vector2( 15, 5 ), 16, Vector2( 15, 6 ), 16, Vector2( 15, 7 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="MapImage" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="Rooms" type="Node2D" parent="."]
+position = Vector2( 72, 16 )
+script = ExtResource( 1 )
+room_name = "Sweet's Little Factory"
+
+[node name="Room" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 26 )
+tile_set = SubResource( 27 )
+tile_data = PoolIntArray( 786443, 0, 0, 786444, 0, 1, 786445, 0, 131086, 786446, 0, 15, 851979, 0, 65550, 851980, 0, 196623, 851981, 0, 196610, 851982, 0, 196611 )
+
+[node name="Room1" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 28 )
+tile_set = SubResource( 29 )
+tile_data = PoolIntArray( 655373, 0, 0, 655374, 0, 3, 720909, 0, 327694, 720910, 0, 65551 )
+
+[node name="Room2" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 30 )
+tile_set = SubResource( 31 )
+tile_data = PoolIntArray( 655369, 0, 14, 655370, 0, 131087, 655371, 0, 1, 655372, 0, 3, 720905, 0, 65550, 720906, 0, 196623, 720907, 0, 196610, 720908, 0, 65543 )
+
+[node name="FlagLandmark" type="Node2D" parent="Rooms/Room2"]
+script = ExtResource( 10 )
+appear_flag = "rat_king_2"
+
+[node name="MarkerKey" type="Sprite" parent="Rooms/Room2/FlagLandmark"]
+position = Vector2( 88, 88 )
+z_index = 1
+texture = ExtResource( 11 )
+script = ExtResource( 8 )
+flag = "sweet_factory_key_1"
+
+[node name="Room3" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 32 )
+tile_set = SubResource( 33 )
+tile_data = PoolIntArray( 786439, 0, 14, 786440, 0, 131087, 786441, 0, 131086, 786442, 0, 15, 851975, 0, 196608, 851976, 0, 196610, 851977, 0, 196610, 851978, 0, 196611 )
+
+[node name="MarkerLock" type="Sprite" parent="Rooms/Room3"]
+position = Vector2( 60, 88 )
+z_index = 1
+texture = ExtResource( 9 )
+centered = false
+script = ExtResource( 8 )
+flag = "Sweet's Little Factory/Locked Door"
+is_object_flag = true
+
+[node name="MarkerPresent" parent="Rooms/Room3" instance=ExtResource( 7 )]
+position = Vector2( 76, 104 )
+frame = 2
+flag = "Sweet's Little Factory/PresentMap"
+type = "map"
+
+[node name="MarkerPresent2" parent="Rooms/Room3" instance=ExtResource( 7 )]
+position = Vector2( 60, 104 )
+flag = "Sweet's Little Factory/Present"
+
+[node name="Room4" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 34 )
+tile_set = SubResource( 35 )
+tile_data = PoolIntArray( 524295, 0, 0, 524296, 0, 13, 589831, 0, 131072, 589832, 0, 196621, 655367, 0, 131072, 655368, 0, 65539, 720903, 0, 65550, 720904, 0, 65551 )
+
+[node name="MarkerPresent" parent="Rooms/Room4" instance=ExtResource( 7 )]
+position = Vector2( 68, 80 )
+flag = "Sweet's Little Factory/Present2"
+
+[node name="Room5" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 36 )
+tile_set = SubResource( 37 )
+tile_data = PoolIntArray( 524297, 0, 12, 524298, 0, 1, 524299, 0, 131086, 524300, 0, 11, 589833, 0, 65546, 589834, 0, 196623, 589835, 0, 196610, 589836, 0, 65549 )
+
+[node name="MarkerLock" type="Sprite" parent="Rooms/Room5"]
+position = Vector2( 92, 56 )
+z_index = 1
+texture = ExtResource( 9 )
+centered = false
+script = ExtResource( 8 )
+flag = "Sweet's Little Factory/Locked Door2"
+is_object_flag = true
+
+[node name="Room6" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 38 )
+tile_set = SubResource( 39 )
+tile_data = PoolIntArray( 524301, 0, 12, 524302, 0, 13, 589837, 0, 65548, 589838, 0, 65549 )
+
+[node name="MarkerPresent" parent="Rooms/Room6" instance=ExtResource( 7 )]
+position = Vector2( 108, 76 )
+flag = "Sweet's Little Factory/Present3"
+
+[node name="Room7" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 40 )
+tile_set = SubResource( 41 )
+tile_data = PoolIntArray( 524303, 0, 12, 524304, 0, 3, 589839, 0, 196620, 589840, 0, 65539, 655375, 0, 65544, 655376, 0, 196611 )
+
+[node name="MarkerPresent" parent="Rooms/Room7" instance=ExtResource( 7 )]
+position = Vector2( 132, 68 )
+flag = "Sweet's Little Factory/Present4"
+
+[node name="MarkerPresent2" parent="Rooms/Room7" instance=ExtResource( 7 )]
+position = Vector2( 132, 80 )
+flag = "Sweet's Little Factory/Present5"
+
+[node name="Room8" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 42 )
+tile_set = SubResource( 43 )
+tile_data = PoolIntArray( 720911, 0, 8, 720912, 0, 1, 720913, 0, 1, 720914, 0, 3, 786447, 0, 196608, 786448, 0, 196610, 786449, 0, 196610, 786450, 0, 196611 )
+
+[node name="MarkerKey" type="Sprite" parent="Rooms/Room8"]
+position = Vector2( 148, 92 )
+z_index = 1
+texture = ExtResource( 11 )
+script = ExtResource( 8 )
+flag = "Sweet's Little Factory/Key2"
+is_object_flag = true
+
+[node name="Room9" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 44 )
+tile_set = SubResource( 45 )
+tile_data = PoolIntArray( 393226, 0, 0, 393227, 0, 1, 393228, 0, 3, 458762, 0, 65542, 458763, 0, 196622, 458764, 0, 327695 )
+
+[node name="Phone" type="Sprite" parent="Rooms/Room9"]
+position = Vector2( 96, 44 )
+z_index = 1
+texture = ExtResource( 12 )
+
+[node name="Room10" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 46 )
+tile_set = SubResource( 47 )
+tile_data = PoolIntArray( 393229, 0, 0, 393230, 0, 3, 458765, 0, 65542, 458766, 0, 196611 )
+
+[node name="MarkerPresent" parent="Rooms/Room10" instance=ExtResource( 7 )]
+position = Vector2( 116, 52 )
+flag = "Sweet's Little Factory/Present6"
+
+[node name="Room11" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 48 )
+tile_set = SubResource( 49 )
+tile_data = PoolIntArray( 393222, 0, 0, 393223, 0, 1, 393224, 0, 1, 393225, 0, 3, 458758, 0, 65542, 458759, 0, 196610, 458760, 0, 196610, 458761, 0, 65543 )
+
+[node name="Room12" parent="Rooms" instance=ExtResource( 2 )]
+material = SubResource( 50 )
+tile_set = SubResource( 51 )
+tile_data = PoolIntArray( 393219, 0, 12, 393220, 0, 1, 393221, 0, 3, 458755, 0, 65548, 458756, 0, 196610, 458757, 0, 65543 )
+
+[node name="MarkerPresent" parent="Rooms/Room12" instance=ExtResource( 7 )]
+position = Vector2( 28, 52 )
+flag = "Sweet's Little Factory/Present7"

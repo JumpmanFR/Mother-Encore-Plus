@@ -1,0 +1,18 @@
+name: NULL
+description: NULL
+skill_type: ''
+action_type: 4 # Other
+use_cases: 1 # Battle only
+target_type: 5 # Self
+special: rocketLauncherCountdown
+damage_or_heal: 0
+variance: 0
+priority: -1
+pp_cost: 0
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+use_sound: ''
+hit_sound: ''
+traits:
+  - no_dialog

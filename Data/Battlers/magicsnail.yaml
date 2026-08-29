@@ -1,0 +1,32 @@
+name: MAGICSNAIL_NAME
+description: MAGICSNAIL_DESC
+article: MAGICSNAIL_ART
+maxhp: 65
+hp: 65
+maxpp: 70
+pp: 70
+offense: 20
+defense: 80
+speed: 4
+iq: 12
+guts: 0
+level: 16
+exp: 84
+cash: 43
+skills:
+  - skill: bash
+    weight: 3
+  - skill: approach
+    weight: 1
+  - skill: pkFireAEnemy
+    weight: 2
+boss: false
+sprite: magic snail
+music: Unsettling Opponent.mp3
+bg: rand
+ov:
+  sprite: MagicSnailOV
+  anim: BasicEnemy2F
+affinity_multipliers:
+  ice: 2
+  sleeping: 1.5

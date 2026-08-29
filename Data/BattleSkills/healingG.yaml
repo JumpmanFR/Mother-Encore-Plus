@@ -1,0 +1,33 @@
+name: HEALING_NAME
+level: 2
+description: HEALINGG_DESC
+article: HEALING_ART
+skill_type: psi
+action_type: 4 # Other
+use_cases: 0 # Field & battle
+psi_category: Recovery
+target_type: 1 # Ally
+damage_or_heal: 100
+value_type: reach_full_percent
+variance: 0
+priority: 0
+status_heals:
+  - all
+status_amount_healed: -1
+miss_chance: 0
+pp_cost: 18
+hp_cost: 0
+hit_effect: ""
+pre_hit_effect: healing_gamma_omega
+screen_effect: healing
+user_anim: psi
+user_anim_colors:
+  - "73F4FF"
+  - "00D4FF"
+  - "1888D0"
+use_sound: ""
+hit_sound: ""
+traits:
+  - heal_on_revive
+  - target_incapacitated
+  - target_unconscious

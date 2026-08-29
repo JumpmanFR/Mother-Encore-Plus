@@ -1,0 +1,17 @@
+'0':
+  if:
+    flags:
+        lab_destroyed: true
+    redirect: "Merrysville/Descriptions/TwinkleElementary/destroyed_sink"
+  goto: 'drink'
+"drink":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_SINK_0
+  options:
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_SINK_0-OPT_0: '1'
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_SINK_0-OPT_1: '2'
+    cancel: '2'
+'1':
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_SINK_1
+  soundeffect: M3/heal_se.wav
+'2':
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_SINK_2

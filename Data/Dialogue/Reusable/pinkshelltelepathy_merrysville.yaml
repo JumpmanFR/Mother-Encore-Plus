@@ -1,0 +1,92 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+    ana: ana
+    teddy: teddy
+    pippi: pippi
+  goto: "1"
+"1":
+  text: DIALOGUE_REUSABLE_PINKSHELLTELEPATHY_0
+  if:
+    - hasitem: GGFDiary
+      goto: "2"
+"2":
+  text: DIALOGUE_REUSABLE_PINKSHELLTELEPATHY_2
+  goto: "4"
+"4":
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PINKSHELLTELEPATHY_4
+  goto: "5"
+  cleardialog: true
+"5":
+  showbox: false
+  fadein:
+    speed: 0.7
+    anim: Fade
+    color: "FFFFFF"
+  autowait: 3
+  goto: "6"
+  music: ""
+"6":
+  changescene: Magicant/Magicant
+  fadeout:
+    speed: 0.2
+    anim: Fade
+    color: "FFFFFF"
+  actors:
+    flyingman: flyingman
+  returncam: 0
+  actorsdir:
+    ninten:
+      y: 1
+    lloyd:
+      y: 1
+    ana:
+      y: 1
+    teddy:
+      y: 1
+    pippi:
+      y: 1
+    flyingman:
+      y: 1
+  teleportactors:
+    ninten:
+      x: 2272
+      y: -208
+    lloyd:
+      x: 2288
+      y: -216
+    ana:
+      x: 2256
+      y: -216
+    teddy:
+      x: 2288
+      y: -216
+    pippi:
+      x: 2288
+      y: -216
+    flyingman:
+      x: 2304
+      y: -232
+  goto: "end"
+"end":
+  objectsfunction:
+    MusicArea: play_music
+  autowait: 2
+  if:
+    - flags:
+        lloyd_magicant: false
+      haspartymembers:
+        lloyd: true
+      redirect: "Magicant/Cutscenes/lloyd_first_visit"
+    - flags:
+        ana_magicant: false
+      haspartymembers:
+        ana: true
+      redirect: "Magicant/Cutscenes/ana_first_visit"
+    - flags:
+        teddy_magicant: false
+      haspartymembers:
+        teddy: true
+      redirect: "Magicant/Cutscenes/teddy_first_visit"

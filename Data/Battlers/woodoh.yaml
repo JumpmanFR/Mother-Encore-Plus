@@ -1,0 +1,32 @@
+name: WOODOH_NAME
+description: WOODOH_DESC
+article: WOODOH_ART
+maxhp: 120
+hp: 120
+maxpp: 0
+pp: 0
+offense: 30
+defense: 42
+speed: 25
+iq: 30
+guts: 0
+level: 18
+exp: 34
+cash: 38
+items:
+  - chance: 40
+    item: NobleSeed
+skills:
+  - skill: bash
+    weight: 5
+  - skill: approach
+    weight: 1
+boss: false
+sprite: woodoh
+music: Weird Opponent.mp3
+bg: long_grid
+ov:
+  sprite: WoodohOV
+  anim: Woodoh
+affinity_multipliers:
+  fire: 2

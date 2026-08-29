@@ -1,0 +1,40 @@
+name: BOMBER_NAME
+description: BOMBER_DESC
+article: BOMBER_ART
+maxhp: 120
+hp: 120
+maxpp: 0
+pp: 0
+offense: 26
+defense: 65
+speed: 14
+iq: 30
+guts: 0
+level: 19
+exp: 114
+cash: 50
+items:
+  - chance: 60
+    item: Apple
+  - chance: 5
+    item: Bomb
+  - chance: 5
+    item: BottleRocket
+skills:
+  - skill: bash
+    weight: 3
+  - skill: useBomb
+    weight: 2
+  - skill: tripAndFall
+    weight: 4
+boss: false
+sprite: bomber
+music: Dangerous Foe.mp3
+bg: bomber
+ov:
+  sprite: BomberOV
+  anim: BasicEnemy
+affinity_multipliers:
+  fire: 1.5
+  explosion: 2
+  sleeping: 0

@@ -1,0 +1,217 @@
+"0":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  talkeremote: question
+  text: DIALOGUE_REUSABLE_NURSE_0
+  options:
+    chkninten: "2"
+    chkana: "6"
+    chklloyd: "10"
+    chkteddy: "14"
+    chkpippi: "18"
+    cancel: "22"
+"1":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_1
+"2":
+  if:
+    hasstatus:
+      character: ninten
+      status: unconscious
+    goto: "3"
+  goto: "24"
+"3":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_3
+  if:
+    hascash: 150
+    goto: "4"
+  goto: "25"
+"4":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_4
+  options:
+    DIALOGUE_REUSABLE_NURSE_4-OPT_0: "5"
+    DIALOGUE_REUSABLE_NURSE_4-OPT_1: "23"
+    cancel: "23"
+  cash: true
+"5":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_5
+  givecash: -150
+  soundeffect: M3/heal_se.wav
+  cure:
+    character: ninten
+    status: unconscious
+  heal: ninten
+  goto: "22"
+"6":
+  if:
+    hasstatus:
+      character: ana
+      status: unconscious
+    goto: "7"
+  goto: "24"
+"7":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_7
+  if:
+    hascash: 150
+    goto: "8"
+  goto: "25"
+"8":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_8
+  options:
+    DIALOGUE_REUSABLE_NURSE_8-OPT_0: "9"
+    DIALOGUE_REUSABLE_NURSE_8-OPT_1: "23"
+    cancel: "23"
+  cash: true
+"9":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_9
+  givecash: -150
+  soundeffect: M3/heal_se.wav
+  cure:
+    character: ana
+    status: unconscious
+  heal: ana
+  goto: "22"
+"10":
+  if:
+    hasstatus:
+      character: lloyd
+      status: unconscious
+    goto: "11"
+  goto: "24"
+"11":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_11
+  if:
+    hascash: 150
+    goto: "12"
+  goto: "25"
+"12":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_12
+  options:
+    DIALOGUE_REUSABLE_NURSE_12-OPT_0: "13"
+    DIALOGUE_REUSABLE_NURSE_12-OPT_1: "23"
+    cancel: "23"
+  cash: true
+"13":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_13
+  givecash: -150
+  soundeffect: M3/heal_se.wav
+  cure:
+    character: lloyd
+    status: unconscious
+  heal: lloyd
+  goto: "22"
+"14":
+  if:
+    hasstatus:
+      character: teddy
+      status: unconscious
+    goto: "15"
+  goto: "24"
+"15":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_15
+  if:
+    hascash: 150
+    goto: "16"
+  goto: "25"
+"16":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_16
+  options:
+    DIALOGUE_REUSABLE_NURSE_16-OPT_0: "17"
+    DIALOGUE_REUSABLE_NURSE_16-OPT_1: "23"
+    cancel: "23"
+  cash: true
+"17":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_17
+  givecash: -150
+  soundeffect: M3/heal_se.wav
+  cure:
+    character: teddy
+    status: unconscious
+  heal: teddy
+  goto: "22"
+"18":
+  if:
+    hasstatus:
+      character: pippi
+      status: unconscious
+    goto: "19"
+  goto: "24"
+"19":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_19
+  if:
+    hascash: 150
+    goto: "20"
+  goto: "25"
+"20":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_20
+  options:
+    DIALOGUE_REUSABLE_NURSE_20-OPT_0: "21"
+    DIALOGUE_REUSABLE_NURSE_20-OPT_1: "23"
+    cancel: "23"
+  cash: true
+"21":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_21
+  givecash: -150
+  soundeffect: M3/heal_se.wav
+  cure:
+    character: pippi
+    status: unconscious
+  heal: pippi
+  goto: "22"
+"22":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_22
+  cash: false
+"23":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_23
+  cash: false
+"24":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_24
+  cash: false
+"25":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_25
+  cash: true
+  goto: "26"
+"26":
+  name: DIALOGUE_REUSABLE_NURSE_SPEAKER_Nurse
+  sound: Female
+  text: DIALOGUE_REUSABLE_NURSE_26
+  cash: false

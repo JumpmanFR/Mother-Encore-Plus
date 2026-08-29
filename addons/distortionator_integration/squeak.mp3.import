@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/squeak.mp3-8e4505e9214ea2a6b62a701316175b45.mp3str"
+
+[deps]
+
+source_file="res://addons/distortionator_integration/squeak.mp3"
+dest_files=[ "res://.import/squeak.mp3-8e4505e9214ea2a6b62a701316175b45.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

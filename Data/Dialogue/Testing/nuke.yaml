@@ -1,0 +1,14 @@
+'0':
+  name: "[Lloyd]"
+  sound: Kid
+  text: DIALOGUE_TESTING_NUKE_0
+  options:
+    DIALOGUE_TESTING_NUKE_0-OPT_0: "1"
+    DIALOGUE_TESTING_NUKE_0-OPT_1:
+    cancel:
+'1':
+  text: ''
+  showbox: false
+  open_reticle_map: Podunk
+  caninput: false
+  cleardialog: true

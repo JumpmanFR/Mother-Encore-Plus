@@ -1,0 +1,145 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Nodes/Reusables/sprite_data_fetcher.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Main/npc.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Character Sprites/Shadow.png" type="Texture" id=4]
+[ext_resource path="res://Nodes/Ui/ButtonPrompt.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Reusables/character_sprite.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=287]
+extents = Vector2( 7.5, 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12.3, 14 )
+
+[sub_resource type="Shader" id=432]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform vec4 glow_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float glow_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = color.rgb + glow_color.rgb * glow_modifier;
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=431]
+resource_local_to_scene = true
+shader = SubResource( 432 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+shader_param/glow_modifier = 0.0
+
+[sub_resource type="RectangleShape2D" id=433]
+extents = Vector2( 12.5, 8 )
+
+[sub_resource type="CircleShape2D" id=128]
+radius = 44.0
+
+[node name="npc" type="KinematicBody2D"]
+position = Vector2( 0, -3 )
+collision_layer = 573
+collision_mask = 1597
+script = ExtResource( 2 )
+player_turn = {
+"x": true,
+"y": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 6 )
+shape = SubResource( 287 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 7 )
+texture = ExtResource( 4 )
+
+[node name="CharacterSprite" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, 9 )
+offset = Vector2( 0, 0 )
+
+[node name="interact" type="Area2D" parent="."]
+position = Vector2( 0, -10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+modulate = Color( 0, 1, 0.717647, 1 )
+position = Vector2( -0.5, 15 )
+shape = SubResource( 3 )
+
+[node name="ButtonPrompt" parent="interact" instance=ExtResource( 5 )]
+material = SubResource( 431 )
+position = Vector2( 0, -11 )
+type = "NPCs"
+offset = Vector2( 0, -11 )
+
+[node name="NearPlayerArea" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NearPlayerArea"]
+position = Vector2( -0.5, 6 )
+shape = SubResource( 433 )
+
+[node name="ViewArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 4096
+collision_mask = 4096
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ViewArea"]
+position = Vector2( 0, 9 )
+shape = SubResource( 128 )
+
+[node name="WanderRadius" type="Area2D" parent="."]
+visible = false
+position = Vector2( 0, 7 )
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WanderRadius"]
+position = Vector2( 0, -2 )
+shape = SubResource( 128 )
+
+[node name="Timer" type="Timer" parent="WanderRadius"]
+wait_time = 2.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, 4 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 1537
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( -1.19209e-07, -5 )
+scale = Vector2( 1.6, 2.4 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( -2.38419e-07, -5 )
+scale = Vector2( 1.6, 2.4 )
+freeze_bodies = false
+pause_particles = false
+
+[node name="SpriteDataFetcher" parent="." instance=ExtResource( 1 )]
+_sprite_path = NodePath("../CharacterSprite")
+reflect_offset = 3.0
+
+[connection signal="tree_exiting" from="." to="." method="_on_npc_tree_exiting"]
+[connection signal="body_entered" from="NearPlayerArea" to="." method="_on_NearPlayerArea_body_entered"]
+[connection signal="body_exited" from="NearPlayerArea" to="." method="_on_NearPlayerArea_body_exited"]
+[connection signal="body_entered" from="ViewArea" to="." method="_on_ViewArea_body_entered"]
+[connection signal="body_exited" from="ViewArea" to="." method="_on_ViewArea_body_exited"]
+[connection signal="timeout" from="WanderRadius/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

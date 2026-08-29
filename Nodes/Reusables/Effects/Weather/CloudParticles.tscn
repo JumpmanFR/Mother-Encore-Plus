@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Graphics/Other/misc/cloud.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=435]
+offsets = PoolRealArray( 0, 0.263736, 0.642857, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+position = Vector2( 1064, -176 )
+amount = 400
+lifetime = 10.0
+preprocess = 10.0
+draw_order = 1
+texture = ExtResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 250.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.6
+linear_accel = -1.0
+linear_accel_random = 1.0
+scale_amount_random = 0.73
+color_ramp = SubResource( 435 )

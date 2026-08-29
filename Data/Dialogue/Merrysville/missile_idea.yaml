@@ -1,0 +1,14 @@
+"0":
+    if:
+        flags:
+            rocket_launched: true
+        goto: '2'
+    goto: '1'
+"1":
+    name: DIALOGUE_MERRYSVILLE_MISSILEIDEA_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_MISSILEIDEA_0
+"2":
+    name: DIALOGUE_MERRYSVILLE_MISSILEIDEA_SPEAKER
+    sound: Adult
+    text: DIALOGUE_MERRYSVILLE_MISSILEIDEA_1

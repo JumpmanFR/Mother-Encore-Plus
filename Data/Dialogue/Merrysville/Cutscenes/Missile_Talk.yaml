@@ -1,0 +1,86 @@
+"0":
+  movecam:
+    x: 208
+    y: -504
+  teleportactors:
+    ninten:
+      x: 200
+      y: -504
+    lloyd:
+      x: 216
+      y: -504
+  actorsturn:
+    lloyd:
+      actor: ninten
+    ninten:
+      actor: lloyd
+  actorsshake:
+    lloyd:
+      x: 1
+      length: 0.2
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_MISSILETALK_0
+  goto: "nintenJump"
+"nintenJump":
+  showbox: false
+  actorsemote:
+    ninten: question
+  autowait: 1
+  goto: "lloydTrain"
+"lloydTrain":
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_MISSILETALK_1
+  goto: "nintenInsist"
+"nintenInsist":
+  showbox: false
+  actorsjump:
+    ninten:
+      height: 8
+      length: 0.2
+  autowait: 0.6
+  goto: "lloydDuncan"
+"lloydDuncan":
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_MISSILETALK_2
+  goto: "nintenInsistAgain"
+"nintenInsistAgain":
+  showbox: false
+  actorsanim:
+    ninten:
+      anim: Talk
+      length: 0.2
+      newidle: true
+  autowait: 1.5
+  goto: "lloydProtect"
+"lloydProtect":
+  actorsanim:
+    ninten:
+      anim: Idle
+      newidle: true
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_MISSILETALK_3
+  goto: "lloydIdea"
+"lloydIdea":
+  actorsemote:
+    lloyd: exclamation
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_MISSILETALK_4
+  goto: "lloydTurn"
+"lloydTurn":
+  setflags: missile_damage_seen
+  movecam:
+    x: 416
+    y: -424
+  actorsturn:
+    lloyd:
+      x: 1
+      y: 0
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_MISSILETALK_5

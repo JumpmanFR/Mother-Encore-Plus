@@ -1,0 +1,29 @@
+'0':
+  if:
+    hasitem: CashCard
+    goto: '2'
+  goto: '1'
+'1':
+  name: DIALOGUE_MAGICANT_BIGBAGGUY_SPEAKER_Joe
+  sound: Adult
+  text: DIALOGUE_MAGICANT_BIGBAGGUY2_1
+  item: CashCard
+  goto: '2'
+'2':
+  name: DIALOGUE_MAGICANT_BIGBAGGUY_SPEAKER_Joe
+  sound: Adult
+  text: DIALOGUE_MAGICANT_BIGBAGGUY2_2
+  if:
+    invspace: true
+    goto: '3'
+  goto: '4'
+'3':
+  talker: null
+  text: DIALOGUE_MAGICANT_BIGBAGGUY2_3
+  item: BigBag
+  soundeffect: Item Received.mp3
+  setflags: got_big_bag
+'4':
+  name: DIALOGUE_MAGICANT_BIGBAGGUY_SPEAKER_Joe
+  sound: Adult
+  text: DIALOGUE_MAGICANT_BIGBAGGUY2_4

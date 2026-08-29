@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Nodes/Ui/CostLabel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Ui/arrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Graphics/UI/Overworld/flavours/defaultbox.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/UI/PSISelect.gd" type="Script" id=4]
+[ext_resource path="res://Shaders/MenuFlavors.tres" type="Material" id=6]
+[ext_resource path="res://Nodes/Ui/Reusables/Scrollbar.tscn" type="PackedScene" id=7]
+
+[node name="PSILevelSelect" type="NinePatchRect"]
+material = ExtResource( 6 )
+margin_right = 207.0
+margin_bottom = 66.0
+texture = ExtResource( 3 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 18
+custom_constants/margin_top = 10
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 16.0
+margin_top = 10.0
+margin_right = 189.0
+margin_bottom = 56.0
+
+[node name="Arrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 100, 16 )
+consume_input_events = true
+loop_around = true
+skip_empty_labels = true
+skip_hidden_items = true
+move_sfx = true
+select_sfx = true
+reset_on_show = false
+
+[node name="Scrollbar" parent="." instance=ExtResource( 7 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -15.0
+margin_top = 9.0
+margin_right = -15.0
+margin_bottom = 56.0
+
+[node name="CostLabel" parent="." instance=ExtResource( 1 )]
+margin_left = -53.0
+margin_top = -19.0
+margin_right = -13.0
+margin_bottom = 21.0
+
+[connection signal="activated" from="Arrow" to="." method="_cursor_moved_to_skill"]
+[connection signal="failed_move" from="Arrow" to="." method="_on_Arrow_failed_move"]

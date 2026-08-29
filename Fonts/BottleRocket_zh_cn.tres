@@ -1,0 +1,13 @@
+[gd_resource type="DynamicFont" load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/BottleRocket_zh_cn.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFontData" id=3]
+antialiased = false
+font_path = "res://Fonts/BottleRocket.ttf"
+
+[resource]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+fallback/0 = ExtResource( 1 )

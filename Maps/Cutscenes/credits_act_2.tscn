@@ -1,0 +1,851 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/UI/Credits/credits_act_2.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/BottleRocket.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Nodes/Overworld/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Ui/TitleLogo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/EBMainOutline.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Fonts/EBMain.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Nodes/Ui/Skip.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Audio/Sound effects/Item Received.mp3" type="AudioStream" id=8]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/CreditsRoll:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/CreditsRoll:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/ToBeContinued:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Scroll"
+length = 222.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/CreditsRoll:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 211 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/CreditsRoll:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 213, 213.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 206.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 4.5 ],
+"method": "pan_up"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/BlackBG:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 213.75 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG/ToBeContinued:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 216 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 216 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BG/Gradient:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 206.5, 211 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=5]
+interpolation_mode = 1
+offsets = PoolRealArray( 0, 0.295312, 0.570505, 0.588616, 0.619664, 0.664942 )
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0745098, 0, 0, 0, 0.156863, 0, 0, 0, 0.235294, 0, 0, 0, 0.313726 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 5 )
+width = 320
+
+[sub_resource type="StyleBoxEmpty" id=3]
+content_margin_left = 1.0
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+_anim_player = NodePath("AnimationPlayer")
+_door = NodePath("Door")
+_encore_logo = NodePath("CanvasLayer/CreditsRoll/TitleLogo")
+_credits_content = NodePath("CanvasLayer/CreditsRoll/CreditsContent")
+_encore_dev_container = NodePath("CanvasLayer/CreditsRoll/CreditsContent/EncoreDevs")
+_canvas_group = NodePath("CanvasLayer")
+_player_container_path = NodePath("CanvasLayer/CreditsRoll/CreditsContent/Player")
+_player_label_path = NodePath("CanvasLayer/CreditsRoll/CreditsContent/Player/Devs")
+_text_alignment = 2
+_credits_music = "Credits/Act2Credits.mp3"
+_act_credit = 2
+_wait_until_start = 2.0
+_landscape_path = NodePath("CanvasLayer/Landscape")
+_black_bg = NodePath("BG/BlackBG")
+
+[node name="Objects" type="YSort" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/Scroll = SubResource( 1 )
+
+[node name="BG" type="CanvasLayer" parent="."]
+
+[node name="BlackBG" type="ColorRect" parent="BG"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Gradient" type="TextureRect" parent="BG"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 320.0
+margin_bottom = 180.0
+size_flags_horizontal = 0
+texture = SubResource( 4 )
+expand = true
+
+[node name="ToBeContinued" type="Label" parent="BG"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "CREDITS_ACT2_TOBECONTINUED"
+align = 1
+valign = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Landscape" type="Control" parent="CanvasLayer"]
+
+[node name="CreditsRoll" type="Control" parent="CanvasLayer"]
+margin_right = 320.0
+margin_bottom = 7416.0
+
+[node name="TitleLogo" parent="CanvasLayer/CreditsRoll" instance=ExtResource( 4 )]
+anchor_right = 0.5
+
+[node name="CreditsContent" type="VBoxContainer" parent="CanvasLayer/CreditsRoll"]
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = 208.0
+margin_right = -16.0
+margin_bottom = 1590.0
+custom_constants/separation = 25
+
+[node name="EncoreStaffCredits" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_right = 288.0
+margin_bottom = 26.0
+custom_constants/separation = 4
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/EncoreStaffCredits" groups=["CreditsHeader"]]
+margin_left = 173.0
+margin_right = 288.0
+margin_bottom = 11.0
+size_flags_horizontal = 8
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ACT2_TITLE"
+align = 2
+
+[node name="Underline" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/EncoreStaffCredits/Role"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 1.0
+margin_bottom = 4.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/EncoreStaffCredits/Role/Underline"]
+anchor_right = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = 2.0
+
+[node name="Role2" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/EncoreStaffCredits" groups=["CreditsHeader"]]
+margin_left = 151.0
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 26.0
+size_flags_horizontal = 8
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_STAFF_CREDITS"
+align = 2
+
+[node name="Underline" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/EncoreStaffCredits/Role2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 1.0
+margin_bottom = 4.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/EncoreStaffCredits/Role2/Underline"]
+anchor_right = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = 2.0
+
+[node name="EncoreDevs" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 51.0
+margin_right = 288.0
+margin_bottom = 51.0
+custom_constants/separation = 25
+
+[node name="VerySpecialThanks" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 76.0
+margin_right = 288.0
+margin_bottom = 163.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/VerySpecialThanks"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_THANKS_VERY"
+align = 2
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent/VerySpecialThanks"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 87.0
+custom_constants/separation = 3
+
+[node name="Names" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/VerySpecialThanks/VBoxContainer"]
+margin_right = 288.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Mother Forever"
+align = 2
+autowrap = true
+
+[node name="Names2" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/VerySpecialThanks/VBoxContainer"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Starmen.net"
+align = 2
+autowrap = true
+
+[node name="Names3" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/VerySpecialThanks/VBoxContainer"]
+margin_top = 30.0
+margin_right = 288.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "CREDITS_NAME_FAN_TRANSL"
+align = 2
+autowrap = true
+
+[node name="Names4" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/VerySpecialThanks/VBoxContainer"]
+margin_top = 45.0
+margin_right = 288.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "CREDITS_NAME_COMMUNITY"
+align = 2
+autowrap = true
+
+[node name="Names5" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/VerySpecialThanks/VBoxContainer"]
+margin_top = 60.0
+margin_right = 288.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "CREDITS_NAME_DISCORD"
+align = 2
+autowrap = true
+
+[node name="OriginalMotherStaffCredits" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_left = 96.0
+margin_top = 188.0
+margin_right = 288.0
+margin_bottom = 214.0
+size_flags_horizontal = 8
+custom_constants/separation = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OriginalMotherStaffCredits" groups=["CreditsHeader"]]
+margin_left = 1.0
+margin_right = 192.0
+margin_bottom = 11.0
+size_flags_horizontal = 8
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ACT2_ORIG_TITLE_LINE_1"
+align = 2
+
+[node name="Underline" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/OriginalMotherStaffCredits/Label"]
+anchor_right = 1.0
+margin_left = -1.0
+margin_top = 12.0
+margin_bottom = 15.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/OriginalMotherStaffCredits/Label/Underline"]
+anchor_right = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = 2.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OriginalMotherStaffCredits" groups=["CreditsHeader"]]
+margin_top = 15.0
+margin_right = 192.0
+margin_bottom = 26.0
+size_flags_horizontal = 8
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ACT2_ORIG_TITLE_LINE_2"
+align = 2
+
+[node name="Underline" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/OriginalMotherStaffCredits/Label2"]
+anchor_right = 1.0
+margin_left = -1.0
+margin_top = 12.0
+margin_bottom = 15.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CreditsRoll/CreditsContent/OriginalMotherStaffCredits/Label2/Underline"]
+anchor_right = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = 2.0
+
+[node name="OGDirector" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 239.0
+margin_right = 288.0
+margin_bottom = 266.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGDirector"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_DIRECTOR"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGDirector"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Shigesato Itoi"
+align = 2
+autowrap = true
+
+[node name="OGGameDesigners" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 291.0
+margin_right = 288.0
+margin_bottom = 333.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGGameDesigners"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_DESIGNERS_GAME"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGGameDesigners"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Shigesato Itoi
+Miyuki Kure"
+align = 2
+autowrap = true
+
+[node name="OGMusicProducers" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 358.0
+margin_right = 288.0
+margin_bottom = 400.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGMusicProducers"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_MUSIC_PROD"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGMusicProducers"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Akio Ohmori
+Ritsuo Kamimura"
+align = 2
+autowrap = true
+
+[node name="OGMusicalEffects" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 425.0
+margin_right = 288.0
+margin_bottom = 467.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGMusicalEffects"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_MUSIC_EFFECTS"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGMusicalEffects"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Keiichi Suzuki
+Hirokazu Tanaka"
+align = 2
+autowrap = true
+
+[node name="OGCharacterDesigners" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 492.0
+margin_right = 288.0
+margin_bottom = 534.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGCharacterDesigners"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_DESIGN_CHARA"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGCharacterDesigners"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Shinbo Minami
+Tatsuya Ishii"
+align = 2
+autowrap = true
+
+[node name="OGFigureModeling" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 559.0
+margin_right = 288.0
+margin_bottom = 586.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGFigureModeling"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_FIGURE"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGFigureModeling"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Tottori"
+align = 2
+autowrap = true
+
+[node name="OGProgrammers" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 611.0
+margin_right = 288.0
+margin_bottom = 668.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGProgrammers"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_PROGRAMMERS"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGProgrammers"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Kazuya Nakatani
+Takayuki Onodera
+Motoo Yasuma"
+align = 2
+autowrap = true
+
+[node name="OGScenarioAssistants" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 693.0
+margin_right = 288.0
+margin_bottom = 765.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGScenarioAssistants"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_SCENARIO"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGScenarioAssistants"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Masayuki Kameyama
+Hideo Kon
+Katsutomo Maeiwa
+Kuniko Sakurai"
+align = 2
+autowrap = true
+
+[node name="OGCoordinators" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 790.0
+margin_right = 288.0
+margin_bottom = 892.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGCoordinators"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_COORDINATORS"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGCoordinators"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Masahiro Tatemoto
+Takashi Kawaguchi
+Keizoh Katoh
+Motohiro Ishii
+Akihito Toda
+Yukari Saitoh"
+align = 2
+autowrap = true
+
+[node name="OGEnglishScriptWriter" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 917.0
+margin_right = 288.0
+margin_bottom = 944.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGEnglishScriptWriter"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_ENGLISH"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGEnglishScriptWriter"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Phil Sandhop"
+align = 2
+autowrap = true
+
+[node name="OGTranslators" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 969.0
+margin_right = 288.0
+margin_bottom = 1026.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGTranslators"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_TRANSLATORS"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGTranslators"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Toshiko Watson
+Yuka Nakata
+Hoko Faulkner"
+align = 2
+autowrap = true
+
+[node name="OGSpecialThanks" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 1051.0
+margin_right = 288.0
+margin_bottom = 1168.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGSpecialThanks"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_THANKS"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGSpecialThanks"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Tony Harman
+Dayv Brooks
+Noriyuki Minami
+Bin Ohgawara
+Yoshihisa Wada
+Hikonori Suzuki
+Takao Shimizu"
+align = 2
+autowrap = true
+
+[node name="OGProducer" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 1193.0
+margin_right = 288.0
+margin_bottom = 1220.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGProducer"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_PRODUCER"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGProducer"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Shigeru Miyamoto"
+align = 2
+autowrap = true
+
+[node name="OGExecutiveProducer" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 1245.0
+margin_right = 288.0
+margin_bottom = 1272.0
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGExecutiveProducer"]
+margin_right = 288.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_ORIG_PRODUCER_EXEC"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/OGExecutiveProducer"]
+margin_top = 15.0
+margin_right = 288.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "Hiroshi Yamauchi"
+align = 2
+autowrap = true
+
+[node name="Player" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+visible = false
+margin_top = 1297.0
+margin_right = 192.0
+margin_bottom = 1358.0
+
+[node name="Spacer" type="Control" parent="CanvasLayer/CreditsRoll/CreditsContent/Player"]
+margin_right = 192.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/Player"]
+margin_top = 34.0
+margin_right = 192.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_PLAYER"
+align = 2
+autowrap = true
+
+[node name="Devs" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/Player"]
+margin_top = 49.0
+margin_right = 192.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 3 )
+align = 2
+autowrap = true
+
+[node name="ThankYou" type="VBoxContainer" parent="CanvasLayer/CreditsRoll/CreditsContent"]
+margin_top = 1297.0
+margin_right = 288.0
+margin_bottom = 1382.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Spacer" type="Control" parent="CanvasLayer/CreditsRoll/CreditsContent/ThankYou"]
+margin_right = 288.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+
+[node name="Role" type="Label" parent="CanvasLayer/CreditsRoll/CreditsContent/ThankYou"]
+margin_top = 74.0
+margin_right = 288.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 1, 0.666667, 0.4, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS_PLAYER_THANK_YOU"
+align = 1
+autowrap = true
+
+[node name="Skip" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 328, 0 )
+fade_in_speed = 0.4
+targetScene = "Title screen"
+unpause_player = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

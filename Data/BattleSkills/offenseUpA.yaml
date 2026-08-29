@@ -1,0 +1,29 @@
+name: OFFENSEUP_NAME
+level: 0
+description: OFFENSEUPA_DESC
+article: OFFENSEUP_ART
+skill_type: psi
+action_type: 2 # Stat
+use_cases: 1 # Battle only
+psi_category: Assist
+target_type: 1 # Ally
+damage_or_heal: 0
+variance: 0
+priority: 0
+stat_mods:
+  offense: 2
+miss_chance: 0
+pp_cost: 7
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+screen_effect: stat_offense_up
+user_anim: psi
+user_anim_colors:
+  - 'FF1E55'
+  - 'FF8396'
+  - 'B90045'
+use_sound: ''
+hit_sound: ''
+traits:
+  - target_incapacitated

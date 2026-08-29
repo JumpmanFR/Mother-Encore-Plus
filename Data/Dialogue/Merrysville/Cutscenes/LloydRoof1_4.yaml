@@ -1,0 +1,111 @@
+"0":
+  actors:
+    lloyd: talker
+    ninten: leader
+  talker: null
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_0
+  options:
+    DIALOGUE_MERRYSVILLE_HOTEL_2-OPT_0: "yes"
+    DIALOGUE_MERRYSVILLE_HOTEL_2-OPT_1: "no"
+    cancel: "no"
+  sound: Shy
+  actorsshake:
+    lloyd:
+      x: 1
+      length: 0.2
+"no":
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_1
+  sound: Shy
+"yes":
+  showbox: false
+  actorsanim:
+    lloyd:
+      anim: Raise
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "startStory"
+"startStory":
+  fadein:
+    speed: 0.2
+    anim: Fade
+    color: "000000"
+  actorsanim:
+    lloyd:
+      anim: Talk
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_2
+  sound: Shy
+  goto: "fadeBlack"
+  autowait: 2.5
+"fadeBlack":
+  changescene: Merrysville/Merrysville
+  movecam:
+    x: -408
+    y: -227
+    length: 0
+  fadeout:
+    speed: 0.2
+    anim: Fade
+    color: "000000"
+  goto: "story"
+"story":
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_3
+  sound: Shy
+  goto: "kid1"
+"kid1":
+  name: "?????"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_4
+  sound: Kid
+  goto: "kid2"
+"kid2":
+  cleardialog: true
+  name: "?????"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_5
+  sound: Kid
+  goto: "kid3"
+"kid3":
+  cleardialog: true
+  name: "?????"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_6
+  sound: Kid
+  goto: "kid4"
+"kid4":
+  cleardialog: true
+  name: "?????"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_7
+  sound: Kid
+  goto: "dragging"
+"dragging":
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_8
+  goto: "fadeInBack"
+"fadeInBack":
+  showbox: false
+  fadein:
+    speed: 0.5
+    anim: Fade
+    color: "000000"
+  autowait: 2
+  goto: "fadeOutBack"
+"fadeOutBack":
+  changescene: Merrysville/Twinkle Elementary Roof
+  fadeout:
+    speed: 0.5
+    anim: Fade
+    color: "000000"
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF4_9
+  goto: "end"
+"end":
+  showbox: false
+  actorsanim:
+    lloyd:
+      anim: Hide
+  setflags: lloyd_roof_1
+  autowait: 1

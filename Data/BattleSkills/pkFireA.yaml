@@ -1,0 +1,26 @@
+name: PKFIRE_NAME
+level: 0
+description: PKFIREA_DESC
+article: PKFIRE_ART
+skill_type: psi
+action_type: 0 # Damage
+use_cases: 1 # Battle only
+psi_category: Offense
+damage_type: fire
+target_type: 6 # All enemies
+damage_or_heal: 70
+variance: 10
+priority: 0
+status_effects:
+  burned: 60
+miss_chance: 0
+pp_cost: 6
+hp_cost: 0
+hit_effect: ""
+pre_hit_effect: ""
+screen_effect: pk_fire_alpha
+enemy_screen_effect: e_pk_fire_alpha
+enemy_flash_color: "F88800"
+user_anim: psi
+use_sound: fire1
+hit_sound: fire1

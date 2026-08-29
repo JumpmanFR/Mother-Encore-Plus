@@ -1,0 +1,365 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Graphics/Rooms/Merrysville/Hotel/Merrysville_Hotel_F1.png" type="Texture" id=1]
+[ext_resource path="res://Tilesets/Interior.tres" type="TileSet" id=2]
+[ext_resource path="res://Nodes/Overworld/camarea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Overworld/MusicChanger.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Overworld/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Hotel/Merrysville_Hotel_F2.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Hotel/Merrysville_Hotel_Desk.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Hotel/Merrysville_Hotel_F3.png" type="Texture" id=8]
+[ext_resource path="res://Nodes/Reusables/stepping sounds.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Graphics/Rooms/Podunk/Podunk_Hotel_Hallway_Rails.png" type="Texture" id=10]
+[ext_resource path="res://Nodes/Reusables/atm.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Nodes/Reusables/phone.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Graphics/Objects/Doors/Door_Dark_Locked.png" type="Texture" id=13]
+[ext_resource path="res://Nodes/Overworld/Objects/Openable Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Nodes/Reusables/npc.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Graphics/Rooms/Merrysville/Hotel/Merrysville_Hotel_Restaurant_Desk.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/Main/RoomTypes/AreaRoom.gd" type="Script" id=17]
+[ext_resource path="res://Nodes/Reusables/hotel room.tscn" type="PackedScene" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 168, 116 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 224, 100 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 152, 132 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 400, 604 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 416, 608 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8, 4 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 24, 12 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 144, 17 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 32, 34.25 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 24, 12 )
+
+[node name="Merrysville Hotel" type="Node2D"]
+script = ExtResource( 17 )
+_player_map_offset = Vector2( 349, 267 )
+_region_name = "Merrysville"
+_is_sub_area = true
+
+[node name="MerrysvilleHotelF1" type="Sprite" parent="."]
+position = Vector2( 0, -58 )
+texture = ExtResource( 1 )
+
+[node name="MerrysvilleHotelF2" type="Sprite" parent="."]
+position = Vector2( 0, -293 )
+texture = ExtResource( 6 )
+
+[node name="MerrysvilleHotelF3" type="Sprite" parent="."]
+position = Vector2( 0, -560 )
+texture = ExtResource( 8 )
+
+[node name="PodunkHotelHallwayRails" type="Sprite" parent="."]
+position = Vector2( -112, -232 )
+texture = ExtResource( 10 )
+
+[node name="Hotel room" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMap" parent="Hotel room"]
+position = Vector2( -32, 656 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1376238, 56, 65538, -1376237, 56, 65538, -1376236, 56, 65537, -1376235, 56, 65538, -1376234, 56, 65538, -1376233, 56, 65538, -1376232, 56, 65538, -1376231, 56, 65536, -1376230, 56, 65538, -1376229, 56, 65538, -1376228, 56, 65538, -1376227, 56, 65538, -1376226, 56, 65537, -1376225, 56, 65538, -1376224, 56, 65538, -1310702, 56, 65538, -1310701, 56, 65538, -1310700, 56, 65538, -1310699, 56, 65538, -1310698, 56, 65538, -1310697, 56, 65538, -1310696, 56, 65538, -1310695, 56, 65538, -1310694, 56, 65538, -1310693, 56, 65538, -1310692, 56, 65538, -1310691, 56, 65538, -1310690, 56, 65538, -1310689, 56, 65538, -1310688, 56, 65538, -1245166, 56, 65538, -1245165, 56, 65538, -1245164, 56, 65538, -1245163, 56, 65538, -1245162, 56, 65538, -1245161, 56, 65538, -1245160, 56, 65538, -1245159, 56, 65538, -1245158, 56, 65538, -1245157, 56, 65538, -1245156, 56, 65536, -1245155, 56, 65538, -1245154, 56, 65538, -1245153, 56, 65538, -1245152, 56, 65538, -1179630, 56, 65538, -1179629, 56, 65538, -1179628, 56, 65538, -1179627, 56, 65538, -1179626, 56, 65537, -1179625, 56, 65538, -1179624, 56, 65538, -1179623, 56, 65538, -1179622, 56, 65538, -1179621, 56, 65538, -1179620, 56, 65538, -1179619, 56, 65538, -1179618, 56, 65538, -1179617, 56, 65538, -1179616, 56, 65538, -1114094, 56, 65538, -1114093, 56, 65538, -1114092, 56, 65538, -1114091, 56, 65538, -1114090, 56, 65538, -1114089, 56, 65538, -1114088, 56, 65538, -1114087, 56, 65538, -1114086, 56, 65538, -1114085, 56, 65538, -1114084, 56, 65538, -1114083, 56, 65538, -1114082, 56, 65538, -1114081, 56, 65538, -1114080, 56, 65538, -1048558, 56, 65538, -1048557, 56, 65538, -1048556, 56, 65538, -1048555, 56, 65538, -1048554, 56, 65538, -1048553, 56, 65538, -1048552, 56, 65538, -1048551, 56, 65538, -1048550, 56, 65536, -1048549, 56, 65538, -1048548, 56, 65538, -1048547, 56, 65538, -1048546, 56, 65538, -1048545, 56, 65537, -1048544, 56, 65538, -983022, 56, 65536, -983021, 56, 65538, -983020, 56, 65538, -983019, 56, 65538, -983018, 56, 65538, -983017, 56, 65538, -983016, 56, 65538, -983015, 56, 65538, -983014, 56, 65538, -983013, 56, 65538, -983012, 56, 65538, -983011, 56, 65538, -983010, 56, 65538, -983009, 56, 65538, -983008, 56, 65538 )
+
+[node name="Walls" type="TileMap" parent="Hotel room"]
+position = Vector2( -32, 656 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1638382, 55, 65541, -1638381, 55, 65538, -1638380, 55, 65539, -1638379, 55, 65539, -1638378, 55, 65539, -1638377, 55, 65539, -1638376, 55, 65539, -1638375, 55, 65539, -1638374, 55, 65539, -1638373, 55, 65539, -1638372, 55, 65539, -1638371, 55, 65539, -1638370, 55, 65539, -1638369, 55, 65540, -1638368, 55, 65541, -1572846, 55, 65541, -1572845, 55, 65538, -1572844, 55, 65539, -1572843, 55, 65539, -1572842, 55, 65539, -1572841, 55, 65539, -1572840, 55, 65539, -1572839, 55, 65539, -1572838, 55, 65539, -1572837, 55, 65539, -1572836, 55, 65539, -1572835, 55, 65539, -1572834, 55, 65539, -1572833, 55, 65540, -1572832, 55, 65541, -1507310, 55, 65541, -1507309, 55, 65538, -1507308, 55, 65539, -1507307, 55, 65539, -1507306, 55, 65539, -1507305, 55, 65539, -1507304, 55, 65539, -1507303, 55, 65539, -1507302, 55, 65539, -1507301, 55, 65539, -1507300, 55, 65539, -1507299, 55, 65539, -1507298, 55, 65539, -1507297, 55, 65540, -1507296, 55, 65541, -1441774, 55, 65541, -1441773, 55, 65538, -1441772, 55, 65539, -1441771, 55, 65539, -1441770, 55, 65539, -1441769, 55, 65539, -1441768, 55, 65539, -1441767, 55, 65539, -1441766, 55, 65539, -1441765, 55, 65539, -1441764, 55, 65539, -1441763, 55, 65539, -1441762, 55, 65539, -1441761, 55, 65540, -1441760, 55, 65541, -1376238, 55, 65542, -1376224, 536870967, 65542, -1310702, 55, 65543, -1310688, 536870967, 65543, -1245166, 55, 65544, -1245152, 536870967, 65544, -1179630, 55, 65545, -1179616, 536870967, 65545, -1114094, 55, 65546, -1114080, 536870967, 65546, -1048550, 536871057, 0, -983022, 131, 65538, -983021, 131, 65538, -983020, 131, 65538, -983019, 131, 65538, -983018, 131, 65538, -983017, 131, 65538, -983010, 131, 65538, -983009, 131, 65538, -983008, 131, 65538 )
+
+[node name="On the walls" type="TileMap" parent="Hotel room"]
+position = Vector2( -32, 656 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1638379, 536870986, 0, -1638372, 536870986, 0, -1572839, 35, 0, -1441774, 61, 3, -1441773, 61, 65537, -1441772, 61, 1, -1441771, 61, 1, -1441770, 61, 1, -1441769, 61, 1, -1441768, 61, 1, -1441767, 61, 1, -1441766, 61, 1, -1441765, 61, 1, -1441764, 61, 1, -1441763, 61, 1, -1441762, 61, 1, -1441761, 61, 2, -1441760, 61, 0, -1376238, 61, 65539, -1376224, 61, 65536, -1310702, 61, 131075, -1310688, 61, 131072, -1245166, 61, 196611, -1245152, 61, 196608, -1179630, 61, 262147, -1179616, 61, 262144, -1114094, 61, 327683, -1114080, 61, 327680, -1048558, 61, 393219, -1048544, 61, 393216 )
+
+[node name="On the walls2" type="TileMap" parent="Hotel room"]
+position = Vector2( -32, 656 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1638382, 14, 0, -1638368, 14, 1, -1572846, 14, 65536, -1572832, 14, 65537, -1507310, 14, 131072, -1507296, 14, 131073, -1441774, 14, 196608, -1441760, 14, 196609, -1376238, 14, 262144, -1376224, 14, 262145, -1310702, 14, 327680, -1310688, 14, 327681 )
+
+[node name="singing_lady" parent="." instance=ExtResource( 15 )]
+position = Vector2( -64, -566 )
+sprite = "Npcs/4dir/bluelady"
+dialog = "Merrysville/restaurant_singing_lady"
+extended_interact = 2
+idle_animation = "Talk"
+
+[node name="Openable Door" parent="." instance=ExtResource( 14 )]
+position = Vector2( 104, -320 )
+sprite = ExtResource( 13 )
+one_way = true
+
+[node name="receptionist" parent="." instance=ExtResource( 15 )]
+position = Vector2( 39, -60 )
+sprite = "Npcs/4dir/hotelreceptionist"
+dialog = "Merrysville/hotel_guy"
+extended_interact = 2
+
+[node name="MerrysvilleHotelDesk" type="Sprite" parent="."]
+position = Vector2( 39, -44 )
+texture = ExtResource( 7 )
+offset = Vector2( 26, -8 )
+
+[node name="MerrysvilleHotelRestaurantDesk" type="Sprite" parent="."]
+position = Vector2( -68, -561 )
+texture = ExtResource( 16 )
+
+[node name="Objects" type="YSort" parent="."]
+
+[node name="ATM" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( -20, -80 )
+
+[node name="Furniture" type="TileMap" parent="Objects"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -4849663, 100, 0, -4784128, 45, 0, -4718591, 100, 0, -4587533, 536871095, 4, -4587531, 536871095, 3, -4456442, 100, 0, -4390907, 45, 0, -4325370, 100, 0, -4128767, 100, 0, -4063232, 45, 0, -3997695, 100, 0, -3801102, 67, 0, -3866614, 67, 0, 65521, 536871085, 0, 262151, 536871093, 0, 2359350, 144, 0, 2555940, 536870980, 0, 2555948, 153, 0, 2621474, 536870992, 0, 2621488, 536871042, 0, 2752568, 100, 0, 3080230, 123, 0 )
+
+[node name="NPCs" type="YSort" parent="Objects"]
+
+[node name="hotel_critic" parent="Objects/NPCs" instance=ExtResource( 15 )]
+position = Vector2( -88, -40 )
+sprite = "Npcs/4dir/touristguy"
+dialog = "Merrysville/hotel_critic"
+initial_dir = Vector2( 1, 0 )
+staring = true
+
+[node name="restaurant_musicals" parent="Objects/NPCs" instance=ExtResource( 15 )]
+position = Vector2( 49, -592 )
+sprite = "Npcs/4dir/mustacheguy"
+dialog = "Merrysville/restaurant_musicals_fact"
+wander = true
+
+[node name="food_critic" parent="Objects/NPCs" instance=ExtResource( 15 )]
+position = Vector2( -96, -542 )
+sprite = "Npcs/4dir/suitguy"
+dialog = "Merrysville/restaurant_critic"
+initial_dir = Vector2( 0, -1 )
+
+[node name="Hotel Room" parent="Objects" instance=ExtResource( 18 )]
+position = Vector2( 376, 344 )
+
+[node name="Phone" parent="Objects" instance=ExtResource( 12 )]
+position = Vector2( 80, -59 )
+
+[node name="Above" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_layer = 573
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1900550, 183, 0, -1900547, 183, 1, -1835020, 536870926, 2, -1835019, 536870926, 2, -1835018, 536870926, 2, -1835017, 536870926, 2, -1835016, 536870926, 2, -1835015, 536870926, 2, -1835014, 183, 65536, -1835011, 183, 65537, -1835010, 14, 458753, -1835009, 536870926, 2, -1900544, 536870926, 2, -1900543, 536870926, 2, -1900542, 536870926, 2, -1900541, 536870926, 2, -1900540, 536870926, 2, -1900539, 536870926, 2, -1900538, 536870926, 2, -1900537, 536870926, 2, -1900536, 536870926, 2, -1900535, 536870926, 2, -1769484, 536870926, 2, -1769483, 536870926, 2, -1769482, 536870926, 2, -1769481, 536870926, 2, -1769480, 536870926, 2, -1769479, 536870926, 2, -1769478, 183, 131072, -1769475, 183, 131073, -1769474, 536870926, 2, -1769473, 536870926, 2, -1835008, 536870926, 2, -1835007, 536870926, 2, -1835006, 536870926, 2, -1835005, 536870926, 2, -1835004, 536870926, 2, -1835003, 536870926, 2, -1835002, 536870926, 2, -1835001, 536870926, 2, -1835000, 536870926, 2, -1834999, 536870926, 2, -1703948, 536870926, 2, -1703947, 536870926, 2, -1703946, 536870926, 2, -1703945, 536870926, 2, -1703944, 536870926, 2, -1703943, 536870926, 2, -1703942, 536870926, 2, -1703941, 536870926, 2, -1703940, 536870926, 2, -1703939, 536870926, 2, -1703938, 536870926, 2, -1703937, 536870926, 2, -1769472, 536870926, 2, -1769471, 536870926, 2, -1769470, 536870926, 2, -1769469, 536870926, 2, -1769468, 536870926, 2, -1769467, 536870926, 2, -1769466, 536870926, 2, -1769465, 536870926, 2, -1769464, 536870926, 2, -1769463, 536870926, 2, -1638412, 536870926, 2, -1638411, 536870926, 2, -1638410, 536870926, 2, -1638409, 536870926, 2, -1638408, 536870926, 2, -1638407, 536870926, 2, -1638406, 536870926, 2, -1638405, 536870926, 2, -1638404, 536870926, 2, -1638403, 536870926, 2, -1638402, 536870926, 2, -1638401, 536870926, 2, -1703936, 536870926, 2, -1703935, 536870926, 2, -1703934, 536870926, 2, -1703933, 536870926, 2, -1703932, 536870926, 2, -1703931, 536870926, 2, -1703930, 536870926, 2, -1703929, 536870926, 2, -1703928, 536870926, 2, -1703927, 536870926, 2, -1048587, 536871084, 0, -1114102, 172, 0, -983050, 183, 0, -983046, 183, 1, -917519, 536870926, 2, -917518, 536870926, 2, -917517, 536870926, 2, -917516, 536870926, 2, -917515, 536870926, 2, -917514, 183, 65536, -917510, 183, 65537, -917509, 14, 458753, -917508, 536870926, 2, -917507, 536870926, 2, -917506, 536870926, 2, -917505, 536870926, 2, -983040, 536870926, 2, -983039, 536870926, 2, -983038, 536870926, 2, -983037, 536870926, 2, -983036, 536870926, 2, -983035, 536870926, 2, -983034, 536870926, 2, -983033, 536870926, 2, -983032, 536870926, 2, -983031, 536870926, 2, -983030, 536870926, 2, -983029, 536870926, 2, -983028, 536870926, 2, -983027, 536870926, 2, -983026, 536870926, 2, -851983, 536870926, 2, -851982, 536870926, 2, -851981, 536870926, 2, -851980, 536870926, 2, -851979, 536870926, 2, -851978, 183, 131072, -851974, 183, 131073, -851973, 536870926, 2, -851971, 536870926, 2, -851970, 536870926, 2, -851969, 536870926, 2, -917504, 536870926, 2, -917503, 536870926, 2, -917502, 536870926, 2, -917501, 536870926, 2, -917500, 536870926, 2, -917499, 536870926, 2, -917498, 536870926, 2, -917497, 536870926, 2, -917496, 536870926, 2, -917495, 536870926, 2, -917494, 536870926, 2, -917493, 536870926, 2, -917492, 536870926, 2, -917491, 536870926, 2, -917490, 536870926, 2, -786447, 536870926, 2, -786446, 536870926, 2, -786445, 536870926, 2, -786444, 536870926, 2, -786443, 536870926, 2, -786442, 536870926, 2, -786441, 536870926, 2, -786440, 536870926, 2, -786439, 536870926, 2, -786438, 536870926, 2, -786437, 536870926, 2, -786436, 536870926, 2, -786435, 536870926, 2, -786434, 536870926, 2, -786433, 536870926, 2, -851968, 536870926, 2, -851967, 536870926, 2, -851966, 536870926, 2, -851965, 536870926, 2, -851964, 536870926, 2, -851963, 536870926, 2, -851962, 536870926, 2, -851961, 536870926, 2, -851960, 536870926, 2, -851959, 536870926, 2, -851958, 536870926, 2, -851957, 536870926, 2, -851956, 536870926, 2, -851955, 536870926, 2, -851954, 536870926, 2, -720911, 536870926, 2, -720910, 536870926, 2, -720909, 536870926, 2, -720908, 536870926, 2, -720907, 536870926, 2, -720906, 536870926, 2, -720905, 536870926, 2, -720904, 536870926, 2, -720903, 536870926, 2, -720902, 536870926, 2, -720901, 536870926, 2, -720900, 536870926, 2, -720899, 536870926, 2, -720898, 536870926, 2, -720897, 536870926, 2, -786432, 536870926, 2, -786431, 536870926, 2, -786430, 536870926, 2, -786429, 536870926, 2, -786428, 536870926, 2, -786427, 536870926, 2, -786426, 536870926, 2, -786425, 536870926, 2, -786424, 536870926, 2, -786423, 536870926, 2, -786422, 536870926, 2, -786421, 536870926, 2, -786420, 536870926, 2, -786419, 536870926, 2, -786418, 536870926, 2, 196597, 536870926, 2, 196598, 536870926, 2, 196599, 536870926, 2, 196600, 536870926, 2, 196601, 536870926, 2, 196602, 536870926, 2, 196603, 536870926, 2, 196604, 536870926, 2, 196605, 536870926, 2, 196606, 14, 327682, 131073, 14, 262146, 131074, 536870926, 2, 131075, 536870926, 2, 131076, 536870926, 2, 131077, 536870926, 2, 131078, 536870926, 2, 131079, 536870926, 2, 131080, 536870926, 2, 131081, 536870926, 2, 131082, 536870926, 2, 262133, 536870926, 2, 262134, 536870926, 2, 262135, 536870926, 2, 262136, 536870926, 2, 262137, 536870926, 2, 262138, 536870926, 2, 262139, 536870926, 2, 262140, 536870926, 2, 262141, 536870926, 2, 262142, 536870926, 2, 262143, 536870926, 2, 196608, 536870926, 2, 196609, 536870926, 2, 196610, 536870926, 2, 196611, 536870926, 2, 196612, 536870926, 2, 196613, 536870926, 2, 196614, 536870926, 2, 196615, 536870926, 2, 196616, 536870926, 2, 196617, 536870926, 2, 196618, 536870926, 2, 327669, 536870926, 2, 327670, 536870926, 2, 327671, 536870926, 2, 327672, 536870926, 2, 327673, 536870926, 2, 327674, 536870926, 2, 327675, 536870926, 2, 327676, 536870926, 2, 327677, 536870926, 2, 327678, 536870926, 2, 327679, 536870926, 2, 262144, 536870926, 2, 262145, 536870926, 2, 262146, 536870926, 2, 262147, 536870926, 2, 262148, 536870926, 2, 262149, 536870926, 2, 262150, 536870926, 2, 262151, 536870926, 2, 262152, 536870926, 2, 262153, 536870926, 2, 262154, 536870926, 2, 393205, 536870926, 2, 393206, 536870926, 2, 393207, 536870926, 2, 393208, 536870926, 2, 393209, 536870926, 2, 393210, 536870926, 2, 393211, 536870926, 2, 393212, 536870926, 2, 393213, 536870926, 2, 393214, 536870926, 2, 393215, 536870926, 2, 327680, 536870926, 2, 327681, 536870926, 2, 327682, 536870926, 2, 327683, 536870926, 2, 327684, 536870926, 2, 327685, 536870926, 2, 327686, 536870926, 2, 327687, 536870926, 2, 327688, 536870926, 2, 327689, 536870926, 2, 327690, 536870926, 2, 1376272, 536870952, 0, 1376286, 40, 0, 1638416, 131, 131074, 1638417, 131, 131074, 1638418, 131, 131074, 1638419, 131, 131074, 1638420, 131, 131074, 1638421, 131, 131075, 1638428, 131, 131073, 1638429, 131, 131074, 1638430, 131, 131074, 1703948, 536870926, 2, 1703949, 536870926, 2, 1703950, 536870926, 2, 1703951, 536870926, 2, 1703952, 536870926, 2, 1703953, 536870926, 2, 1703954, 536870926, 2, 1703955, 536870926, 2, 1703956, 536870926, 2, 1703957, 536870926, 2, 1703958, 536870926, 2, 1703959, 536870926, 2, 1703960, 14, 327682, 1703962, 14, 262146, 1703963, 536870926, 2, 1703964, 536870926, 2, 1703965, 536870926, 2, 1703966, 536870926, 2, 1703967, 536870926, 2, 1703968, 536870926, 2, 1703969, 536870926, 2, 1703970, 536870926, 2, 1769484, 536870926, 2, 1769485, 536870926, 2, 1769486, 536870926, 2, 1769487, 536870926, 2, 1769488, 536870926, 2, 1769489, 536870926, 2, 1769490, 536870926, 2, 1769491, 536870926, 2, 1769492, 536870926, 2, 1769493, 536870926, 2, 1769494, 536870926, 2, 1769495, 536870926, 2, 1769496, 536870926, 2, 1769497, 536870926, 2, 1769498, 536870926, 2, 1769499, 536870926, 2, 1769500, 536870926, 2, 1769501, 536870926, 2, 1769502, 536870926, 2, 1769503, 536870926, 2, 1769504, 536870926, 2, 1769505, 536870926, 2, 1769506, 536870926, 2, 1835020, 536870926, 2, 1835021, 536870926, 2, 1835022, 536870926, 2, 1835023, 536870926, 2, 1835024, 536870926, 2, 1835025, 536870926, 2, 1835026, 536870926, 2, 1835027, 536870926, 2, 1835028, 536870926, 2, 1835029, 536870926, 2, 1835030, 536870926, 2, 1835031, 536870926, 2, 1835032, 536870926, 2, 1835033, 536870926, 2, 1835034, 536870926, 2, 1835035, 536870926, 2, 1835036, 536870926, 2, 1835037, 536870926, 2, 1835038, 536870926, 2, 1835039, 536870926, 2, 1835040, 536870926, 2, 1835041, 536870926, 2, 1835042, 536870926, 2 )
+
+[node name="Above2" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 1572893, 142, 0, 1638417, 99, 10 )
+
+[node name="Above3" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -327695, 536871084, 0, -393203, 172, 0 )
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2( 0, -56 )
+collision_layer = 1597
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PoolVector2Array( 24, 104, 120, 104, 120, 80, 112, 24, 0, 24, 0, -24, -48, -24, -48, -32, -80, -32, -80, -24, -104, -24, -120, 104, -24, 104, -24, 120, -128, 120, -128, -96, 128, -96, 128, 128, -128, 128, -128, 120, 24, 120 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collisions"]
+position = Vector2( 0, 8 )
+polygon = PoolVector2Array( -84, -192, -77, -192, -77, -176, 176, -176, 160, -248, 144, -248, 144, -256, 120, -256, 120, -264, 88, -264, 88, -256, 64, -256, 64, -248, 32, -248, 32, -256, 16, -256, 16, -248, -16, -248, -16, -256, -48, -256, -48, -248, -64, -248, -64, -256, -88, -256, -88, -264, -120, -264, -120, -256, -144, -256, -144, -248, -160, -248, -176, -176, -147, -176, -147, -192, -140, -192, -140, -144, -184, -144, -184, -328, 184, -328, 184, -136, -184, -136, -184, -144, -84, -144 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collisions"]
+position = Vector2( -8, -8 )
+polygon = PoolVector2Array( -96, -480, -112, -384, -75, -384, -75, -400, -68, -400, -68, -352, -128, -352, -128, -600, 128, -600, 128, -344, -128, -344, -128, -352, -28, -352, -28, -400, -21, -400, -21, -384, 112, -384, 88, -528, -8, -528, -8, -480 )
+
+[node name="camareas" type="Node2D" parent="."]
+visible = false
+
+[node name="camarea" parent="camareas" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+
+[node name="CollisionShape2D" parent="camareas/camarea" index="0"]
+position = Vector2( 0, -60 )
+shape = SubResource( 1 )
+
+[node name="camarea2" parent="camareas" instance=ExtResource( 3 )]
+position = Vector2( 0, 16 )
+
+[node name="CollisionShape2D" parent="camareas/camarea2" index="0"]
+position = Vector2( 0, -300 )
+shape = SubResource( 3 )
+
+[node name="camarea3" parent="camareas" instance=ExtResource( 3 )]
+position = Vector2( -8, 8 )
+
+[node name="CollisionShape2D" parent="camareas/camarea3" index="0"]
+position = Vector2( 0, -548 )
+shape = SubResource( 4 )
+
+[node name="MusicArea" parent="." instance=ExtResource( 4 )]
+visible = false
+music = "Hotel.mp3"
+disappear_flag = "good_morning"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea"]
+position = Vector2( 200, -100 )
+shape = SubResource( 2 )
+
+[node name="MusicArea2" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 0, -512 )
+loop = "Good_Morning.mp3"
+appear_flag = "good_morning"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea2"]
+position = Vector2( 192, 408 )
+shape = SubResource( 11 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -24, 56 )
+scale = Vector2( 6, 1 )
+targetX = -16
+targetY = -552
+dir = Vector2( 0, 1 )
+sound = "M3/door_open.wav"
+targetScene = "Merrysville/Merrysville"
+flag_set = "good_morning"
+set_flag_state = false
+
+[node name="Door2" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -80, -88 )
+scale = Vector2( 4, 1 )
+dir = Vector2( 0, -1 )
+sound = "Stairs_Up.mp3"
+
+[node name="Position2D" parent="Doors/Door2" index="1"]
+position = Vector2( -8, -120 )
+
+[node name="Door3" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -144, -240 )
+scale = Vector2( 7, 1 )
+sound = "Stairs_Down.mp3"
+
+[node name="CollisionShape2D" parent="Doors/Door3" index="0"]
+position = Vector2( 4.57143, 44 )
+
+[node name="Position2D" parent="Doors/Door3" index="1"]
+position = Vector2( 11.4286, 168 )
+
+[node name="Door4" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -120, -312 )
+scale = Vector2( 4, 1 )
+sound = "Stairs_Up.mp3"
+
+[node name="Position2D" parent="Doors/Door4" index="1"]
+position = Vector2( 16, -120 )
+
+[node name="Door5" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -80, -424 )
+scale = Vector2( 6, 1 )
+dir = Vector2( 0, 1 )
+sound = "Stairs_Down.mp3"
+
+[node name="Position2D" parent="Doors/Door5" index="1"]
+position = Vector2( -4, 128 )
+
+[node name="Door6" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( 392, 440 )
+scale = Vector2( 4, 1 )
+dir = Vector2( 0, 1 )
+sound = "M3/door_open.wav"
+
+[node name="Position2D" parent="Doors/Door6" index="1"]
+position = Vector2( -72, -736 )
+
+[node name="Door7" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( 88, -313 )
+scale = Vector2( 4, 1 )
+dir = Vector2( 0, -1 )
+end_sound = "Door_Short.mp3"
+
+[node name="Position2D" parent="Doors/Door7" index="1"]
+position = Vector2( 80, 737 )
+
+[node name="Stepping Sounds" type="Node2D" parent="."]
+position = Vector2( 0, 16 )
+
+[node name="Wood" parent="Stepping Sounds" instance=ExtResource( 9 )]
+entering_sound = "wood"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stepping Sounds/Wood"]
+position = Vector2( 0, 36 )
+shape = SubResource( 10 )
+
+[node name="Carpet" parent="Stepping Sounds" instance=ExtResource( 9 )]
+entering_sound = "stone"
+exiting_sound = "wood"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stepping Sounds/Carpet"]
+position = Vector2( 0, 12 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stepping Sounds/Carpet"]
+position = Vector2( 0, -288 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Stepping Sounds/Carpet"]
+position = Vector2( -56, -517.75 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Stepping Sounds/Carpet"]
+position = Vector2( 408, 400 )
+shape = SubResource( 9 )
+
+[connection signal="moved_player" from="Doors/Door6" to="Openable Door" method="unlock"]
+[connection signal="moved_player" from="Doors/Door6" to="Openable Door" method="open"]
+
+[editable path="camareas/camarea"]
+[editable path="camareas/camarea2"]
+[editable path="camareas/camarea3"]
+[editable path="MusicArea2"]
+[editable path="Doors/Door2"]
+[editable path="Doors/Door3"]
+[editable path="Doors/Door4"]
+[editable path="Doors/Door5"]
+[editable path="Doors/Door6"]
+[editable path="Doors/Door7"]

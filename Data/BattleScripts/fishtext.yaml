@@ -1,0 +1,35 @@
+"0":
+  text: BATTLE_FISH_0
+  sound: Strange
+  goto: "1"
+"1":
+  text: BATTLE_FISH_1
+  sound: Strange
+  goto: "2"
+"2":
+  text: BATTLE_FISH_2
+  sound: Strange
+  goto: "3"
+"3":
+  text: BATTLE_FISH_3
+  sound: Strange
+  goto: "4"
+"4":
+  text: BATTLE_FISH_4
+  sound: Strange
+  goto: "5"
+"5":
+  text: BATTLE_FISH_5
+  sound: Strange
+  goto: "6"
+"6":
+  text: BATTLE_FISH_6
+  sound: Strange
+  goto: "7"
+"7":
+  text: BATTLE_FISH_7
+  sound: Strange
+  goto: "8"
+"8":
+  text: BATTLE_FISH_8
+  sound: Strange

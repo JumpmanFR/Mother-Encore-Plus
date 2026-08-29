@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bomb Spawn.mp3-83e6a8942bc2d88db3c0c8278fc3664a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Bomb Spawn.mp3"
+dest_files=[ "res://.import/Bomb Spawn.mp3-83e6a8942bc2d88db3c0c8278fc3664a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

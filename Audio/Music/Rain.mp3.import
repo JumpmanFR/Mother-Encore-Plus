@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rain.mp3-b2dda649180f9a9f55769ee3ded0f88e.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Rain.mp3"
+dest_files=[ "res://.import/Rain.mp3-b2dda649180f9a9f55769ee3ded0f88e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

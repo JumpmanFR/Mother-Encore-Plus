@@ -1,0 +1,41 @@
+name: HEALING_NAME
+level: 0
+description: HEALINGA_DESC
+article: HEALING_ART
+skill_type: psi
+action_type: 4 # Other
+use_cases: 0 # Field & battle
+psi_category: Recovery
+target_type: 1 # Ally
+damage_or_heal: 0
+variance: 0
+priority: 0
+status_heals:
+  - asthma
+  - blinded
+  - burned
+  - cold
+  - confused
+  - forgetful
+  - mushroomized
+  - nausea
+  - numb
+  - poisoned
+  - sleeping
+  - sunstroked
+status_amount_healed: 1
+miss_chance: 0
+pp_cost: 4
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: healing_alpha
+screen_effect: healing
+user_anim: psi
+user_anim_colors:
+  - '73F4FF'
+  - '00D4FF'
+  - '1888D0'
+use_sound: ''
+hit_sound: ''
+traits:
+  - target_incapacitated

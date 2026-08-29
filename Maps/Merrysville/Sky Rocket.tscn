@@ -1,0 +1,422 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Shaders/PalSwap.shader" type="Shader" id=1]
+[ext_resource path="res://Nodes/Reusables/Mt Itoi Cloud.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Graphics/Cutscenes/Mt Itoi Landscape/Mt_Itoi_Landscape_0.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Cutscenes/Mt Itoi Landscape/Mt_Itoi_Landscape_2.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Main/CutscenePlayer.gd" type="Script" id=6]
+[ext_resource path="res://Nodes/Overworld/Objects/Cutscene Objects/SkyRocket.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Cutscenes/Sky Rocket.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Main/Flag Landmarks.gd" type="Script" id=9]
+[ext_resource path="res://Graphics/Cutscenes/Mt Itoi Landscape/Mt_Itoi_Landscape_Pal_Day.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/Cutscenes/Mt Itoi Landscape/Mt_Itoi_Landscape_Pal_Sunset.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/Cutscenes/Mt Itoi Landscape/Mt_Itoi_Landscape_1_Sky.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/Cutscenes/Mt Itoi Landscape/Mt_Itoi_Landscape_Sun.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/Cutscenes/Mt Itoi Landscape/Mt_Itoi_Landscape_Clouds.png" type="Texture" id=14]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/screen_mode = false
+shader_param/num_colors = null
+shader_param/precision = 0.0
+shader_param/color_mix = 1.0
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 1 )
+shader_param/screen_mode = true
+shader_param/num_colors = 23
+shader_param/precision = 0.0
+shader_param/color_mix = 1.0
+shader_param/palette_in = ExtResource( 10 )
+shader_param/palette_out = ExtResource( 11 )
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -212, 144, -12.7356, 17.8845, 12.7356, -17.8845, -46, -8, 11.5301, -11.7819, -11.5301, 11.7819, -76, -12, -10.8681, -7.7661, 10.8681, 7.7661, -90, 22, -0.0311794, 0.358031, 0.0311794, -0.358031, -31, -4, 10.3581, -13.8853, -10.3581, 13.8853, -18, 1, 2.88966, 7.59849, -2.88966, -7.59849, -44, 2, 9.36765, -9.67213, -9.36765, 9.67213, -71, 7, -8.24081, 9.57988, 8.24081, -9.57988, -48, 8, -10.0794, 1.88988, 10.0794, -1.88988, -4, -18, 16.1167, -21.6298, -16.1167, 21.6298, 1, 8, -22.1718, 40.0361, 22.1718, -40.0361, -95, 26, 0, 0, 0, 0, 112, -140 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rocket/Path2D/PathFollow2D/SkyRocket:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -204, 152 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Rocket/Path2D/PathFollow2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Rocket/Path2D/PathFollow2D:unit_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mt Itoi BG/ParallaxLayer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mt Itoi BG/ParallaxLayer5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mt Itoi BG/ParallaxLayer2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mt Itoi BG/ParallaxLayer3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mt Itoi BG/ParallaxLayer4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mt Itoi BG/ParallaxLayer:motion_offset")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Mt Itoi BG/ParallaxLayer5:motion_offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -84, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Mt Itoi BG/ParallaxLayer3:motion_offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -80, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Mt Itoi BG/ParallaxLayer2:motion_offset")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Mt Itoi BG/ParallaxLayer4:motion_offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 64, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "RocketFly"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rocket/Path2D/PathFollow2D/SkyRocket:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Rocket/Path2D/PathFollow2D:unit_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.67, 0.9, 1.2, 1.7, 3.07079, 3.52829, 3.95, 4.33, 4.52, 4.64, 4.78, 4.91, 5.51, 5.66, 5.78, 5.95, 6.15 ),
+"transitions": PoolRealArray( -1.56917, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.269124, 0.293093, 0.318202, 0.357509, 0.478011, 0.498283, 0.540232, 0.596747, 0.642382, 0.661689, 0.682432, 0.698607, 0.725918, 0.737968, 0.765239, 0.860692, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mt Itoi BG/ParallaxLayer:motion_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -14, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mt Itoi BG/ParallaxLayer5:motion_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -84, 0 ), Vector2( -132, 16 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mt Itoi BG/ParallaxLayer2:motion_offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -64, 16 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mt Itoi BG/ParallaxLayer3:motion_offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -80, 0 ), Vector2( -160, 16 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mt Itoi BG/ParallaxLayer4:motion_offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 64, 0 ), Vector2( 16, 16 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.3, 4.1, 4.8, 5.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 1 ],
+"method": "set_shake_magnitude"
+}, {
+"args": [ 2 ],
+"method": "set_shake_magnitude"
+}, {
+"args": [ 3 ],
+"method": "set_shake_magnitude"
+}, {
+"args": [ 5 ],
+"method": "set_shake_magnitude"
+}, {
+"args": [ 0 ],
+"method": "set_shake_magnitude"
+} ]
+}
+
+[node name="Sky Rocket" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Mt Itoi BG" type="ParallaxBackground" parent="."]
+offset = Vector2( -2, -2 )
+transform = Transform2D( 1, 0, 0, 1, -2, -2 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Mt Itoi BG"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 352, 0 )
+
+[node name="MtItoiLandscape1" type="Sprite" parent="Mt Itoi BG/ParallaxLayer"]
+light_mask = 2
+position = Vector2( 82, -3 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Sun" type="Sprite" parent="Mt Itoi BG/ParallaxLayer/MtItoiLandscape1"]
+light_mask = 2
+position = Vector2( -112, 8 )
+texture = ExtResource( 13 )
+flip_h = true
+
+[node name="Clouds" type="Sprite" parent="Mt Itoi BG/ParallaxLayer/MtItoiLandscape1"]
+light_mask = 2
+texture = ExtResource( 14 )
+flip_h = true
+script = ExtResource( 9 )
+disappear_flag = "lloyd_kitchen"
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Mt Itoi BG"]
+motion_scale = Vector2( 0.08, 0.2 )
+motion_offset = Vector2( -84, 0 )
+motion_mirroring = Vector2( 352, 0 )
+
+[node name="MtItoiLandscape0" type="Sprite" parent="Mt Itoi BG/ParallaxLayer5"]
+material = SubResource( 1 )
+position = Vector2( 176, 22 )
+texture = ExtResource( 3 )
+
+[node name="Cloud" parent="Mt Itoi BG/ParallaxLayer5" instance=ExtResource( 2 )]
+position = Vector2( 176, -20 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Mt Itoi BG"]
+motion_scale = Vector2( 0.1, 0.25 )
+motion_mirroring = Vector2( 320, 0 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Mt Itoi BG/ParallaxLayer2"]
+modulate = Color( 0.392157, 0.823529, 0.411765, 1 )
+margin_top = 98.0
+margin_right = 352.0
+margin_bottom = 186.0
+texture = ExtResource( 5 )
+patch_margin_top = 9
+patch_margin_bottom = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Mt Itoi BG"]
+motion_scale = Vector2( 0.2, 0.3 )
+motion_offset = Vector2( -80, 0 )
+motion_mirroring = Vector2( 320, 0 )
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Mt Itoi BG/ParallaxLayer3"]
+modulate = Color( 0.278431, 0.752941, 0.4, 1 )
+margin_top = 116.0
+margin_right = 352.0
+margin_bottom = 188.0
+texture = ExtResource( 5 )
+patch_margin_top = 9
+patch_margin_bottom = 1
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Mt Itoi BG"]
+motion_scale = Vector2( 0.3, 0.35 )
+motion_offset = Vector2( 64, 0 )
+motion_mirroring = Vector2( 320, 0 )
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Mt Itoi BG/ParallaxLayer4"]
+modulate = Color( 0.247059, 0.588235, 0.458824, 1 )
+margin_top = 140.0
+margin_right = 352.0
+margin_bottom = 188.0
+texture = ExtResource( 5 )
+patch_margin_top = 9
+patch_margin_bottom = 1
+
+[node name="PalSwap" type="ColorRect" parent="Mt Itoi BG"]
+material = SubResource( 5 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 322.0
+margin_bottom = 182.0
+
+[node name="Rocket" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Rocket"]
+position = Vector2( 252, -177 )
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Rocket/Path2D"]
+position = Vector2( -212, 144 )
+rotate = false
+
+[node name="SkyRocket" parent="Rocket/Path2D/PathFollow2D" instance=ExtResource( 7 )]
+position = Vector2( -204, 152 )
+
+[node name="Objects" type="Node2D" parent="."]
+visible = false
+
+[node name="CutscenePlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/RocketFly = SubResource( 2 )
+script = ExtResource( 6 )
+anim_name = "RocketFly"

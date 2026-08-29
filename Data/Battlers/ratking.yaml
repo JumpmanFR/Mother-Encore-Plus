@@ -1,0 +1,44 @@
+name: RATKING_NAME
+description: RATKING_DESC
+article: RATKING_ART
+maxhp: 780
+hp: 780
+maxpp: 0
+pp: 0
+offense: 45
+defense: 40
+speed: 20
+iq: 1
+guts: 5
+level: 20
+exp: 450
+cash: 200
+skills:
+  - skill: scratch
+    weight: 5
+  - skill: bite
+    weight: 5
+  - skill: nauseousOdor
+    weight: 1
+battlescript: ratking
+boss: true
+sprite: rat king
+music: Sanctuary Guardian.mp3
+bg: ratking
+passive_skills:
+  - absorb_attacks
+affinity_multipliers:
+  insecticide: 0
+  blinded: 0.7
+  burned: 0
+  cold: 0
+  confused: 0
+  forgetful: 0
+  nausea: 0
+  numb: 0
+  poisoned: 0
+  psiBlocked: 0
+  rope: 0
+  sleeping: 0.7
+  stone: 0
+  sunstroked: 0

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Nodes/Ui/ButtonText.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/BottleRocket.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/UI/ButtonText.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/UI/Reusables/ButtonLabel.gd" type="Script" id=4]
+
+[node name="Skip" type="HBoxContainer"]
+margin_left = 232.0
+margin_right = 316.0
+margin_bottom = 11.0
+grow_horizontal = 0
+alignment = 2
+script = ExtResource( 4 )
+show_on_press = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 9.0
+margin_right = 72.0
+margin_bottom = 11.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "MENU_SKIP"
+align = 2
+
+[node name="Button" type="Label" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.917647, 0.545098, 0.172549, 1 )
+margin_left = 76.0
+margin_right = 84.0
+margin_bottom = 11.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Z"
+align = 2
+script = ExtResource( 3 )
+key = "ui_select"
+
+[connection signal="visibility_changed" from="Button" to="Button" method="_on_ButtonText_visibility_changed"]

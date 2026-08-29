@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/UI/Options/VolumeSlider.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/UI/Options/volume_slider.png" type="Texture" id=3]
+
+[node name="VolumeSlider" type="Control"]
+margin_right = 146.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 0, 12 )
+size_flags_horizontal = 3
+script = ExtResource( 2 )
+
+[node name="Texture" type="TextureProgress" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -50.0
+margin_top = -1.0
+margin_bottom = 9.0
+grow_vertical = 0
+rect_min_size = Vector2( 50, 10 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+max_value = 10.0
+value = 6.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 3 )
+tint_under = Color( 0.188235, 0.258824, 0.501961, 1 )
+tint_progress = Color( 0.501961, 0.317647, 0.6, 1 )
+stretch_margin_bottom = 10
+
+[node name="LowerLine" type="ColorRect" parent="Texture"]
+margin_left = -5.0
+margin_top = 11.0
+margin_right = 49.0
+margin_bottom = 12.0
+color = Color( 0.188235, 0.258824, 0.501961, 1 )
+
+[node name="Thumb" type="Control" parent="Texture"]
+margin_left = 45.0
+margin_right = 45.0
+
+[node name="ThumbLowerRect" type="ColorRect" parent="Texture/Thumb"]
+margin_top = 11.0
+margin_right = 4.0
+margin_bottom = 12.0
+
+[node name="ThumbRect" type="ColorRect" parent="Texture/Thumb"]
+margin_right = 4.0
+margin_bottom = 10.0
+
+[connection signal="value_changed" from="Texture" to="." method="_on_value_changed"]
+[connection signal="visibility_changed" from="Texture" to="." method="_on_visibility_changed"]

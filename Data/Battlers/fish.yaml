@@ -1,0 +1,34 @@
+name: FISH_NAME
+description: FISH_DESC
+article: FISH_ART
+maxhp: 850
+hp: 850
+maxpp: 0
+pp: 0
+offense: 35
+defense: 43
+speed: 20
+iq: 20
+guts: 0
+level: 20
+exp: 320
+cash: 180
+items:
+  - chance: 100
+    item: PSIStone
+skills:
+  - skill: continuousAttack
+    weight: 8
+  - skill: bite
+    weight: 10
+  - skill: forgetfulnessFlash
+    weight: 1
+battlescript: fish
+boss: true
+sprite: fish
+music: Sanctuary Guardian.mp3
+bg: fish
+affinity_multipliers:
+  ice: 1.5
+  blinding: 0.5
+  sleeping: 0.5

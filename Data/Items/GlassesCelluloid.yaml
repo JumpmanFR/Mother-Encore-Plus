@@ -1,0 +1,22 @@
+name: GLASSESCELLULOID_NAME
+sorting_name: GLASSESCELLULOID_SORT
+description: GLASSESCELLULOID_DESC
+article: GLASSESCELLULOID_ART
+keyitem: false
+cost: 60
+value: 30
+can_use: [lloyd]
+actions:
+  - function: equip
+transform: ""
+slot: other
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 3
+  speed: 0
+  iq: 3
+  guts: 0

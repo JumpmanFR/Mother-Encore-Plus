@@ -1,0 +1,24 @@
+name: FLAMETHROWER_NAME
+description: FLAMETHROWER_DESC
+dialog: USEFLAMETHROWER_DIALOG
+skill_type: skill
+action_type: 0 # Damage
+use_cases: 1 # Battle only
+damage_type: fire
+target_type: 6 # All enemies
+damage_or_heal: 20
+variance: 6
+priority: 0
+status_effects:
+  burned: 60
+fail_chance: 0
+pp_cost: 0
+hp_cost: 0
+sp_cost: 4
+hit_effect: ""
+pre_hit_effect: ""
+screen_effect: pk_fire_alpha
+enemy_screen_effect: e_pk_fire_alpha
+user_anim: item
+use_sound: fire1
+hit_sound: fire1

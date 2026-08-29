@@ -1,0 +1,825 @@
+"0":
+  actors:
+    ninten: leader
+    ratking: Objects/NPCs/DefeatedRats/ratking
+    rat1: Objects/NPCs/DefeatedRats/rat1
+    rat2: Objects/NPCs/DefeatedRats/rat2
+    rat3: Objects/NPCs/DefeatedRats/rat3
+    rat4: Objects/NPCs/DefeatedRats/rat4
+    rat5: Objects/NPCs/DefeatedRats/rat5
+    rat6: Objects/NPCs/DefeatedRats/rat6
+    rat7: Objects/NPCs/DefeatedRats/rat7
+    dustcloud: Objects/Flag Landmark/dustcloud2
+  goto: "post_defeat"
+"post_defeat":
+  #shakes, takes step back
+  actorsmove:
+    ratking:
+      movement:
+        - x: 6
+          y: 0
+      speed: 128
+      animation: Walk
+      type: step
+      moonwalk: true
+  actorsshake:
+    ratking:
+      x: 1
+      length: 0.5
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_0
+  soundeffect: M3/Critter Cry.mp3
+  goto: "scared_jump"
+"scared_jump":
+  #jumps up, ! emote, looks around, noticing his crown is missing
+  actorsemote:
+    ratking: surprise
+  actorsmove:
+    ratking:
+      movement:
+        - jump:
+            height: 6
+            times: 1
+        - wait: 0.1
+        - turnto:
+            x: 1
+      speed: 128
+      type: position
+  autowait: 1
+  goto: "my_crown"
+"my_crown":
+  movecam:
+    x: -490
+  actorsjump:
+    ratking:
+      speed: 0.2
+      height: 8
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_1
+  goto: move_to_right
+"move_to_right":
+  #runs to the crown ( rats follow), revealing the crown
+  showbox: false
+  actorsmove:
+    ratking:
+      movement:
+        - x: -472
+          y: -816
+      speed: 128
+      animation: Walk
+      type: position
+    rat1:
+      movement:
+        - wait: 0.1
+        - x: -448
+          y: -828
+        - turnto:
+            y: 1
+      speed: 128
+      animation: Walk
+      type: position
+    rat2:
+      movement:
+        - wait: 0.1
+        - x: -448
+          y: -804
+        - turnto:
+            y: -1
+      speed: 128
+      animation: Walk
+      type: position
+  autowait: 1.8
+  goto: "crown"
+"crown":
+  actorsemote:
+    ratking: angry
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_2
+  goto: "argue_1"
+"argue_1":
+  actorsjump:
+    rat1:
+      speed: 0.2
+      height: 8
+  name: RAT_NAME
+  soundeffect: M3/Critter Cry.mp3
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_3
+  cleardialog: true
+  goto: "argue_2"
+"argue_2":
+  actorsjump:
+    rat2:
+      speed: 0.2
+      height: 8
+  name: RAT_NAME
+  soundeffect: M3/Critter Cry.mp3
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_4
+  cleardialog: true
+  goto: "argue_3"
+"argue_3":
+  movecam:
+    x: -480
+  teleportactors:
+    rat3:
+      x: -368
+      y: -812
+  actorsmove:
+    rat3:
+      movement:
+        - x: -16
+          y: 0
+      type: step
+      animation: Walk
+      speed: 64
+    rat1:
+      movement:
+        - turnto:
+            x: 1
+    rat2:
+      movement:
+        - wait: 0.1
+        - turnto:
+            x: 1
+  name: RAT_NAME
+  soundeffect: M3/Critter Cry.mp3
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_5
+  cleardialog: true
+  goto: "argue_4"
+"argue_4":
+  movecam:
+    x: -490
+  name: RAT_NAME
+  actorsmove:
+    rat4:
+      movement:
+        - teleport:
+            x: -672
+            y: -816
+        - x: 42
+          y: 0
+      type: step
+      animation: Walk
+      speed: 64
+    ninten:
+      movement:
+        - turnto:
+            x: -1
+    ratking:
+      movement:
+        - turnto:
+            x: -1
+    rat1:
+      movement:
+        - wait: 0.05
+        - turnto:
+            x: -1
+    rat2:
+      movement:
+        - wait: 0.1
+        - turnto:
+            x: -1
+  soundeffect: M3/Critter Cry.mp3
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_6
+  cleardialog: true
+  goto: "dustcloud_fight_1"
+"dustcloud_fight_1":
+  #rats jump into dust cloud
+  showbox: false
+  actorsmove:
+    dustcloud:
+      movement:
+        - wait: 0.2
+        - teleport:
+            x: -450
+            y: -808
+        - playsound: Rat Fight.mp3
+    ninten:
+      movement:
+        - turnto:
+            y: 1
+        - turnto:
+            x: 1
+    ratking:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat1:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat2:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat3:
+      movement:
+        - x: -416
+          y: -812
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+      animation: Walk
+    rat4:
+      movement:
+        - x: -616
+          y: -812
+        - x: -616
+          y: -792
+        - x: -464
+          y: -792
+        - wait: 0.1
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+      animation: Walk
+    rat5:
+      movement:
+        - wait: 0.6
+        - teleport:
+            x: -376
+            y: -856
+        - x: -384
+          y: -856
+        - jump:
+            times: 1
+        - x: -408
+          y: -856
+        - turnto:
+            y: 1
+        - jump:
+            height: 10
+            async: true
+        - x: -408
+          y: -812
+        - turnto:
+            x: -1
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+      animation: Walk
+    rat6:
+      movement:
+        - wait: 0.8
+        - teleport:
+            x: -368
+            y: -812
+        - jump:
+            height: 10
+        - x: -416
+          y: -812
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+      animation: Walk
+    rat7:
+      movement:
+        - teleport:
+            x: -448
+            y: -1000
+        - blend: false
+        - shadow: false
+        - spin:
+            enabled: true
+        - x: -448
+          y: -812
+        - visible: false
+        - spin:
+            enabled: false
+        - blend: true
+        - shadow: true
+      speed: 72
+      type: position
+  autowait: 0.2
+  goto: "dustcloud_fight_2"
+"dustcloud_fight_2":
+  objectsfunction:
+    Objects/Flag Landmark/crown: hide
+  shakecam:
+    x: 1
+    length: 2
+  actorsmove:
+    dustcloud:
+      movement:
+        - shake:
+            x: 2
+            length: 4
+  autowait: 3
+  goto: "stopFighting"
+"stopFighting":
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_7
+  soundeffect: EB/yell.wav
+  objectsfunction:
+    Objects/Flag Landmark/crown: show
+  actorsanim:
+    ninten:
+      anim: Idle
+      newidle: true
+  actorsvisible:
+    ratking: true
+    rat1: true
+    rat2: true
+    rat3: true
+    rat4: true
+    rat5: true
+    rat6: true
+    rat7: true
+  teleportactors:
+    dustcloud:
+      x: -1600
+      y: -812
+  actorsmove:
+    ratking:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -20
+          y: 0
+        - turnto:
+            x: 1
+      speed: 128
+      type: step
+    rat1:
+      movement:
+        - wait: 0.1
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: 0
+          y: -16
+        - turnto:
+            y: 1
+      speed: 128
+      type: step
+    rat2:
+      movement:
+        - wait: 0.02
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: 0
+          y: 16
+        - turnto:
+            y: -1
+      speed: 128
+      type: step
+    rat3:
+      movement:
+        - wait: 0.04
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -14
+          y: -14
+        - turnto:
+            x: 1
+            y: 1
+      speed: 128
+      type: step
+    rat4:
+      movement:
+        - wait: 0.06
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: 14
+          y: -14
+        - turnto:
+            x: -1
+            y: 1
+      speed: 128
+      type: step
+    rat5:
+      movement:
+        - wait: 0.08
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -14
+          y: 14
+        - turnto:
+            x: 1
+            y: -1
+      speed: 128
+      type: step
+    rat6:
+      movement:
+        - wait: 0.12
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: 14
+          y: 14
+        - turnto:
+            x: -1
+            y: -1
+      speed: 128
+      type: step
+    rat7:
+      movement:
+        - wait: 0.14
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: 20
+          y: 0
+        - turnto:
+            x: -1
+      speed: 128
+      type: step
+  goto: "whoSaidThat"
+"whoSaidThat":
+  cleardialog: true
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_8
+  soundeffect: M3/Critter Cry.mp3
+  goto: "ratJump"
+"ratJump":
+  actorsjump:
+    rat7:
+      height: 10
+  goto: "guys"
+"guys":
+  actorsturn:
+    ratking:
+      actor: rat7
+      speed: 0.05
+    rat1:
+      x: 1
+      speed: 0.06
+    rat2:
+      x: 1
+      speed: 0.04
+    rat3:
+      actor: rat7
+      speed: 0.03
+    rat4:
+      actor: rat7
+      speed: 0.1
+    rat5:
+      actor: rat7
+      speed: 0.07
+    rat6:
+      actor: rat7
+      speed: 0.08
+  cleardialog: true
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_9
+  soundeffect: M3/Critter Cry.mp3
+  goto: "stopQuestion"
+"stopQuestion":
+  cleardialog: true
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_10
+  soundeffect: M3/Critter Cry.mp3
+  goto: "nintenExplain2"
+"nintenExplain2":
+  changecam: null
+  actorsmove:
+    ninten:
+      movement:
+        - emote: dot
+        - wait: 1.5
+        - emote: idea
+        - jump:
+            times: 1
+        - wait: 0.5
+        - x: 16
+          y: 0
+        - playanim:
+            anim: Talk
+        - wait: 1
+        - playanim:
+            anim: Idle
+      speed: 32
+      animation: Walk
+      type: step
+  autowait: 5
+  goto: "votingQuestion"
+"votingQuestion":
+  actorsturn:
+    ratking:
+      actor: ninten
+      speed: 0.04
+    rat1:
+      actor: ninten
+      speed: 0.05
+    rat2:
+      actor: ninten
+      speed: 0.06
+    rat3:
+      actor: ninten
+      speed: 0.07
+    rat4:
+      actor: ninten
+      speed: 0.09
+    rat5:
+      actor: ninten
+      speed: 0.08
+    rat6:
+      actor: ninten
+      speed: 0.1
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_11
+  soundeffect: M3/Critter Cry.mp3
+  goto: "explanation"
+"explanation":
+  cleardialog: true
+  actorsturn:
+    ratking:
+      x: 1
+      speed: 0.05
+    rat1:
+      y: 1
+      speed: 0.07
+    rat2:
+      y: -1
+      speed: 0.04
+    rat3:
+      x: 1
+      speed: 0.06
+    rat4:
+      x: -1
+      speed: 0.08
+    rat5:
+      y: -1
+      speed: 0.09
+    rat6:
+      y: -1
+      speed: 0.1
+  actorsjump:
+    rat1:
+      times: 1
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_12
+  soundeffect: M3/Critter Cry.mp3
+  goto: "honestly"
+"honestly":
+  cleardialog: true
+  actorsturn:
+    ratking:
+      actor: ninten
+      speed: 0.04
+    rat1:
+      actor: ninten
+      speed: 0.05
+    rat2:
+      actor: ninten
+      speed: 0.06
+    rat3:
+      actor: ninten
+      speed: 0.07
+    rat4:
+      actor: ninten
+      speed: 0.09
+    rat5:
+      actor: ninten
+      speed: 0.08
+    rat6:
+      actor: ninten
+      speed: 0.1
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_13
+  soundeffect: M3/Critter Cry.mp3
+  goto: "wherebox"
+"wherebox":
+  cleardialog: true
+  actorsjump:
+    rat7:
+      height: 8
+  name: RAT_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_DEFEAT_14
+  soundeffect: M3/Critter Cry.mp3
+  goto: "rats_turn"
+"rats_turn":
+  actorsmove:
+    ratking:
+      movement:
+        - turnto:
+            x: 1
+    rat1:
+      movement:
+        - wait: 0.1
+        - turnto:
+            y: 1
+    rat2:
+      movement:
+        - wait: 0.09
+        - turnto:
+            y: -1
+    rat3:
+      movement:
+        - wait: 0.12
+        - turnto:
+            x: 1
+    rat4:
+      movement:
+        - wait: 0.13
+        - turnto:
+            x: -1
+    rat5:
+      movement:
+        - wait: 0.14
+        - turnto:
+            y: -1
+    rat6:
+      movement:
+        - wait: 0.08
+        - turnto:
+            y: -1
+    rat7:
+      movement:
+        - wait: 0.16
+        - turnto:
+            x: -1
+  autowait: 2
+  goto: "new_fight"
+"new_fight":
+  actorsmove:
+    ratking:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat1:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat2:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat3:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat4:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat5:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat6:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+    rat7:
+      movement:
+        - jump:
+            height: 10
+            times: 1
+            async: true
+        - x: -448
+          y: -812
+        - visible: false
+      speed: 128
+      type: position
+  autowait: 0.2
+  goto: "dustcloud_fight_5"
+"dustcloud_fight_5":
+  objectsfunction:
+    Objects/Flag Landmark/crown: hide
+  teleportactors:
+    dustcloud:
+      x: -450
+      y: -808
+  eraseactors:
+    ratking: true
+    rat1: true
+    rat2: true
+    rat3: true
+    rat4: true
+    rat5: true
+    rat6: true
+    rat7: true
+  actorsemote:
+    ninten: sweat
+  soundeffect: Rat Fight.mp3
+  actorsmove:
+    dustcloud:
+      movement:
+        - shake:
+            x: 2
+            length: 4
+            async: true
+        - wait: 2
+        - x: 200
+          y: 0
+      speed: 80
+      type: step
+  autowait: 2.3
+  goto: "returnCam"
+"returnCam":
+  movecam:
+    actor: ninten
+  autowait: 1.5
+  goto: "dustCloudDisappear"
+"dustCloudDisappear":
+  setflags: rat_king_disappear
+  eraseactors:
+    dustcloud: true
+  showbox: false

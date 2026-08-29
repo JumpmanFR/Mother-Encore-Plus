@@ -1,0 +1,24 @@
+name: CAPSULEGUT_NAME
+sorting_name: CAPSULEGUT_SORT
+description: CAPSULEGUT_DESC
+article: CAPSULEGUT_ART
+keyitem: false
+cost: 0
+value: 0
+can_consume: [ ninten, ana ]
+actions:
+  - name: CAPSULEGUT_ACT1
+    function: consume
+    textfail: ACTION_RESULT_FAIL_CAPSULE
+transform: ''
+slot: ''
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 3

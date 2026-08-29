@@ -1,0 +1,54 @@
+"0":
+  # Check which station we're at
+  if:
+    flags:
+      br_progress_2_arrived: true
+    goto: "checkReadyHead"
+  goto: "checkReadyWings"
+"checkReadyWings":
+  if:
+    flags:
+      br_wings_attached: true
+    goto: "partReady"
+  goto: "notReady"
+"checkReadyHead":
+  if:
+    flags:
+      br_head_attached: true
+    goto: "partReady"
+  goto: "notReady"
+"partReady":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_16
+  options:
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_0: "progress"
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_1: "no"
+    cancel: "no"
+"progress":
+  soundeffect: Conveyor Start.mp3
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_0
+  objectsfunction:
+    Objects/FactoryRocket: progress_rocket
+  if:
+    flags:
+      br_progress_2_arrived: true
+    goto: "endHead"
+  goto: "endWings"
+"endWings":
+  setflags: br_progress_2
+  redirect: "Merrysville/Cutscenes/rat_king_2"
+#stuff
+"endHead":
+  setflags: br_progress_3
+"no":
+  showbox: false
+"notReady":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ASSEMBLYLINE_2
+  if:
+    flags:
+      br_progress_2_arrived: true
+    goto: "notReadyHead"
+  goto: "notReadyWings"
+"notReadyWings":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ASSEMBLYLINE_3
+"notReadyHead":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ASSEMBLYLINE_4

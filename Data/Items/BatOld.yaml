@@ -1,0 +1,20 @@
+name: BATOLD_NAME
+sorting_name: BATOLD_SORT
+description: BATOLD_DESC
+article: BATOLD_ART
+keyitem: true
+cost: 0
+value: 0
+actions: []
+transform: ''
+slot: ''
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

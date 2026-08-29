@@ -1,0 +1,261 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Graphics/Objects/Magicant/Magicant Pearl Switch.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/Objects/Magicant/Magicant Pearl Stand.png" type="Texture" id=2]
+[ext_resource path="res://Audio/Sound effects/Lever.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/Main/Switches/TwoStatesSwitchPearl.gd" type="Script" id=4]
+[ext_resource path="res://Graphics/Objects/Magicant/Magicant Pearl Clam.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=29]
+resource_name = "Close"
+length = 0.266667
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0666667, 0.133333, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../main:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.133333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 13, 8 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 13, 6.5 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 8, 8.02734 )
+
+[sub_resource type="Animation" id=28]
+resource_name = "Float"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( -2, -1.36604 ),
+"update": 0,
+"values": [ Vector2( 0, -12 ), Vector2( 0, -8 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("main:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "TurnOff"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 0.406126, 0.406126, 0.406126 ),
+"update": 0,
+"values": [ Vector2( 0, -2 ), Vector2( 0, -2 ), Vector2( 0, -12 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "TurnOn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 2.14355, 2.14355, 2.14355 ),
+"update": 0,
+"values": [ Vector2( 0, -12 ), Vector2( 0, -12 ), Vector2( 0, -2 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 9, 9 )
+
+[node name="switch" type="Sprite"]
+script = ExtResource( 4 )
+
+[node name="stand" type="Sprite" parent="."]
+position = Vector2( 0, 4 )
+texture = ExtResource( 2 )
+
+[node name="MagicantPearlClam" type="Sprite" parent="."]
+position = Vector2( 0, -4 )
+texture = ExtResource( 5 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MagicantPearlClam"]
+anims/Close = SubResource( 29 )
+anims/Open = SubResource( 30 )
+anims/RESET = SubResource( 31 )
+
+[node name="Collision" type="StaticBody2D" parent="MagicantPearlClam"]
+position = Vector2( 0, 8 )
+collision_layer = 513
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MagicantPearlClam/Collision"]
+shape = SubResource( 32 )
+
+[node name="Collision2" type="StaticBody2D" parent="MagicantPearlClam"]
+position = Vector2( 0, -4 )
+collision_layer = 1541
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MagicantPearlClam/Collision2"]
+position = Vector2( 0, -2.5 )
+shape = SubResource( 33 )
+
+[node name="main" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="collision" type="KinematicBody2D" parent="."]
+position = Vector2( 0, 5 )
+collision_layer = 517
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
+position = Vector2( 0, -1.02734 )
+shape = SubResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Float = SubResource( 28 )
+anims/RESET = SubResource( 25 )
+anims/TurnOff = SubResource( 24 )
+anims/TurnOn = SubResource( 26 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2( 0, -2 )
+collision_layer = 0
+collision_mask = 126
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource( 27 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hit"]

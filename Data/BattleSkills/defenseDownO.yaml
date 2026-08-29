@@ -1,0 +1,28 @@
+name: DEFENSEDOWN_NAME
+level: 3
+description: DEFENSEDOWNO_DESC
+article: DEFENSEDOWN_ART
+skill_type: psi
+action_type: 2 # Stat
+use_cases: 1 # Battle only
+psi_category: Assist
+target_type: 6 # All enemies
+damage_or_heal: 0
+variance: 0
+priority: 0
+status_heals: []
+stat_mods:
+  defense: -2
+miss_chance: 0
+pp_cost: 20
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+screen_effect: stat_defense_down
+user_anim: psi
+user_anim_colors:
+  - '009FFF' #TODO
+  - '839FFF' #TODO
+  - '0022B9' #TODO
+use_sound: ''
+hit_sound: ''

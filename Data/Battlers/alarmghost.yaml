@@ -1,0 +1,27 @@
+name: ALARMGHOST_NAME
+description: ALARMGHOST_DESC
+article: ALARMGHOST_ART
+maxhp: 50
+hp: 50
+maxpp: 0
+pp: 0
+offense: 34
+defense: 64
+speed: 35
+iq: 50
+guts: 0
+level: 4
+exp: 160
+cash: 27
+skills:
+- skill: bash
+  weight: 6
+- skill: callHelpGhosts
+  weight: 1
+boss: false
+sprite: alarm ghost
+music: Unsettling Opponent.mp3
+bg: ''
+ov:
+  sprite: GhostAlarmOV # missing!
+  anim: BasicEnemy

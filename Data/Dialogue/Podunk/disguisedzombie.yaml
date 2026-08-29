@@ -1,0 +1,17 @@
+"0":
+  actors:
+    zombie: talker
+  name: DIALOGUE_PODUNK_DISGUISEDZOMBIE_SPEAKER_???
+  sound: Strange
+  text: DIALOGUE_PODUNK_DISGUISEDZOMBIE_0
+  goto: "4"
+  playeremote: question
+"4":
+  name: DIALOGUE_PODUNK_DISGUISEDZOMBIE_SPEAKER_???
+  sound: Strange
+  text: DIALOGUE_PODUNK_DISGUISEDZOMBIE_4
+
+  startbattle:
+    battlers:
+      - pseudozombie: zombie
+    winflag: disguised_zombie_defeated

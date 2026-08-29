@@ -1,0 +1,19 @@
+"0":
+  if:
+    - flags:
+        rocket_launched: true
+      leader: ninten
+      goto: "2"
+    - haspartymembers:
+        lloyd: true
+      goto: "1"
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_COMPUTER_0
+"1":
+  actors:
+    lloyd: lloyd
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_COMPUTER_1
+"2":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_COMPUTER_2

@@ -1,0 +1,21 @@
+'0':
+  name: Queen Mary
+  sound: Female
+  text: DIALOGUE_TESTING_SKILLS_0
+  options:
+    DIALOGUE_TESTING_SKILLS_0-OPT_0: "1"
+    DIALOGUE_TESTING_SKILLS_0-OPT_1:
+    cancel:
+'1':
+  soundeffect: M3/Learned PSI.wav
+  learnskills:
+    ninten: all
+    ana: all
+    lloyd: all
+    pippi: all
+    teddy: all
+  setflags:
+    - switch_leader
+    - bat
+    - energy_beam
+    - eagle_feather

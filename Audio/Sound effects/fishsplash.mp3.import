@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fishsplash.mp3-a99ab5de9e00db34ea9d8ddd52729a70.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/fishsplash.mp3"
+dest_files=[ "res://.import/fishsplash.mp3-a99ab5de9e00db34ea9d8ddd52729a70.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

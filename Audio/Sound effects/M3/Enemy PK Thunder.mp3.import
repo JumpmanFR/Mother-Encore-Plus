@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Enemy PK Thunder.mp3-1ee5098c743bea1cf1297c2e0c761e64.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/M3/Enemy PK Thunder.mp3"
+dest_files=[ "res://.import/Enemy PK Thunder.mp3-1ee5098c743bea1cf1297c2e0c761e64.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,67 @@
+"0":
+  if:
+    flags:
+      weird_teacher_alt_dialogue: true
+    goto: "8"
+  goto: "1"
+"1":
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_0
+  if:
+    haspartymembers:
+      lloyd: true
+    goto: "2"
+  goto: "4"
+"2":
+  actors:
+    lloyd: lloyd
+    teacher: Objects/weird_teacher
+  setflags: weird_teacher_alt_dialogue
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_1
+  goto: "3"
+"3":
+  talker: teacher
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_2
+  goto: "4"
+"4":
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_3
+  options:
+    DIALOGUE_MERRYSVILLE_PODUNKRUMORSGUY_0-OPT_0: "5"
+    DIALOGUE_MERRYSVILLE_PODUNKRUMORSGUY_0-OPT_1: "6"
+    cancel: "6"
+#yes - opens shop
+"5":
+  text: ""
+  showbox: false
+  open_shop: weird_teacher_store
+  caninput: false
+  goto: "7"
+  cleardialog: true
+#no - quit
+"6":
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_4
+#goodbye
+"7":
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_5
+
+#IF YOU ALREADY TALKED TO HIM
+"8":
+  name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_WEIRDTEACHER_6
+  options:
+    DIALOGUE_MERRYSVILLE_PODUNKRUMORSGUY_0-OPT_0: "5"
+    DIALOGUE_MERRYSVILLE_PODUNKRUMORSGUY_0-OPT_1: "6"
+    cancel: "6"

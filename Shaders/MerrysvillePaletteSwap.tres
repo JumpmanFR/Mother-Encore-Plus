@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/PalSwap.shader" type="Shader" id=1]
+[ext_resource path="res://Graphics/Tilesets/TilMerrysvilleNightPal.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Tilesets/TilMerrysvilleDayPal.png" type="Texture" id=3]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/screen_mode = false
+shader_param/num_colors = 156
+shader_param/precision = 0.0
+shader_param/color_mix = 1.0
+shader_param/palette_in = ExtResource( 3 )
+shader_param/palette_out = ExtResource( 2 )

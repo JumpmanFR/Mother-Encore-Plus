@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/strike.mp3-460b716e69724f45f72f3b12c987329c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/strike.mp3"
+dest_files=[ "res://.import/strike.mp3-460b716e69724f45f72f3b12c987329c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

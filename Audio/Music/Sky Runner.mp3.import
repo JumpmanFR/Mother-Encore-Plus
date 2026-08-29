@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sky Runner.mp3-b27d076ec5610df409c98eaab8a325c4.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Sky Runner.mp3"
+dest_files=[ "res://.import/Sky Runner.mp3-b27d076ec5610df409c98eaab8a325c4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

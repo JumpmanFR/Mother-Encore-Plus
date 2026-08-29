@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scripts/UI/OcarinaScreen/MelodyAnim.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/UI/MelodyIcons/melody_bubble_above.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/UI/MelodyIcons/melody_icon_1.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/UI/MelodyIcons/melody_bubble_below.png" type="Texture" id=4]
+[ext_resource path="res://Shaders/GreyScale.tres" type="Material" id=5]
+[ext_resource path="res://Shaders/Colorize.tres" type="Material" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "known_melody"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MelodyCircle:rect_position:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -2.0, 0.0, 2.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "unknown_melody"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MelodyCircle:rect_position:x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -2.0, 0.0, 2.0, 0.0 ]
+}
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 43, 42 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 43, 0, 43, 42 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 86, 0, 43, 42 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 43, 42 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 43, 0, 43, 42 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 86, 0, 43, 42 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="MelodyAnim" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -278.0
+margin_bottom = -138.0
+rect_min_size = Vector2( 43, 42 )
+script = ExtResource( 1 )
+_anim_player = NodePath("AnimationPlayer")
+_bubble = NodePath("MelodyCircle")
+_icon = NodePath("MelodyCircle/MelodyIcon")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/known_melody = SubResource( 1 )
+anims/unknown_melody = SubResource( 2 )
+
+[node name="MelodyCircle" type="AnimatedSprite" parent="."]
+material = ExtResource( 6 )
+frames = SubResource( 5 )
+frame = 2
+playing = true
+centered = false
+
+[node name="MelodyIcon" type="Sprite" parent="MelodyCircle"]
+material = ExtResource( 5 )
+position = Vector2( 0, 1 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="MelodyOutline" type="AnimatedSprite" parent="MelodyCircle"]
+use_parent_material = true
+frames = SubResource( 12 )
+playing = true
+centered = false

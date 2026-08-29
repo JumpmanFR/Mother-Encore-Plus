@@ -1,0 +1,32 @@
+name: WATCHER_NAME
+description: WATCHER_DESC
+article: WATCHER_ART
+maxhp: 130
+hp: 130
+maxpp: 0
+pp: 0
+offense: 30
+defense: 33
+speed: 12
+iq: 20
+guts: 0
+level: 15
+exp: 60
+cash: 20
+items:
+- chance: 20
+  item: RecollectionBell
+skills:
+- skill: bash
+  weight: 10
+- skill: forgetfulnessFlash
+  weight: 1
+boss: false
+sprite: watcher
+music: Weak Opponent.mp3
+bg: circle_grid_cool
+ov:
+  sprite: WatcherOV
+  anim: BasicEnemy
+affinity_multipliers:
+  blinding: 2

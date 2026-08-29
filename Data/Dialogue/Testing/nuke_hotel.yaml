@@ -1,0 +1,10 @@
+'0':
+  name: "[Lloyd]"
+  sound: Kid
+  text: "[@]Nuke the hotel?"
+  options:
+    DIALOGUE_TESTING_NUKE_0-OPT_0: "1"
+    DIALOGUE_TESTING_NUKE_0-OPT_1:
+    cancel:
+'1':
+  set_response: 1

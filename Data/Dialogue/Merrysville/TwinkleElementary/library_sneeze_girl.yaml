@@ -1,0 +1,9 @@
+"0":
+    name: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_LIBRARYSNEEZEGIRL_SPEAKER
+    sound: Kid
+    text: DIALOGUE_MERRYSVILLE_TWINKLEELEMENTARY_LIBRARYSNEEZEGIRL_0
+    goto: '1'
+"1":
+  givestatus:
+    leader: cold
+  soundeffect: EB/ailment.wav

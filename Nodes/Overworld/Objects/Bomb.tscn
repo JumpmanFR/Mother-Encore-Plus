@@ -1,0 +1,148 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Main/Bomb Bigger.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Objects/SweetFactory/SLF Bomb.png" type="Texture" id=2]
+[ext_resource path="res://Audio/Sound effects/bash.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Nodes/Overworld/Objects/Bomb Explosion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Shaders/Flash.tres" type="Material" id=5]
+
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 7.0
+height = 6.0
+
+[sub_resource type="Animation" id=6]
+resource_name = "Blink"
+length = 4.25
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:material:shader_param/glow_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.137255, 0.313726, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:material:shader_param/glow_modifier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.583333, 0.666667, 1.16667, 1.25, 1.66667, 1.75, 2.08333, 2.16667, 2.41667, 2.5, 2.75, 2.83333, 3.08333, 3.16667, 3.33333, 3.41667, 3.58333, 3.66667, 3.75, 3.83333, 3.91667, 4, 4.04167, 4.08333, 4.125, 4.16667, 4.20833, 4.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("main:material:shader_param/glow_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("main:material:shader_param/glow_modifier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 9.0
+height = 6.0
+
+[node name="Bomb" type="KinematicBody2D"]
+collision_layer = 5
+collision_mask = 1024
+script = ExtResource( 1 )
+_animation_player = NodePath("AnimationPlayer")
+explosion = ExtResource( 4 )
+hit_sound = ExtResource( 3 )
+
+[node name="main" type="Sprite" parent="."]
+material = ExtResource( 5 )
+position = Vector2( 0, -8 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Blink = SubResource( 6 )
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2( 0, -6 )
+collision_layer = 0
+collision_mask = 1167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0, 6 )
+rotation = 1.5708
+shape = SubResource( 11 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -90, -90, 180, 180 )
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

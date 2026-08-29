@@ -1,0 +1,17 @@
+offense: 34
+defense: 33
+speed: 11
+iq: 1
+guts: 5
+skills:
+  - skill: scratch
+    weight: 3
+  - skill: bite
+    weight: 2
+  - skill: nastyWords
+    weight: 1
+passive_skills: []
+affinity_multipliers:
+  fire: 2
+  burned: 0
+  sleeping: 1.5

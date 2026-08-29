@@ -1,0 +1,38 @@
+name: HYENA_NAME
+description: HYENA_DESC
+article: HYENA_ART
+maxhp: 140
+hp: 140
+maxpp: 0
+pp: 0
+offense: 15
+defense: 22
+speed: 9
+iq: 18
+guts: 0
+level: 7
+exp: 24
+cash: 20
+items:
+  - chance: 80
+    item: EyeDrops
+skills:
+  - skill: bite
+    weight: 12
+  - skill: bigGrin
+    weight: 2
+  - skill: hystericalLaugh
+    weight: 2
+  - skill: runAway
+    weight: 1
+boss: false
+sprite: hyena
+music: Flippant Foe.mp3
+bg: hyena
+ov:
+  sprite: YeenaOV
+  anim: BasicEnemy
+affinity_multipliers:
+  ice: 2
+  sleeping: 2
+  blinded: 2

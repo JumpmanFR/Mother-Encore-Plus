@@ -1,0 +1,27 @@
+class: pkFlash
+name: PKFLASH_NAME
+level: 3
+description: PKFLASHO_DESC
+article: PKFLASH_ART
+skill_type: psi
+action_type: 3 # Ailment
+use_cases: 1 # Battle only
+psi_category: Offense
+target_type: 6 # All enemies
+damage_or_heal: 0
+variance: 0
+priority: 0
+status_effects:
+  unconscious: 37.5
+  blinded: 37.5
+  confused: 12.5
+  numb: 12.5
+miss_chance: 0
+pp_cost: 32
+hp_cost: 0
+hit_effect: ""
+pre_hit_effect: ""
+screen_effect: pk_flash_alpha
+user_anim: psi
+use_sound: flash1
+hit_sound: flash1

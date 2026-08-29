@@ -1,0 +1,84 @@
+playtime: 0
+bank: 0
+cash: 0
+earned_cash: 0
+favoritefood: ""
+menuflavor: Plain
+textspeed: 0.02
+buttonprompts: Both
+description: true
+runsound: wood
+scene: "res://Maps/podunk/Nintens House.tscn"
+scenename: "Ninten's House"
+dirX: 0
+dirY: 1
+posX: 520
+posY: 404
+keys:
+  Catacombs: 0
+party:
+  - ninten
+key_items:
+  - item_name: CashCard
+ninten:
+  nickname: ""
+  inventory:
+    - item_name: BaseballCap
+      equipped: true
+  status: []
+  learnedSkills:
+    - strike
+    - splitShot
+  level: 1
+  exp: 0
+  hp: 100
+  pp: 100
+ana:
+  nickname: ""
+  status: []
+  inventory: []
+  learnedSkills: []
+  level: 1
+  exp: 0
+  hp: 100
+  pp: 100
+lloyd:
+  nickname: ""
+  status: []
+  inventory:
+    - item_name: KickMeNote
+      equipped: true
+    - item_name: GlassesCelluloid
+      equipped: true
+  learnedSkills: ["spy"]
+  level: 1
+  exp: 0
+  hp: 100
+  pp: 0
+teddy:
+  nickname: ""
+  status: []
+  inventory: []
+  learnedSkills: []
+  level: 1
+  exp: 0
+  hp: 100
+  pp: 0
+pippi:
+  nickname: ""
+  status: []
+  inventory: []
+  learnedSkills: []
+  level: 1
+  exp: 0
+  hp: 100
+  pp: 0
+canarychick:
+  hp: 1
+  pp: 0
+flyingman:
+  hp: 200
+  pp: 0
+eve:
+  hp: 400
+  pp: 0

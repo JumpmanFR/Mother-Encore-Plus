@@ -1,0 +1,16 @@
+"0":
+  name: DIALOGUE_REUSABLE_VENDINGMACHINE_SPEAKER
+  sound: Female
+  text: DIALOGUE_REUSABLE_VENDINGMACHINE_0
+  goto: "1"
+"1":
+  text: ""
+  showbox: false
+  open_shop: null
+  caninput: false
+  goto: "2"
+  cleardialog: true
+"2":
+  name: DIALOGUE_REUSABLE_VENDINGMACHINE_SPEAKER
+  sound: Female
+  text: DIALOGUE_REUSABLE_VENDINGMACHINE_1

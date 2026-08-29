@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Main/Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Nodes/Ui/MapScreen/MapArrows.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=200]
+extents = Vector2( 161.5, 91.5 )
+
+[sub_resource type="Animation" id=275]
+resource_name = "Come In"
+length = 0.6
+
+[sub_resource type="Animation" id=276]
+resource_name = "Come Out"
+length = 0.2
+
+[sub_resource type="Animation" id=277]
+length = 0.001
+
+[node name="Camera2D" type="Camera2D"]
+pause_mode = 2
+z_index = -5
+rotating = true
+process_mode = 0
+smoothing_speed = 64.0
+editor_draw_limits = true
+script = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( -0.5, 0.5 )
+shape = SubResource( 200 )
+
+[node name="ArrowsAnim" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+"anims/Come In" = SubResource( 275 )
+"anims/Come Out" = SubResource( 276 )
+anims/RESET = SubResource( 277 )
+
+[node name="ScopeArrows" parent="." instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 0, 0 )
+z_index = 10
+z_as_relative = false

@@ -1,0 +1,17 @@
+'0':
+  name: DIALOGUE_MAGICANT_HARISSON_SPEAKER_Harisson
+  sound: Adult
+  text: DIALOGUE_MAGICANT_HARISSON2_0
+  options:
+    DIALOGUE_MAGICANT_HARISSON2_0-OPT_0: '1'
+    DIALOGUE_MAGICANT_HARISSON2_0-OPT_1: '2'
+    cancel: '2'
+'1':
+  name: DIALOGUE_MAGICANT_HARISSON_SPEAKER_Harisson
+  sound: Adult
+  text: DIALOGUE_MAGICANT_HARISSON2_1
+  setflags: got_nicknamed
+'2':
+  name: DIALOGUE_MAGICANT_HARISSON_SPEAKER_Harisson
+  sound: Adult
+  text: DIALOGUE_MAGICANT_HARISSON2_2

@@ -1,0 +1,14 @@
+"0":
+  if:
+    flags:
+      lloyd_befriended: true
+    goto: 'sunny'
+  goto: 'rain'
+"rain":
+    name: DIALOGUE_MERRYSVILLE_MOMHOUSERULES_SPEAKER
+    sound: Female
+    text: DIALOGUE_MERRYSVILLE_MOMHOUSERULES_1
+"sunny":
+    name: DIALOGUE_MERRYSVILLE_MOMHOUSERULES_SPEAKER
+    sound: Female
+    text: DIALOGUE_MERRYSVILLE_MOMHOUSERULES_0

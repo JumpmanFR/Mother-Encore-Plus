@@ -1,0 +1,20 @@
+'0':
+  showbox: false
+  fadein:
+    speed: 0.7
+    anim: Fade
+    color: 'FFFFFF'
+  wait: 1.2
+  autoadvance: true
+  caninput: false
+  goto: '1'
+  music: ''
+'1':
+  fadeout:
+    speed: 0.7
+    anim: Fade
+    color: 'FFFFFF'
+  autoadvance: true
+  caninput: false
+  changescene: Magicant/Magicant
+  

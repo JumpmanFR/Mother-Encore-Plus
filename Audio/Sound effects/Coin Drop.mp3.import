@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Coin Drop.mp3-06fb79160e9ddfc19c980ce0f99c7d36.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Coin Drop.mp3"
+dest_files=[ "res://.import/Coin Drop.mp3-06fb79160e9ddfc19c980ce0f99c7d36.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

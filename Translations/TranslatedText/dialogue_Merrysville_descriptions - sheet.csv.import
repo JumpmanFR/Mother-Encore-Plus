@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.zh_Hans_CN.translation" ]
+
+source_file="res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.csv"
+dest_files=[ "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.en.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.it.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.es.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.de.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_Merrysville_descriptions - sheet.zh_Hans_CN.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

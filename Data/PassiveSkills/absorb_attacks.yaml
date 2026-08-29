@@ -1,0 +1,8 @@
+conditions:
+  skill_type: [ '', 'basic', 'skill', 'psi' ]
+priority: 5
+actions:
+  sound: ''
+  vibrate: 0.5
+  damage_multiplier: 0
+  block_smash: true

@@ -1,0 +1,42 @@
+"0":
+  name: DIALOGUE_MERRYSVILLE_HOTEL_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_HOTEL_0
+  goto: "1"
+"1":
+  name: DIALOGUE_MERRYSVILLE_HOTEL_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_HOTEL_1
+  cash: true
+  goto: "2"
+"2":
+  name: DIALOGUE_MERRYSVILLE_HOTEL_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_HOTEL_2
+  options:
+    DIALOGUE_MERRYSVILLE_HOTEL_2-OPT_0: "3"
+    DIALOGUE_MERRYSVILLE_HOTEL_2-OPT_1: "12"
+    cancel: "12"
+"3":
+  name: DIALOGUE_MERRYSVILLE_HOTEL_SPEAKER
+  cash: false
+  if:
+    hascash: 60
+    goto: "5"
+  goto: "13"
+"5":
+  name: DIALOGUE_MERRYSVILLE_HOTEL_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_HOTEL_5
+  givecash: -60
+  redirect: "Reusable/hotel_room"
+"12":
+  name: DIALOGUE_MERRYSVILLE_HOTEL_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_HOTEL_12
+  cash: false
+"13":
+  name: DIALOGUE_MERRYSVILLE_HOTEL_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_HOTEL_13
+  cash: false

@@ -1,0 +1,72 @@
+"0":
+  #fish gets bumped off the bridge
+  actors:
+    fish: Objects/npc2
+    player: leader
+    flyingman: flyingman
+  changecam: player
+  movecam:
+    y: 270
+    length: 0.1
+  soundeffect: bash.mp3
+  actorsshake:
+    fish:
+      x: 2
+      y: 0
+      length: 0.4
+  actorsturn:
+    player:
+      x: 1
+      y: 0
+    flyingman:
+      x: 1
+      y: 0
+  actorsmove:
+    fish:
+      movement:
+        - x: 50
+          y: -5
+        - wait: 1
+        - animspeed: 2
+        - emote: surprise
+        - blend: false
+      speed: 400
+      type: step
+      moonwalk: true
+  autowait: 2.1
+  goto: "cantSwim"
+"cantSwim":
+  name: DIALOGUE_MAGICANT_FISH_SPEAKER
+  text: DIALOGUE_MAGICANT_FISH_5
+  sound: Strange
+  autowait: 1.5
+  goto: "fishfall"
+"fishfall":
+  showbox: false
+  actorsmove:
+    fish:
+      movement:
+        - x: 0
+          y: 10
+      speed: 230
+      type: step
+      moonwalk: true
+  autowait: 0.07
+  goto: "fishdisappear"
+"fishdisappear":
+  objectsfunction:
+    Splash: play_anim
+  teleportactors:
+    fish:
+      x: 2000
+      y: 600
+  autowait: 1.7
+  goto: "fishEnd"
+"fishEnd":
+  teleportactors:
+    fish:
+      x: 7000
+      y: 7000
+  name: DIALOGUE_MAGICANT_FISH_SPEAKER
+  text: DIALOGUE_MAGICANT_FISH_6
+  sound: Strange

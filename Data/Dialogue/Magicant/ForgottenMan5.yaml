@@ -1,0 +1,60 @@
+"0":
+    actors:
+        man: talker
+    actorsanim:
+        man:
+            anim: TransitionTalk
+    wait: 0.5
+    autoadvance: true
+    caninput: false
+    goto: "1"
+"1":
+    actorsanim:
+        man:
+            anim: TalkIdle
+    name: DIALOGUE_MAGICANT_FORGOTTENMAN_SPEAKER_ForgottenMan
+    text: DIALOGUE_MAGICANT_FORGOTTENMAN5_0
+    sound: Adult
+    options:
+        DIALOGUE_MAGICANT_FORGOTTENMAN5_0-OPT1: "2"
+        DIALOGUE_MAGICANT_FORGOTTENMAN5_0-OPT2: "3"
+        cancel: "3"
+"2":
+    name: DIALOGUE_MAGICANT_FORGOTTENMAN_SPEAKER_ForgottenMan
+    text: DIALOGUE_MAGICANT_FORGOTTENMAN5_1
+    sound: Adult
+    goto: "7"
+"3":
+    name: DIALOGUE_MAGICANT_FORGOTTENMAN_SPEAKER_ForgottenMan
+    text: DIALOGUE_MAGICANT_FORGOTTENMAN5_2
+    sound: Adult
+    options:
+        DIALOGUE_MAGICANT_FORGOTTENMAN5_2-OPT1: "4"
+        DIALOGUE_MAGICANT_FORGOTTENMAN5_2-OPT2: "6"
+        cancel: "6"
+"4":
+    name: DIALOGUE_MAGICANT_FORGOTTENMAN_SPEAKER_ForgottenMan
+    text: DIALOGUE_MAGICANT_FORGOTTENMAN5_3
+    sound: Adult
+    setflags:
+        - forgotten_man_5
+    goto: "5"
+"5":
+    eraseactors:
+        man: true
+"6":
+    unsetflags:
+        - forgotten_man_1
+        - forgotten_man_2
+        - forgotten_man_3
+        - forgotten_man_4
+    goto: "7"
+"7":
+    showbox: false
+    actorsanim:
+        man:
+            anim: TransitionIdle
+    talker: null
+    wait: 0.5
+    autoadvance: true
+    caninput: false

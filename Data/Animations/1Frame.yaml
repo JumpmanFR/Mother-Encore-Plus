@@ -1,0 +1,14 @@
+animations:
+  Idle:
+    directions:
+      - - 0
+        - - 1
+          - 0.2
+    type: 0
+offset:
+  - 0
+  - 0
+size:
+  - 1
+  - 1
+type: 0

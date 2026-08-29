@@ -1,0 +1,48 @@
+"0":
+  if:
+    - haspartymembers:
+        lloyd: true
+      flags:
+        lloyd_mom_goodbye: false
+        train_to_reindeer: false
+      goto: "move"
+  goto: "sleeping"
+"move":
+  actors:
+    lloyd: lloyd
+    ninten: ninten
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 408
+          y: -704
+        - turnto:
+            x: 1
+            y: 0
+        - emote: dot
+      type: position
+      animation: Walk
+      speed: 32
+    ninten:
+      movement:
+        - x: 390
+          y: -712
+        - turnto:
+            x: 1
+            y: 0
+      type: position
+      animation: Walk
+      speed: 32
+  autowait: 2
+  goto: "lloydGoodbye"
+"lloydGoodbye":
+  talker: lloyd
+  name: "[LLOYD]"
+  text: DIALOGUE_MERRYSVILLE_LLOYDMOMHOSPITAL_0
+  sound: Shy
+  setflags: "lloyd_mom_goodbye"
+  goto: "end"
+"end":
+  autowait: 1
+"sleeping":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDMOM_SLEEPING_0

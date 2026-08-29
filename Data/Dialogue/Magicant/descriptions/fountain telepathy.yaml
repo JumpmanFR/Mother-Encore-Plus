@@ -1,0 +1,15 @@
+"0":
+  text: DIALOGUE_MAGICANT_DESCRIPTIONS_FOUNTAIN_TELEPATHY_0
+  goto: "1"
+"1":
+  showbox: false
+  movecam:
+    x: -640
+    y: -856
+    length: 0.5
+  objectsfunction:
+    Objects/Fountain: summon_old_man
+  wait: 4
+  autoadvance: true
+  caninput: false
+  telepathyeffect: null

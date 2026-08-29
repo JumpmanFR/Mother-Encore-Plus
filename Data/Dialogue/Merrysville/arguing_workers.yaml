@@ -1,0 +1,83 @@
+"0":
+  actors:
+    cole: Objects/NPCS/construction_1
+    jay: Objects/NPCS/construction_2
+  actorsanim:
+    jay:
+      anim: Idle
+      newidle: true
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS0_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_0
+  talker: cole
+  goto: "1"
+"1":
+  actorsanim:
+    cole:
+      anim: Idle
+      newidle: true
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS1_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_1
+  talker: jay
+  goto: "2"
+"2":
+  talker: cole
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS0_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_2
+  goto: "3"
+"3":
+  talker: jay
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS1_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_3
+  actorsemote:
+    jay: sweat
+  goto: "4"
+"4":
+  talker: cole
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS0_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_4
+  goto: "5"
+"5":
+  talker: jay
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS1_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_5
+  goto: "6"
+"6":
+  talker: cole
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS0_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_6
+  goto: "7"
+"7":
+  #they both look at ninten
+  actorsdir:
+    cole:
+      x: 0
+      y: 1
+    jay:
+      x: 0
+      y: 1
+  name: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS0_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_ARGUINGCONSTRUCTIONWORKERS_7
+  goto: "8"
+"8":
+  actorsdir:
+    cole:
+      x: 1
+      y: 0
+    jay:
+      x: -1
+      y: 0
+  actorsanim:
+    jay:
+      anim: Talk
+      newidle: true
+    cole:
+      anim: Talk
+      newidle: true

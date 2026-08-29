@@ -1,0 +1,329 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+    drdistorto: Objects/Flag Landmark/npc2
+  changecam: drdistorto
+  movecam:
+    actor: drdistorto
+    length: 0.5
+  teleportactors:
+    ninten:
+      x: -36
+      y: 5
+    lloyd:
+      x: -20
+      y: 5
+  actorsdir:
+    ninten:
+      x: 0
+      y: -1
+    drdistorto:
+      x: 0
+      y: 1
+    lloyd:
+      x: 0
+      y: -1
+  autowait: 0.01
+  goto: "1"
+"1":
+  actorsmove:
+    drdistorto:
+      movement:
+        - x: 0
+          y: -7
+        - shake:
+            x: 0.2
+      type: step
+      speed: 128
+      animation: Walk
+      moonwalk: true
+  talker: drdistorto
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_0
+  goto: "2"
+"2":
+  talker: lloyd
+  sound: Shy
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_1
+  goto: "3"
+"3":
+  changecam: null
+  talker: drdistorto
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_2
+  actorsmove:
+    drdistorto:
+      movement:
+        - x: 0
+          y: -7
+        - shake:
+            x: 0.2
+      type: step
+      speed: 128
+      animation: Walk
+      moonwalk: true
+  goto: "notice_launcher"
+"notice_launcher":
+  showbox: false
+  actorsjump:
+    drdistorto:
+      speed: 0.2
+      height: 5
+  actorsdir:
+    drdistorto:
+      x: 1
+      y: 0
+  actorsemote:
+    drdistorto: surprise
+  autowait: 1.3
+  goto: "5"
+"5":
+  actorsmove:
+    drdistorto:
+      movement:
+        - x: 8
+          y: 0
+      speed: 10
+      animation: Walk
+      type: step
+  autowait: 1.5
+  goto: "6"
+"6":
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_3
+  goto: "back_off"
+"back_off":
+  showbox: false
+  actorsmove:
+    drdistorto:
+      movement:
+        - x: -3
+          y: 0
+        - wait: 1
+        - x: -4
+          y: 0
+        - wait: 1
+      speed: 10
+      animation: Walk
+      type: step
+      moonwalk: true
+  autowait: 3
+  goto: "go_to_edge"
+"go_to_edge":
+  #goes to edge of the roof
+  actorsmove:
+    drdistorto:
+      movement:
+        - x: 0
+          y: -15
+      speed: 16
+      animation: Walk
+      type: step
+  autowait: 2.5
+  goto: "distorto_dotdot"
+"distorto_dotdot":
+  showbox: false
+  actorsemote:
+    drdistorto: dot
+  autowait: 2.5
+  goto: "lloyd_walk_up"
+"lloyd_walk_up":
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 0
+          y: -8
+        - wait: 0.7
+        - turnto:
+            x: -1
+            y: 1
+          speed: 0.08
+        - wait: 1
+        - turnto:
+            x: 0
+            y: -1
+          speed: 0.08
+        - wait: 1
+        - x: 0
+          y: -8
+      type: step
+      animation: Walk
+      speed: 10
+  autowait: 5
+  goto: "lloyd_ask"
+"lloyd_ask":
+  talker: lloyd
+  sound: Shy
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_4
+  goto: "cam_up"
+"cam_up":
+  showbox: false
+  movecam:
+    y: -25
+    length: 0.8
+  autowait: 1.4
+  goto: "distorto_answer"
+"distorto_answer":
+  talker: drdistorto
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_5
+  goto: "lloyd_counter"
+"lloyd_counter":
+  talker: lloyd
+  sound: Shy
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_6
+  goto: "distorto_notknow"
+"distorto_notknow":
+  talker: drdistorto
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_7
+  goto: "lloyd_walk_up2"
+"lloyd_walk_up2":
+  showbox: false
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 0
+          y: -10
+      type: step
+      animation: Walk
+      speed: 10
+  autowait: 2
+  goto: "lloyd_yap"
+"lloyd_yap":
+  talker: lloyd
+  sound: Shy
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_8
+  goto: "distorto_turns_around"
+"distorto_turns_around":
+  movecam:
+    y: -15
+    length: 0.5
+  showbox: false
+  actorsturn:
+    drdistorto:
+      x: 0
+      y: 1
+      speed: 0.12
+  autowait: 1.4
+  goto: "distorto_counter"
+"distorto_counter":
+  actorsemote:
+    lloyd: sweat
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 0
+          y: 7
+      type: step
+      animation: Walk
+      speed: 90
+      moonwalk: true
+  talker: drdistorto
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_9
+  goto: "12"
+"12":
+  actorsturn:
+    drdistorto:
+      x: 0
+      y: -1
+      speed: 0.14
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_10
+  goto: "distorto_dotdot_2"
+"distorto_dotdot_2":
+  showbox: false
+  actorsemote:
+    drdistorto: dot
+  autowait: 2
+  goto: "ahead"
+"ahead":
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_11
+  goto: "turn_around"
+"turn_around":
+  #turns around, walks back a bit
+  showbox: false
+  actorsmove:
+    drdistorto:
+      movement:
+        - turnto:
+            x: 0
+            y: 1
+        - wait: 0.5
+        - x: 0
+          y: 5
+      type: step
+      animation: Walk
+      speed: 4
+  autowait: 3
+  goto: "ask"
+"ask":
+  talker: drdistorto
+  sound: Adult
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_12
+  goto: "nintenwalk"
+"nintenwalk":
+  showbox: false
+  actorsmove:
+    ninten:
+      movement:
+        - x: 0
+          y: -19
+      type: step
+      animation: Run
+      speed: 40
+  autowait: 0.8
+  goto: "nintentalk"
+"nintentalk":
+  actorsanim:
+    ninten:
+      anim: Talk
+      newidle: true
+  autowait: 2
+  goto: "rockets"
+"rockets":
+  actorsanim:
+    ninten:
+      anim: Idle
+      newidle: true
+  talker: drdistorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_13
+  sound: Adult
+  goto: "goahead"
+"goahead":
+  actorsdir:
+    drdistorto:
+      x: 0
+      y: -1
+  actorsmove:
+    drdistorto:
+      movement:
+        - x: -27
+          y: -48
+      type: position
+      animation: Walk
+      speed: 7
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO5_14
+  sound: Adult
+  cure:
+    character: all
+    status: all
+  wait: 1

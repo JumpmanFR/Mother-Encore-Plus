@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OcarinaOfHope3.mp3-0fa281f91a1ae9be423a0babfe7b6d67.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/OcarinaOfHope/OcarinaOfHope3.mp3"
+dest_files=[ "res://.import/OcarinaOfHope3.mp3-0fa281f91a1ae9be423a0babfe7b6d67.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

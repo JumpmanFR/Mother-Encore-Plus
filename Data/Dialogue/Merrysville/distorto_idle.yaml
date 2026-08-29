@@ -1,0 +1,6 @@
+"0":
+  actors:
+    drdistorto: Objects/Flag Landmark/npc2
+  actorsemote:
+    drdistorto: dot
+  autowait: 2

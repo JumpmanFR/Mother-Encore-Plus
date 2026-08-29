@@ -1,0 +1,150 @@
+'0':
+  actors:
+    ninten: leader
+    hall_monitor_1: Objects/hall_monitor_1
+    hall_monitor_2: Objects/hall_monitor_2
+    snitch_girl: Objects/latesnitch
+    cartwheel_boy: Objects/cant_cartwheel
+  wait: 0.4
+  autoadvance: true
+  caninput: false
+  goto: '1'
+  music: ''
+'1':
+  movecam:
+    x: -4
+    y: -105
+    time: 1
+  wait: 1
+  autoadvance: true
+  caninput: false
+  soundeffect: PLACEHOLDERS/school_bell.mp3
+  autowait: 4.5
+  goto: '2'
+  setflags: visited_twinkle_elementary
+'2':
+#door 1 open
+  objectsfunction:
+    Bottom/Openable Door4: open
+  wait: 0.3
+  goto: '3'
+  autoadvance: true
+  caninput: false
+'3':
+#door 2 open
+  objectsfunction:
+    Bottom/Openable Door5: open
+  wait: 0.4
+  goto: '4'
+  autoadvance: true
+  caninput: false
+'4':
+  objectsfunction:
+    MusicArea: play_music
+  teleportactors:
+    hall_monitor_1:
+      x: -95
+      y: -95
+    hall_monitor_2:
+      x: 80
+      y: -95
+  actorsdir:
+    hall_monitor_1:
+      x: 0
+      y: 1
+    hall_monitor_2:
+      x: 0
+      y: 1
+  goto: '5'
+'5':
+#BEGIN WALKING
+  actorsmove:
+    hall_monitor_1:
+      movement:
+        - wait: 0.05
+        - x: -95
+          y: -80
+        - x: -145
+          y: -80
+      speed: 65
+      animation: Walk
+      type: position
+    hall_monitor_2:
+      movement:
+        - x: 80
+          y: -80
+        - x: 130
+          y: -80
+      speed: 65
+      animation: Walk
+      type: position
+  autowait: 0
+  goto: '6'
+'6':
+#other kids appear mid-walk
+  actorsmove:
+    hall_monitor_1:
+      movement:
+        - x: -160
+          y: -80
+        - x: -159
+          y: -87
+      speed: 65
+      animation: Walk
+      type: position
+    hall_monitor_2:
+      movement:
+        - x: 148
+          y: -80
+        - x: 148
+          y: -87
+      speed: 65
+      animation: Walk
+      type: position
+  autowait: 1.2
+#the other kids come out
+  teleportactors:
+    snitch_girl:
+      x: -95
+      y: -95
+    cartwheel_boy:
+      x: 80
+      y: -95
+  goto: '8'
+'8':
+  objectsfunction:
+    Bottom/Openable Door4: close
+    Bottom/Openable Door5: close
+  actorsdir:
+    hall_monitor_1:
+      x: 0
+      y: 1
+      speed: 0.03
+    hall_monitor_2:
+      x: 0
+      y: 1
+      speed: 0.03
+  goto: '9'
+'9':
+  actorsmove:
+    snitch_girl:
+      movement:
+        - wait: 0.05
+        - x: -95
+          y: -60
+        - x: -500
+          y: -60
+      speed: 120
+      animation: Walk
+      type: position
+    cartwheel_boy:
+      movement:
+        - wait: 0.1
+        - x: 80
+          y: -57
+        - x: -500
+          y: -57
+      speed: 160
+      animation: Walk
+      type: position
+  autowait: 2.3

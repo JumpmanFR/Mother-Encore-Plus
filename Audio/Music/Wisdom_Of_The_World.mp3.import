@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Wisdom_Of_The_World.mp3-f5b95b96c671ba319ed28ec37c76255f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Wisdom_Of_The_World.mp3"
+dest_files=[ "res://.import/Wisdom_Of_The_World.mp3-f5b95b96c671ba319ed28ec37c76255f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

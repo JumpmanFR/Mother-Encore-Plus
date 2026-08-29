@@ -1,0 +1,21 @@
+extends Label
+
+export (String, "ui_accept", "ui_cancel", "ui_toggle", "ui_select", "ui_focus_prev", "ui_focus_next", "ui_scope", "ui_map", "ui_fullscreen", "ui_winsize") var key = "ui_accept"
+export (bool) var hint_color = true
+
+func _ready():
+	set_key_name(key)
+	global.connect("inputs_changed", self, "_on_inputs_changed")
+	global.connect("locale_changed", self, "_on_inputs_changed")
+
+func set_key_name(keyname: String):
+	key = keyname
+	text = TextTools.get_key_name(keyname)
+	if hint_color:
+		modulate = Color(TextTools.DIALOG_HINT_COLOR)
+
+func _on_ButtonText_visibility_changed():
+	set_key_name(key)
+
+func _on_inputs_changed():
+	set_key_name(key)

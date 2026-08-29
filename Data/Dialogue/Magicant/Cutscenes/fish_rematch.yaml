@@ -1,0 +1,25 @@
+"0":
+  actors:
+    fish: Objects/npc2
+    player: leader
+  goto: "fishNotice"
+"fishNotice":
+  movecam:
+    actor: fish
+    length: 0.4
+  actorsdir:
+    fish:
+      x: 0
+      y: 1
+  name: DIALOGUE_MAGICANT_FISH_SPEAKER
+  text: DIALOGUE_MAGICANT_FISH_4
+  sound: Strange
+  goto: "startFight"
+"startFight":
+  startbattle:
+    battlers:
+      - fish: fish
+    actorskeep:
+      fish: true
+    winflag: fish_defeat
+    wincutscene: Magicant/Cutscenes/fish_defeat

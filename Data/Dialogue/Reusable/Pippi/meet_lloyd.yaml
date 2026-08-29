@@ -1,0 +1,45 @@
+"0":
+  actors:
+    pippi: talker
+    lloyd: lloyd
+  actorsturn:
+    pippi:
+      actor: lloyd
+    lloyd:
+      actor: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_MEETLLOYD_0
+  sound: Kid
+  goto: "lloydReply"
+"lloydReply":
+  talker: lloyd
+  name: DIALOGUE_REUSABLE_LLOYD_SPEAKER
+  text: DIALOGUE_REUSABLE_PIPPI_MEETLLOYD_1
+  sound: Shy
+  goto: "pippiSad"
+"pippiSad":
+  talker: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_MEETLLOYD_2
+  sound: Kid
+  goto: "lloydConfused"
+"lloydConfused":
+  talker: lloyd
+  name: DIALOGUE_REUSABLE_LLOYD_SPEAKER
+  text: DIALOGUE_REUSABLE_PIPPI_MEETLLOYD_3
+  sound: Shy
+  actorsemote:
+    lloyd: sweat
+  goto: "pippiOfCourse"
+"pippiOfCourse":
+  talker: pippi
+  name: "[Pippi]"
+  text: DIALOGUE_REUSABLE_PIPPI_MEETLLOYD_4
+  sound: Kid
+  goto: "lloydBusiness"
+"lloydBusiness":
+  talker: lloyd
+  name: DIALOGUE_REUSABLE_LLOYD_SPEAKER
+  text: DIALOGUE_REUSABLE_PIPPI_MEETLLOYD_5
+  sound: Shy
+  setflags: pippi_met_lloyd

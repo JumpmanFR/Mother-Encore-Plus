@@ -1,0 +1,11 @@
+name: TELEPORT_NAME
+level: 3
+description: TELEPORTO_DESC
+article: TELEPORT_ART
+skill_type: psi
+use_cases: -1 # Field only
+psi_category: Assist
+target_type: 5 # Self
+pp_cost: 8
+use_sound: ''
+hit_sound: ''

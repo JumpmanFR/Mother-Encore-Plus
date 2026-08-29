@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1653 - End Of the Century Beam - Part 1.mp3-d37967bd0426cb01af7f350c011072f6.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/M3/1653 - End Of the Century Beam - Part 1.mp3"
+dest_files=[ "res://.import/1653 - End Of the Century Beam - Part 1.mp3-d37967bd0426cb01af7f350c011072f6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,25 @@
+can_get:
+  ninten: true
+healing:
+  persistent: false
+messages:
+  afflict_battle: BATTLE_MSG_STATUS_ASTHMA
+  heal_battle: BATTLE_MSG_HEAL_STATUS_ASTHMA
+  heal_overworld: ACTION_RESULT_HEAL_ASTHMA
+  heal_overworld_fail: ACTION_RESULT_HEAL_ASTHMA_FAIL
+ignore_reinflict: true
+status_bubble: asthma
+effects_by_char:
+  any:
+    cant_select:
+      Basic: true
+      Skills: true
+    cant_do:
+      action:
+        skill_type: [ basic, skill ]
+      message: BATTLE_MSG_STATUS_ASTHMA_EFFECT
+    die_after:
+      turns: 4
+      message: [ BATTLE_MSG_STATUS_ASTHMA_ALERT_1, BATTLE_MSG_STATUS_ASTHMA_ALERT_2, BATTLE_MSG_STATUS_ASTHMA_ALERT_3, BATTLE_MSG_STATUS_ASTHMA_ALERT_4 ]
+      moment: after
+      status: asthma

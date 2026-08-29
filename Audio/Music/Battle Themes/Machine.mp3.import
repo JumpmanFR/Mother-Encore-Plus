@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Machine.mp3-bb79c059c0c6da2d2bab3676e7e68ec3.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Battle Themes/Machine.mp3"
+dest_files=[ "res://.import/Machine.mp3-bb79c059c0c6da2d2bab3676e7e68ec3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

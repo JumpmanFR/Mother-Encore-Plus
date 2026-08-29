@@ -1,0 +1,267 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Nodes/Ui/arrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/UI/Pausemenu.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Ui/CashBoxPause.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graphics/UI/Overworld/flavours/defaultbox_inside.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/UI/Overworld/flavours/defaultempty.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/EBMain.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Nodes/Ui/Inventory/InventoryUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Ui/EquipMenu/EquipMenuUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Nodes/Ui/StatsMenuUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Nodes/Ui/PSIMenu/PSIMenuUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Shaders/MenuFlavors.tres" type="Material" id=12]
+[ext_resource path="res://Scripts/UI/colorRectFlavor.gd" type="Script" id=13]
+[ext_resource path="res://Nodes/Ui/Options/OptionsUI.tscn" type="PackedScene" id=14]
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=5]
+content_margin_bottom = 0.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+expand_margin_left = 11.0
+expand_margin_right = 8.0
+expand_margin_top = 11.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "Close"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.4, 0.637281 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -80 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -80 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "open"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 0.637281 ),
+"update": 0,
+"values": [ Vector2( 0, -80 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Pausemenu" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 2 )
+
+[node name="menu" type="Control" parent="."]
+margin_top = -80.0
+margin_right = 40.0
+margin_bottom = -40.0
+
+[node name="Commands" type="PanelContainer" parent="menu"]
+material = ExtResource( 12 )
+margin_left = 7.0
+margin_top = 7.0
+margin_bottom = 73.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="InsideBG" type="PanelContainer" parent="menu/Commands"]
+use_parent_material = true
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 148.0
+margin_bottom = 58.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="Title" type="Control" parent="menu/Commands"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 148.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="menu/Commands/Title"]
+margin_left = 3.0
+margin_top = -12.0
+custom_fonts/font = ExtResource( 7 )
+text = "MENU_MENU"
+
+[node name="title" type="ColorRect" parent="menu/Commands/Title/Label"]
+show_behind_parent = true
+anchor_right = 1.0
+margin_left = -4.0
+margin_top = 2.0
+margin_right = 9.0
+margin_bottom = 12.0
+color = Color( 0.0784314, 0.0666667, 0.0901961, 1 )
+script = ExtResource( 13 )
+
+[node name="Items" type="GridContainer" parent="menu/Commands"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 148.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/vseparation = 3
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="Goods" type="Label" parent="menu/Commands/Items"]
+margin_right = 61.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 16, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "MENU_GOODS"
+
+[node name="PSI" type="Label" parent="menu/Commands/Items"]
+margin_left = 71.0
+margin_right = 140.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 16, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "MENU_PSI"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Equip" type="Label" parent="menu/Commands/Items"]
+margin_top = 15.0
+margin_right = 61.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 16, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "MENU_EQUIP"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="menu/Commands/Items"]
+margin_left = 71.0
+margin_top = 15.0
+margin_right = 140.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 16, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "MENU_STATUS"
+valign = 1
+
+[node name="Map" type="Label" parent="menu/Commands/Items"]
+margin_top = 30.0
+margin_right = 61.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 16, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "MENU_MAP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Label" parent="menu/Commands/Items"]
+margin_left = 71.0
+margin_top = 30.0
+margin_right = 140.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 16, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "MENU_OPTIONS"
+valign = 1
+
+[node name="Bottom" type="Control" parent="menu/Commands"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 148.0
+margin_bottom = 58.0
+
+[node name="Cash" parent="menu/Commands/Bottom" instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -6.0
+margin_top = -2.0
+margin_right = 4.0
+margin_bottom = 10.0
+
+[node name="ColorRect" type="ColorRect" parent="menu/Commands/Bottom"]
+anchor_right = 1.0
+margin_left = -7.0
+margin_top = 58.0
+margin_right = 4.0
+margin_bottom = 59.0
+color = Color( 0.74902, 0.705882, 0.803922, 1 )
+script = ExtResource( 13 )
+
+[node name="Arrow" parent="menu/Commands" instance=ExtResource( 1 )]
+position = Vector2( 6, 16 )
+menu_parent_path = NodePath("../Items")
+consume_input_events = true
+loop_around = true
+move_sfx = true
+cancel_on = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Close = SubResource( 3 )
+anims/RESET = SubResource( 2 )
+anims/open = SubResource( 1 )
+
+[node name="InventoryUI" parent="." instance=ExtResource( 8 )]
+
+[node name="PSIMenuUI" parent="." instance=ExtResource( 11 )]
+
+[node name="EquipMenuUI" parent="." instance=ExtResource( 9 )]
+
+[node name="StatsMenuUI" parent="." instance=ExtResource( 10 )]
+
+[node name="OptionsUI" parent="." instance=ExtResource( 14 )]
+layer = 3
+
+[connection signal="cancel" from="menu/Commands/Arrow" to="." method="_on_Arrow_cancel"]
+[connection signal="selected" from="menu/Commands/Arrow" to="." method="_on_Arrow_selected"]
+[connection signal="back" from="InventoryUI" to="." method="_on_submenu_back"]
+[connection signal="exit_with_dialog" from="InventoryUI" to="." method="_on_InventoryUI_exit_with_dialog"]
+[connection signal="exit_with_item" from="InventoryUI" to="." method="_on_InventoryUI_exit_with_item"]
+[connection signal="back" from="PSIMenuUI" to="." method="_on_submenu_back"]
+[connection signal="back" from="EquipMenuUI" to="." method="_on_submenu_back"]
+[connection signal="back" from="StatsMenuUI" to="." method="_on_submenu_back"]
+[connection signal="back" from="OptionsUI" to="." method="_on_submenu_back"]
+[connection signal="close_to_title" from="OptionsUI" to="." method="_on_close_to_title"]

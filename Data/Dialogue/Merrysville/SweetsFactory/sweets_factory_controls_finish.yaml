@@ -1,0 +1,22 @@
+"0":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_2
+  options:
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_0: "yes"
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_1: "no"
+    cancel: "no"
+"yes":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_0
+  goto: "finish"
+"finish":
+  showbox: false
+  movecam:
+    x: -624
+    y: -848
+    length: 0.5
+  objectsfunction:
+    HandCrane: play_anim
+  autowait: 4
+  goto: "addBow"
+"addBow":
+  setflags: br_finishing_touch
+  autowait: 4.5

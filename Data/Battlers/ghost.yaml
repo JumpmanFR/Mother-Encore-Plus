@@ -1,0 +1,36 @@
+name: GHOST_NAME
+description: GHOST_DESC
+article: GHOST_ART
+maxhp: 70
+hp: 70
+maxpp: 0
+pp: 0
+offense: 20
+defense: 18
+speed: 7
+iq: 5
+guts: 0
+level: 5
+exp: 13
+cash: 20
+skills:
+  - skill: bash
+    weight: 12
+  - skill: ventOdor
+    weight: 2
+  - skill: bigGrin
+    weight: 2
+  - skill: runAway
+    weight: 1
+boss: false
+sprite: ghost
+music: Unsettling Opponent.mp3
+bg: ghost
+ov:
+  sprite: GhostOV
+  anim: BasicEnemy
+affinity_multipliers:
+  fire: 2
+  numb: 2
+  sleeping: 2
+  pkFlash: 5

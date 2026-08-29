@@ -1,0 +1,40 @@
+"0":
+  name: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_0
+  sound: Adult
+  cash: true
+  goto: "1"
+"1":
+  name: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_SPEAKER
+  if:
+    hascash: 300
+    goto: "2"
+  goto: "3"
+"2":
+  name: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_1
+  sound: Adult
+  options:
+    DIALOGUE_MERRYSVILLE_SAWBONESBENNY_1-OPT_0: "4"
+    DIALOGUE_MERRYSVILLE_SAWBONESBENNY_1-OPT_1: "5"
+    cancel: "5"
+#not enough money
+"3":
+  name: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_2
+  sound: Adult
+#cures characters
+"4":
+  cash: false
+  name: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_3
+  sound: Adult
+  soundeffect: M3/heal_se.wav
+  givecash: -half
+  heal: all
+#doesnt cure
+"5":
+  cash: false
+  name: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_SAWBONESBENNY_4
+  sound: Adult

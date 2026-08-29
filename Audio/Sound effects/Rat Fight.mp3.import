@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rat Fight.mp3-f9ceedf0abf86b421139d489d7cb1432.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/Rat Fight.mp3"
+dest_files=[ "res://.import/Rat Fight.mp3-f9ceedf0abf86b421139d489d7cb1432.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

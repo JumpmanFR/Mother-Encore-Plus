@@ -1,0 +1,215 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Nodes/Ui/Battle/SPMeter.gd" type="Script" id=2]
+[ext_resource path="res://Shaders/MenuFlavors.tres" type="Material" id=3]
+[ext_resource path="res://Graphics/UI/Battle/sp_bar_filler.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/UI/Battle/sp_bar_filler_glow.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/UI/Battle/sp_bar_max.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/UI/Battle/sp_meter_plate.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Glowing"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plate/Bar/TextureProgressUnder/TextureProgressGlow:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.784314 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "NotGlowing"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plate/Bar/TextureProgressUnder/TextureProgressGlow:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plate/Bar/TextureProgressUnder/TextureProgressGlow:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="SpMeter" type="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -8.0
+rect_min_size = Vector2( 320, 8 )
+script = ExtResource( 2 )
+progressBar = NodePath("Plate/Bar/TextureProgressUnder/TextureProgress")
+progressBarUnder = NodePath("Plate/Bar/TextureProgressUnder")
+progressBarGlow = NodePath("Plate/Bar/TextureProgressUnder/TextureProgressGlow")
+glowAnim = NodePath("Plate/Bar/AnimationPlayer")
+
+[node name="Plate" type="NinePatchRect" parent="."]
+material = ExtResource( 3 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -105.0
+margin_top = -8.0
+margin_right = 105.0
+rect_min_size = Vector2( 0, 7 )
+rect_clip_content = true
+texture = ExtResource( 8 )
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 2
+
+[node name="Bar" type="Control" parent="Plate"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -3.0
+margin_right = 100.0
+margin_bottom = 4.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="TextureProgressUnder" type="TextureProgress" parent="Plate/Bar"]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = -1.0
+rect_min_size = Vector2( 0, 4 )
+step = 0.5
+value = 90.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 5 )
+tint_progress = Color( 1, 1, 1, 0.486275 )
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+
+[node name="TextureProgress" type="TextureProgress" parent="Plate/Bar/TextureProgressUnder"]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 4 )
+step = 0.5
+value = 80.0
+texture_progress = ExtResource( 4 )
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+
+[node name="TextureProgressGlow" type="TextureProgress" parent="Plate/Bar/TextureProgressUnder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 4 )
+step = 0.5
+value = 80.0
+texture_progress = ExtResource( 5 )
+tint_progress = Color( 1, 1, 1, 0 )
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Plate/Bar/TextureProgressUnder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 19
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 19.0
+margin_right = 20.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 39.0
+margin_right = 40.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 59.0
+margin_right = 60.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 79.0
+margin_right = 80.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 99.0
+margin_right = 100.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 119.0
+margin_right = 120.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 139.0
+margin_right = 140.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 159.0
+margin_right = 160.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect9" type="ColorRect" parent="Plate/Bar/TextureProgressUnder/HBoxContainer"]
+margin_left = 179.0
+margin_right = 180.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 1, 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plate/Bar"]
+root_node = NodePath("../../..")
+anims/Glowing = SubResource( 1 )
+anims/NotGlowing = SubResource( 3 )
+anims/RESET = SubResource( 2 )

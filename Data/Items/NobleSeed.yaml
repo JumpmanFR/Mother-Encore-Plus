@@ -1,0 +1,24 @@
+name: NOBLESEED_NAME
+sorting_name: NOBLESEED_SORT
+description: NOBLESEED_DESC
+article: NOBLESEED_ART
+keyitem: false
+cost: 55 #
+value: 15 #
+actions:
+  - name: INVENTORY_ACTION_USE
+    function: consume
+transform: ''
+slot: ''
+status_heals:
+  - confused
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

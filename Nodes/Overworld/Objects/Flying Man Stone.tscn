@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Graphics/Objects/Magicant/Flying Man Stone.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Main/Flying Man Stone.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Ui/ButtonPrompt.tscn" type="PackedScene" id=3]
+
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6.5, 5.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform vec4 glow_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float glow_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = color.rgb + glow_color.rgb * glow_modifier;
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
+shader = SubResource( 5 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+shader_param/glow_modifier = 0.0
+
+[node name="Stone" type="Sprite"]
+position = Vector2( 1033, -796 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+index = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 517
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -0.5, 4.5 )
+shape = SubResource( 6 )
+
+[node name="interact" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+modulate = Color( 0, 1, 0.717647, 1 )
+position = Vector2( -4.76837e-07, 4.76837e-07 )
+shape = SubResource( 7 )
+
+[node name="ButtonPrompt" parent="interact" instance=ExtResource( 3 )]
+material = SubResource( 8 )
+position = Vector2( 0, -12 )
+offset = Vector2( 0, -12 )

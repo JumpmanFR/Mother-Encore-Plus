@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Duncans_Factory.mp3-55c90bb37c4bbffd6c232af0c49f83fb.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Duncans_Factory.mp3"
+dest_files=[ "res://.import/Duncans_Factory.mp3-55c90bb37c4bbffd6c232af0c49f83fb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=8.77

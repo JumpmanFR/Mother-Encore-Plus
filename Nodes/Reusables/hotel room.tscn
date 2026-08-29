@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nodes/Reusables/npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Overworld/camarea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Main/Hotel Room.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 156, 116 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 164, 108 )
+
+[node name="Hotel Room" type="YSort"]
+script = ExtResource( 3 )
+lloydPath = NodePath("npc_Lloyd")
+anaPath = NodePath("npc_Ana")
+teddyPath = NodePath("npc_Teddy")
+pippiPath = NodePath("npc_Pippi")
+canaryPath = NodePath("npc_Canary")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4352
+collision_mask = 4352
+monitorable = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 4, 4 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 1597
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 8, 72 )
+polygon = PoolVector2Array( 40, 16, 112, 16, 96, -96, -112, -96, -128, 16, 8, 16, 8, 32, 40, 32, 40, 48, -136, 48, -136, -192, 128, -192, 128, 48, 40, 48 )
+
+[node name="camarea" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="camarea" index="0"]
+position = Vector2( 4, 4 )
+shape = SubResource( 2 )
+
+[node name="npc_Lloyd" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, -16 )
+sprite = "Lloyd/main"
+dialog = "Hotel Party Banter/Merrysville_LloydBefriended_Lloyd"
+_all_dialog = [ PoolStringArray( "missile_damage_seen", "Hotel Party Banter/Merrysville_MissileDamageSeen_Lloyd" ), PoolStringArray( "got_factory_pass", "Hotel Party Banter/Merrysville_GotFactoryPass_Lloyd" ), PoolStringArray( "rocket_launched", "Hotel Party Banter/Merrysville_RocketLaunched_Lloyd" ) ]
+staring = true
+
+[node name="npc_Ana" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4, -24 )
+sprite = "Ana/main"
+staring = true
+
+[node name="npc_Teddy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 8 )
+sprite = "Teddy/main"
+initial_dir = Vector2( -1, 0 )
+staring = true
+
+[node name="npc_Pippi" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, -8 )
+sprite = "Pippi/main"
+dialog = "Hotel Party Banter/PippiRescued_Pippi"
+_all_dialog = [ PoolStringArray( "canary_found", "Hotel Party Banter/CanaryFound_Pippi" ), PoolStringArray( "canary_melody", "Hotel Party Banter/CanaryMelody_Pippi" ) ]
+initial_dir = Vector2( 0, 1 )
+staring = true
+
+[node name="npc_Canary" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32, 24 )
+sprite = "CanaryChick/main"
+dialog = "Hotel Party Banter/CanaryFound_Canary"
+_thoughts = "Hotel Party Banter/CanaryFound_CanaryThoughts"
+initial_dir = Vector2( 1, 0 )
+staring = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+
+[editable path="camarea"]

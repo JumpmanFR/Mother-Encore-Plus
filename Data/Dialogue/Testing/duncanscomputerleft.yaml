@@ -1,0 +1,11 @@
+"0":
+    sound: Kid
+    text: "[@]Left-side computer hacked!"
+    setflags: computer_left_hacked
+    if:
+        flags:
+            computer_right_hacked: true
+        goto: "1"
+"1":
+    setflags: computers_all_hacked
+    text: "[@]All computers have been hacked."

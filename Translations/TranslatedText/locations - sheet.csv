@@ -1,0 +1,48 @@
+key,en,fr,it,ja,ko,es,es_ES,pt_BR,pl,de,ru,uk,zh_CN,pr
+LOC_NINTEN'S_HOUSE,[Ninten]'s House,Chez [Ninten],Casa di [Ninten],マイホーム,[Ninten]의 집,Casa de [Ninten],Casa de [Ninten],Casa de [Ninten],Dom [decline:Ninten:M:1],Haus von [Ninten],Дом [decline:Ninten:M:1],Дім [decline:Ninten:M:1],[Ninten]的住宅,
+LOC_PODUNK,Podunk,Podunk,Podunk,マザーズデイ,마더즈데이,Podunk,Podunk,Boa Mãe,Podunk,Podunk,Поданк,Поданк,波顿克,Mother's Day
+LOC_CATACOMBS,Catacombs,Catacombes,Catacombe,はかば　ちかどうくつ,지하 묘지,Catacumbas,Catacumbas,Catacumbas,Katakumby,Katakomben,Катакомбы,Катакомби,地下墓穴,
+LOC_ZOO_OFFICE,Zoo Office,Bureaux du zoo,Ufficio dello zoo,どうぶつえん　じむしょ,동물원 관리사무소,Oficina del zoológico,Oficinas del zoo,Escritório do Zoológico,Biuro Zoo,Büro vom Zoo,Дом управ. зоопарком,Управління зоопарку,动物园办公楼,
+LOC_PODUNK_DEPT_STORE,Podunk Dept Store,Ccial de Podunk,Centro comm. di Podunk,マザーズデイ　デパート,마더즈데이 백화점,C. comercial de Podunk,C. comercial de Podunk,Mercado de Boa Mãe,Dom Handlowy Podunk,Podunk Kaufhaus,Универмаг Поданка,Універмаг Поданку,波顿克百货公司,Mother's Day Dept Store
+LOC_PODUNK_HOTEL,Podunk Hotel,Hôtel de Podunk,Hotel di Podunk,マザーズデイ　ホテル,마더즈데이 호텔,Hotel de Podunk,Hotel de Podunk,Hotel de Boa Mãe,Hotel Podunk,Hotel Podunk,Отель Поданка,Готель Поданку,波顿克旅馆,Mother's Day Hotel
+LOC_BURGER_SHOP,Burger Shop,Fast-food,Hamburgeria,バーガーショップ,햄버거 가게,Tienda de hamburguesas,Hamburguesería,Hamburgueria,Burgerownia,Burgerladen,Бургерная,Бургерна,汉堡店,
+LOC_PODUNK_CEMETERY,Podunk Cemetery,Cimetière de Podunk,Cimitero di Podunk,はかば　きょうかいまえ,마더즈데이 공동묘지,Cementerio de Podunk,Cementerio de Podunk,Cemitério de Boa Mãe,Cmentarz Podunk,Podunk Friedhof,Кладбище Поданка,Кладовище Поданку,波顿克公墓,Mother's Day Cemetery
+LOC_ZOO_ENTRANCE,Zoo Entrance,Entrée du zoo,Ingresso dello zoo,どうぶつえんまえ,동물원 입구,Entrada del zoo,Entrada al zoo,Entrada do Zoológico,Wejście do Zoo,Zoo-Eingang,Вход в зоопарк,Вхід в зоопарк,动物园入口,
+LOC_OUTSIDE_PODUNK,Outside Podunk,Périphérie de Podunk,Periferia di Podunk,マザーズデイ　こうがい,마더즈데이 외곽,Afueras de Podunk,Afueras de Podunk,Fora de Boa Mãe,Poza Podunk,Außerhalb von Podunk,Пригород Поданка,Передмістя Поданку,波顿克郊外,Outside Mother's Day
+LOC_MAGICANT_HOUSE,Magicant,Magicant,Magicant,マジカント,매지컨트,Magicant,Magicant,Magicant,Magicant,Magicant,Грезия,Магіянт,魔法之地,
+LOC_CRYSTAL_CAVERNS,Crystal Caverns,Cavernes de Cristal,Grotte cristalline,ちかたいが,크리스탈 대동굴,Cavernas Cristalinas,Cavernas Cristalinas,Cavernas Cristalinas,Kryształowe Groty,Kristallkaverne,Кристальные пещеры,Кристальні печери,水晶洞穴,
+LOC_CRYSTAL_CAVERNS_SEA,Crystal Caverns Sea,Mer de Cristal,Oceano cristallino,ちかたいが　きすいいき,크리스탈 대동굴 해안,Cavernas Cristalinas: Mar,Cavernas Cristalinas: Mar,Cavernas Cristalinas: Mar,Morze Kryszt. Grot,See der Kristallkaverne,Море Крист. пещер,Море Кристал. печер,水晶洞穴海,
+LOC_CRYSTAL_CAVERNS_DEPTHS,Crystal Caverns Depths,Profondeurs de Cristal,Profondità cristalline,ちかたいがのはて,크리스탈 대동굴 심층,Cav. Crist.: Profundidades,Cav. Cris.: Profundidades,Cav. Crist.: Profundezas,Głębiny Kryszt. Grot,Tiefen der Kristallkaverne,Глубины Крист. пещер,Кристальні глубіни,水晶洞穴深处,
+LOC_MERRYSVILLE,Merrysville,Merrysville,Merrysville,サンクスギビング,땡스기빙데이,Merrysville,Merrysville,Gratidão,Merrysville,Merrysville,Меррисвиль,Меррісвіль,梅里斯维尔,Thanksgiving
+LOC_MERRYSVILLE_HOTEL,Merrysville Hotel,Hôtel de Merrysville,Hotel di Merrysville,サンクスギビング　ホテル,땡스기빙데이 호텔,Hotel de Merrysville,Hotel de Merrysville,Hotel de Gratidão,Hotel Merrysville,Hotel Merrysville,Отель Меррисвиля,Готель Меррісвіля,梅里斯维尔旅馆,Thanksgiving Hotel
+LOC_LLOYD'S_APARTMENT,[Lloyd]'s Home,Chez [Lloyd],Casa di [Lloyd],ロイドのアパート,[Lloyd]의 집,Depto. de [Lloyd],Casa de [Lloyd],Apto. do [Lloyd],Dom [decline:Lloyd:M:1],[genitive:Lloyd] Wohnung,Дом [decline:Lloyd:M:1],Хата [decline:Lloyd:M:1],[Lloyd]的公寓,
+LOC_OUTSIDE_MERRYSVILLE,Outside Merrysville,Périphérie de Merrysville,Periferia di Merrysville,サンクスギビングこうがい,땡스기빙데이 외곽,Afueras de Merrysville,Afueras de Merrysville,Fora de Gratidão,Poza Merrysville,Außerhalb von Merrysville,Пригород Меррисвиля,Передмістя Меррісвіля,梅里斯维尔郊外,Outside Thanksgiving
+LOC_SWEET'S_LITTLE_FACTORY,Sweet's Little Factory,Usine Minichoupi,Piccola Dolce Fabbrica,スイートリトルこうじょう,스위트 리틀 팩토리,Fábrica Pequedulce,Fábrica Pequedulce,Fábrica da Docita,Fabryka Bombonierka,Süße kleine Fabrik,Фабрика «Крошка»,Фабрика «Крихітка»,甜甜小工厂,
+LOC_SWEET'S_ENTRANCE,Sweet's Entrance,Usine Minichoupi – Entrée,Piccolo Dolce Ingresso,スイートリトルこうじょうまえ,스위트 리틀 팩토리 앞,Entrada a Pequedulce,Entrada a Pequedulce,Entrada a Docita,Wejście do Bombonierki,Süßer Fabrikeingang,Вход в «Крошку»,Вхід до «Крихітки»,甜甜小工厂入口,
+LOC_DUNCAN'S_FACTORY_1F,Duncan's Factory 1F,Usine de Duncan – RdC,Fabbrica di Duncan PT,ダンカンこうじょう　１F,던컨 공장 1층,Fábrica Duncan PB,Fábrica Duncan PB,Fábrica Duncan: T,"Fabryka Duncana, Parter",Duncan-Fabrik EG,Завод Дункана: этаж 1,Завод Дункана: 1 пов.,邓肯工厂1楼,
+LOC_DUNCAN'S_FACTORY_2F,Duncan's Factory 2F,Usine de Duncan – 1ᵉʳ ét.,Fabbrica di Duncan P1,ダンカンこうじょう　２F,던컨 공장 2층,Fábrica Duncan P1,Fábrica Duncan P1,Fábrica Duncan: 1ºA,"Fabryka Duncana, Piętro 2",Duncan-Fabrik 1. Stock,Завод Дункана: этаж 2,Завод Дункана: 2 пов.,邓肯工厂2楼,
+LOC_DUNCAN'S_REST_AREA,Duncan's Rest Area,Duncan – Salle de pause,Area relax di Duncan,ダンカンこうじょう　きゅうけいじょ,던컨 공장 휴게소,Duncan: Zona de descanso,Duncan: Zona de descanso,Duncan: Área de descanso,Pokój Socjalny u Duncana,Duncans Erholungsbereich,Зона отдыха,Зона відпочинку,邓肯工厂休息区,
+MAP_PODUNK_PODUNK,Podunk,Podunk,Podunk,Mother's\nDay,마더즈데이,Podunk,Podunk,Boa Mãe,Podunk,Podunk,Поданк,Поданк,波顿克,Mother's\nDay
+MAP_PODUNK_CANARY,Canary\nVillage,Village\nCanari,Villaggio\nCanarino,Canary\nVillage,카나리아\n마을,Villa\nCanario,Aldea\nCanaria,Vila\nCanarinho,Wioska\nKanarków,Kanarien-\nDorf,Канарская\nдеревушка,Село\nканарок,金丝雀\n村庄,
+MAP_PODUNK_CEMETERY,Cemetery,Cimetière,Cimitero,Cemetery,공동묘지,Cementerio,Cementerio,Cemitério,Cmentarz,Friedhof,Кладбище,Кладовище,公墓,
+MAP_PODUNK_ZOO,Choucream\nZoo,Zoo    \nPatachou    ,Zoo    \nProfiterole    ,Choucream\nZoo,슈크림    \n동물원    ,Zoo    \nChoucream    ,Zoo    \nChoucream    ,Zoológico   \nChoucream   ,Zoo    \nChoucream    ,Windbeutel-\nZoo,Зоопарк   \n«Профитроль»   ,Зоопарк   \n«Профітроль»   ,奶油泡芙\n动物园,
+MAP_MAGICANT_TOWN,Town,Village,Città,Town,마을,Pueblo,Pueblo,Centro,Miasto,Stadt,Город,Місто,城镇,
+MAP_MAGICANT_FOUNTAIN,Fountain,Fontaine de la Reine-Mary,Fontana,Fountain,분수,Fuente,Fuente,Fonte,Fontanna,Königs-\nBrunnen,Фонтан,Фонтан,喷泉,Mother's Day
+MAP_MAGICANT_QUEEN_MARY_CASTLE,Queen Mary's\nCastle,Château de\nla Reine-Mary,Castello della\nRegina Mary,Queen Mary's\nCastle,메리 여왕의\n성,Castillo de\nReina Mary,Castillo de\nReina Mary,Castelo da\nRainha Mary,Zamek\nKrólowej Mary,Marys\nPalast,Замок\nкоролевы Мэри,Замок королеви\nМері,玛丽女王的\n城堡,
+MAP_MAGICANT_FLYING_MEN,Flying\nMen,Garuda,Flying\nMan,Flying\Man,플라잉\n맨,Flying\nMen,Hombres\nVoladores,Homens\nVoadores,Latający\nPanowie,Fliegende\nMänner,Дом\nполетчиков,Льотчики,飞人的住宅,
+MAP_MAGICANT_EAST_WELL_SYSTEM,East Well\nSystem,Île aux Puits,Sistema pozzi\nOrientali,East Well\nSystem,동녘 우물터,Sistema de\nPozos este,Sistema de\nPozos este,Sistema Leste\nde Poços,Wschodnie\nStudnie,Öst. Brunnen-\Kanäle,Восточная сеть\nколодцев,Східна система\nколодязів,东方之井,
+MAP_MERRYSVILLE_MERRYSVILLE,Merrysville,Merrysville,Merrysville,Thanksgiving,땡스기빙데이,Merrysville,Merrysville,Gratidão,Merrysville,Merrysville,Меррисвиль,Меррісвіль,梅里斯维尔,Thanksgiving
+MAP_MERRYSVILLE_SWEET_FACTORY,Sweet's Little\nFactory,Usine Minichoupi,Piccola Dolce\nFabbrica,Sweet Little Factory,스위트 리틀\n팩토리,Fábrica\nPequedulce,Fábrica\nPequedulce,Fábrica da\nDocita,Fabryka\nBombonierka,Süße kleine\nFabrik,Фабрика\n«Крошка»,Фабрика\n«Крихітка»,甜甜小工厂,
+MAP_MERRYSVILLE_DUNCANS_FACTORY,Duncan's\nFactory,Usine de Duncan,Fabbrica\ndi Duncan,Duncan Factory,던컨 공장,Fábrica\nDuncan,Fábrica\nDuncan,Fábrica\nDuncan,Fabryka\nDuncana,Duncans\nFabrik,Завод\nим. Дункана,Завод\niм. Дункана,邓肯工厂,
+DEST_HOME,Home,Chez [Ninten],Casa di [Ninten],マイホーム,[Ninten]의 집,Casa de [Ninten],Casa de [Ninten],Casa de [Ninten],Dom [decline:Ninten:M:1],[genitive:Ninten] Zuhause,Дом [decline:Ninten:M:1],Дім [decline:Ninten:M:1],家,
+DEST_PODUNK,Podunk,Podunk,Podunk,マザーズデイ,마더즈데이,Podunk,Podunk,Boa Mãe,Podunk,Podunk,Поданк,Поданк,波顿克,Mother's Day
+DEST_MAGICANT,Magicant,Magicant,Magicant,マジカント,매지컨트,Magicant,Magicant,Magicant,Magicant,Magicant,Грезия,Магіянт,魔法之地,
+DEST_MERRYSVILLE,Merrysville,Merrysville,Merrysville,サンクスギビング,땡스기빙데이,Merrysville,Merrysville,Gratidão,Merrysville,Merrysville,Меррисвиль,Меррісвіль,梅里斯维尔,Thanksgiving
+DEST_REINDEER,Reindeer,Reindeer,Reindeer,レインディア,레인디어,Reindeer,Reindeer,Renápolis,Reindeer,Reindeer,Рейндир,Рейндір,驯鹿镇,
+DEST_SPOOKANE,Spookane,Atrocity,Spookane,ハロウィーン,할로윈,Spookane,Spookane,Spookane,Spookane,Spookane,Криптаун,Склептаун,斯普坎,Halloween
+DEST_SNOWMAN,Snowman,Snowman,Snowman,スノーマン,스노우맨,Snowman,Snowman,Snowman,Snowman,Snowman,Сноумен,Сноумен,雪人镇,
+DEST_YUCCA,Yucca Desert,Désert de Yucca,Deserto Yucca,アドベントさばく,어드벤트 사막,Desierto de Yucca,Desierto de Yucca,Deserto de Yucca,Pustynia Yucca,Yucca-Wüste,Пустыня Юкка,Пустеля Юка,丝兰沙漠,Advent Desert
+DEST_YOUNGTOWN,Youngtown,Youngtown,Youngtown,イースター,이스터,Youngtown,Youngtown,Youngtown,Youngtown,Youngtown,Юнтаун,Юнтаун,扬敦,Easter
+DEST_ELLAY,Ellay,Ellay,Ellay,バレンタイン,발렌타인,Ellay,Ellay,Ellay,Ellay,Ellay,Эллэй,Еллей,艾莱,Valentine
+DEST_MTITOI,Mt. Itoi,Mont Itoi,Monte Itoi,ホーリーローリー,홀리 롤리 마운틴,Mt. Itoi,Monte Itoi,Monte Itoi,Góra Itoi,Berg Itoi,Гора Итои,Гора Ітой,糸井山,Holy Loly Mountain
+DEST_UNION,Union Station,Gare de l'Union,Union Station,サンタクロース,산타클로스 역,Estación de la Unión,Estación de la Unión,Estação Felicidade,Stacja Union,Unionsbahnhof,Станция «Единство»,Станція «Єдність»,联合车站,Santa Claus Station

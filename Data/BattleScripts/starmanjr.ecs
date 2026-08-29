@@ -1,0 +1,22 @@
+define enemy
+
+first_call:
+  enemy = get_script_bp()
+  yield enemy.get_current_hp() < 850
+  enemy.set_scripted_skill(callHelpStarmanJr1)
+  goto(second_call)
+
+second_call:
+  yield enemy.get_current_hp() < 600
+  enemy.set_scripted_skill(callHelpStarmanJr2)
+  goto(third_call)
+
+third_call:
+  yield enemy.get_current_hp() < 350
+  enemy.set_scripted_skill(callHelpStarmanJr3)
+  goto(beam)
+
+beam:
+  yield enemy.get_current_hp() < 160
+  enemy.set_scripted_text("starmanjrtext")
+  enemy.set_scripted_skill(pkBeamG_StarmanJr)

@@ -1,0 +1,15 @@
+'0':
+  actors:
+    cat: Objects/Characters/npc4
+  if:
+    leader: lloyd
+    goto: '1'
+  goto: '2'
+'1':
+  name: DIALOGUE_MAGICANT_CANDY_SPEAKER_Candy
+  sound: Strange
+  text: DIALOGUE_MAGICANT_CANDY2_1
+'2':
+  name: DIALOGUE_MAGICANT_CANDY_SPEAKER_Candy
+  sound: Strange
+  text: DIALOGUE_MAGICANT_CANDY2_2

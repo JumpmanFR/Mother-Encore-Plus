@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/BottleRocket.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/EBMain.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Graphics/UI/Title/Clapper.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/UI/GameVersion.gd" type="Script" id=4]
+
+[node name="GameVersion" type="TextureRect"]
+margin_right = 47.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+_act_label = NodePath("Act")
+_version_label = NodePath("Version")
+
+[node name="Act" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 13.0
+margin_right = 43.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "ACT 2"
+align = 1
+
+[node name="Version" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 28.0
+margin_right = 45.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "VERSION"
+align = 1

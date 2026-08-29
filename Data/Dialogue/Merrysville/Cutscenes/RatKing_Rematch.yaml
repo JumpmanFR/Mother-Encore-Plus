@@ -1,0 +1,184 @@
+"0":
+  actors:
+    ninten: leader
+    ratking: Objects/NPCs/ratking
+    rat1: Objects/NPCs/rat1
+    rat2: Objects/NPCs/rat2
+    dustcloud: Objects/NPCs/dustcloud
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_2
+  options:
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_0: "yes"
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_CLOSET-OPT_1: "no"
+    cancel: "no"
+"yes":
+  musicvolume: -50
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_REMATCH_0
+  soundeffect: M3/Critter Cry.mp3
+  goto: "ratAppear"
+"ratAppear":
+  showbox: false
+  movecam:
+    x: -544
+    length: 1
+  teleportactors:
+    ratking:
+      x: -400
+      y: -815
+    rat1:
+      x: -392
+      y: -823
+    rat2:
+      x: -384
+      y: -805
+  actorsmove:
+    ratking:
+      movement:
+        - x: -504
+          y: -815
+      speed: 128
+      animation: Walk
+      type: position
+    rat1:
+      movement:
+        - wait: 0.1
+        - x: -488
+          y: -823
+      speed: 128
+      animation: Walk
+      type: position
+    rat2:
+      movement:
+        - wait: 0.1
+        - x: -488
+          y: -805
+      speed: 128
+      animation: Walk
+      type: position
+  actorsturn:
+    ninten:
+      x: 1
+      y: 0
+  autowait: 1.4
+  goto: "ratTalk"
+"ratTalk":
+  name: RATKING_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_RATKING_REMATCH_1
+  goto: "otherRatsComeIn"
+"otherRatsComeIn":
+  showbox: false
+  movecam:
+    actor: ratking
+  actorsmove:
+    ratking:
+      movement:
+        - jump:
+            height: 8
+            times: 8
+            async: true
+        - turnto:
+            x: 0
+            y: -1
+        - turnto:
+            x: 1
+            y: 0
+        - turnto:
+            x: 0
+            y: 1
+        - turnto:
+            x: -1
+            y: 0
+        - x: -504
+          y: -816
+      speed: 128
+      type: position
+    rat1:
+      movement:
+        - wait: 0.6
+        - jump:
+            height: 8
+            times: 6
+            async: true
+        - x: -504
+          y: -800
+      speed: 128
+      type: position
+    rat2:
+      movement:
+        - wait: 0.7
+        - jump:
+            height: 8
+            times: 6
+            async: true
+        - x: -504
+          y: -800
+      speed: 128
+      type: position
+  autowait: 0.8
+  goto: "dustcloud"
+"dustcloud":
+  teleportactors:
+    dustcloud:
+      x: -504
+      y: -800
+    ratking:
+      x: -408
+      y: 253
+    rat1:
+      x: -408
+      y: 253
+    rat2:
+      x: -408
+      y: 253
+  soundeffect: Rat Fight.mp3
+  actorsmove:
+    dustcloud:
+      movement:
+        - shake:
+            x: 2
+            y: 0
+            length: 0.2
+        - shake:
+            x: 0
+            y: 2
+            length: 0.2
+        - shake:
+            x: 4
+            y: 0
+            length: 0.2
+        - shake:
+            x: 0
+            y: 4
+            length: 0.2
+        - shake:
+            x: 8
+            y: 8
+            length: 0.2
+        - shake:
+            x: -8
+            y: 8
+            length: 0.2
+        - shake:
+            x: 10
+            y: 10
+            length: 0.2
+        - shake:
+            x: -4
+            y: 4
+            length: 0.2
+
+  autowait: 1.6
+  goto: "battleStart"
+"battleStart":
+  setflags: rat_king_attack
+  startbattle:
+    battlers:
+      - ratking: dustcloud
+    actorskeep:
+      ratking: true
+      rat1: true
+      rat2: true
+    winflag: rat_king_defeat
+    wincutscene: Merrysville/Cutscenes/RatKing_Defeat
+"no":
+  showbox: false

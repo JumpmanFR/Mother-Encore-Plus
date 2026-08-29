@@ -1,0 +1,31 @@
+name: STARMANJR_NAME
+description: STARMANJR_DESC
+article: STARMANJR_ART
+maxhp: 1000
+hp: 1000
+maxpp: 100
+pp: 350
+offense: 32
+defense: 48
+speed: 16
+iq: 40
+guts: 0
+level: 12
+exp: 404
+cash: 300
+skills:
+  - skill: bash
+    weight: 7
+  - skill: pkBeamAEnemy
+    weight: 1
+  - skill: readyForAttack
+    weight: 2
+battlescript: starmanjr
+boss: true
+sprite: starman jr
+music: Rising Star.ogg
+musicintro: ""
+bg: starmanjr
+affinity_multipliers:
+  blinded: 2
+  binding: 2

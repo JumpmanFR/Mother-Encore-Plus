@@ -1,0 +1,193 @@
+"0":
+  actors:
+    ninten: leader
+    trash: talker
+    lloyd: Objects/npc
+  talker: null
+  actorsmove:
+    ninten:
+      movement:
+        - x: 72
+          y: -24
+        - wait: 0.2
+        - turnto:
+            x: 0
+            y: -1
+            speed: 0.1
+      speed: 32
+      animation: Walk
+      type: position
+  autowait: 1
+  goto: "1"
+"1":
+  showbox: false
+  actorsanim:
+    trash:
+      anim: Raise
+  autowait: 1
+  goto: "2"
+"2":
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF2_2
+  sound: Shy
+  goto: "3"
+"3":
+  changecam: null
+  showbox: false
+  actorsanim:
+    trash:
+      anim: Hide
+  actorsmove:
+    ninten:
+      movement:
+        - x: 72
+          y: -16
+      speed: 32
+      animation: Walk
+      moonwalk: true
+      type: position
+  autowait: 0.3
+  goto: "4"
+"4":
+  objectsfunction:
+    CutscenePlayer: play_anim
+
+  actorsanim:
+    trash:
+      anim: Fall
+    lloyd:
+      anim: Down
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.5
+      speed: 32
+      animation: Idle
+      type: step
+  actorsturn:
+    ninten:
+      x: 1
+      y: -1
+      speed: 0.1
+      queue: true
+  autowait: 0.747
+  goto: "5"
+"5":
+  objectsfunction:
+    MusicArea2: play_music
+  movecam:
+    x: 112
+    length: 4
+  teleportactors:
+    lloyd:
+      x: 94
+      y: -40
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 104
+          y: -40
+      speed: 64
+      type: position
+    ninten:
+      movement:
+        - wait: 1
+        - x: 122
+          y: -16
+        - x: 122
+          y: -40
+      speed: 32
+      animation: Walk
+      type: position
+  actorsturn:
+    ninten:
+      x: -1
+      y: 0
+      speed: 0.1
+      queue: true
+  autowait: 4.5
+  goto: "6"
+"6":
+  actorsanim:
+    ninten:
+      anim: GetUp
+    lloyd:
+      anim: GetUp
+  autowait: 2
+  goto: "7"
+"7":
+  actorsanim:
+    lloyd:
+      anim: Idle
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF2_7
+  removeitem: BottleRocketGift
+  goto: "8"
+"8":
+  changecam: lloyd
+  showbox: false
+  actorsmove:
+    lloyd:
+      movement:
+        - wait: 0.2
+        - x: 104
+          y: -8
+        - x: 0
+          y: -8
+      speed: 48
+      animation: Walk
+      type: position
+      queue: true
+  actorsturn:
+    lloyd:
+      x: 0
+      y: 1
+      speed: 0.03
+  autowait: 3.2
+  goto: "9"
+"9":
+  actorsturn:
+    lloyd:
+      x: 1
+      y: 0
+      speed: 0.03
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF2_9
+  goto: "10"
+"10":
+  changecam: null
+  showbox: false
+  actorsturn:
+    lloyd:
+      x: 0
+      y: -1
+      speed: 0.04
+  setflags: lloyd_befriended
+  autowait: 0.3
+  goto: "11"
+"11":
+  objectsfunction:
+    TwinkleElementaryRoof/Openable Door: open
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 0
+          y: -8
+      speed: 32
+      animation: Walk
+      type: step
+  setflags: onyx_hook_found
+  autowait: 0.3
+  goto: "12"
+"12":
+  objectsteleport:
+    TrashCan:
+      x: 87
+      y: -39
+  eraseactors:
+    trash: true
+    lloyd: true
+  autowait: 1

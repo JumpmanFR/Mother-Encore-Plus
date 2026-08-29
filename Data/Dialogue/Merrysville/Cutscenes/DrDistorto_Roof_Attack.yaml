@@ -1,0 +1,164 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+    distorto: Objects/npc
+  changecam: distorto
+  movecam:
+    actor: distorto
+    length: 0
+  teleportactors:
+    ninten:
+      x: -36
+      y: 5
+    lloyd:
+      x: -20
+      y: 5
+  actorsdir:
+    ninten:
+      x: 1
+      y: -1
+    lloyd:
+      x: 1
+      y: -1
+  autowait: 2.6
+  goto: "1"
+"1":
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_0
+  goto: "pan_to_mountain"
+"pan_to_mountain":
+  showbox: false
+  movecam:
+    y: -110
+    length: 2
+  autowait: 2.3
+  goto: "continue_story"
+"continue_story":
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_1
+  goto: "pan_back"
+"pan_back":
+  movecam:
+    y: -10
+    length: 2
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_2
+  goto: "lloydconfused"
+"lloydconfused":
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_3
+  goto: "2"
+"2":
+  #distorto turns around
+  showbox: false
+  actorsanim:
+    distorto:
+      anim: Turn
+  setflags: drdistorto_4
+  autowait: 2
+  goto: "3"
+"3":
+  #yells so loud, the screen shakes. lloyd jumps
+  shakecam:
+    x: 0
+    y: 1
+    length: 0.3
+  soundeffect: Eb/yell.wav
+  talker: distorto
+  actorsanim:
+    distorto:
+      anim: TalkIdle
+      newidle: true
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_4
+  actorsmove:
+    distorto:
+      movement:
+        - jump:
+            height: 10
+            async: true
+        - shake:
+            x: 2
+            length: 0.5
+    lloyd:
+      movement:
+        - jump:
+            height: 12
+  goto: "5"
+"5":
+  #runs behind ninten for cover and shakes
+  showbox: false
+  actorsemote:
+    lloyd: sweat
+  actorsmove:
+    lloyd:
+      movement:
+        - turnto:
+            x: 0
+            y: -1
+        - x: 0
+          y: 5
+        - x: -20
+          y: 0
+        - turnto:
+            x: 1
+            y: -1
+        - shake:
+            x: 1
+      type: step
+      animation: Run
+      speed: 128
+  autowait: 2
+  goto: "distortoyap"
+"distortoyap":
+  talker: distorto
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_5
+  setflags: drdistorto_attack
+  goto: "6"
+"6":
+  #lloyd walks up a bit
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_6
+  goto: "7"
+"7":
+  talker: distorto
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO4_7
+  goto: "battle"
+"battle":
+  teleportactors:
+    ninten:
+      x: -36
+      y: 5
+    lloyd:
+      x: -20
+      y: 5
+    distorto:
+      x: 600
+      y: 50
+  actorsdir:
+    ninten:
+      x: 0
+      y: -1
+    lloyd:
+      x: 0
+      y: -1
+  startbattle:
+    winflag: drdistorto_defeat
+    battlers:
+      - drdistorto: distorto
+    actorskeep:
+      distorto: false
+    wincutscene: Merrysville/Cutscenes/DrDistorto_Roof_Defeat

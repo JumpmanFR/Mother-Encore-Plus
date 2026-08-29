@@ -1,0 +1,56 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+    distorto: Objects/npc
+  changecam: distorto
+  movecam:
+    actor: distorto
+    length: 0
+  teleportactors:
+    ninten:
+      x: -36
+      y: 5
+    lloyd:
+      x: -20
+      y: 5
+  actorsdir:
+    ninten:
+      x: 1
+      y: -1
+    lloyd:
+      x: 1
+      y: -1
+  autowait: 2.3
+  goto: "1"
+"1":
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO_REMATCH_0
+  goto: "2"
+"2":
+  #distorto turns around
+  showbox: false
+  actorsanim:
+    distorto:
+      anim: Turn
+  autowait: 2
+  goto: "3"
+"3":
+  talker: distorto
+  actorsanim:
+    distorto:
+      anim: TalkIdle
+      newidle: true
+  name: DRDISTORTO_NAME
+  sound: Adult
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO_REMATCH_1
+  goto: "battle"
+"battle":
+  startbattle:
+    winflag: drdistorto_defeat
+    battlers:
+      - drdistorto: distorto
+    actorskeep:
+      distorto: false
+    wincutscene: Merrysville/Cutscenes/DrDistorto_Roof_Defeat

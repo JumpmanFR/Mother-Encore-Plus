@@ -1,0 +1,44 @@
+"0":
+  name: "[Pippi]"
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PIPPI_1
+  options:
+    DIALOGUE_MAGICANT_GOODSKEEPER_0-OPT_0: "storage"
+    DIALOGUE_REUSABLE_PIPPI_1-OPT_0: "whatsup"
+    DIALOGUE_MAGICANT_GOODSKEEPER_0-OPT_1: "nothing"
+    cancel: "nothing"
+"storage":
+  text: ""
+  showbox: false
+  open_storage: true
+  caninput: false
+  cleardialog: true
+  goto: "thanks"
+"thanks":
+  name: "[Pippi]"
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PIPPI_2
+"nothing":
+  name: "[Pippi]"
+  sound: Kid
+  text: DIALOGUE_REUSABLE_PIPPI_3
+"whatsup":
+  name: "[Pippi]"
+  if:
+    - haspartymembers:
+        lloyd: true
+      flags:
+        pippi_met_lloyd: false
+      redirect: "Reusable/Pippi/meet_lloyd"
+    - haspartymembers:
+        lloyd: true
+      flags:
+        rocket_launched: true
+        # pippi_rocket: false
+      redirect: "Reusable/Pippi/rocket"
+    - haspartymembers:
+        ana: true
+      flags:
+        pippi_met_ana: false
+      redirect: "Reusable/Pippi/meet_ana"
+  redirect: "Reusable/Pippi/nothing_much"

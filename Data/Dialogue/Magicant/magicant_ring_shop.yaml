@@ -1,0 +1,16 @@
+'0':
+  name: DIALOGUE_MAGICANT_SHOPKEEPER_RING_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MAGICANT_SHOPKEEPER_0
+  goto: '1'
+'1':
+  text: ''
+  showbox: false
+  open_shop: magicant_ring_shop
+  caninput: false
+  goto: '2'
+  cleardialog: true
+'2':
+  name: DIALOGUE_MAGICANT_SHOPKEEPER_RING_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MAGICANT_SHOPKEEPER_2

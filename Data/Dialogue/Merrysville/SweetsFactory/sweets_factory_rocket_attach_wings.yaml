@@ -1,0 +1,21 @@
+"0":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_7
+  if:
+    hasitem: BottleRocketWings
+    goto: "question"
+  goto: "noPart"
+"question":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_11
+  options:
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_SINK_0-OPT_0: "attach"
+    DIALOGUE_MERRYSVILLE_DESCRIPTIONS_TWINKLEELEMENTARY_SINK_0-OPT_1: "no"
+    cancel: "no"
+"attach":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_12
+  soundeffect: Gift Box.mp3
+  removeitem: BottleRocketWings
+  setflags: br_wings_attached
+"no":
+  showbox: false
+"noPart":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_13

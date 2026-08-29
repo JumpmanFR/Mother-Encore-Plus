@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Weird Opponent.mp3-eaa6de0ac261797c3dfe6f9e209dc5cb.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Battle Themes/Weird Opponent.mp3"
+dest_files=[ "res://.import/Weird Opponent.mp3-eaa6de0ac261797c3dfe6f9e209dc5cb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=36.963

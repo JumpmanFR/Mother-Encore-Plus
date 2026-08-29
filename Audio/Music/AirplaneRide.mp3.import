@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/AirplaneRide.mp3-aba956ced72c3cf491ee11d8a2d6f183.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/AirplaneRide.mp3"
+dest_files=[ "res://.import/AirplaneRide.mp3-aba956ced72c3cf491ee11d8a2d6f183.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,34 @@
+name: MADCAR_NAME
+description: MADCAR_DESC
+article: MADCAR_ART
+maxhp: 165
+hp: 165
+maxpp: 0
+pp: 0
+offense: 29
+defense: 40
+speed: 27
+iq: 35
+guts: 0
+level: 20
+exp: 129
+cash: 59
+skills:
+  - skill: runOutOfControl
+    weight: 6
+  - skill: exhaustGas
+    weight: 1
+boss: false
+sprite: mad car
+music: Retro Enemy.mp3
+bg: madcar
+ov:
+  sprite: MadCarOV
+  anim: VehicleEnemy
+  shadow: false
+  maxSpeed: 96
+  acceleration: 900
+  friction: 900
+affinity_multipliers:
+  explosion: 2
+  flash: 0.5

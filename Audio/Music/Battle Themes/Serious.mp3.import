@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Serious.mp3-bed7c87ecee09839c8f38f51c5e387b6.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Battle Themes/Serious.mp3"
+dest_files=[ "res://.import/Serious.mp3-bed7c87ecee09839c8f38f51c5e387b6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0.0

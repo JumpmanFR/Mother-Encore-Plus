@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1310 - Maybe Hypnosis.mp3-190043b6053449e7d831e7843656f945.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/M3/1310 - Maybe Hypnosis.mp3"
+dest_files=[ "res://.import/1310 - Maybe Hypnosis.mp3-190043b6053449e7d831e7843656f945.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

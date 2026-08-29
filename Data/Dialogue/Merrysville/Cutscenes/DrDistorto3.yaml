@@ -1,0 +1,243 @@
+"0":
+  actors:
+    ninten: ninten
+    lloyd: lloyd
+    distorto: Above1/DistortoScreen/npc
+    enemy1: Objects/npc3
+    enemy2: Objects/npc4
+    enemy3: Objects/npc5
+  objectsfunction:
+    Objects/Color Switch: _operate_manually
+  actorsemote:
+    ninten: surprise
+  actorsmove:
+    ninten:
+      movement:
+        - turnto:
+            x: -1
+            y: 0
+        - wait: 0.4
+        - turnto:
+            x: 1
+            y: 0
+        - wait: 0.5
+        - turnto:
+            actor: lloyd
+    lloyd:
+      movement:
+        - turnto:
+            x: 0
+            y: 1
+        - wait: 0.5
+        - turnto:
+            x: -1
+            y: 0
+        - wait: 0.5
+        - turnto:
+            actor: ninten
+  musicvolume: -80
+  autowait: 1.5
+  goto: "lloydSurprise"
+"lloydSurprise":
+  talker: lloyd
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO3_0
+  sound: Shy
+  goto: "distortoDescend"
+"distortoDescend":
+  showbox: false
+  movecam:
+    x: -656
+    y: -1550
+    length: 2
+  tweenpos:
+    Above1/DistortoScreen:
+      y: -1576
+      duration: 2
+  actorsmove:
+    ninten:
+      movement:
+        - turnto:
+            x: 0
+            y: -1
+        - wait: 0.5
+        - x: -668
+          y: -1537
+        - turnto:
+            x: 0
+            y: -1
+      animation: Walk
+      speed: 32
+      type: position
+    lloyd:
+      movement:
+        - turnto:
+            x: 0
+            y: -1
+        - wait: 0.8
+        - x: -644
+          y: -1537
+        - turnto:
+            x: 0
+            y: -1
+      animation: Walk
+      speed: 32
+      type: position
+  autowait: 2.5
+  goto: "1"
+"1":
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO3_1
+  sound: Adult
+  goto: "2"
+"2":
+  #ninten talks
+  showbox: false
+  actorsanim:
+    ninten:
+      anim: Talk
+      newidle: true
+  autowait: 2
+  goto: "3"
+"3":
+  actorsanim:
+    ninten:
+      anim: Idle
+      newidle: true
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO3_2
+  sound: Adult
+  goto: "4"
+"4":
+  #lloyd replies
+  talker: lloyd
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO3_3
+  sound: Shy
+  goto: "5"
+"5":
+  #distorto replies
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO3_4
+  sound: Adult
+  goto: "6"
+  changecam: null
+"6":
+  #shouts so loud, ninten and lloyd flinch
+  actorsmove:
+    ninten:
+      movement:
+        - x: 0
+          y: 6
+      speed: 55
+      animation: Walk
+      type: step
+      moonwalk: true
+    lloyd:
+      movement:
+        - x: 0
+          y: 6
+      speed: 55
+      animation: Walk
+      type: step
+      moonwalk: true
+  talker: distorto
+  name: DRDISTORTO_NAME
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_DISTORTO3_5
+  sound: Adult
+  goto: "7"
+"7":
+  showbox: false
+  actorsdir:
+    enemy1:
+      x: 1
+      y: 0
+    enemy2:
+      x: 0
+      y: 1
+    enemy3:
+      x: -1
+      y: 0
+  actorsblend:
+    enemy1: false
+    enemy2: false
+    enemy3: false
+  actorsmove:
+    enemy1:
+      movement:
+        - wait: 0.8
+        - x: 0
+          y: 216
+        - jump:
+            height: 8
+      animation: Idle
+      type: step
+      speed: 600
+    enemy2:
+      movement:
+        - wait: 0.9
+        - x: 0
+          y: 216
+        - jump:
+            height: 8
+      animation: Idle
+      type: step
+      speed: 600
+    enemy3:
+      movement:
+        - wait: 1
+        - x: 0
+          y: 216
+        - jump:
+            height: 8
+      animation: Idle
+      type: step
+      speed: 600
+    ninten:
+      movement:
+        - wait: 1.5
+        - turnto:
+            x: -1
+    lloyd:
+      movement:
+        - wait: 1.4
+        - jump:
+            height: 8
+        - turnto:
+            x: 1
+            y: 0
+        - wait: 0.1
+        - turnto:
+            x: 0
+            y: -1
+        - wait: 0.1
+        - turnto:
+            x: 1
+            y: 0
+        - wait: 0.15
+        - x: -6
+          y: 0
+      speed: 32
+      animation: Walk
+      type: step
+      moonwalk: true
+  actorsemote:
+    lloyd: sweat
+  movecam:
+    y: -1544
+  tweenpos:
+    Above1/DistortoScreen:
+      y: -1744
+      duration: 1
+  autowait: 2.8
+  goto: "battle"
+"battle":
+  startbattle:
+    battlers:
+      - scrapper: enemy1
+      - oldrobot: enemy2
+      - barbot: enemy3
+    winflag: drdistorto_3

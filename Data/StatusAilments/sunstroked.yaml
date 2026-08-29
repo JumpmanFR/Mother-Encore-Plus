@@ -1,0 +1,23 @@
+healing:
+  persistent: true
+messages:
+  afflict_battle: BATTLE_MSG_STATUS_SUNSTROKED
+  effect: BATTLE_MSG_STATUS_SUNSTROKED_EFFECT
+  heal_battle: BATTLE_MSG_HEAL_STATUS_SUNSTROKED
+  heal_overworld: ACTION_RESULT_HEAL_SUNSTROKED
+  heal_overworld_fail: ACTION_RESULT_HEAL_SUNSTROKED_FAIL
+status_bubble: sunstroked
+effects_by_char:
+  field_party_member:
+    overworld_sweat: true
+    overworld_damage:
+      value: 8
+      variation: 2
+      steps: 8
+  any:
+    damage:
+      value: 3.5
+      variance: 2.5
+      color: 'E6E600'
+      message: BATTLE_MSG_STATUS_SUNSTROKED_EFFECT
+      moment: after

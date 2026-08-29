@@ -1,0 +1,18 @@
+"0":
+  if:
+    flags:
+      bottle_rocket_found: true
+    redirect: "Merrysville/Cutscenes/LloydRoof2"
+  goto: "1"
+"1":
+  actors:
+    ninten: leader
+    lloyd: talker
+  talker: null
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDROOF1_4
+  sound: Shy
+  actorsshake:
+    lloyd:
+      x: 1
+      length: 0.2

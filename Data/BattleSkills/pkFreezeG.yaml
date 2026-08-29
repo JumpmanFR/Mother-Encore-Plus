@@ -1,0 +1,21 @@
+name: PKFREEZE_NAME
+level: 0
+description: PKFREEZEG_DESC
+article: PKFREEZE_ART
+skill_type: psi
+action_type: 0 # Damage
+use_cases: 1 # Battle only
+psi_category: Offense
+damage_type: ice
+target_type: 0 # Enemy
+damage_or_heal: 80
+variance: 8
+priority: 0
+miss_chance: 0
+pp_cost: 18
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: pk_freeze_gamma
+user_anim: psi
+use_sound: ''
+hit_sound: ''

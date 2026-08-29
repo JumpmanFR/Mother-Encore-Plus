@@ -1,0 +1,33 @@
+name: LYNX_NAME
+description: LYNX_DESC
+article: LYNX_ART
+maxhp: 130
+hp: 130
+maxpp: 0
+pp: 0
+offense: 36
+defense: 29
+speed: 25
+iq: 30
+guts: 0
+level: 18
+exp: 68
+cash: 35
+skills:
+  - skill: bash
+    weight: 2
+  - skill: scratch
+    weight: 3
+boss: false
+sprite: lynx
+music: Weird Opponent.mp3
+bg: wavy
+ov:
+  sprite: LynxOV
+  anim: BasicEnemy
+affinity_multipliers:
+  fire: 1.5
+  sleeping: 2
+affinity_multipliers:
+  ice: 2
+  blinding: 1.5

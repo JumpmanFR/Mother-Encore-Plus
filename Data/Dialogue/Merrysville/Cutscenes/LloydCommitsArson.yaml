@@ -1,0 +1,297 @@
+"0":
+  changecam: lloyd
+  returncam: 0.5
+  actors:
+    ninten: leader
+    lloyd: Objects/lloydNPC
+  talker: lloyd
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_0
+  goto: "1"
+"1":
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.1
+        - x: -8
+          y: -608
+        - x: -272
+          y: -608
+        - x: -272
+          y: -648
+      speed: 48
+      animation: Walk
+      type: position
+    lloyd:
+      movement:
+        - x: -8
+          y: -608
+        - x: -272
+          y: -608
+        - x: -272
+          y: -648
+      speed: 48
+      animation: Walk
+      type: position
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_1
+  wait: 7.5
+  autoadvance: true
+  caninput: false
+  goto: "2"
+"2":
+  showbox: false
+  fadein:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "3"
+"3":
+  fadeout:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  teleportparty:
+    x: -320
+    y: -96
+  teleportactors:
+    ninten:
+      x: -320
+      y: -96
+    lloyd:
+      x: -320
+      y: -96
+  actorsdir:
+    ninten:
+      x: 0
+      y: 1
+    lloyd:
+      x: 0
+      y: 1
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.5
+        - x: -320
+          y: -56
+        - x: 80
+          y: -56
+        - x: 80
+          y: -96
+      speed: 48
+      animation: Walk
+      type: position
+    lloyd:
+      movement:
+        - x: -320
+          y: -56
+        - x: 80
+          y: -56
+        - x: 80
+          y: -96
+      speed: 48
+      animation: Walk
+      type: position
+  cleardialog: true
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_3
+  wait: 10
+  autoadvance: true
+  caninput: true
+  goto: "4"
+"4":
+  objectsfunction:
+    Bottom/Openable Door5: open
+  fadein:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  wait: 1
+  showbox: false
+  autoadvance: true
+  caninput: false
+  goto: "5"
+"5":
+  fadeout:
+    speed: 1
+    anim: Fade
+    color: "000000"
+  teleportparty:
+    x: 88
+    y: -280
+  teleportactors:
+    ninten:
+      x: 88
+      y: -272
+    lloyd:
+      x: 88
+      y: -272
+  actorsmove:
+    ninten:
+      movement:
+        - wait: 0.4
+        - x: 88
+          y: -288
+        - x: 16
+          y: -288
+        - x: 16
+          y: -352
+      speed: 48
+      animation: Walk
+      type: position
+    lloyd:
+      movement:
+        - x: 88
+          y: -288
+        - x: 0
+          y: -288
+        - x: 0
+          y: -352
+      speed: 48
+      animation: Walk
+      type: position
+  actorsturn:
+    lloyd:
+      x: 0
+      y: -1
+      speed: 0.03
+      queue: true
+    ninten:
+      x: -1
+      y: 0
+      speed: 0.03
+      queue: true
+
+  wait: 4
+  autoadvance: true
+  caninput: false
+  goto: "6"
+"6":
+  changecam: null
+  movecam:
+    x: 0
+    y: -368
+    length: 0.5
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_6
+  objectsfunction:
+    Objects/BottleRocket: show
+  musicvolume: -5
+  goto: "7"
+"7":
+  showbox: false
+  actorsmove:
+    lloyd:
+      movement:
+        - x: -16
+          y: -352
+      speed: 48
+      type: position
+  wait: 0.5
+  autoadvance: true
+  caninput: false
+  objectsfunction:
+    Objects/BottleRocket: start_blinking
+  goto: "8"
+"8":
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_8
+  musicvolume: -10
+  goto: "9"
+"9":
+  showbox: false
+  actorsturn:
+    lloyd:
+      x: 1
+      y: 0
+      speed: 0.09
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "10"
+"10":
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_10
+  objectsfunction:
+    Objects/BottleRocket: blink_faster
+  musicvolume: -20
+  goto: "11"
+"11":
+  showbox: false
+  actorsanim:
+    ninten:
+      anim: Talk
+      newidle: true
+  wait: 2
+  autoadvance: true
+  caninput: false
+  objectsfunction:
+    MusicArea: stop_music
+    Objects/BottleRocket: blink_faster
+  goto: "12"
+"12":
+  actorsanim:
+    ninten:
+      anim: Idle
+      newidle: true
+  name: "[Lloyd]"
+  sound: Shy
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_12
+  objectsfunction:
+    Objects/BottleRocket: blink_faster
+  goto: "13"
+"13":
+  objectsfunction:
+    Objects/BottleRocket: start_shaking
+  showbox: false
+  actorsemote:
+    lloyd: surprise
+    ninten: surprise
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "14"
+"14":
+  objectsfunction:
+    CutscenePlayer: play_anim
+  showbox: false
+  wait: 5
+  autoadvance: true
+  caninput: false
+  goto: "15"
+"15":
+  objectsfunction:
+    Objects/BottleRocket: hide
+  setflags: lab_destroyed
+  actorsanim:
+    ninten:
+      anim: Soot
+      newidle: true
+    lloyd:
+      anim: Soot
+      newidle: true
+  wait: 6
+  autoadvance: true
+  caninput: false
+  goto: "16"
+"16":
+  setflags: weird_teacher_appear
+  talker: null
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_LLOYDCOMMITSARSON_16
+  soundeffect: Party Fanfare.mp3
+  resetpartymembers:
+    lloyd: true
+  setpartymembers:
+    lloyd: true
+  changereplaced:
+    lloyd: lloyd
+  wait: 5

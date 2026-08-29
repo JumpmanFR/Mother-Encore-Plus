@@ -1,0 +1,16 @@
+'0':
+  name: DIALOGUE_MAGICANT_SHOPKEEPER_COIN_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MAGICANT_SHOPKEEPER_0
+  goto: '1'
+'1':
+  text: ''
+  showbox: false
+  open_shop: magicant_coin_shop
+  caninput: false
+  goto: '2'
+  cleardialog: true
+'2':
+  name: DIALOGUE_MAGICANT_SHOPKEEPER_COIN_SPEAKER
+  sound: Adult
+  text: DIALOGUE_MAGICANT_SHOPKEEPER_2

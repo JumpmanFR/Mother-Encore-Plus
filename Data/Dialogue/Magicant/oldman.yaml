@@ -1,0 +1,41 @@
+"0":
+  name: DIALOGUE_MAGICANT_OLDMAN_SPEAKER_OldMan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_OLDMAN_0
+  options:
+    DIALOGUE_MAGICANT_OLDMAN_0-OPT_0: "checkCard"
+    DIALOGUE_MAGICANT_OLDMAN_0-OPT_1: "2"
+    cancel: "2"
+"checkCard":
+  if:
+    hasitem: CashCard
+    goto: "1"
+  goto: "noCard"
+"noCard":
+  name: DIALOGUE_MAGICANT_OLDMAN_SPEAKER_OldMan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_OLDMAN_NOCARD
+"1":
+  text: ""
+  showbox: false
+  caninput: false
+  goto: "2"
+  use_atm: true
+"2":
+  name: DIALOGUE_MAGICANT_OLDMAN_SPEAKER_OldMan
+  sound: Adult
+  text: DIALOGUE_MAGICANT_OLDMAN_2
+  goto: "3"
+  boxsound: false
+"3":
+  showbox: false
+  movecam:
+    x: -640
+    y: -856
+    length: 0.5
+  objectsfunction:
+    Objects/Fountain: goodbye_old_man
+  wait: 4
+  autoadvance: true
+  caninput: false
+  telepathyeffect: null

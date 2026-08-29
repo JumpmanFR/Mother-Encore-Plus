@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dangerous Caves.mp3-8cc86f306aba38499b6ac99064215117.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Dangerous Caves.mp3"
+dest_files=[ "res://.import/Dangerous Caves.mp3-8cc86f306aba38499b6ac99064215117.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

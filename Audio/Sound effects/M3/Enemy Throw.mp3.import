@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Enemy Throw.mp3-8e7a19a1a017a84058382d0c9ba2b10f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/M3/Enemy Throw.mp3"
+dest_files=[ "res://.import/Enemy Throw.mp3-8e7a19a1a017a84058382d0c9ba2b10f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

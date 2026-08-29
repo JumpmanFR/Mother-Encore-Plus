@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/robot_power_up.mp3-0d76960ff48717c80c04f6ca9e580c60.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/PLACEHOLDERS/robot_power_up.mp3"
+dest_files=[ "res://.import/robot_power_up.mp3-0d76960ff48717c80c04f6ca9e580c60.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

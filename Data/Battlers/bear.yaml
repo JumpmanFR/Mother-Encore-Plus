@@ -1,0 +1,31 @@
+name: BEAR_NAME
+description: BEAR_DESC
+article: BEAR_ART
+maxhp: 80
+hp: 80
+maxpp: 0
+pp: 0
+offense: 42
+defense: 64
+speed: 28
+iq: 20
+guts: 0
+level: 4
+exp: 140
+cash: 250
+skills:
+- skill: bash
+  weight: 1
+- skill: bigGrin
+  weight: 1
+- skill: tackle
+  weight: 1
+- skill: scratch
+  weight: 1
+boss: false
+sprite: bear
+music: ''
+bg: ''
+ov:
+  sprite: BearOV
+  anim: BasicEnemy

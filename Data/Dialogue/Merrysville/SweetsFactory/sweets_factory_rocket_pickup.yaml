@@ -1,0 +1,5 @@
+"0":
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_SWEETSFACTORY_ROCKET_14
+  soundeffect: Item Received.mp3
+  item: BottleRocketGift
+  setflags: "bottle_rocket_found"

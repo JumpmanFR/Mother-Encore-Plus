@@ -1,0 +1,32 @@
+name: MEANERRAT_NAME
+description: MEANERRAT_DESC
+article: MEANERRAT_ART
+maxhp: 180
+hp: 180
+maxpp: 0
+pp: 0
+offense: 34
+defense: 33
+speed: 11
+iq: 1
+guts: 5
+level: 14
+exp: 90
+cash: 33
+skills:
+  - skill: scratch
+    weight: 3
+  - skill: bite
+    weight: 2
+  - skill: nastyWords
+    weight: 1
+boss: false
+sprite: stronger rat
+music: Flippant Foe.mp3
+bg: meanerrat
+ov:
+  sprite: StrongerRatOV
+  anim: BasicEnemy
+affinity_multipliers:
+  fire: 2
+  sleeping: 1.5

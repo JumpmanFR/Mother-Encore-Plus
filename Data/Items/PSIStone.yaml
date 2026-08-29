@@ -1,0 +1,24 @@
+name: PSISTONE_NAME
+sorting_name: PSISTONE_SORT
+description: PSISTONE_DESC
+article: PSISTONE_ART
+keyitem: false
+doses: 5
+cost: 0
+value: 40 # Per dose
+can_consume: [ninten, ana]
+actions:
+  - name: PSISTONE_ACT1
+    function: consume
+transform: ""
+slot: ""
+HPrecover: 0
+PPrecover: 20
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

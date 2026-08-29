@@ -1,0 +1,146 @@
+"0":
+  actors:
+    ninten: leader
+    dog: Objects/NPCS/guard_dog
+    lloyd: lloyd
+  actorsdir:
+    ninten:
+      x: 0
+      y: 0
+    dog:
+      x: 0
+      y: 0
+  actorsemote:
+    dog: exclamation
+  actorsjump:
+    dog:
+      speed: 0.2
+      height: 4
+  autowait: 1
+  goto: "1"
+"1":
+  actorsemote:
+    lloyd: sweat
+    dog: angry
+  soundeffect: M3/Growl 2.mp3
+  autowait: 1.6
+  actorsshake:
+    dog:
+      x: 1
+      length: 0.8
+  goto: "2"
+"2":
+  name: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_1
+  goto: "3"
+"3":
+  #ninten and lloyd move in front of the dog. lloyd hides behind ninten.
+  showbox: false
+  actorsmove:
+    ninten:
+      movement:
+        - x: 455
+          y: -3680
+      speed: 105
+      animation: Run
+      type: position
+    lloyd:
+      movement:
+        - wait: 0.1
+        - x: 455
+          y: -3668
+      speed: 105
+      animation: Run
+      type: position
+  autowait: 0.5
+  goto: "4"
+"4":
+  actorsdir:
+    ninten:
+      x: 0
+      y: -1
+    lloyd:
+      x: 0
+      y: -1
+  goto: "5"
+"5":
+  #lloyd shakes
+  actorsshake:
+    lloyd:
+      x: 1
+      length: 0.5
+  name: "[Lloyd]"
+  talker: lloyd
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_2
+  goto: "6"
+"6":
+  talker: dog
+  #ninten shows pass
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_3
+  goto: "7"
+"7":
+  name: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_SPEAKER
+  soundeffect: M3/Dog_Sniffing.mp3
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_4
+  autowait: 2.3
+  goto: "8"
+"8":
+  name: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_SPEAKER
+  soundeffect: M3/Dog_bark_twice.mp3
+  actorsjump:
+    dog:
+      speed: 0.2
+      height: 4
+  removeitem: FactoryPass
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_5
+  goto: "9"
+"9":
+  showbox: false
+  actorsturn:
+    ninten:
+      x: 0
+      y: 1
+      speed: 0.03
+  autowait: 1.3
+  actorsemote:
+    lloyd: sweat
+  goto: "10"
+"10":
+  actorsmove:
+    lloyd:
+      movement:
+        - x: 455
+          y: -3661
+      speed: 90
+      animation: Walk
+      type: position
+      moonwalk: true
+  name: "[Lloyd]"
+  talker: lloyd
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_6
+  goto: "11"
+"11":
+  talker: dog
+  actorsturn:
+    ninten:
+      x: 0
+      y: -1
+      speed: 0.04
+  name: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_SPEAKER
+  actorsanim:
+    dog:
+      anim: Walk
+      newidle: true
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_7
+  soundeffect: M3/Growl 2.mp3
+  actorsshake:
+    dog:
+      x: 1
+      length: 0.5
+  goto: "12"
+"12":
+  #start battle
+  startbattle:
+    battlers:
+      - guarddog: dog
+    winflag: guard_dog_beaten

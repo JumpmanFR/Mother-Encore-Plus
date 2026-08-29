@@ -1,0 +1,23 @@
+name: MAPSWEETS_NAME
+sorting_name: MAPSWEETS_SORT
+description: MAPSWEETS_DESC
+article: MAPSWEETS_ART
+keyitem: true
+cost: 0
+value: 0
+map_for: Sweet Little Factory
+actions:
+  - name: INVENTORY_ACTION_USE
+    function: use
+transform: ""
+slot: ""
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

@@ -1,0 +1,33 @@
+name: SKUNK_NAME
+description: SKUNK_DESC
+article: SKUNK_ART
+maxhp: 140
+hp: 140
+maxpp: 0
+pp: 0
+offense: 25
+defense: 44
+speed: 8
+iq: 30
+guts: 0
+level: 18
+exp: 55
+cash: 32
+items:
+- chance: 40
+  item: FreshMint
+skills:
+  - skill: bash
+    weight: 3
+  - skill: nauseousOdor
+    weight: 2
+boss: false
+sprite: skunk
+music: Weak Opponent.mp3
+bg: longy
+ov:
+  sprite: SkunkOV
+  anim: BasicEnemy
+affinity_multipliers:
+  ice: 1.5
+  sleeping: 1.5

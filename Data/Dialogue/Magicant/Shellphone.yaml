@@ -1,0 +1,59 @@
+"0":
+    text: DIALOGUE_MAGICANT_SHELLPHONE
+    goto: "1"
+"1":
+    name: DIALOGUE_MAGICANT_MIMICKER_SPEAKER_Jackie
+    sound: Adult
+    text: DIALOGUE_MAGICANT_MIMICKER_0
+    options:
+        DIALOGUE_MAGICANT_MIMICKER_0-OPT_0: "2"
+        DIALOGUE_MAGICANT_MIMICKER_0-OPT_1: "8"
+        cancel: "8"
+    goto: "2"
+"2":
+    name: DIALOGUE_MAGICANT_MIMICKER_SPEAKER_Jackie
+    sound: Adult
+    text: DIALOGUE_REUSABLE_DAD_NORMAL_0
+    if:
+        flags:
+            earned_cash: true
+        goto: "3"
+    goto: "4"
+"3":
+    name: DIALOGUE_MAGICANT_MIMICKER_SPEAKER_Jackie
+    sound: Adult
+    text: DIALOGUE_REUSABLE_DAD_NORMAL_1
+    goto: "4"
+"4":
+    name: DIALOGUE_MAGICANT_MIMICKER_SPEAKER_Jackie
+    sound: Adult
+    text: DIALOGUE_REUSABLE_DAD_NORMAL_2
+    options:
+        DIALOGUE_REUSABLE_DAD_NORMAL_3-OPT_0: "5"
+        DIALOGUE_REUSABLE_DAD_NORMAL_3-OPT_1: "7"
+        cancel: "7"
+    unsetflags: money_earned
+
+"5":
+    text: ""
+    showbox: false
+    unsetflags: saved
+    caninput: false
+    if:
+        flags:
+            saved: true
+        goto: "6"
+    goto: "7"
+    save: true
+"6":
+    name: DIALOGUE_MAGICANT_MIMICKER_SPEAKER_Jackie
+    sound: Adult
+    text: DIALOGUE_REUSABLE_DAD_NORMAL_5
+    goto: "7"
+"7":
+    name: DIALOGUE_MAGICANT_MIMICKER_SPEAKER_Jackie
+    sound: Adult
+    text: DIALOGUE_REUSABLE_DAD_NORMAL_6
+    goto: "8"
+"8":
+    text: DIALOGUE_REUSABLE_DAD_NORMAL_7

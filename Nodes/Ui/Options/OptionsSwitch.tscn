@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/UI/Options/OptionsSwitch.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Ui/HighlightLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graphics/UI/ATM/select_arrow_gray_animated.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 10, 9 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 10, 0, 10, 9 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 20, 0, 10, 9 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.729412, 0.32549, 0.894118, 1 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="OptionsSwitch" type="PanelContainer"]
+margin_right = 28.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 0, 12 )
+size_flags_horizontal = 2
+custom_styles/panel = SubResource( 24 )
+script = ExtResource( 2 )
+
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_right = 28.0
+margin_bottom = 12.0
+grow_horizontal = 0
+rect_min_size = Vector2( 20, 12 )
+size_flags_horizontal = 8
+custom_constants/separation = 0
+
+[node name="ArrowLMargin" type="Control" parent="HBox"]
+margin_top = 6.0
+margin_right = 10.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 10, 0 )
+size_flags_vertical = 4
+
+[node name="ArrowL" type="AnimatedSprite" parent="HBox/ArrowLMargin"]
+position = Vector2( 3, -1 )
+frames = SubResource( 22 )
+flip_h = true
+
+[node name="Label" parent="HBox" instance=ExtResource( 3 )]
+margin_left = 10.0
+margin_right = 18.0
+rect_min_size = Vector2( 8, 12 )
+custom_styles/normal = SubResource( 4 )
+text = ""
+align = 2
+
+[node name="ArrowRMargin" type="Control" parent="HBox"]
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 28.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 10, 0 )
+size_flags_vertical = 4
+
+[node name="ArrowR" type="AnimatedSprite" parent="HBox/ArrowRMargin"]
+position = Vector2( 6, -1 )
+frames = SubResource( 23 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -1,0 +1,23 @@
+name: BOTTLEROCKET_NAME
+sorting_name: BOTTLEROCKET_SORT
+description: BOTTLEROCKET_DESC
+article: BOTTLEROCKET_ART
+keyitem: false
+cost: 360
+value: 100
+can_use: [lloyd]
+actions: []
+battle_action:
+  skill: useBottleRocket
+transform: ""
+slot: ""
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

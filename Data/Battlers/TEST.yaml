@@ -1,0 +1,32 @@
+name: TEST_NAME
+description: TEST_DESC
+article: TEST_ART
+maxhp: 80
+hp: 80
+maxpp: 80
+pp: 80
+offense: 6
+defense: 15
+speed: 4
+iq: 5
+guts: 0
+level: 3
+exp: 400
+cash: 1
+skills:
+  - skill: bite
+    weight: 10
+  - skill: shieldA
+    weight: 10
+eats_stolen_items: true
+boss: false
+sprite: TEST
+music: ''
+bg: ''
+affinity_multipliers:
+  fire: 0.5
+  ice: 0.5
+  lightning: 1.5
+  explosion: 1.2
+  insecticide: 0.9
+  flee: 0.2

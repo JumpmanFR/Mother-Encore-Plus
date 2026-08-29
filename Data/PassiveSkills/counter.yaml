@@ -1,0 +1,13 @@
+conditions:
+  skill_type: [ '', 'basic', 'skill' ]
+priority: 2
+is_shield: true
+dialogue_apply: BATTLE_MSG_SHIELD_START_C
+dialogue_reapply: BATTLE_MSG_SHIELD_RENEW_C
+dialogue_vanish: BATTLE_MSG_SHIELD_STOP_C
+health: 6
+actions:
+  sound: ''
+  vibrate: 0.5
+  damage_multiplier: 0.5
+  counter_multiplier: 0.5

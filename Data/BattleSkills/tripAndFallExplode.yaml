@@ -1,0 +1,22 @@
+name: ''
+description: ''
+dialog: ''
+skill_type: ''
+action_type: 0 # Damage
+use_cases: 1 # Battle only
+damage_type: explosion
+target_type: 6 # All enemies
+damage_or_heal: 300
+variance: 10
+priority: 0
+miss_chance: 0
+pp_cost: 0
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+enemy_screen_effect: e_pk_fire_alpha
+enemy_flash_color: 'BA53E4'
+use_sound: fire3
+hit_sound: fire3
+traits:
+  - kill_user

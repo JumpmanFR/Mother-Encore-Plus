@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Graphics/Objects/Common/Instant Revitalizing Machine.png" type="Texture" id=1]
+[ext_resource path="res://Nodes/Reusables/interact_dialog.tscn" type="PackedScene" id=2]
+
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 24, 16 )
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform vec4 glow_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+uniform float glow_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = color.rgb + glow_color.rgb * glow_modifier;
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+shader_param/glow_modifier = 0.0
+
+[node name="Instant Revitalizing Device" type="Sprite"]
+position = Vector2( 0, -4 )
+
+[node name="main" type="Sprite" parent="."]
+position = Vector2( 0, -12 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -1, -2 )
+collision_layer = 573
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1, 6 )
+shape = SubResource( 5 )
+
+[node name="interact_dialog" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 4 )
+dialog = "Reusable/instantrevitalizingdevice"
+player_turn = {
+"x": true,
+"y": true
+}
+
+[node name="CollisionShape2D" parent="interact_dialog" index="0"]
+shape = SubResource( 6 )
+
+[node name="ButtonPrompt" parent="interact_dialog" index="1"]
+material = SubResource( 4 )
+position = Vector2( 0, -36 )
+offset = Vector2( 0, -36 )
+
+[editable path="interact_dialog"]

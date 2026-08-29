@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.en.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.it.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.es.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.de.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.zh_Hans_CN.translation" ]
+
+source_file="res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.csv"
+dest_files=[ "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.en.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.fr.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.it.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.ja.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.ko.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.es.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.es_ES.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.pt_BR.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.pl.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.de.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.ru.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.uk.translation", "res://Translations/TranslatedText/dialogue_ItemDialogue - sheet.zh_Hans_CN.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

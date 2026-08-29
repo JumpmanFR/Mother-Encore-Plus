@@ -1,0 +1,41 @@
+"0":
+  actors:
+    cat: Objects/Characters/npc4
+  if:
+    haspartymembers:
+      lloyd: true
+    goto: "4"
+  goto: "1"
+"1":
+  name: DIALOGUE_MAGICANT_CANDY_SPEAKER_Candy
+  sound: Strange
+  text: DIALOGUE_MAGICANT_CANDY1_1
+  options:
+    DIALOGUE_MAGICANT_CANDY1_1-OPT_0: "2"
+    DIALOGUE_MAGICANT_CANDY1_1-OPT_1: "3"
+    cancel: "3"
+"2":
+  name: DIALOGUE_MAGICANT_CANDY_SPEAKER_Candy
+  sound: Strange
+  text: DIALOGUE_MAGICANT_CANDY1_2
+"3":
+  name: DIALOGUE_MAGICANT_CANDY_SPEAKER_Candy
+  sound: Strange
+  text: DIALOGUE_MAGICANT_CANDY1_3
+"4":
+  name: DIALOGUE_MAGICANT_CANDY_SPEAKER_Candy
+  sound: Strange
+  text: DIALOGUE_MAGICANT_CANDY1_4
+  if:
+    invspace: true
+    goto: "6"
+  goto: "5"
+"5":
+  name: DIALOGUE_MAGICANT_CANDY_SPEAKER_Candy
+  sound: Strange
+  text: DIALOGUE_MAGICANT_CANDY1_5
+"6":
+  text: DIALOGUE_MAGICANT_CANDY1_6
+  item: MagicCandy
+  soundeffect: Item Received.mp3
+  setflags: got_magic_candy

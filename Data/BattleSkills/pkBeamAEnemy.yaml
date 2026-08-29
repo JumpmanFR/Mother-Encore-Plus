@@ -1,0 +1,27 @@
+name: PKBEAM_NAME
+level: 0
+description: PKBEAMA_DESC
+article: PKBEAM_ART
+skill_type: psi
+action_type: 0 # Damage
+use_cases: 1 # Battle only
+psi_category: Offense
+damage_type: normal
+target_type: 0 # Enemy
+damage_or_heal: 30
+variance: 10
+priority: 0
+status_effects:
+  blinded: 15
+status_heals: []
+miss_chance: 0
+pp_cost: 10
+hp_cost: 0
+hit_effect: ""
+pre_hit_effect: ""
+screen_effect: pk_beam_alpha
+enemy_screen_effect: e_pk_beam_alpha
+user_anim: psi
+enemy_flash_color: "BA53E4"
+use_sound: ""
+hit_sound: bash

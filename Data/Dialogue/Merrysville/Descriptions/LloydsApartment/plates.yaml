@@ -1,0 +1,13 @@
+"0":
+  if:
+    haspartymembers:
+      lloyd: true
+    goto: "1"
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_PLATES_0
+"1":
+  actors:
+    lloyd: lloyd
+  talker: lloyd
+  sound: Shy
+  name: "[Lloyd]"
+  text: DIALOGUE_MERRYSVILLE_DESCRIPTIONS_LLOYDAPARTMENT_PLATES_1

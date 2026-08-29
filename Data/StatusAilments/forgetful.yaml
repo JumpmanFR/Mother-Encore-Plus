@@ -1,0 +1,26 @@
+healing:
+  persistent: false
+  passive_heal: false
+messages:
+  afflict_battle: BATTLE_MSG_STATUS_FORGETFUL
+  heal_battle: BATTLE_MSG_HEAL_STATUS_FORGETFUL
+  heal_overworld: ACTION_RESULT_HEAL_FORGETFUL
+  heal_overworld_fail: ACTION_RESULT_HEAL_FORGETFUL_FAIL
+status_bubble: forgetful
+effects_by_char:
+  field_party_member:
+    cant_select:
+      Skills: true
+      PSI: true
+    cant_do:
+      action:
+        skill_type: [skill, psi]
+      message: BATTLE_MSG_STATUS_FORGETFUL_EFFECT
+  any:
+    cant_select:
+      Skills: true
+      PSI: true
+    cant_do:
+      action:
+        skill_type: [skill, psi]
+      message: BATTLE_MSG_STATUS_FORGETFUL_EFFECT

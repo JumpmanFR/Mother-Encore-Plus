@@ -1,0 +1,45 @@
+"0":
+  actors:
+    player: leader
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY2_0
+  options:
+    DIALOGUE_MAGICANT_SPOONGUY2_0-OPT_0: "2"
+    DIALOGUE_MAGICANT_SPOONGUY2_0-OPT_1: "1"
+    cancel: "1"
+"1":
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY2_1
+"2":
+  showbox: false
+  fadein:
+    speed: 0.3
+    anim: Circle Focus
+  objectsfunction:
+    MusicArea: stop_music
+    MusicAreaMorning: stop_music
+  wait: 3
+  autoadvance: true
+  caninput: false
+  goto: "3"
+"3":
+  fadefocus: player
+  fadeout:
+    type: 1
+    anim: Circle
+  objectsfunction:
+    MusicAreaMorning: play_music
+  setflags:
+    - good_morning
+  heal: all
+  restorepp: all
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: "4"
+"4":
+  name: DIALOGUE_MAGICANT_SPOONGUY_SPEAKER_Dolph
+  sound: Kid
+  text: DIALOGUE_MAGICANT_SPOONGUY2_4

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Female.mp3-82473950f7f3f5b7925525d6967304c1.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effects/text/Female.mp3"
+dest_files=[ "res://.import/Female.mp3-82473950f7f3f5b7925525d6967304c1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

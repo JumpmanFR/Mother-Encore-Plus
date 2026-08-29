@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Graphics/UI/Battle/SpeechBubble/speechbubble_box.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/UI/Battle/SpeechBubble/speechbubble_tail.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/EBMain_la.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/UI/Battle/SpeechBubble.gd" type="Script" id=4]
+[ext_resource path="res://Nodes/Ui/arrow.tscn" type="PackedScene" id=6]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 9, 9 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[node name="SpeechBubble" type="Control"]
+script = ExtResource( 4 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 10.0
+margin_top = -9.0
+margin_right = 32.0
+margin_bottom = 9.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Speech" type="RichTextLabel" parent="PanelContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 19.0
+margin_bottom = 15.0
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Tail" type="TextureRect" parent="."]
+margin_top = -6.0
+margin_right = 11.0
+margin_bottom = 4.0
+texture = ExtResource( 2 )
+
+[node name="DebugBoxRect" type="ColorRect" parent="."]
+visible = false
+mouse_filter = 2
+color = Color( 0.101961, 1, 0, 0.501961 )
+
+[node name="DebugTextRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 16.0
+margin_bottom = 12.0
+mouse_filter = 2
+color = Color( 0, 0, 1, 0.5 )
+
+[node name="CursorDown" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 28, 12 )
+rotation = 1.5708
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

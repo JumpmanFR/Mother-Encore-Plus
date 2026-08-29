@@ -1,0 +1,71 @@
+'0':
+  if:
+    hasitem: FactoryPass
+    redirect: "Merrysville/Cutscenes/guard_dog_battle"
+  goto: '1'
+'1':
+  if:
+    haspartymembers:
+      lloyd: true
+    goto: '2'
+  goto: '3'
+'2':
+  actors:
+    ninten: leader
+    dog: Objects/NPCS/guard_dog
+    lloyd: lloyd
+  actorsdir:
+    ninten:
+      x: 0
+      y: 0
+    dog:
+      x: 0
+      y: 0
+  actorsemote:
+    dog: exclamation
+  actorsjump:
+    dog:
+      speed: 0.2
+      height: 4
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: '4'
+'3':
+  actors:
+    ninten: leader
+    dog: Objects/NPCS/guard_dog
+  actorsdir:
+    ninten:
+      x: 0
+      y: 0
+    dog:
+      x: 0
+      y: 0
+  actorsemote:
+    dog: exclamation
+  actorsjump:
+    dog:
+      speed: 0.2
+      height: 4
+  wait: 1
+  autoadvance: true
+  caninput: false
+  goto: '4'
+'4':
+  actorsemote:
+    #ninten: sweat
+    dog: angry
+  soundeffect: M3/Growl 2.mp3
+  wait: 1.6
+  autoadvance: true
+  caninput: false
+  goto: '2'
+  actorsshake:
+    dog:
+      x: 1
+      length: 0.8
+  goto: '5'
+'5':
+  name: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_SPEAKER
+  text: DIALOGUE_MERRYSVILLE_CUTSCENES_GUARDDOG_0

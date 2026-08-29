@@ -1,0 +1,11 @@
+priority: 5 # just a placeholder, we don't know the priority order yet
+healing:
+  persistent: true
+messages:
+  heal_battle: BATTLE_MSG_HEAL_STATUS_UNCONSCIOUS
+  heal_overworld: ACTION_RESULT_HEAL_UNCONSCIOUS
+ignore_reinflict: true
+exclusive_status: true
+effects_by_char:
+  any:
+    incapacitated: true

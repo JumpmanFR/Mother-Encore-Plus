@@ -1,0 +1,20 @@
+name: HERBRED_NAME
+sorting_name: HERBRED_SORT
+description: HERBRED_DESC
+article: HERBRED_ART
+keyitem: false
+cost: 5
+value: 2
+actions: []
+transform: HerbMagic
+slot: ''
+HPrecover: 0
+PPrecover: 0
+boost:
+  maxhp: 0
+  maxpp: 0
+  offense: 0
+  defense: 0
+  speed: 0
+  iq: 0
+  guts: 0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Jolly Flying Man NEW.mp3-e585a3f804ff9fa95738408e050f1846.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/The Jolly Flying Man NEW.mp3"
+dest_files=[ "res://.import/The Jolly Flying Man NEW.mp3-e585a3f804ff9fa95738408e050f1846.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

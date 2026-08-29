@@ -1,0 +1,27 @@
+name: LIFEUP_NAME
+level: 0
+description: LIFEUPA_DESC
+article: LIFEUP_ART
+skill_type: psi
+action_type: 1 # Healing
+use_cases: 0 # Field & battle
+psi_category: Recovery
+target_type: 1 # Ally
+damage_or_heal: 65
+variance: 5
+priority: 0
+miss_chance: 0
+pp_cost: 5
+hp_cost: 0
+hit_effect: ""
+pre_hit_effect: lifeup_alpha
+screen_effect: lifeup
+user_anim: psi
+user_anim_colors:
+  - "90FF73"
+  - "00FF6A"
+  - "0C8A62"
+use_sound: ""
+hit_sound: ""
+traits:
+  - target_incapacitated

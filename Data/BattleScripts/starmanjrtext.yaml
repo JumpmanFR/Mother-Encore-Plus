@@ -1,0 +1,15 @@
+'0':
+  text: BATTLE_STARMAN_JR_0
+  sound: Robot
+  goto: '1'
+'1':
+  text: BATTLE_STARMAN_JR_1
+  sound: Robot
+  goto: '2'
+'2':
+  text: BATTLE_STARMAN_JR_2
+  sound: Robot
+  goto: '3'
+'3':
+  text: BATTLE_STARMAN_JR_3
+  sound: Robot

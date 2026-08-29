@@ -1,0 +1,22 @@
+name: PSIBLOCK_NAME
+level: 0
+description: PSIBLOCK_DESC
+article: PSIBLOCK_ART
+skill_type: psi
+action_type: 3 # Ailment
+use_cases: 1 # Battle only
+psi_category: Assist
+target_type: 0 # Enemy
+damage_or_heal: 0
+variance: 0
+priority: 0
+status_effects:
+  psiBlocked: 100
+fail_chance: 10
+pp_cost: 10
+hp_cost: 0
+hit_effect: ''
+pre_hit_effect: ''
+user_anim: psi
+use_sound: ''
+hit_sound: ''
