@@ -1,13 +1,14 @@
 # MOTHER: Encore+
-a.k.a. _MOTHER: Encore act 2 with an actually good French translation (and a few extras)_
+a.k.a. _MOTHER: Encore act 2 with an actually good French translation – and a few extras_
 
 MOTHER: Encore+ is an improved version of MOTHER: Encore. It includes the following features:
 * A full French retranslation, that fixes all the issues in the translation that was “officially” included in the game, while also being more faithful to the original Japanese text and more consistent with the other games in the series.
-* An optional “alt” version of the English version, with the original town names (Mother’s Day, Thanksgiving, etc.), in both the dialogue and the graphics.
+* An optional “alt” version of the English version, with the original town names (Mother’s Day, Thanksgiving, etc.), in both dialogue and graphics.
 * Some quality of life improvements, such as a mappable button to show the HP/PP counter during gameplay.
 * Other improvements and bug fixes.
+* Actually open source from day one.
+* Linux ARM64 version.
 * A few surprises too!
-* Actually open source from day one!
 * Coming soon: Japanese translation.
 
 Based on the work of Team Encore. [Check out the inferior version](https://mother-encore.itch.io/mother-encore)
