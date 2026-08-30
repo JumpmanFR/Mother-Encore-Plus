@@ -3,7 +3,7 @@ a.k.a. _MOTHER: Encore act 2 with an actually good French translation – and a 
 
 MOTHER: Encore+ is an improved version of MOTHER: Encore. It includes the following features:
 * A full French retranslation, that fixes all the issues in the translation that was “officially” included in the game, while also being more faithful to the original Japanese text and more consistent with the other games in the series.
-* An optional “alt” version of the English version, with the original town names (Mother’s Day, Thanksgiving, etc.), in both dialogue and graphics.
+* A new option to choose between the town names from the NES version (Podunk, Merrysville…) and the original ones (Mother’s Day, Thanksgiving…) if you play in English — applies to both dialogue and graphics.
 * Some quality of life improvements, such as a mappable button to show the HP/PP counter during gameplay.
 * Other improvements and bug fixes.
 * ARM64 builds for Windows and Linux, making it compatible with Raspberry PI, better optimized for modern ARM-based PCs and more future-proof!
