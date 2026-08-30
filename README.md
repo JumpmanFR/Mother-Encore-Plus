@@ -6,8 +6,8 @@ MOTHER: Encore+ is an improved version of MOTHER: Encore. It includes the follow
 * An optional “alt” version of the English version, with the original town names (Mother’s Day, Thanksgiving, etc.), in both dialogue and graphics.
 * Some quality of life improvements, such as a mappable button to show the HP/PP counter during gameplay.
 * Other improvements and bug fixes.
+* ARM64 builds for Windows and Linux, making it compatible with Raspberry PI, better optimized for modern ARM-based PCs and more future-proof!
 * Actually open source from day one.
-* Linux ARM64 version.
 * A few surprises too!
 * Coming soon: Japanese translation.
 
