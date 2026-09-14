@@ -1,5 +1,5 @@
 # MOTHER: Encore+
-a.k.a. _MOTHER: Encore act 2 with an actually good French translation – and a few extras_
+a.k.a. _MOTHER: Encore Act 2 with an actually good French translation – and a few extras_
 
 MOTHER: Encore+ is an improved version of MOTHER: Encore. It includes the following features:
 * A full French retranslation, that fixes all the issues in the translation that was “officially” included in the game, while also being more faithful to the original Japanese text and more consistent with the other games in the series.
@@ -9,11 +9,13 @@ MOTHER: Encore+ is an improved version of MOTHER: Encore. It includes the follow
 * ARM64 builds for Windows and Linux, making it compatible with Raspberry PI, better optimized for modern ARM-based PCs and more future-proof!
 * Actually open source from day one.
 * A few surprises too!
-* Coming soon: Japanese translation.
+* Coming soon: more translations, including Japanese!
 
 Based on the work of Team Encore. [Check out the inferior version](https://mother-encore.itch.io/mother-encore)
 
-Team Encore (or actually anyone) is free to use any of my contributions or suggestions listed here. That team will not be doing this though, as they would feel too stupid doing it.
+Team Encore (or actually anyone) is free to use any of my contributions or suggestions listed here. The said team probably won’t do it though, as they would feel too stupid doing it.
+
+[**Download the latest version of MOTHER: Encore+**](https://github.com/JumpmanFR/Mother-Encore-Plus/releases/latest)
 
 ## Why redo the French translation?
 
@@ -23,7 +25,9 @@ Because here’s the thing: if you speak even just a smattering of French, you�
 
 These are not just the kind of little, remaining oversights that would appear due to a game being recently released: act 2 has been out for 2 months, and patch updates have since been released which were supposed to fix the translation… and yet, it’s still in that dreadful state.
 
-Considering the professional quality the game claims to have, this translation stands out pretty badly. I felt that French-speaking fans deserved better…
+Considering the professional quality the game claims to have, this translation stands out pretty badly. I felt French-speaking fans deserved better.
+
+More translations or retranslations will be added to the game, whenever we feel they would be beneficial to the fans.
 
 ### A few examples from their French translation
 ![“Hier était vraiment sympa,  hein ?”](Translations/HallOfShame/1.png)
@@ -62,7 +66,7 @@ And it goes on and on…
 ### What I did
 My focus was to make the translation feel professional. Players deserve to enjoy the game to the fullest, without being distracted by clumsy phrasing, mistakes or incomprehensible sentences.
 
-I also consider it is important to keep consistency with the other games in the series. It is not a good thing when an item name is translated as “Fusée crayon” in one game and “Fusée bouteille” in another, for example.
+I also consider it is important to keep consistency with the other games in the series. It is not a good thing when an item name is translated as “Fusée crayon” in one game and “Fusée bouteille” in another, for example. In such situations, I favor the version that is closer to the original Japanese text.
 
 Finally, my translation reverts some of the changes made by Phil Sandhop when he translated the original MOTHER from Japanese into English for the American market. They aren’t really relevant to a French-speaking audience of today, not to mention that this audience has no particular memories of Phil Sandhop’s text that would need to be preserved. So, for instance, in the French translation, the Ring Brass is actually a “bracelet” because that’s what it is in the original Japanese game. Some lines of dialogue have also been changed to be more faithful to the original Japanese text and, therefore, to avoid two successive levels of translation.
 
