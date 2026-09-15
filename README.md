@@ -105,7 +105,7 @@ Battlers
 * “Le ,le ,Un ,un ,du ,au ,,le ,x” ⇒ Wrong gender for Décharge
 * “MalÊtre Putride”, “Linceullier”, “Appareil gélatineux”, “Fusée Bouteille” ⇒ translation changes that reduce consistency with Mother 1, Mother 3…
 * “Il à des amis  ¦” ⇒ Grammar: à→a
-* Capital letters at the start of every word, inadequate in French languaae ⇒ See Breath of the Wild for reference, “Soldier’s Greaves” vs. “Jambières de soldat” (or just any modern game)
+* Capital letters at the start of every word, inadequate in French language ⇒ See Breath of the Wild for reference, “Soldier’s Greaves” vs. “Jambières de soldat” (or just any modern game)
 
 Battlescenes
 * [color][ui_select][/color] [if input:gamepad]button[else]key[/if] ⇒ Untranslated “key”, should be “bouton” instead of “touche”, [ui_select] should come after
