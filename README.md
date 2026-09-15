@@ -92,7 +92,7 @@ Would you call it Merrysville...
 
 ## Appendix: List of all 266 issues I found in the French translation of MOTHER: Encore Act 2
 
-(Hi Turnipman!)
+(Hi Turnipman! Looks like you still need me after all!)
 
 Listed here for reference. I’m not mentionning all instances of clumsy wording and poor writing style, only issues that pretty much everyone can agree on.
 
