@@ -1,3 +1,13 @@
+## Update
+Team Encore acknowledged our alternate French translation and **used our current _“List of all 266 issues in the French translation of MOTHER: Encore Act 2”_ as a base to try to fix their own!**
+As revealed on this leaked screenshot from their dev server:
+
+![The managers at Team Encore telling translators to use our work as a basis for revising their translation…](Translations/HallOfShame/losers.png)
+
+↑ The managers at Team Encore telling translators to use our work as a basis for revising their translation…
+
+Did they manage to make a good French translation for MOTHER: Encore Act 2? Probably not, but we’ll tell you more about that soon as MOTHER: Encore+ will receive an update in the very near future! And we’re making a website, too… Stay tuned!
+
 # MOTHER: Encore+
 a.k.a. _MOTHER: Encore Act 2 with an actually good French translation – and a few extras_
 
