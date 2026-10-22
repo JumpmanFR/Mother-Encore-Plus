@@ -8,6 +8,7 @@ As revealed on this leaked screenshot from their dev server:
 
 Did they manage to make a good French translation for MOTHER: Encore Act 2? Probably not, but we’ll tell you more about that soon as MOTHER: Encore+ will receive an update in the very near future! And we’re making a website, too… Stay tuned!
 
+---
 # MOTHER: Encore+
 a.k.a. _MOTHER: Encore Act 2 with an actually good French translation – and a few extras_
 
