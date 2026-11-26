@@ -62,7 +62,7 @@ Bug Tester,CREDITS_TESTERS_BUGS,Artem “Inqurity” N.; benichi; Danionel; Olav
 Playtester,CREDITS_TESTERS_PLAY,allison lobster; cosmic; Kodynoko; Mephist; MonkeyNess; Okano; SpaciousReality; Toasty.,,allison lobster; cosmic; Kodynoko; Mephist; MonkeyNess; Okano; SpaciousReality; Toasty.
 Translation Manager,CREDITS_TRANSLATION_MANAGER,JumpmanFR,JumpmanFR,JumpmanFR
 Japanese Translator,CREDITS_TRANSLATOR_JA,Altoz Tenor; K; Lone,Altoz Tenor; K; Lone,Altoz Tenor; K; Lone
-French Translator,CREDITS_TRANSLATOR_FR,AFX; JumpmanFR; Cacathoès; Anthiflo,JumpmanFR; Cacathoès; Anthiflo,JumpmanFR; Cacathoès; Anthiflo
+French Translator,CREDITS_TRANSLATOR_FR,JumpmanFR; Cacathoès; Anthiflo,JumpmanFR; Cacathoès; Anthiflo,JumpmanFR; Cacathoès; Anthiflo
 Italian Translator,CREDITS_TRANSLATOR_IT,SpikyG; Benz; Korenji,SpikyG; Benz; Korenji,SpikyG
 Korean Translator,CREDITS_TRANSLATOR_KO,Hanlan; Pogaem; qhtjr,Hanlan; Pogaem; qhtjr,Hanlan; Pogaem; qhtjr
 Spanish (Latin America) Translator,CREDITS_TRANSLATOR_ES,Halosesparta; Nawel Dots; Tessa; Vicente; Bndi,Halosesparta; Nawel Dots; Vicente; Bndi,Halosesparta; Nawel Dots; Tessa; Vicente; Bndi
