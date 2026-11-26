@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+  
+<!-- Mirrored from https://motherencore.com/ by HTTrack Website Copier/3.x [XR&CO], Thu, 26 Nov 2026 15:19:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+      <script type="text/javascript">
+      (function(location, history) {
+        function UrlRestorer(loc) {
+          this.loc          = loc;
+          this.search       = loc.search || '';
+          this.pathname     = loc.pathname || '';
+          this.hash         = loc.hash || '';
+          this.decodedPath  = '';
+          this.cleanUrl     = '';
+        }
+
+        UrlRestorer.prototype.hasRedirect = function() {
+          return this.search.charAt(1) === '/';
+        };
+
+        UrlRestorer.prototype.decode = function() {
+          if (!this.hasRedirect()) return this;
+
+          this.decodedPath = this.search
+            .slice(1)
+            .split('&')
+            .map(function(segment) {
+              return segment.replace(/~and~/g, '&');
+            })
+            .join('?');
+
+          return this;
+        };
+
+        UrlRestorer.prototype.build = function() {
+          if (!this.decodedPath) return this;
+
+          var basePath = this.pathname.slice(0, -1);
+          this.cleanUrl = basePath + this.decodedPath + this.hash;
+
+          return this;
+        };
+
+        UrlRestorer.prototype.apply = function(hist) {
+          if (this.cleanUrl && hist && hist.replaceState) {
+            hist.replaceState(null, null, this.cleanUrl);
+          }
+          return this;
+        };
+
+        new UrlRestorer(location)
+          .decode()
+          .build()
+          .apply(history);
+      }(window.location, window.history));
+    </script>
+    <title>MOTHER Encore</title>
+    <meta name="description" content="A new game in the MOTHER series offering an alternative take on the original NES game!" />
+
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="index.html" />
+
+    <meta name="theme-color" content="#E50012" />
+    <meta name="msapplication-TileColor" content="#E50012" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MOTHER Encore" />
+    <meta property="og:description" content="A new game in the MOTHER series offering an alternative take on the original NES game!" />
+    <meta property="og:image" content="logobg_itch_io.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@Mother_Encore" />
+    <meta name="twitter:title" content="MOTHER Encore" />
+    <meta name="twitter:description" content="A new game in the MOTHER series offering an alternative take on the original NES game!" />
+    <meta name="twitter:image" content="logobg_itch_io_twitter.png" />
+    <!-- Vini não esquece esse diabo essa bosta essa porra ahhhhhhhhhhhhhh -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="module" crossorigin src="assets/index-DbUPjqSj.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-mdCkO7h5.css">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+
+<!-- Mirrored from https://motherencore.com/ by HTTrack Website Copier/3.x [XR&CO], Thu, 26 Nov 2026 15:19:28 GMT -->
+</html>
